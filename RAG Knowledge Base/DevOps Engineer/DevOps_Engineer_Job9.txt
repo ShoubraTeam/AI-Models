@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: DevOps Engineer
+]
+
+Role: Azure DevOps & Infrastructure Engineer (IaC & Automation).
+
+Main Tasks: Developing reusable Terraform modules, provisioning Azure services (AKS, Databricks, Data Lake), designing CI/CD pipelines in Azure DevOps, automating resource scaling, managing access controls, and resolving ServiceNow (SNOW) infrastructure incidents.
+
+Technical Skills: Infrastructure as Code (IaC), Azure Cloud Administration, CI/CD Pipeline Design, Infrastructure Automation & Scaling, Cloud Security Governance, and Incident Management.
+
+Tools: Terraform, Azure DevOps, Azure Kubernetes Service (AKS), Azure Data Factory (ADF), Databricks, Logic Apps, App Insights, and ServiceNow (SNOW).
+
+Soft Skills: Proactive troubleshooting, structured incident management, effective stakeholder communication, and a strong focus on operational efficiency and compliance.

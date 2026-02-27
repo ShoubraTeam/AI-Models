@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Data Analyst
+]
+
+Role: Contract Data Analyst (Reporting to CFO).
+
+Main Tasks: Transforming raw financial and operational data into actionable insights, building automated dashboards from scratch, and integrating data from multiple platforms (Shopify, QBO, TripleWhale).
+
+Technical Skills: Data Modeling, Advanced Excel, SQL, Business Intelligence (BI) Development, Data Governance & Integrity, Financial/Margin Analysis.
+
+Tools: Power BI/Tableau/Looker, SQL, Shopify, QuickBooks Online (QBO), TripleWhale, Gorgias.
+
+Soft Skills: Systems thinking, business acumen, ability to communicate insights to leadership, and the ability to build frameworks in a fast-paced environment.

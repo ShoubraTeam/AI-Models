@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: AI Engineer
+]
+
+Role: Computer Vision Engineer (Padel Sports Analytics).
+
+Main Tasks: Improving player tracking/Re-ID stability, ball tracking optimization (fast objects), homography/camera geometry refinement, and analyzing tracking failure logs.
+
+Technical Skills: Multi-Object Tracking (MOT), Object Detection (YOLO), Re-Identification (Appearance embeddings), Geometric Computer Vision (Homography, PnP, Calibration).
+
+Tools: YOLO (v5/v8/v11), BoT-SORT/ByteTrack, OSNet/torchreid, Kalman Filtering, MediaPipe/YOLO-Pose.
+
+Soft Skills: Problem-solving for edge cases (occlusions), diagnostic analysis, strong engineering mindset (state machines/fusion logic).

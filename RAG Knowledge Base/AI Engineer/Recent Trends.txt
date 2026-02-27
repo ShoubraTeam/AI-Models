@@ -1,0 +1,36 @@
+Metadata: 
+[ file type: trends list,
+  role: AI Engineer
+]
+
+Generative AI & Large Language Models (LLMs)
+
+Transformer-based architectures
+
+Foundation Models
+
+Self-Supervised Learning
+
+Few-Shot / Zero-Shot Learning
+
+Multimodal AI (text + image + audio + video)
+
+Reinforcement Learning (especially RLHF)
+
+AI in Edge / TinyML
+
+MLOps / ML Lifecycle Automation
+
+Explainable AI (XAI)
+
+Responsible AI / AI Ethics / Fairness
+
+Synthetic Data Generation
+
+Neural Architecture Search (NAS)
+
+Federated Learning / Privacy-Preserving ML
+
+AI for Code (e.g., code generation & assistants)
+
+RAG System

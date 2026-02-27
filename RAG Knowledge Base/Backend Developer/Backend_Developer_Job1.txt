@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Backend Developer
+]
+
+Role: Backend Developer (ML System Integration).
+
+Main Tasks: Connecting patient data to trained ML APIs (triage/scoring), building the backend layer for healthcare CRM flows, and ensuring production-ready reliability.
+
+Technical Skills: Backend Development, REST API Design, Secure Data Handling (HIPAA-aware), System Integration (End-to-End).
+
+Tools: Node.js or .NET, REST APIs (Bonus: FHIR, Docker, Cloud deployment).
+
+Soft Skills: High ownership, clear asynchronous communication, reliability in shipping real systems.

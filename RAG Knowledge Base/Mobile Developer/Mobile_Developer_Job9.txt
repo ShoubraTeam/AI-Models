@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Mobile Developer
+]
+
+Role: Flutter Developer (Premium Consumer App & Gamification Specialist).
+
+Main Tasks: Developing four core puzzle engines (Pattern Recognition, Estimation, Mental Arithmetic, Spatial Reasoning), implementing a three-tier in-app subscription model, architecting a daily content refresh system with a searchable back-catalogue, and building real-time global leaderboards.
+
+Technical Skills: Flutter Cross-Platform Development, Firebase Backend Integration (Auth, Firestore, Cloud Functions), In-App Purchase (IAP) Implementation, Complex Logic for Gamified Puzzles, and Real-time Data Synchronization for Leaderboards.
+
+Tools: Flutter, Firebase, Dart, RevenueCat or StoreKit/Google Play Billing, and Git.
+
+Soft Skills: Strong design sensibility (clean/warm aesthetic), ability to own a project from PRD to App Store deployment, focused problem-solving, and clear communication regarding milestones.

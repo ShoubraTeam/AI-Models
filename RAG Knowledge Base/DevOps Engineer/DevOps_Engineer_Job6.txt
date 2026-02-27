@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: DevOps Engineer
+]
+
+Role: DevOps/Cloud Architect (Migration & Infrastructure Strategy).
+
+Main Tasks: Architecting the target GCP environment, leading the migration of data and services from AWS, optimizing infrastructure for scalability, and ensuring seamless platform cutover with zero downtime.
+
+Technical Skills: Cloud Migration Strategy (AWS to GCP), Infrastructure as Code (IaC), Advanced Networking (VPC/DNS), Database Migration, and Cloud Security Governance.
+
+Tools: Google Cloud Platform (GCP), Amazon Web Services (AWS), Terraform, Docker, Kubernetes (GKE), and Cloud Monitoring.
+
+Soft Skills: Strategic architectural planning, leadership in high-stakes transitions, analytical problem-solving, and proactive risk management.

@@ -1,0 +1,28 @@
+Metadata: 
+[ file type: skills list,
+  role: Video Producer
+]
+
+Video planning & pre-production
+
+Scriptwriting basics
+
+Storyboarding
+
+Camera operation fundamentals
+
+Lighting techniques
+
+Audio recording basics
+
+Video editing (Premiere Pro, Final Cut, etc.)
+
+Post-production workflow
+
+Color correction basics
+
+Project management
+
+Budget management
+
+Team coordination (editors, designers, talent)

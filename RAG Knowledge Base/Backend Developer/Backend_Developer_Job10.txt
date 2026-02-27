@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Backend Developer
+]
+
+Role: Backend Developer (Real-time Game & Finance Logic).
+
+Main Tasks: Building a real-time 1v1 game engine for "Penalty Duel," implementing wagering logic with an 8% rake, managing crypto (USDT) deposit/withdrawal flows, and ensuring match synchronization via WebSockets.
+
+Technical Skills: Real-time Matchmaking, WebSocket State Management, Clean Database Transactions (Idempotency), Crypto Transaction Logging (Manual flow).
+
+Tools: Node.js, TypeScript, Supabase (Postgres + Auth), WebSockets.
+
+Soft Skills: High ownership of financial logic, focus on "Clean" and "Extensible" API design.

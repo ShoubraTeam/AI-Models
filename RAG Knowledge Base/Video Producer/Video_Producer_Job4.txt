@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Video Producer
+]
+
+Role: Whiteboard Animator / Explainer Video Specialist.
+
+Main Tasks: Executing a 2:30 minute whiteboard animation based on a provided storyboard and voiceover, translating complex AI business concepts into clear and engaging hand-drawn or digital-sketch visuals, and ensuring smooth pacing and synchronization with the audio track.
+
+Technical Skills: Whiteboard Animation (2D), Visual Metaphor Development, Sync-to-Voiceover Editing, Character & Icon Illustration, and Complex Information Visualization.
+
+Tools: VideoScribe, Doodly, Vyond, or Adobe Animate/After Effects (with custom drawing paths).
+
+Soft Skills: Strong attention to detail, ability to grasp and visualize complex technical/AI processes, commitment to deadlines, and excellent communication for feedback implementation.

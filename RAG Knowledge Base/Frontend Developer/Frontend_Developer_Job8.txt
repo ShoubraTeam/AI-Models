@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Frontend Developer
+]
+
+Role: Senior Front-End Developer (Scalable React Systems).
+
+Main Tasks: Building and maintaining scalable React applications, translating product designs into functional UI, integrating frontend components with backend RESTful APIs, leading code reviews and refactoring efforts, and taking end-to-end ownership of features from implementation to production.
+
+Technical Skills: Advanced React Architecture (Hooks/Composition), TypeScript & ES6+ Mastery, State Management (Redux/MobX/Context), Responsive Web Design (HTML5/CSS3), Asynchronous Programming, and RESTful API Consumption.
+
+Tools: React.js, TypeScript, Redux, Git, and modern styling libraries (Tailwind/Styled Components). Optional: React Native and Design Systems.
+
+Soft Skills: Technical ownership, pragmatic decision-making (avoiding over-engineering), product-oriented mindset, strong accountability, and the ability to work independently in a remote, startup-style environment.

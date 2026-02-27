@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Backend Developer
+]
+
+Role: Junior-Intermediate Backend Developer (Long-term contract).
+
+Main Tasks: Creating CRUD operations for ~100 database tables following a specific existing model, and generating ~50 Jasper reports.
+
+Technical Skills: Java Spring Boot (Backend), CRUD Development, Database Management (identifying Primary Keys), Report Generation.
+
+Tools: Java Spring Boot, JasperReports, DB management tools.
+
+Soft Skills: High reliability (delivering one table/day), long-term availability, ability to follow and replicate existing coding patterns exactly.

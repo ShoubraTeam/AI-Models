@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: AI Engineer
+]
+
+Role: Machine Learning & Prompt Engineer (Education Intelligence).
+
+Main Tasks: Designing prompt architectures grounded in national curricula, building RAG workflows for lesson plans and assessments, implementing pacing-aware logic, and developing explainability features for educators.
+
+Technical Skills: Prompt Engineering (Multi-model), RAG, ML Systems Design, Data Strategy (Feedback signals), Education Intelligence.
+
+Tools: OpenAI API, Claude, Gemini, RAG frameworks, Mobile-first AI environments.
+
+Soft Skills: Strong documentation, technical handoff, ability to work on standards-aligned products for low-connectivity environments.

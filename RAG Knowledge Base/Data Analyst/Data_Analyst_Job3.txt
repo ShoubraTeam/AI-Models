@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Data Analyst
+]
+
+Role: Technical Mentor / Business Systems Analyst (BSA) Coach.
+
+Main Tasks: Providing intensive interview preparation and bootcamp-style training, teaching how to translate business requirements into system solutions, and conducting mock technical interviews.
+
+Technical Skills: SQL (Queries/Joins), Power BI (DAX/Data Modeling), C# (Fundamentals for business systems), Data Integrity & Validation, Workflow Mapping.
+
+Tools: Visual Studio 2022, Power BI, SQL Server, STAR Method (for interviews).
+
+Soft Skills: Technical storytelling (explaining tech to business leaders), cross-functional communication, mentoring, and process optimization mindset.

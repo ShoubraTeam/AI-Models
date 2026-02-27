@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Mobile Developer
+]
+
+Role: Mobile App Developer (Automation & Workflow Specialist).
+
+Main Tasks: Developing a custom mobile application with integrated automation logic, architecting automated acceptance workflows, collaborating with the team to meet technical specifications, and optimizing the interface for a seamless user experience.
+
+Technical Skills: Mobile Application Architecture (iOS/Android), Automated Workflow Integration, API Connectivity, UI/UX Design for Automation, and Performance Optimization.
+
+Tools: Flutter, React Native, Swift, or Kotlin; Git; and Mobile Automation Frameworks.
+
+Soft Skills: Advanced problem-solving, keen eye for technical detail, passion for automation technology, and the ability to provide accurate, manual project quotations.

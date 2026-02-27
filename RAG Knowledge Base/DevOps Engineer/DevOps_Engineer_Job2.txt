@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: DevOps Engineer
+]
+
+Role: DevOps Support Specialist (Workflow & Pipeline focus).
+
+Main Tasks: Supporting developers in resolving pipeline failures, configuring GitHub workflows, managing server environments, and ensuring 24/7 availability by collaborating with the lead DevOps engineer.
+
+Technical Skills: CI/CD Pipeline Configuration, Server Administration (Ubuntu/Plesk), Web Framework Support (Laravel), DNS & Security Management (Cloudflare).
+
+Tools: GitHub Workflows/Actions, Laravel, Plesk Control Panel, Ubuntu Linux, Cloudflare.
+
+Soft Skills: Collaborative mindset (team effort sharing), high availability, problem-solving under pressure, and proactive support.

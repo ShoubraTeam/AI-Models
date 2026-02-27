@@ -1,0 +1,28 @@
+Metadata: 
+[ file type: skills list,
+  role: Mobile Developer
+]
+
+Proficiency in mobile languages (Kotlin / Java for Android, Swift for iOS)
+
+Understanding of mobile app architecture (MVC, MVVM, etc.)
+
+UI implementation & responsive layouts
+
+API integration (RESTful services)
+
+Local data storage (SQLite, Room, Core Data)
+
+State management
+
+Version control (Git)
+
+Debugging & performance optimization
+
+App lifecycle management
+
+Push notifications integration
+
+Testing (unit & UI testing basics)
+
+App publishing process (App Store / Play Store)

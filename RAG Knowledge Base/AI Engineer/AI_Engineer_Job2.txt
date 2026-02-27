@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: AI Engineer
+]
+
+Role: Senior Data Scientist / Applied AI Engineer (Ecommerce Focus).
+
+Main Tasks: Designing multi-modal ML pipelines, hierarchical taxonomy classification, attribute extraction (Text/PDF/Images), and image deduplication/filtering.
+
+Technical Skills: Python, PyTorch/TensorFlow, LLM Fine-tuning (LoRA/PEFT), CLIP/Vision models, OCR (Tesseract/PaddleOCR), Semantic Similarity.
+
+Tools: HuggingFace Transformers, pHash/Embedding clustering, Prompt Engineering, Confidence scoring frameworks.
+
+Soft Skills: Enterprise-grade system thinking, cost-optimization (image processing strategy), architecture-to-implementation mindset.

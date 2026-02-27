@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Frontend Developer
+]
+
+Role: Frontend Developer (Custom Marketplace Specialist).
+
+Main Tasks: Developing public listings and breeder profiles, building breeder and admin dashboards, implementing secure internal messaging interfaces, and creating role-based UIs for Admins, Breeders, and Visitors.
+
+Technical Skills: Component-based Architecture, State Management, REST API Integration, Performance Optimization (Lazy Loading/Code Splitting), Responsive Mobile-First Development, and Clean/Scalable Production Coding.
+
+Tools: React, Vue, or similar modern frameworks, JavaScript (ES6+), HTML5, CSS (Flexbox/Grid), and GitHub.
+
+Soft Skills: Professional and responsive communication, high attention to technical quality, and the ability to maintain a consistent 48-hour development/push cycle.

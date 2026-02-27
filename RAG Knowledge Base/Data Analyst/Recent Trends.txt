@@ -1,0 +1,28 @@
+Metadata: 
+[ file type: trends list,
+  role: Data Analyst
+]
+
+Self-service BI tools
+
+Data storytelling & executive dashboards
+
+Real-time analytics
+
+Automated reporting workflows
+
+Integration with cloud data warehouses (Snowflake, BigQuery)
+
+AI-assisted data analysis
+
+Advanced SQL optimization
+
+Data governance & compliance awareness
+
+Predictive analytics basics
+
+Embedded analytics in products
+
+Reverse ETL tools
+
+Data literacy & cross-team enablement

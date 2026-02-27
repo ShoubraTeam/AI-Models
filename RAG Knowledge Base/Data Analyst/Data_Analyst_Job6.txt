@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Data Analyst
+]
+
+Role: Revenue Operations & Data Analyst.
+
+Main Tasks: Building weekly KPI dashboards, tracking sales funnels (leads, close rates), improving marketing attribution, and auditing CRM data (HubSpot).
+
+Technical Skills: Data Analysis, Reporting & Dashboarding, Sales Performance Metrics, CRM Structuring, Marketing Attribution.
+
+Tools: Excel/Google Sheets (Advanced), HubSpot, Zapier (Automation), RealGreen.
+
+Soft Skills: Pride in data accuracy, proactive problem-solving, ability to explain the story behind the numbers, and comfort with "messy" data.

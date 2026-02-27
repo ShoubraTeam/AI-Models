@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Frontend Developer
+]
+
+Role: Frontend Developer (Figma-to-Code Specialist).
+
+Main Tasks: Converting Figma layouts to HTML/CSS/JS or React, ensuring full responsiveness across all devices, matching design specifications (spacing, fonts, colors) exactly, and delivering maintainable code within a short turnaround.
+
+Technical Skills: Pixel-Perfect Implementation, Responsive Web Design (Mobile/Tablet/Desktop), CSS Layouts (Flexbox/Grid), and Cross-browser Compatibility.
+
+Tools: Figma, HTML5, CSS3, JavaScript, React (Optional), and Git.
+
+Soft Skills: Extreme attention to detail, ability to follow precise specifications without creative liberties, and commitment to fast-paced delivery.

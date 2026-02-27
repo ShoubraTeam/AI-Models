@@ -1,0 +1,28 @@
+Metadata: 
+[ file type: trends list,
+  role: Mobile Developer
+]
+
+Cross-platform frameworks (Flutter, React Native)
+
+Declarative UI (Jetpack Compose, SwiftUI)
+
+Super apps architecture
+
+AI-powered mobile features
+
+On-device machine learning
+
+Mobile DevOps / CI-CD for apps
+
+Progressive Web Apps (PWA)
+
+5G-optimized applications
+
+AR integration
+
+Privacy-first mobile development
+
+Wearable & IoT app integration
+
+Modular app architecture

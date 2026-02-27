@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Data Analyst
+]
+
+Role: Data Analyst.
+
+Main Tasks: Collecting and processing large datasets, identifying trends, and creating visualizations to support strategic planning and performance improvement.
+
+Technical Skills: Data Processing, Trend Analysis, Statistical Reporting, Data Cleaning, Strategic Planning Support.
+
+Tools: SQL, Advanced Excel, Data Visualization software (e.g., Tableau, Power BI).
+
+Soft Skills: Proactivity, clear communication of insights to non-technical stakeholders, organizational skills, and the ability to work independently or within a team.
