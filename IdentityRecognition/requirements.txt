@@ -1,0 +1,15 @@
+## requirements.txt
+
+# Data & Image Processing
+numpy 
+opencv-python
+pillow
+
+# Visualization
+matplotlib
+
+
+# Modeling
+torch           
+torchvision
+retinaface-pytorch

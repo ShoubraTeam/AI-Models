@@ -1,0 +1,12 @@
+# .gitignore
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+data/
+models/
+.history/
+tempCodeRunnerFile.py
+venv/
+env/
+.env
