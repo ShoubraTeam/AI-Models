@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: DevOps Engineer
+]
+
+Role: AWS Security & DevOps Engineer.
+
+Main Tasks: Securing MongoDB Atlas access, migrating sensitive credentials from environment variables to AWS Secrets Manager, cleaning up EC2 SSH keys, and building a cross-account CI/CD pipeline (from GitHub to a separate AWS account).
+
+Technical Skills: Cloud Security Hardening, Secrets Management (Secret Manager/Parameter Store), CI/CD Pipeline Architecture (AWS CodePipeline), Cross-Account Deployment, Rollback Strategy.
+
+Tools: AWS (EC2, CodePipeline, Secrets Manager), MongoDB Atlas, GitHub, Twilio API.
+
+Soft Skills: Technical Communication, Patience, Problem-Solving under Pressure, Integrity & Trustworthiness

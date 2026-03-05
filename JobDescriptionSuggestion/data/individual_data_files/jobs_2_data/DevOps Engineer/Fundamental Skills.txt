@@ -1,0 +1,28 @@
+Metadata: 
+[ file type: skills list,
+  role: DevOps Engineer
+]
+
+Linux system administration
+
+Shell scripting (Bash)
+
+CI/CD pipeline implementation
+
+Git & version control workflows
+
+Containerization (Docker)
+
+Infrastructure as Code (Terraform or similar)
+
+Cloud platforms fundamentals (AWS, Azure, GCP)
+
+Networking fundamentals (DNS, TCP/IP, HTTP)
+
+Monitoring & logging basics
+
+Configuration management (Ansible, Chef, Puppet)
+
+Security best practices
+
+Troubleshooting & incident response

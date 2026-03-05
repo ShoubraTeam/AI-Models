@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: AI Engineer
+]
+
+Role: Senior AI Engineer (Production-grade systems).
+
+Main Tasks: Designing RAG pipelines, building LLM agents, document processing (OCR/Chunking), and fine-tuning models.
+
+Technical Skills: Python, RAG Architecture, Data Engineering (ETL), Model Evaluation/Benchmarking, Semantic Search.
+
+Tools: Vector DBs (pgvector, Pinecone, Milvus), LLM APIs & Open-source models, Docker, GPU environments.
+
+Soft Skills: Ownership, architectural decision-making, focusing on scalability and reliability.

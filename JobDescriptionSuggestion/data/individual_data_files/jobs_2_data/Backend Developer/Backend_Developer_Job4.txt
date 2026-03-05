@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Backend Developer
+]
+
+Role: Backend Developer (System Integration & Management Tools).
+
+Main Tasks: Implementing a GitHub integration module, building a developer activity tracking system, and designing a clean, extensible architecture for project management.
+
+Technical Skills: Backend Development, API Integration (GitHub API), System Architecture Design, Activity Tracking Logic.
+
+Tools: GitHub API, Git, Backend Frameworks (e.g., Python/Node.js).
+
+Soft Skills: Focus on transparency, structured management, architectural thinking (Clean/Extensible design

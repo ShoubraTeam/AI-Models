@@ -1,0 +1,28 @@
+Metadata: 
+[ file type: trends list,
+  role: Frontend Developer
+]
+
+Modern frameworks (React, Vue, Angular)
+
+TypeScript adoption
+
+Server-side rendering (SSR)
+
+Static site generation (SSG)
+
+Micro-frontend architecture
+
+Web performance optimization (Core Web Vitals focus)
+
+Progressive Web Apps (PWA)
+
+Web accessibility (a11y standards)
+
+Design systems & reusable component libraries
+
+Frontend testing frameworks (Cypress, Playwright)
+
+WebAssembly (WASM)
+
+AI-powered UI integration

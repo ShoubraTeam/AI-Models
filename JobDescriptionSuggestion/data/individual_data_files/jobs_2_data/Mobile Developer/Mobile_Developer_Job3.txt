@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Mobile Developer
+]
+
+Role: Mobile App Developer (Gamification & Fitness Specialist).
+
+Main Tasks: Developing core workout logging functionality, architecting a gamified progression system (XP, leveling, character attributes), implementing streak-tracking logic to drive retention, and crafting a clean, mobile-first interface that bridges fitness utility with gaming aesthetics.
+
+Technical Skills: Mobile App Development (iOS/Android), Gamification Logic & Progression Systems, Local/Cloud Data Persistence (Workout Logs), Real-time Progress Tracking, and Mobile-First UI/UX Design.
+
+Tools: Flutter, React Native, or Native SDKs (Swift/Kotlin); Firebase or AWS Amplify; and Git.
+
+Soft Skills: Passion for fitness and gaming, strong architectural problem-solving, attention to detail in user progression loops, and a proactive approach to enhancing user engagement.

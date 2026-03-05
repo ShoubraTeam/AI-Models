@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Frontend Developer
+]
+
+Role: Freelance React.js Developer (MVP & Authentication Focus).
+
+Main Tasks: Developing a user-friendly frontend interface, integrating and configuring Auth0 for secure authentication, ensuring seamless user login/signup flows, and delivering clean, production-ready code for the initial product launch.
+
+Technical Skills: Component-based Architecture, Third-party Authentication Integration (Auth0), Responsive UI Development, State Management, and API Integration.
+
+Tools: React.js, Auth0, JavaScript (ES6+), HTML5, CSS3, and Git.
+
+Soft Skills: Keen eye for design and UX, passion for delivering high-quality code, independent problem-solving, and a focus on efficient MVP delivery.

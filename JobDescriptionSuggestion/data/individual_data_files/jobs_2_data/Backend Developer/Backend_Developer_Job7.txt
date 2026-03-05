@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Backend Developer
+]
+
+Role: Django Backend Developer (Production & Stability Focus).
+
+Main Tasks: Triaging and fixing production issues (500 errors), building DRF API endpoints, optimizing database queries (PostgreSQL), and managing async task pipelines (Celery/Redis).
+
+Technical Skills: Python, Django, Django REST Framework (DRF), PostgreSQL (Schema design & Migration), REST API Development, Async Task Processing.
+
+Tools: Celery, Redis, AWS (ECS, S3, CloudFront), GitHub, Linear, Slack.
+
+Soft Skills: Hands-on coding (no architecture-only), debugging under pressure, strong written English for async communication.

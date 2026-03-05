@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Mobile Developer
+]
+
+Role: Mobile Strategy & Technical Consultant (Lead Developer Architect).
+
+Main Tasks: Advising on technical feasibility and best practices for a personalized fitness app, defining a scalable system architecture, outlining a realistic development roadmap and timeline, and evaluating the strategic approach for performance-tracking features.
+
+Technical Skills: Mobile System Architecture, Scalable Consumer App Infrastructure, Performance Tracking & Biometric Data Integration, Technical Feasibility Assessment, and Cross-Platform vs. Native Strategic Planning.
+
+Tools: Technical Roadmapping Software, Cloud Infrastructure (AWS/GCP), Mobile Frameworks (Flutter/React Native/Swift/Kotlin), and Data Analytics Integrations.
+
+Soft Skills: High-level strategic thinking, strong professional communication, ability to advise non-technical stakeholders, and a proven track record of delivering production-ready applications.

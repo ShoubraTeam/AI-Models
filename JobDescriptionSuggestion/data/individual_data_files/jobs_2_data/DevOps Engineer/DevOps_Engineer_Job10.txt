@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: DevOps Engineer
+]
+
+Role: Senior DevOps / Infrastructure Engineer (AKS & AI Infrastructure).
+
+Main Tasks: Deploying frontend and backend services via Helm, configuring Ingress (Traefik/NGINX) and SSL, managing Azure Files storage, troubleshooting production pod crashes, building Terraform-based infrastructure, and securing the environment using Cloudflare and Azure Application Gateway.
+
+Technical Skills: Kubernetes Orchestration (AKS), Infrastructure as Code (IaC), Cloud Networking & Security, CI/CD Pipeline Management, and Production-level Troubleshooting (Zero-escalation).
+
+Tools: Azure Kubernetes Service (AKS), Terraform, Helm, Cloudflare (Tunnel/WAF), Azure DevOps, Self-hosted GitLab, SonarQube, Grafana, and Langfuse.
+
+Soft Skills: Independent ownership, architectural documentation, proactive security mindset, and the ability to operate effectively in an execution-heavy, fractional startup environment.

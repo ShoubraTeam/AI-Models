@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: DevOps Engineer
+]
+
+Role: Azure DevOps & Terraform Engineer (Enterprise-grade specialist).
+
+Main Tasks: Upgrading existing infrastructure to support Dev/Test/Prod environments, refactoring Terraform modules, implementing multi-region redundancy, and securing private networking for all cloud resources.
+
+Technical Skills: Infrastructure as Code (IaC), Private Networking (VNet, VPN, Private Endpoints), Cloud Security Hardening, Multi-region Strategy, Logging & Monitoring Integration.
+
+Tools: Terraform, Microsoft Azure (Storage, Key Vault, ACR, DNS Zones), Datadog (Logging).
+
+Soft Skills: Strategic architectural planning, milestone-based delivery, and the ability to handle transition/handover documentation.

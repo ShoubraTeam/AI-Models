@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Mobile Developer
+]
+
+Role: Mobile App Developer (Productivity & Task Management Specialist).
+
+Main Tasks: Implementing pixel-perfect UI/UX from existing designs, developing a robust backend for user accounts and data storage, integrating automated push notifications for reminders, and managing the end-to-end deployment process for both the App Store and Google Play Store.
+
+Technical Skills: Pixel-Perfect UI Implementation, Habit & Routine Logic (recurring tasks/streak tracking), Secure Authentication (OAuth/JWT), Data Synchronization (Real-time DB), and Analytics/Progress Visualization.
+
+Tools: Flutter, React Native, or Native SDKs (Swift/Kotlin); Firebase, Supabase, or AWS Amplify; Git; and App Store Connect / Google Play Console.
+
+Soft Skills: Extreme attention to detail, commitment to strict deadlines, clear communication regarding milestones, and a focus on code stability and performance.

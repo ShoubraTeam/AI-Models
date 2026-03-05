@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Frontend Developer
+]
+
+Role: Frontend UI & Performance Specialist (Bug Fix & Optimization).
+
+Main Tasks: Adjusting mobile responsiveness, fixing alignment and spacing inconsistencies, and implementing small performance improvements for smoother page loading and cross-device stability.
+
+Technical Skills: Responsive Web Design, UI Debugging, Performance Optimization, and Layout Correction (Flexbox/Grid).
+
+Tools: HTML5, CSS3, JavaScript, and Browser Developer Tools.
+
+Soft Skills: High attention to detail, efficient debugging, and the ability to deliver quality fixes within a tight 1–2 day turnaround.

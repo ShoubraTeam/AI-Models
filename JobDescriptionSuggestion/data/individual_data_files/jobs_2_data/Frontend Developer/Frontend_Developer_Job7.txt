@@ -1,0 +1,14 @@
+Metadata: 
+[ file type: job description,
+  role: Frontend Developer
+]
+
+Role: Frontend Developer (UI/UX Performance & Polish).
+
+Main Tasks: Implementing Figma designs into a functional frontend, building smooth UI animations and state transitions, managing clean modal/popup behaviors, developing intuitive filtering logic, and optimizing page load speeds for a "premium" user experience.
+
+Technical Skills: Next.js App Router Architecture, UI State Management, High-Performance Animations, Mobile-First Responsive Design, Cross-browser Compatibility, and Performance Optimization (minimizing dependencies).
+
+Tools: Next.js, React, Tailwind CSS, Figma, and Git.
+
+Soft Skills: Eye for "polish" and fluid interactions, commitment to clean/maintainable code, ability to work within a fixed-budget milestone structure, and proactive communication.

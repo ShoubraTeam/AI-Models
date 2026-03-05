@@ -1,0 +1,15 @@
+Metadata: 
+[ file type: job description,
+  role: Data Analyst
+]
+
+Role: Financial Planning and Analyst (FP&A).
+
+Main Tasks: Generating comprehensive Business Intelligence (BI) reports, collaborating with founders and management to define reporting requirements, and providing data-driven insights.
+
+Technical Skills: Financial Planning, Data Analysis, Business Intelligence Reporting, Strategic Forecasting.
+
+Tools: Advanced Excel, BI Tools (e.g., Power BI, Tableau), Financial Modeling software.
+
+Soft Skills: Strong analytical mindset, data-driven decision-making, ability to communicate complex insights to leadership.
+
