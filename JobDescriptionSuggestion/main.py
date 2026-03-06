@@ -7,61 +7,60 @@
 # ---------------------------------------------------------------------------
 
 # Imports
+import src.utils.config as CFG
 from pathlib import Path
 import pandas as pd
 from dotenv import load_dotenv
-from src.vector_database import get_weaviate_client, build_collection, load_collection, retrieve_documents
+from src.vector_database import get_weaviate_client, build_collection, load_collection, retrieve
 import os
 from src.utils.data_preparation import get_documents
-from langchain_huggingface import HuggingFaceEmbeddings
 
-import warnings
-import logging
-warnings.filterwarnings("ignore")
-from transformers import logging as tf_logging
-tf_logging.set_verbosity_error()
+
+
 
 def print_separator(n_lines = 3):
     print(3 * '\n')
 
 
-# CFG
-JOBS_PATH = Path("./data/final_data.csv")
-DOCUMENTS_PATH = Path("./data/documents.csv")
-EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
-COLLECTION_NAME = "JOB_SUGGESTION_COLLECTION_V1"
-EMBEDDINGS = HuggingFaceEmbeddings(
-    model_name = EMBEDDING_MODEL,
-    model_kwargs = {"device" : "cuda"},
-    encode_kwargs = {"batch_size" : 128}
-)
+# Surpass Warnings
+import warnings
+from transformers import logging as tf_logging
+warnings.filterwarnings("ignore")
+tf_logging.set_verbosity_error()
+
+
 
 
 load_dotenv()
 
 
-def print_retrieved_objects(objects: list):
-    for idx, obj in enumerate(objects, start = 1):
+def print_retrieved_docs(docs: list):
+    for idx, doc in enumerate(docs, start = 1):
+        score = doc[1]
+        doc = doc[0]
         print(f"-------------- Document #{idx} ---------------")
-        print(f">> Document:\n {obj.properties.get('job_document')}")
+        print(f">> Document:\n {doc.properties.get('job_document')}")
         print()
-        print(f">> Year : {obj.properties.get('year')}")
+        print(f">> Year : {doc.properties.get('year')}")
+        print()
+        print(f">> Score : {score}")
         print(50 * '---')
 
 
 pd.set_option('display.max_columns', None)
+
 if __name__ == "__main__":
     print_separator()
     print("-- Starting JOB_SUGGESTION Simulation --")
 
 
     # -- get documents_df -- 
-    # documents_df = get_documents(DOCUMENTS_PATH, JOBS_PATH) [initiating db]
+    # documents_df = get_documents(CFG.DOCUMENTS_PATH, CFG.JOBS_PATH) [initiating db]
 
     # -- build the db -- 
     db_client = get_weaviate_client()
-    # collection = build_collection(db_client, COLLECTION_NAME, data = documents_df, embedding_model = EMBEDDINGS) [initiating db]
-    collection = load_collection(db_client, COLLECTION_NAME) # [load existing db]
+    # collection = build_collection(db_client, CFG.COLLECTION_NAME, data = documents_df, embedding_model = EMBEDDINGS) [initiating db]
+    collection = load_collection(db_client, CFG.COLLECTION_NAME) # [load existing db]
     
 
     # -- retrieve --
@@ -70,15 +69,16 @@ if __name__ == "__main__":
     - Work within a team.
     - Build from scratch Machine Learning models.
     """
-    retrieved_doc = retrieve_documents(
-        query = test_query,
-        collection = collection,
-        embedding_model = EMBEDDINGS
+    retrieved_docs = retrieve(
+        retriever_query = test_query,
+        embedding_model = CFG.EMBEDDING_MODEL,
+        cross_encoder = CFG.RERANKER,
+        collection = collection
     )
 
     print_separator()
     print("Retrieved Documents:")
-    print_retrieved_objects(retrieved_doc)
+    print_retrieved_docs(retrieved_docs)
 
 
 
