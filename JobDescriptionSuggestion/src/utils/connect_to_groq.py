@@ -32,22 +32,27 @@ def enhance_old_job(
     stream = False,
     **kwargs
 ) -> str:
-    """
-    Args:
-        client             : the Groq Client
-        system_prompt (str): the job enhancement system prompt
-        query (str)        : input query goes to the LLM
-        model_name (str)   : the LLM name required
-        use_rag (bool)     : whether to use RAG or not
-        retrieved_documents (list): the list of the retrieved documents if RAG was used
-        stream (bool)      : whether to stream the output or not
-        kwargs             : keyword args (temperature | max-tokens | top-p | top-k | ...)
+    
+    if use_rag and retrieved_documents:
+        context = "\n".join(retrieved_documents)
+        query = f"{query}\n\nContext Information:\n{context}"
 
-    Returns:
-        response (str): LLM Response
-    """
-    pass
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": query}
+    ]
 
+    response = client.chat.completions.create(
+        model=model_name,
+        messages=messages,
+        stream=stream,
+        **kwargs
+    )
+
+    if stream:
+        return response
+    else:
+        return response.choices[0].message.content 
 
 
 def has_skills(
@@ -57,16 +62,16 @@ def has_skills(
     system_prompt: str,
     **kwargs
 ):
-    """
-    Args:
-        client             : the Groq Client
-        query (str)        : input query goes to the LLM
-        model_name (str)   : the LLM name required
-        system_prompt (str): the skill detection system prompt
-        kwargs             : keyword arg (temperature | max-tokens | top-p | top-k | ...)
-
-    Returns:
-        response (str): LLM Response
-    """
     
-    pass
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": query}
+    ]
+
+    response = client.chat.completions.create(
+        model=model_name,
+        messages=messages,
+        **kwargs
+    )
+
+    return response.choices[0].message.content
