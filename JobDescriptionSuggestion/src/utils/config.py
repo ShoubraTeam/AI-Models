@@ -30,5 +30,6 @@ RERANKER = CrossEncoder(RERANKER_NAME)
 COLLECTION_NAME = "JOB_SUGGESTION_COLLECTION_V1"
 
 
-
-
+# Models
+DETECTION_MODEL = "llama-3.1-8b-instant"
+ENHANCEMENT_MODEL_1 = "llama-3.3-70b-versatile"

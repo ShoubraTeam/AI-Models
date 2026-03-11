@@ -2,8 +2,6 @@
 # Contains the required functions to Construct the System Prompts for
 # - Suggesting Ehnanced Job Desc
 # - Detecting if the the old job desc contains skills
-# 
-# Eng. Hanin
 # -------------------------------------------------------------------
 
 
@@ -16,7 +14,7 @@ Respond ONLY with 'Yes' if it contains skills, and 'No' if it does not contain a
     return prompt
 
 
-def get_enhancement_prompt(use_rag: bool, retrieved_documents: list = None) -> str:
+def get_enhancement_prompt(use_rag: bool) -> str:
     """
     Constructing the System Prompt required for enhancing the job description.
     """

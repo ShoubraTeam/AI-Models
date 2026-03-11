@@ -1,8 +1,6 @@
 # ---------------------------------------------------------------------------
 # Contains the code required to load the cleaned saved .csv files in order
 # to build a vector database from them
-# 
-# Ahmed Ragab
 # ---------------------------------------------------------------------------
 
 import pandas as pd

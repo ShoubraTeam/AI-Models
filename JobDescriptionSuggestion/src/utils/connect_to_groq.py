@@ -3,8 +3,6 @@
 # - Connect to GROQ
 # - Using GROQ models to enhance the the old job desc
 # - Using GROQ models to detect if the old desc contains skills or not
-# 
-# Eng. Hanin
 # ---------------------------------------------------------------------------
  
 
@@ -27,15 +25,27 @@ def enhance_old_job(
     query: str,
     model_name: str,
     system_prompt: str,
-    use_rag: bool,
-    retrieved_documents: list,
     stream = False,
     **kwargs
 ) -> str:
-    
-    if use_rag and retrieved_documents:
-        context = "\n".join(retrieved_documents)
-        query = f"{query}\n\nContext Information:\n{context}"
+    """
+    Enhances an existing job description using an LLM. Optionally augments the
+    query with retrieved documents (RAG) before sending it to the model.
+
+    Args:
+        client                    : LLM client instance used to call the chat completion API.
+        query (str)               : The original job description or prompt to enhance.
+        model_name (str)          : Name of the model used for generation.
+        system_prompt (str)       : System instruction guiding the model's behavior.
+        stream (bool, optional)   : If True, returns a streaming response. Defaults to False.
+        **kwargs: Additional parameters passed directly to the model API
+            (e.g., temperature, max_tokens).
+
+    Returns:
+        str | Stream: 
+            - If stream = False → returns the generated text from the model.
+            - If stream = True → returns the streaming response object.
+    """ 
 
     messages = [
         {"role": "system", "content": system_prompt},
@@ -43,9 +53,9 @@ def enhance_old_job(
     ]
 
     response = client.chat.completions.create(
-        model=model_name,
-        messages=messages,
-        stream=stream,
+        model = model_name,
+        messages = messages,
+        stream = stream,
         **kwargs
     )
 
@@ -62,6 +72,21 @@ def has_skills(
     system_prompt: str,
     **kwargs
 ):
+    """
+    Determines whether a job description or query contains mentioned skills
+    using an LLM.
+
+    Args:
+        client             : LLM client instance used to call the chat completion API.
+        query (str)        : The job description or text to analyze.
+        model_name (str)   : Name of the model used for analysis.
+        system_prompt (str): System instruction guiding the model's behavior.
+        **kwargs: Additional parameters passed directly to the model API
+            (e.g., temperature, max_tokens).
+
+    Returns:
+        str: The model's response indicating whether skills are present
+    """
     
     messages = [
         {"role": "system", "content": system_prompt},
@@ -69,8 +94,8 @@ def has_skills(
     ]
 
     response = client.chat.completions.create(
-        model=model_name,
-        messages=messages,
+        model = model_name,
+        messages = messages,
         **kwargs
     )
 
