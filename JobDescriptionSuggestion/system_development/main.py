@@ -86,6 +86,6 @@ if __name__ == "__main__":
 
         
 
-
+    
 
     enhnacer.close_db()

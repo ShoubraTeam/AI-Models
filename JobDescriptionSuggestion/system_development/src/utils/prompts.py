@@ -64,6 +64,9 @@ Your response MUST strictly follow the structure below:
 
 ## Requirements
 - List the required responsibilities & tasks needed to complete the project.
+
+## Tools / Frameworks Required
+- List the relevant tools, technologies, frameworks, or platforms that mentioned in the given description.
 """
 
 
