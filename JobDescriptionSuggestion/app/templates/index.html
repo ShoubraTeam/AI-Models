@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Job Enhancement</title>
+</head>
+<body>
+    <div class="container">
+        <form class="job-posting-form" id="jobPostingForm">
+            <input type="text" class="job-title-input" id="jobTitleInput">
+            <textarea class="job-title-desc" id="jobDescInput" maxlength="600"></textarea>
+            <input type="submit" value="Post" id="jobPostBtn">
+        </form>
+
+        <form class="tools-form" id="toolsForm">
+            <div class="tools-buttons" id="toolsBtns"></div>
+            <input type="button" class="tools-submit-btn" id="toolsSubmitBtn" value="Select">
+        </form>
+        
+        <div class="results">
+            <div class="original-job-desc"></div>
+            <div class="enhanced-job-desc"></div>
+        </div>
+    </div>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>
