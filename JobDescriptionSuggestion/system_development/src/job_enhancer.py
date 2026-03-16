@@ -39,7 +39,7 @@ class Enhancer:
     # -------------------------------------------------------------------------------------
     def detect_tools(self, job_desc: str) -> bool:
         """
-        Determine if the original job description contains skills or not
+        Determine if the original job description contains tools or not
 
         Args:
             job_desc: the original job description
@@ -138,12 +138,8 @@ class Enhancer:
                 "relevant_tools" : relevant_tools,
                 "response" : response
             }
-        return response
-
-
-    # -------------------------------------------------------------------------------------
         
-    
-
+        return response
+    # -------------------------------------------------------------------------------------
     def close_db(self):
         self.weaviate_client.close()

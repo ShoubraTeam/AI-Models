@@ -10,8 +10,8 @@
 import src.utils.config as CFG
 import pandas as pd
 from dotenv import load_dotenv
-from src.utils.data_preparation import get_documents
 from src.job_enhancer import Enhancer
+from src.vector_database import get_weaviate_client, build_collection
 
 
 
@@ -57,15 +57,16 @@ if __name__ == "__main__":
     print_separator()
     print("-- Starting JOB_SUGGESTION Simulation --")
 
-    # -- get documents_df -- 
-    # documents_df = get_documents(CFG.DOCUMENTS_PATH, CFG.JOBS_PATH)
+    # -- load documents_df --
+    documents_df = pd.read_parquet("system_development\data\documents_df.parquet")
+
 
     # -- build the db -- 
     # db_client = get_weaviate_client()
-    # collection = build_collection(db_client, CFG.COLLECTION_NAME, data = documents_df, embedding_model = EMBEDDINGS) [initiating db]
+    # collection = build_collection(db_client, CFG.COLLECTION_NAME, data = documents_df) 
     
 
-    # -- Test -- 
+    # # -- Test -- 
     enhnacer = Enhancer(
         enhancement_model = CFG.ENHANCEMENT_MODEL_1,
         detection_model = CFG.DETECTION_MODEL,
@@ -73,19 +74,18 @@ if __name__ == "__main__":
         collection_name = CFG.COLLECTION_NAME,
         model_provider = "groq"
     )
-    import ast
+    
+
     for test_case in TEST_CASES:
         response = enhnacer.enhnace(
             job_info = test_case,
             temperature = 0.7,
-            max_tokens = 512
+            max_tokens = 512,
+            top_p = 0.8,
         )
 
         print(response)
         print_separator()
 
         
-
-    
-
     enhnacer.close_db()

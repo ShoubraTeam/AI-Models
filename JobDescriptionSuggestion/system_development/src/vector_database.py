@@ -3,8 +3,6 @@
 # - Establish connection with `Weaviate` cloud
 # - Build / Get the Collection (database)
 # - Apply the retriever operation
-
-# Ahmed Ragab
 # -----------------------------------------------------------------
 import weaviate
 import os
@@ -28,7 +26,7 @@ def get_weaviate_client():
     return client
 
 
-def build_collection(client, collection_name: str, data = None, embedding_model = None):
+def build_collection(client, collection_name: str, data = None):
     """
     Builds / retrieves collection
 
@@ -36,7 +34,6 @@ def build_collection(client, collection_name: str, data = None, embedding_model 
         client               : the weaviate client
         collection_name (str): the name of the collection
         data                 : the concatenated dataframes to build the database with
-        embedding_model      : the model used in the vector database
 
     Returns:
         collection: the database
@@ -50,7 +47,7 @@ def build_collection(client, collection_name: str, data = None, embedding_model 
     else:
         collection = client.collections.create(
             name = collection_name,
-            vector_config = Configure.Vectorizer.none(),
+            vectorizer_config = Configure.Vectorizer.none(),
             properties = [
                 Property(name = 'job_document', data_type = DataType.TEXT),
                 Property(name = 'year', data_type = DataType.INT)
@@ -60,23 +57,19 @@ def build_collection(client, collection_name: str, data = None, embedding_model 
 
     # add data
     if data is not None:
-        batch_size = 120
-        total_rows = len(data)
-        with collection.batch.dynamic() as batch:
-            for i in tqdm(range(0, total_rows, batch_size), desc = "Uploading to Weaviate"):
-                batch_df = data.iloc[i : i + batch_size]
-                batch_vectors = embedding_model.embed_documents(batch_df['job_document'].tolist())
-
-                for idx, row in enumerate(batch_df.itertuples(index = False)):
-                    batch.add_object(
-                        properties = {
-                            'job_document' : row.job_document,
-                            'year'         : int(row.year)
-                        },
-                        vector = batch_vectors[idx]
-                    )
+        with collection.batch.fixed_size(batch_size = 50, concurrent_requests = 4) as batch:
+            for row in tqdm(data.itertuples(index = False), total = len(data), desc = "Uploading"):
+                batch.add_object(
+                    properties={
+                        'job_document': row.job_document,
+                        'year': int(row.year)
+                    },
+                    vector = row.embeddings
+                )
 
     return collection
+
+
 
 
 def load_collection(client, collection_name: str):
@@ -123,7 +116,7 @@ def retrieve_documents(query: str, collection, embedding_model, n_to_return: int
         reverse = True
     )
 
-    return retrieved_sorted
+    return retrieved_sorted # obj (document_job, year)
 
 
 def rerank_documents(query: str, cross_encoder, documents_objects: list, n_to_return: 10):
@@ -139,13 +132,15 @@ def rerank_documents(query: str, cross_encoder, documents_objects: list, n_to_re
     Returns:
         reranked_documents (list)
     """
-    model_inputs = [[query, doc.properties.get("job_document")] for doc in documents_objects]
-    scores = cross_encoder.predict(model_inputs)
+    model_inputs = [[query, doc.properties.get("job_document")] for doc in documents_objects]  
+
+    scores = cross_encoder.predict(model_inputs)  
 
     docs_with_scores = list(zip(documents_objects, scores))
+
     reranked_documents = sorted(docs_with_scores, key = lambda x : x[1], reverse = True)
     
-    return reranked_documents[:n_to_return]
+    return reranked_documents[:n_to_return]  # (obj, score), --> obj (job_doc, year)
 
 
 def retrieve(
@@ -189,12 +184,12 @@ def retrieve(
         cross_encoder = cross_encoder,
         documents_objects = retrieved_documents,
         n_to_return = n_to_return
-    )
+    ) 
 
     documents = [doc[0].properties.get("job_document") for doc in reranked_documents]
 
-    return documents
-
+    return documents  # job_doc --> job detais
+ 
 
 
 
