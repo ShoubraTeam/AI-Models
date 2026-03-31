@@ -37,16 +37,16 @@ TEST_CASES = [
         - Build from scratch Machine Learning models.
         """
     },
-    {
-        "title" : "Backend Engineer",
-        "description" : """I would need an experienced web developer that can build an e-commerce website.
-        """
-    },
-    {
-        "title" : "Backend Engineer",
-        "description" : """I would need an experienced web developer that can build an e-commerce website. He should be proficient in Node.JS & NoSQL databases.
-        """
-    },
+    # {
+    #     "title" : "Backend Engineer",
+    #     "description" : """I would need an experienced web developer that can build an e-commerce website.
+    #     """
+    # },
+    # {
+    #     "title" : "Backend Engineer",
+    #     "description" : """I would need an experienced web developer that can build an e-commerce website. He should be proficient in Node.JS & NoSQL databases.
+    #     """
+    # },
 ]
 
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     print("-- Starting JOB_SUGGESTION Simulation --")
 
     # -- load documents_df --
-    documents_df = pd.read_parquet("system_development\data\documents_df.parquet")
+    documents_df = pd.read_parquet("data\documents_df.parquet")
 
 
     # -- build the db -- 
