@@ -23,7 +23,7 @@ class IdentityRecognizer():
 
     face_detector = load_models.load_retina_detector()
     transforms = [
-        config.val_transform, 
+        config.val_transform,
         config.val_transform2,
         config.val_transform3,
         config.val_transform4
@@ -34,14 +34,14 @@ class IdentityRecognizer():
         """
         Initiating a recognizer.
         Args:
-            model_arch: str indicates the arch to use. 
+            model_arch: str indicates the arch to use.
                         should be one of [vgg_siamese - resnet_siamese_10 - resnet_siamese_25 - arcface2 - arcface5]
         """
 
         # model arch
         if model_arch.lower() not in ['siamese', 'arcface']:
             raise ValueError("Model arch is not allowed.")
-        
+
         self.model_arch = model_arch
         self.model = self.get_model()
 
@@ -54,7 +54,7 @@ class IdentityRecognizer():
     def get_model(self):
         if self.model_arch == 'siamese':
             return load_models.load_siamese_resnet(IdentityRecognizer.IRESNET_SIAMESE_22)
-        else: 
+        else:
             return load_models.load_arcface(IdentityRecognizer.IRESNET_ARCFACE_50)
     # .............................................................................
     def get_thresholds(self):
@@ -93,8 +93,8 @@ class IdentityRecognizer():
         return all
     # .............................................................................
     def encode_images(self, images):
-        """ 
-        Use the trained model to encode the given images 
+        """
+        Use the trained model to encode the given images
 
         Args:
             model: the trained model (siamese, arcface)
@@ -118,8 +118,8 @@ class IdentityRecognizer():
 
                 else:
                     e1 = self.model(transformed_imgs1, inference = True)
-                    e2 = self.model(transformed_imgs2, inference = True)    
-                
+                    e2 = self.model(transformed_imgs2, inference = True)
+
                 encodings.append(
                     (e1, e2)
                 )
@@ -147,7 +147,7 @@ class IdentityRecognizer():
         # p = sum(prox) / len(prox)
         # print(torch.min(torch.stack(prox, dim = 0)).shape)
         # print(p[0].shape)
-        
+
         return p[0]
     # .............................................................................
     def verify(self, pairs: list, threshold: str, debug = False):
@@ -184,16 +184,16 @@ class IdentityRecognizer():
         # prepare images
         clean_imgs1 = self.prepare_images(clean_imgs1)
         clean_imgs2 = self.prepare_images(clean_imgs2)
-        
-        # get encodings            
+
+        # get encodings
         encodings = self.encode_images(
             images = (clean_imgs1, clean_imgs2),
         )
-        
+
         # calc proximity
         prox = self.calc_proximity(encodings)
-    
-        # th 
+
+        # th
         if threshold == 'eer': th = self.err_threshod
         elif threshold == 'f1': th = self.fr_threshod
         elif threshold == 'acc': th = self.acc_threshold
@@ -207,7 +207,7 @@ class IdentityRecognizer():
         else:
             is_same = prox > th
             metric_name = 'similarity'
-        
+
         result = [
             {
                 'label' : 'same' if same else 'different',
@@ -221,7 +221,7 @@ class IdentityRecognizer():
             self.plot_predictions(clean_imgs1[0], clean_imgs2[0], result, metric_name)
 
         return result
-    
+
     # .............................................................................
     def plot_predictions(self, imgs1, imgs2, result, metric):
         ncols = 3
@@ -247,11 +247,11 @@ class IdentityRecognizer():
             ax.imshow(img)
             ax.axis("off")
             ax.set_title(tit)
-        
+
         for ax in axes.flat:
             if ax.has_data() == False:
                 fig.delaxes(ax)
-        
+
         plt.tight_layout(h_pad = 2)
         plt.show()
 
@@ -259,7 +259,7 @@ class IdentityRecognizer():
     # .............................................................................
     def real_time_detect_faces(self, img1, img2):
         """
-        Used to real-time inference 
+        Used to real-time inference
 
         Args:
             image1: img1 (ndarry)
@@ -268,25 +268,25 @@ class IdentityRecognizer():
         Retuns:
     """
         # crop faces
-        face1 = utils.crop_face(face_detector = IdentityRecognizer.face_detector, image = image1)
-        face2 = utils.crop_face(face_detector = IdentityRecognizer.face_detector, image = image2)
+        face1 = utils.crop_face(face_detector = IdentityRecognizer.face_detector, image = img1)
+        face2 = utils.crop_face(face_detector = IdentityRecognizer.face_detector, image = img2)
 
         if face1 is None or face2 is None:
             return {
                 'status'  : 'error',
                 'message' : 'either of the given images has more than one face or no faces at all.',
-            }   
-        
+            }
+
         else:
             return {
                 'status'  : 'success',
                 'faces' : [face1, face2]
             }
-        
+
     # .............................................................................
     def real_time_verify(self, image1, image2):
         """
-        Used to real-time inference 
+        Used to real-time inference
 
         Args:
             image1: image1 (ndarry)
@@ -295,24 +295,24 @@ class IdentityRecognizer():
         Retuns:
         """
 
-        
 
-        
+
+
 
 
         # prepare images
         clean_imgs1 = self.prepare_images(clean_imgs1)
         clean_imgs2 = self.prepare_images(clean_imgs2)
-        
-        # get encodings            
+
+        # get encodings
         encodings = self.encode_images(
             images = (clean_imgs1, clean_imgs2),
         )
-        
+
         # calc proximity
         prox = self.calc_proximity(encodings)
-    
-        # th 
+
+        # th
         if threshold == 'eer': th = self.err_threshod
         elif threshold == 'f1': th = self.fr_threshod
         elif threshold == 'acc': th = self.acc_threshold
@@ -326,7 +326,7 @@ class IdentityRecognizer():
         else:
             is_same = prox > th
             metric_name = 'similarity'
-        
+
         result = [
             {
                 'label' : 'same' if same else 'different',
@@ -340,11 +340,11 @@ class IdentityRecognizer():
             self.plot_predictions(clean_imgs1[0], clean_imgs2[0], result, metric_name)
 
         return result
-    
+
     # ...............
 
-        
-        
+
+
 
 
 
@@ -365,5 +365,5 @@ class IdentityRecognizer():
 
     # # verify
     # result = recognizer.verify(pairs = pairs, debug = True)
-    
+
     # print(result)

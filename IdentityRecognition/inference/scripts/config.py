@@ -36,32 +36,32 @@ val_transform = T.Compose([
 ])
 
 
-# val_transform2 = T.Compose([
-#     T.Resize(IMAGE_SIZE),
-#     T.RandomHorizontalFlip(p = 1),
-#     T.ToTensor(),
-#     T.Normalize(
-#         mean = IMAGENET_MEANs,
-#         std = IMAGENET_STDs,
-#     )
-# ])
+val_transform2 = T.Compose([
+    T.Resize(IMAGE_SIZE),
+    T.RandomHorizontalFlip(p = 1),
+    T.ToTensor(),
+    T.Normalize(
+        mean = IMAGENET_MEANs,
+        std = IMAGENET_STDs,
+    )
+])
 
-# val_transform3 = T.Compose([
-#     T.Resize(IMAGE_SIZE),
-#     T.ColorJitter(brightness = 0.2, contrast = 0.2),
-#     T.ToTensor(),
-#     T.Normalize(
-#         mean = IMAGENET_MEANs,
-#         std = IMAGENET_STDs,
-#     )
-# ])
+val_transform3 = T.Compose([
+    T.Resize(IMAGE_SIZE),
+    T.ColorJitter(brightness = 0.2, contrast = 0.2),
+    T.ToTensor(),
+    T.Normalize(
+        mean = IMAGENET_MEANs,
+        std = IMAGENET_STDs,
+    )
+])
 
-# normalize = T.Normalize(mean = IMAGENET_MEANs, std = IMAGENET_STDs)
-# val_transform4 = T.Compose([
-#     T.Resize((128, 128)), 
-#     T.FiveCrop(112),     
-#     T.Lambda(lambda crops: torch.stack([normalize(T.ToTensor()(crop)) for crop in crops]))
-# ])
+normalize = T.Normalize(mean = IMAGENET_MEANs, std = IMAGENET_STDs)
+val_transform4 = T.Compose([
+    T.Resize((128, 128)),
+    T.FiveCrop(112),
+    T.Lambda(lambda crops: torch.stack([normalize(T.ToTensor()(crop)) for crop in crops]))
+])
 
 # -----------------------------------------------------------------------------
 # --- Training CFG ---

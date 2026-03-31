@@ -20,7 +20,7 @@ ARCFACE_NUM_CLASSES = 479
 
 # ---------------------------------------------------------
 def load_model_state_dict(path: str):
-    cb = torch.load(path)
+    cb = torch.load(path, map_location=config.DEVICE, weights_only=False)
     model_state_dict = cb['model_state_dict']
     return model_state_dict
 # ---------------------------------------------------------

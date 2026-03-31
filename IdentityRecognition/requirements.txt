@@ -1,15 +1,18 @@
 ## requirements.txt
 
 # Data & Image Processing
-numpy 
+numpy
 opencv-python
 pillow
 
 # Visualization
 matplotlib
 
-
 # Modeling
-torch           
+torch
 torchvision
 retinaface-pytorch
+
+# API
+fastapi
+uvicorn

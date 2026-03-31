@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VENV_DIR="$SCRIPT_DIR/venv"
+
+# --- Create venv ---
+if [ ! -d "$VENV_DIR" ]; then
+    echo "Creating virtual environment with Python 3.10..."
+    python3.10 -m venv "$VENV_DIR"
+else
+    echo "Virtual environment already exists, skipping creation."
+fi
+
+# --- Install dependencies ---
+echo "Installing dependencies..."
+"$VENV_DIR/bin/pip" install --upgrade pip
+"$VENV_DIR/bin/pip" install -r "$SCRIPT_DIR/requirements.txt"
+
+# --- Run server ---
+echo "Starting FastAPI server..."
+cd "$SCRIPT_DIR/inference"
+"$VENV_DIR/bin/uvicorn" app:app --host 0.0.0.0 --port 3001

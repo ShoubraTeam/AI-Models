@@ -7,7 +7,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
 from PIL import Image
-from inference.inference import IdentityRecognizer
+from inference import IdentityRecognizer
 
 
 
@@ -18,13 +18,13 @@ app = FastAPI(
 )
 
 recognizer = IdentityRecognizer(model_arch = 'arcface')
-UPPER_THRESHOLD = 0.35
+UPPER_THRESHOLD = 0.3
 LOWER_THRESHOLD = 0.2
 
 # request
 class ImagePair(BaseModel):
-    image1_base64 : str
-    image2_base64 : str
+    image1Base64 : str
+    image2Base64 : str
 
 
 # decoding I/P
@@ -32,21 +32,21 @@ def decode_base64_to_cv2(base64_str: str):
     try:
         if "," in base64_str:
             base64_str = base64_str.split(",")[1]
-        
+
         image_data = base64.b64decode(base64_str)
         image_pil = Image.open(io.BytesIO(image_data)).convert("RGB")
-        return np.array(image_pil)[:, :, ::-1]
+        return np.array(image_pil)
     except Exception as e:
         raise HTTPException(status_code = 400, detail = f"Invalid Image Data: {str(e)}")
-    
+
 
 
 # End Point
 @app.post("/v1/verify")
 async def verify(request: ImagePair):
     # get images
-    img1 = decode_base64_to_cv2(request.image1_base64)
-    img2 = decode_base64_to_cv2(request.image2_base64)
+    img1 = decode_base64_to_cv2(request.image1Base64)
+    img2 = decode_base64_to_cv2(request.image2Base64)
 
 
     # crop
@@ -58,7 +58,7 @@ async def verify(request: ImagePair):
             'verified'  : False,
             'Similarity': None
         }
-    
+
     face1, face2 = cropped['faces']
 
 
@@ -82,7 +82,7 @@ async def verify(request: ImagePair):
             'verified'  : True,
             'similarity': sim
         }
-    
+
     elif sim <= LOWER_THRESHOLD:
         return {
             'state'     : 'success',
@@ -96,10 +96,10 @@ async def verify(request: ImagePair):
             'state'     : 'retry',
             'message'   : "Please, upload higher quality images",
             'verified'  : None,
-            'similarity': None
+            'similarity': sim
         }
 
-    
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host = "0.0.0.0", port = 8000)
+    uvicorn.run(app, host = "0.0.0.0", port = 3001)
