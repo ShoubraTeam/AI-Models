@@ -12,12 +12,15 @@ else
     echo "Virtual environment already exists, skipping creation."
 fi
 
+# --- Activate venv ---
+source "$VENV_DIR/bin/activate"
+
 # --- Install dependencies ---
 echo "Installing dependencies..."
-"$VENV_DIR/bin/pip" install --upgrade pip
-"$VENV_DIR/bin/pip" install -r "$SCRIPT_DIR/requirements.txt"
+pip install --upgrade pip
+pip install -r "$SCRIPT_DIR/requirements.txt"
 
 # --- Run server ---
 echo "Starting FastAPI server..."
 cd "$SCRIPT_DIR/inference"
-"$VENV_DIR/bin/uvicorn" app:app --host 0.0.0.0 --port 3001
+uvicorn app:app --host 0.0.0.0 --port 3001
