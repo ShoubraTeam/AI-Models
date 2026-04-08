@@ -1,0 +1,118 @@
+[
+    {
+        "original_job_description": "We have a standard HR website.\nRequirements:\nCreating a registration system where clients can sign up for the site. Each client shall have their own system containing their employees, subscription start and end dates, and payroll and benefits management. Additionally, employees shall be able to apply for leaves, which we can then approve or reject, and there shall be a task list for the client.",
+        "main_topic": "Web Development",
+        "source": "mostaqel",
+        "job_link": "https://mostaql.com/project/1226654-%D9%85%D8%A8%D8%B1%D9%85%D8%AC-%D9%84%D8%B9%D9%85%D9%84-%D9%86%D8%B8%D8%A7%D9%85-%D8%AA%D8%B3%D8%AC%D9%8A%D9%84",
+        "has_tools": false,
+        "client_tools": [],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": ["PostgreSQL", "Node.js", "Redis", "JWT", "Docker", "Kubernetes", "Elasticsearch", "AWS S3", "Stripe", "REST"],
+        "filtered_tools": ["PostgreSQL", "Node.js", "Docker"],
+        "enhanced_job_description": "Overview:\\nWe are seeking a Backend Developer to build a Multi-Tenant HR Management System. The goal is to develop a centralized platform where multiple independent clients (companies) can register and manage their own isolated data environments, including employee records, payroll, and internal administrative workflows.\\n\\nResponsibilities:\\n- Multi-Tenant Registration: Implement a secure sign-up system where each client has a private, isolated instance for their data.\\n- Client-Specific Management: Build systems for clients to manage their own list of employees and track subscription lifecycles (start and end dates).\\n- Payroll & Benefits: Develop a core module for handling employee salary structures and benefits management within each tenant.\\n- Leave Management: Create a workflow allowing employees to apply for leaves and providing administrators the ability to approve or reject requests.\\n- Task Management: Implement a functional task list for client administrators to manage internal objectives.\\n\\nTools:\\nThe project must be developed using Node.js for the backend logic, PostgreSQL for relational data storage and tenant isolation, and Docker for application containerization.\\n\\nDeliverables:\\n- Full Backend API: A functional Node.js system handling all HR and tenant-specific logic.\\n- Database Schema: A structured PostgreSQL database optimized for multi-tenancy.\\n- Containerized Environment: Production-ready Docker configuration for the entire application."
+    },
+
+    {
+        "original_job_description": "Create a high-converting, modern landing page No Figma file providedو looking for a frontend developer with UI/UX skills.\n\nKey Sections:\nHero: Catchy H1, Subtext, and CTA Button.\nFeatures: 3-column grid (Icons + Text).\nSocial Proof: Client logos and Testimonials.\nContact: Simple functional form.\nFooter: Links & Social icons.\n\nTechnical Requirements:\nTech: [HTML/Tailwind] OR [React/Next.js].\nDesign: Professional, clean, and mobile-responsive.\nSpeed: Fast loading with optimized assets.\nCode: Well-commented and clean.\n\nDeliverables:\nFull source code.\nFinal deployment.",
+        "main_topic": "Frontend",
+        "source": "upwork",
+        "job_link": "https://www.upwork.com/jobs/Figma-span-class-highlight-Frontend-span_~022039770822270019550/?referrer_url_path=%2Fnx%2Fsearch%2Fjobs%2F",
+        "has_tools": true,
+        "client_tools": ["react", "next.js", "HTML", "tailwind"],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": [],
+        "filtered_tools": [],
+        "enhanced_job_description": "Overview:\\nWe are seeking a versatile Frontend Developer with strong UI/UX design capabilities to build a high-converting, modern landing page from scratch. As no Figma file is provided, the developer will be responsible for both the visual design and the technical implementation, ensuring a professional, clean, and mobile-responsive result.\\n\\nResponsibilities:\\n- UI/UX Design & Development: Create a modern visual layout that prioritizes user conversion and aesthetic clarity.\\n- Hero Section: Implementation of a catchy H1 heading, supporting subtext, and a clear Call-to-Action (CTA) button.\\n- Features Section: Design a 3-column grid layout utilizing icons and descriptive text.\\n- Social Proof: Integration of client logos and a testimonials section to build market trust.\\n- Functional Components: Build a simple, functional contact form and a comprehensive footer with links and social icons.\\n- Optimization: Ensure fast loading times through optimized assets and clean, well-commented code.\\n\\nTools:\\nThe project should be developed using either HTML/Tailwind CSS or React/Next.js, focusing on a mobile-first and responsive approach.\\n\\nDeliverables:\\n- Complete source code for the landing page.\\n- Final deployment of the live site."
+    },
+
+    {
+        "original_job_description": "We are seeking a skilled React developer to help troubleshoot and fix frontend bugs on our website. The ideal candidate will have a strong understanding of React and be able to identify and resolve issues efficiently. You will work closely with our team to ensure a seamless user experience and maintain our site's performance. If you have a passion for frontend development and problem-solving, we want to hear from you!",
+        "main_topic": "Frontend",
+        "source": "upwork",
+        "job_link": "https://www.upwork.com/jobs/span-class-highlight-Frontend-span-Bug-Fixing-for-React-Website_~022040015299372402079/?referrer_url_path=%2Fnx%2Fsearch%2Fjobs%2F",
+        "has_tools": true,
+        "client_tools": ["react"],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": [],
+        "filtered_tools": [],
+        "enhanced_job_description": "Overview:\\nWe are seeking a specialized React Developer to join our team for an intensive debugging and optimization phase. The focus of this role is to identify, troubleshoot, and resolve frontend bugs on our existing website, ensuring a seamless user experience and maintaining high site performance through efficient problem-solving.\\n\\nResponsibilities:\\n- Issue Identification: Rapidly diagnose and troubleshoot functional and UI-related bugs within the React ecosystem.\\n- Frontend Resolution: Implement efficient code fixes to resolve identified issues without compromising existing features.\\n- Performance Maintenance: Monitor and maintain the site's performance during the debugging process.\\n- Team Collaboration: Work closely with the internal team to align on user experience standards and technical requirements.\\n\\nTools:\\nThe project is built exclusively on React, and the candidate is expected to have a strong, practical understanding of its core principles and debugging tools.\\n\\nDeliverables:\\n- A stabilized frontend codebase with all critical bugs resolved.\\n- Verified fixes that ensure a seamless and consistent user experience.\\n- Optimized code contributions that align with current site performance standards."
+    },
+
+    {
+        "original_job_description": "We are seeking a skilled Web Developer to join our team as a partner. The ideal candidate will have experience in web development. Responsibilities include creating engaging developing websites. This is a long-term, part-time role with potential for growth and profit sharing.",
+        "main_topic": "Web Development",
+        "source": "upwork",
+        "job_link": "https://www.upwork.com/jobs/Web-Developer-Partnership_~022040306616178105236/?referrer_url_path=find_work_home",
+        "has_tools": false,
+        "client_tools": [],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": ["PostgreSQL", "Node.js", "Redis", "JWT", "Docker", "Kubernetes", "Elasticsearch", "AWS S3", "Stripe", "REST"],
+        "filtered_tools": ["PostgreSQL", "Node.js", "Kubernetes"],
+        "enhanced_job_description": "Overview:\\nWe are seeking a highly skilled Backend Engineer to join our team as a long-term Technical Partner. This is a unique opportunity for a developer to take ownership of our web infrastructure and scale with the company through a profit-sharing model.\\n\\nResponsibilities:\\n- System Architecture: Architect and develop high-performance websites and backend services.\\n- Data Management: Design and maintain complex relational data structures to ensure high availability and data integrity.\\n- Scalable Deployment: Manage application deployment and scaling strategies to ensure high uptime and system reliability.\\n- Strategic Partnership: Contribute as a key technical partner in a long-term, part-time capacity with a focus on growth.\\n\\nTools:\\nThe infrastructure is built on Node.js for the backend runtime, PostgreSQL for relational database management, and Kubernetes for container orchestration and scaling.\\n\\nDeliverables:\\n- A robust, production-ready backend platform.\\n- Optimized and scalable database schemas.\\n- A fully orchestrated deployment environment designed for long-term scalability."
+    },
+
+    {
+        "original_job_description": "We're looking for an experienced Node.js backend developer with DevOps expertise to help fix and deploy our existing application. The frontend (React.js) is already completed. Your role will focus on backend fixes, and testing.\n\nRequired Skills:\nStrong experience with Node.js\nExperience with AWS deployments\nHands-on with Docker\nFamiliarity with Nginx\nKnowledge of monitoring tools (Grafana, logging, etc.)\nBasic understanding of testing (automated + manual)\n\nProject Scope:\n* Fix backend/API issues\n* Set up monitoring\n* Review testing and pipelines",
+        "main_topic": "Backend",
+        "source": "upwork",
+        "job_link": "https://www.upwork.com/jobs/Backend-Engineer-span-class-highlight-DevOps-span-AWS-Docker-Fix-APIs-amp-Deploy_~022040031393723551037/?referrer_url_path=%2Fnx%2Fsearch%2Fjobs%2F",
+        "has_tools": true,
+        "client_tools": ["Node.js", "AWS", "Docker", "Nginx"],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": [],
+        "filtered_tools": [],
+        "enhanced_job_description": "Overview:\\nWe are seeking an experienced Node.js Backend Developer with specialized DevOps expertise to finalize the deployment of our existing application. While the React.js frontend is complete, your role will focus on refining the backend architecture, resolving outstanding issues, and establishing a professional-grade production environment.\\n\\nResponsibilities:\\n- Backend Refinement: Troubleshoot and fix existing Node.js backend/API issues to ensure system stability.\\n- Infrastructure & Deployment: Manage deployment workflows using AWS and Docker for containerization, with Nginx as the primary web server.\\n- Monitoring & Observability: Set up comprehensive monitoring systems, including Grafana and logging tools, to track application health.\\n- Quality Assurance & DevOps: Review and implement testing pipelines (automated and manual) to ensure robust code delivery.\\n\\nTools:\\nThe stack consists of Node.js (Backend), React.js (Frontend), AWS (Cloud Infrastructure), Docker (Containerization), Nginx (Web Server), and Grafana (Monitoring).\\n\\nDeliverables:\\n- A stabilized and bug-free Node.js backend integrated with the existing frontend.\\n- A functional monitoring and logging dashboard.\\n- A reviewed and verified testing suite and deployment pipeline."
+    },
+    
+    {
+        "original_job_description": "I need a fresh, responsive website built specifically for a school. The core of the site must revolve around two key areas—About Us and Admissions—so visitors quickly grasp our identity and enrollment process.\n\nThe look should be clean, student-friendly, and mobile-first, with intuitive navigation and strong accessibility standards. Please structure the site so I can easily expand it later with sections such as academic programs, events, or news without a complete redesign.\n\nI’m open to WordPress, Webflow, or a custom build if you can ensure straightforward content management for non-technical staff. Once complete, hand-off should include all source files, a style guide, and a brief video or live walk-through showing how to add pages and update text or images.\n\nIf you have school or education-sector samples, share a link so I can gauge fit. Feel free to propose a phased timeline so we keep milestones clear and expectations aligned.",
+        "main_topic": "Web Development",
+        "source": "freelancer",
+        "job_link": "https://www.freelancer.com/projects/accessibiliy/Modern-School-Website-Design/details",
+        "has_tools": true,
+        "client_tools": ["wordpress", "Webflow"],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": [],
+        "filtered_tools": [],
+        "enhanced_job_description": "Overview:\\nWe are seeking a skilled Web Developer to build a professional, responsive website for an educational institution. The primary goal is to establish a strong digital identity focused on 'About Us' and 'Admissions' modules, ensuring a seamless enrollment experience. The architecture must be modular to allow for future expansion—such as academic programs and news—without requiring a complete redesign.\\n\\nResponsibilities:\\n- Design & UX: Develop a mobile-first, student-friendly website with intuitive navigation and high accessibility standards.\\n- Scalable Architecture: Structure the site to be easily expandable for future sections like events and academic programs.\\n- Content Management: Implement a system that ensures straightforward content management for non-technical staff.\\n- Hand-off: Provide a comprehensive hand-off including all source files and a style guide.\\n- Training: Conduct a brief video or live walk-through demonstrating how to add pages and update text or images.\\n\\nTools:\\nThe project can be built using WordPress, Webflow, or a Custom Build, provided the platform supports easy management for non-technical users.\\n\\nDeliverables:\\n- A fully responsive, mobile-first school website.\\n- Complete set of source files and a professional style guide.\\n- Instructional training (video or live session) for site updates.\\n- A proposed phased project timeline with clear milestones."
+    },
+
+    {
+        "original_job_description": "We are looking for a programmer who has previously built a delivery and transportation application. Experience in Back-end is required.",
+        "main_topic": "Software Engineering",
+        "source": "mostaqel",
+        "job_link": "https://mostaql.com/project/1226362-%D8%AA%D8%B7%D8%A8%D9%8A%D9%82-%D9%86%D9%82%D9%84-%D9%88%D8%AA%D9%88%D8%B5%D9%8A%D9%84-%D8%B7%D9%84%D8%A8%D8%A7%D8%AA",
+        "has_tools": false,
+        "client_tools": [],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": ["PostgreSQL", "MySQL", "Node.js", "Docker", "GitHub", "CI/CD", "Django", "Kubernetes", "Redis", "PyTest"],
+        "filtered_tools": ["PostgreSQL", "Node.js", "GitHub"],
+        "enhanced_job_description": "Overview:\\nWe are seeking an experienced Backend Programmer with a proven track record in developing delivery and transportation applications. The focus of this role is to architect the core server-side logic required for complex logistics and transport management systems.\\n\\nResponsibilities:\\n- Backend Architecture: Design and implement scalable backend services tailored for transportation and delivery workflows.\\n- Data Management: Structure and maintain relational data to handle real-time delivery tracking and logistics.\\n- Collaborative Development: Manage source code and collaborate effectively using version control systems.\\n- System Optimization: Ensure high-performance and reliable backend operations for high-demand transportation services.\\n\\nTools:\\nThe project will be built using Node.js for the backend runtime, PostgreSQL for relational data management, and GitHub for repository management and collaboration.\\n\\nDeliverables:\\n- A functional, production-ready backend system for a delivery/transportation application.\\n- A robust PostgreSQL database schema.\\n- Clean, version-controlled source code hosted on GitHub."
+    },
+    
+    {
+        "original_job_description": "Our credit-rating firm needs a fast, simple, and clean web presence that converts visitors into qualified leads. I want two distinct but visually consistent pages:\\n\\n• A main landing page that introduces who we are, what we do, and why we’re trusted in the market. It should feature a concise company overview and prominent call-to-action buttons that drive users to the lead form.\\n• A lead-generation page with a form that captures every detail we rely on for our sales funnel:\\n– Name and email address\\n– Phone number and address\\n– Company name and website\\n– Annual Credit Sales\\n– Number of Credit Customers\\n– Value of Credit Exposure\n\nBoth pages must share a minimalist, professional design that keeps attention on the message, load quickly on desktop and mobile. Clear field validation, spam protection, and a thank-you confirmation are essential.",
+        "main_topic": "Web Development",
+        "source": "freelancer",
+        "job_link": "https://www.freelancer.com/projects/web-design/Credit-Rating-Landing-Lead-Capture/details",
+        "has_tools": false,
+        "client_tools": [],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": ["PostgreSQL", "Node.js", "Redis", "JWT", "Docker", "Kubernetes", "Elasticsearch", "AWS S3", "Stripe", "REST"],
+        "filtered_tools": ["Redis", "Node.js", "JWT", "Elasticsearch"],
+        "enhanced_job_description": "Overview:\\nWe are a credit-rating firm seeking a specialized Backend Developer to build a high-performance, lead-generation infrastructure. The project focuses on a two-page web presence (Landing Page & Lead Form) that prioritizes speed, security, and clean data capture to convert visitors into qualified leads.\\n\\nResponsibilities:\\n- Landing Page Development: Build a fast, clean landing page featuring a company overview and prominent call-to-action (CTA) buttons.\\n- Lead Capture System: Develop a detailed lead-generation form to capture contact info, company details, annual credit sales, customer counts, and credit exposure.\\n- Data Validation & Security: Implement clear field validation, robust spam protection, and a thank-you confirmation workflow.\\n- Performance Optimization: Ensure a minimalist, professional design that loads quickly on both desktop and mobile.\\n- Secure Data Handling: Manage lead data securely throughout the sales funnel.\\n\\nTools:\\nThe system will be powered by Node.js for application logic, Redis for high-speed caching, JWT for secure communication, and Elasticsearch for rapid indexing and retrieval of lead data.\\n\\nDeliverables:\\n- A functional two-page web presence (Main Landing Page and Lead-Generation Page).\\n- A secure backend API for processing and storing multi-field lead data.\\n- Optimized search and caching layers for near-instant page performance.\\n- Integrated field validation and spam protection modules."
+    },
+
+    {
+        "original_job_description": "We are seeking a skilled software engineer to join our team and contribute to various innovative projects. The ideal candidate will have a strong background in software development, problem-solving skills, and the ability to work collaboratively in a fast-paced environment. You will be responsible for designing, coding, testing, and maintaining software applications. If you are passionate about technology and want to be part of a dynamic team, we want to hear from you!",
+        "main_topic": "Software Engineering",
+        "source": "upwork",
+        "job_link": "https://www.upwork.com/jobs/span-class-highlight-Software-span-Engineer-Needed-for-Innovative-Projects_~022031729179794334895/?referrer_url_path=%2Fnx%2Fsearch%2Fjobs%2F",
+        "has_tools": false,
+        "client_tools": [],
+        "relevant_chunks_ids": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        "suggested_tools": ["PostgreSQL", "MySQL", "Node.js", "Docker", "GitHub", "CI/CD", "Django", "Kubernetes", "Redis", "PyTest"],
+        "filtered_tools": ["PostgreSQL", "Django", "GitHub", "MySQL"],
+        "enhanced_job_description": "Overview:\\nWe are seeking a versatile Software Engineer to join our team and contribute to various innovative projects. The ideal candidate possesses a strong background in software development and robust problem-solving skills, with the ability to thrive in a collaborative, fast-paced environment.\\n\\nResponsibilities:\\n* System Development: Design, code, and maintain high-quality software applications.\\n* Database Management: Architect and manage relational data structures across different database environments.\\n* Quality Assurance: Conduct rigorous testing to ensure application stability and performance.\\n* Lifecycle Management: Participate in the full software development lifecycle, from initial design to ongoing maintenance and updates.\\n\\nTools:\\nThe development stack includes Django for the application framework, with PostgreSQL and MySQL used for relational database management. All collaborative workflows and version control are handled through GitHub.\\n\\nDeliverables:\\n* Clean, maintainable, and well-tested application source code.\\n* Optimized database schemas for PostgreSQL and MySQL.\\n* A version-controlled repository on GitHub documenting all development phases."
+    }
+]
