@@ -1,0 +1,5 @@
+type,embedder,reranker,model,metric,value
+RAG,bge,,,embedding_time,0.691864019993227
+RAG,bge,minilm,,recall@k,0.5184
+RAG,bge,minilm,,precision@k,0.8
+RAG,bge,minilm,,mrr,0.693

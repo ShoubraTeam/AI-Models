@@ -26,20 +26,17 @@ def load_embedding_model(model_name: str, device = CFG.DEVICE):
             encode_kwargs = {"batch_size" : CFG.EMBEDDING_BATCH_SIZE}
         )
 
-    
-    elif model_name == "Qwen2":
-        raise ValueError("Model is very big to either download or use")
     else:
         raise ValueError("Model Name is not Valid")
     
 
-def load_reranker(model_name: str, device = CFG.DEVICE):
+def load_reranker(model_name: str):
     if model_name == "minilm":
         return CrossEncoder(CFG.MINILM_RERANKER_MODEL_NAME)
     elif model_name == "mixedbread":
         return CrossEncoder(CFG.MIXEDBREAD_RERANKER_MODEL_NAME)
-    # elif model_name == "bge":
-    #     return FlagReranker(CFG.BGE_RERANKER_MODEL_NAME, use_fp16 = True)
+    else:
+        raise ValueError("Model Name is not Valid")
     
 # ------------------------------------------------------------------------------------------------
 # Embedding & Retreiving
@@ -81,13 +78,10 @@ def retreive(query: str, embedding_model, collection, n_to_return: int = 10, alp
     return retreived_objects
 
 
-def rerank(query, cross_encoder, retreived_objects, n_to_return = 5, model_name: str = 'minilm'):
+def rerank(query, cross_encoder, retreived_objects, n_to_return = 5):
     model_inputs = [[query, obj.properties.get("chunk_text")] for obj in retreived_objects]
 
-    if model_name == "bge":
-        scores = cross_encoder.compute_score(model_inputs)
-    else:
-        scores = cross_encoder.predict(model_inputs)
+    scores = cross_encoder.predict(model_inputs)
 
     chunks_with_scores = list(zip(retreived_objects, scores))
     sorted_by_scores = sorted(chunks_with_scores, key = lambda x : x[1], reverse = True, )
@@ -163,12 +157,12 @@ def get_embedding_time(model, chunks: list, repeats: int, device = CFG.DEVICE):
     return avg_time
 
 
+
 def evaluate_retreival_operation(
         eval_data: list, 
         embedding_model, 
         reranker,
         collection, 
-        reranker_name: str = "minilm",
         n_to_retreive: int = 10,
         n_to_return: int = 5, 
         alpha: float = 0.7
@@ -204,7 +198,6 @@ def evaluate_retreival_operation(
             cross_encoder = reranker,
             retreived_objects = retreived_objects,
             n_to_return = n_to_return,
-            model_name = reranker_name
         )
 
         precision_at_k = calc_precision_at_k(
@@ -226,7 +219,7 @@ def evaluate_retreival_operation(
     avg_mrr = total_mrr / len(eval_data)
 
     return {
-        "avg_recall_at_k_score"       : avg_recall_at_k_score,
-        "avg_precision_at_k_score"    : avg_precision_at_k_score,
-        "average_mean_reciporcal_rank": avg_mrr
+        "recall@k"       : avg_recall_at_k_score,
+        "precision@k"    : avg_precision_at_k_score,
+        "mrr": avg_mrr
     }

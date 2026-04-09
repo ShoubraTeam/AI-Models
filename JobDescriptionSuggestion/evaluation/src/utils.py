@@ -5,6 +5,9 @@
 
 import json
 import argparse
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_groq import ChatGroq
+import src.config as CFG
 
 def print_title(title: str, n_sep = 150):
     print()
@@ -33,9 +36,21 @@ def parse_arguments():
     parser.add_argument("--tools_extractor", type = str, help = "Model to extract the existing tools in the given job description")
     parser.add_argument("--job_enhnacer", type = str, help = "Model to enhance the given job description")
 
-    # others
-    parser.add_argument("--repeats", type = int, help = "Number of times to repeat the models. Used in calculating avg_time")
+    # output paths
+    parser.add_argument("--log_file", type = str, help = "File to log while the program runs")
+    parser.add_argument("--csv_file", type = str, help = "File to save the evaluation values")
 
+    # others
+    parser.add_argument("--component", type = str, help = "The Component to Evaluate (RAG or LLMs)")
+    parser.add_argument("--repeats", type = int, help = "Number of times to repeat the models. Used in calculating avg_time")
+    parser.add_argument("--run_id", type = int, help = "The Current Run ID")
 
     args = parser.parse_args().__dict__
     return args
+
+
+def load_judges():
+    llm_judge = ChatGroq(model = CFG.LLAMA_JUDGE_MODEL)
+    embedding_judge = HuggingFaceEmbeddings(model_name = CFG.BGE_EMBEDDING_MODEL_NAME)
+
+    return llm_judge, embedding_judge

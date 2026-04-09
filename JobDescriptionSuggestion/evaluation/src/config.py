@@ -8,12 +8,34 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 EMBEDDING_BATCH_SIZE = 128 if str(DEVICE) == "cuda" else 8
+
+# Models
 BGE_EMBEDDING_MODEL_NAME = "BAAI/bge-base-en-v1.5"
 NOMIC_EMBEDDING_MODEL_NAME = "nomic-ai/nomic-embed-text-v1.5"
 
-BGE_RERANKER_MODEL_NAME = "BAAI/bge-reranker-v2-m3"
 MINILM_RERANKER_MODEL_NAME = 'cross-encoder/ms-marco-MiniLM-L-6-v2'
 MIXEDBREAD_RERANKER_MODEL_NAME = 'mixedbread-ai/mxbai-rerank-large-v1'
+
+LLAMA_DETECTION_MODEL = "llama-3.1-8b-instant"
+
+GPT_MODEL = "openai/gpt-oss-20b"
+QWEN_EXTRACTION_MODEL = "qwen/qwen3-32b"
+
+LLAMA_ENHANCEMENT_MODEL = "llama-3.3-70b-versatile"
+DEEPSEEK_ENHANCEMENT_MODEL = "DeepSeek-V3.2"
+
+MODELS_DICT = {
+    "bge"       : BGE_EMBEDDING_MODEL_NAME,
+    "nomic"     : NOMIC_EMBEDDING_MODEL_NAME,
+    "minilm"    : MINILM_RERANKER_MODEL_NAME,
+    "mixedbread": MIXEDBREAD_RERANKER_MODEL_NAME,
+    "llama"     : LLAMA_DETECTION_MODEL,
+    "gpt"       : GPT_MODEL,
+    "qwen"      : QWEN_EXTRACTION_MODEL,
+    "llama-big" : LLAMA_ENHANCEMENT_MODEL,
+    "deepseek"  : DEEPSEEK_ENHANCEMENT_MODEL
+}
+
 
 EVAL_COLLECTION_NAME = "eval_collection"
 
@@ -55,11 +77,9 @@ Instructions
 - Add single quotes ' before and after each tool.
 """
 
-# LLMs
-LLAMA_DETECTION_MODEL = "llama-3.1-8b-instant"
-LLAMA_EXTRACTOR_MODEL = "llama-3.1-8b-instant"
-LLAMA_ENHANCEMENT_MODEL = "llama-3.3-70b-versatile"
-LLAMA_JUDGE_MODEL = "llama-3.3-70b-versatile"
+
+
+LLAMA_JUDGE_MODEL = "openai/gpt-oss-120b"
 
 # Errors
 TOOLS_DETECTOR_ERROR_OUTPUT = -1

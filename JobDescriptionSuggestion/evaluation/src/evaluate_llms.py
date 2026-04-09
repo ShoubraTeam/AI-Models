@@ -17,6 +17,8 @@ import ast
 from ragas import evaluate, RunConfig
 from ragas.metrics import _answer_correctness, _answer_similarity
 from datasets import Dataset
+from sambanova import SambaNova
+import os
 # ------------------------------------------------------------------------------------------------
 # Accessing Models
 
@@ -28,15 +30,23 @@ def get_groq_client():
     client = Groq()
     return client
 
+def get_sambanova_client():
+    client = SambaNova(
+        base_url = "https://api.sambanova.ai/v1",
+        api_key = os.getenv("SAMBANOVA_API_KEY")
+    )
 
-def query_groq_model(
+    return client
+
+
+def query_model(
     client,
     query: str,
     model_name: str,
     system_prompt: str,
     **kwargs
 ):
-    """Prompting a GROQ Model for any of [detecting tools -- extracting tools -- enhance a job]"""
+    """Prompting a GROQ/Sampanova Model for any of [detecting tools -- extracting tools -- enhance a job]"""
     messages = [
         {"role" : "system", "content" : system_prompt},
         {"role" : "user", "content" : query}
@@ -72,6 +82,7 @@ def evaluate_tools_detector(true: bool, model_output: str):
             return 0
     else:
         return CFG.TOOLS_DETECTOR_ERROR_OUTPUT
+    
     
 def evaluate_tools_extractor(true_tools: list, model_output: str):
     """
@@ -114,6 +125,7 @@ def evaluate_tools_extractor(true_tools: list, model_output: str):
 # Run Evaluation
 
 def evaluate_llms(
+    client_name: str,
     eval_data: list,
     tools_detector: str,
     tools_extractor: str,
@@ -122,7 +134,12 @@ def evaluate_llms(
     judge_embeddings,
     **kwargs
 ):
-    client = get_groq_client()
+    if client_name == "groq":
+        client = get_groq_client()
+    elif client_name == "sambanova":
+        client = get_sambanova_client()
+    else:
+        raise ValueError("Invalid Client Name")
 
     # detector metrics
     detector_time = 0
@@ -147,7 +164,7 @@ def evaluate_llms(
         extracted_tools = []
 
         # evaluate tools detector
-        model_output, inference_time = query_groq_model(
+        model_output, inference_time = query_model(
             client = client,
             query = sample["original_job_description"],
             model_name = tools_detector,
@@ -161,7 +178,7 @@ def evaluate_llms(
         # evaluate tools extractor
         if sample["has_tools"]:
             n_jobs_has_tools += 1
-            model_output, inference_time = query_groq_model(
+            model_output, inference_time = query_model(
                 client = client,
                 query = sample["original_job_description"],
                 model_name = tools_extractor,
@@ -250,7 +267,7 @@ Tools: {tools_str}
 {job_desc}
 """
     
-    model_output, inference_time = query_groq_model(
+    model_output, inference_time = query_model(
         client = client,
         query = job_desc,
         model_name = job_enhnacer,
