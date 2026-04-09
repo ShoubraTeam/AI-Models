@@ -5,36 +5,33 @@
 
 from src.evaluate_rag import *
 import src.config as CFG
-import argparse
-import json
 from src.vector_database import *
 from dotenv import load_dotenv
+from src.utils import *
+from src.evaluate_llms import evaluate_llms
 
 load_dotenv()
 
-def print_title(title: str, n_sep = 150):
-    print()
-    title = f" {title} "
-    print(title.center(n_sep, "="))
+import warnings
+import os
 
+# Suppress all Python warnings
+warnings.filterwarnings("ignore")
 
-def load_data(file_path, file_type = "json"):
-    if file_type == "json":
-        with open(file_path, mode = 'r', encoding = 'utf-8') as f:
-            return json.load(f)
-        
+# Suppress TensorFlow/other C++ backend logs (if applicable)
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-def parse_arguments():
-    """Return Dict of Terminal Arguments"""
-    parser = argparse.ArgumentParser(description = "Parsing Arguments Dynamically")
-    parser.add_argument("--relevant_doc_path", type = str, help = "The path to the relevant documents")
-    parser.add_argument("--eval_data_path", type = str, help = "The path to the eval data")
-    parser.add_argument("--embedding_model", type = str, help = "Model to use in Embedding")
-    parser.add_argument("--reranker", type = str, help = "Model to use in Reranker")
-    parser.add_argument("--repeats", type = int, help = "Number of times to repeat the models. Used in calculating avg_time")
-    args = parser.parse_args().__dict__
+from transformers import logging as transformers_logging
 
-    return args
+# This hides the LOAD REPORT and "Some weights were not initialized" messages
+transformers_logging.set_verbosity_error()
+
+from langchain_groq import ChatGroq
+judge_llm = ChatGroq(model = CFG.LLAMA_JUDGE_MODEL)
+
+from langchain_huggingface import HuggingFaceEmbeddings
+judge_embeddings = HuggingFaceEmbeddings(model_name = CFG.BGE_EMBEDDING_MODEL_NAME)
+
 
 if __name__ == "__main__":
     # Parsing Arguments
@@ -51,6 +48,7 @@ if __name__ == "__main__":
     print(f"\tN.Records in Eval Data: {len(eval_data)}")
     print(f"\tN.Relevant Documents  : {len(relevant_doc)}")
 
+    # Embedding
     print_title("Embedding")
     print(">> Loading Models:\n")
     embedding_model = load_embedding_model(args["embedding_model"])
@@ -81,6 +79,20 @@ if __name__ == "__main__":
     print(f"\tAvg MRR        : {retreival_results['average_mean_reciporcal_rank']:0.4f}")
 
     
+
+    # LLMs
+    print_title("Evaluating LLMs")
+    results = evaluate_llms(
+        eval_data = eval_data,
+        tools_detector = CFG.LLAMA_DETECTION_MODEL,
+        tools_extractor = CFG.LLAMA_EXTRACTOR_MODEL,
+        job_enhnacer = CFG.LLAMA_ENHANCEMENT_MODEL,
+        judge_llm = judge_llm,
+        judge_embeddings = judge_embeddings,
+        temperature = 0.7,
+    )
+
+    print(results)
 
 
     client.close()

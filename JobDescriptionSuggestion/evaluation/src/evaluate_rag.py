@@ -128,8 +128,6 @@ def calc_mrr(job_topic: str, retreived_chunks_topics: list[str]):
     rank = 0
 
     for idx, topic in enumerate(retreived_chunks_topics, start = 1):
-        print(job_topic)
-        print(topic)
         if topic == job_topic:
             rank = 1 / idx
             break

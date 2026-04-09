@@ -16,10 +16,7 @@ Examples
 
 - Job Description: I seek for an experienced AI Engineer who can build a customer support chatbot. He should be able to use Python and vector databases, and build RAG systems.
   Response: Yes
-
 """
-
-    
     return prompt
 
 

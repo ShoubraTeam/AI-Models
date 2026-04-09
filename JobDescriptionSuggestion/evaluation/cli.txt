@@ -1,1 +1,1 @@
-python main.py --relevant_doc_path .\data\relevant_chunks.json --eval_data_path .\data\eval_data.json --embedding_model bge --reranker jina --repeats 5
+python main.py --relevant_doc_path .\data\relevant_chunks.json --eval_data_path .\data\eval_data.json --embedding_model bge --reranker jina --repeats 5 --tools_detector 
