@@ -153,52 +153,52 @@
     
     {
         "id": 31,
-        "chunk": "Module: Advanced Multi-Cam Editing & Narrative Flow.\nFocuses on synchronizing and cutting multi-camera setups (3-cam 4K, Riverside, or interview formats). Includes mastering narrative pacing, identifying the best takes, and ensuring a seamless transition between angles to maintain audience engagement.",
+        "chunk": "Advanced Multi-Cam Editing & Narrative Flow.\nFocuses on synchronizing and cutting multi-camera setups (3-cam 4K, Riverside, or interview formats). Includes mastering narrative pacing, identifying the best takes, and ensuring a seamless transition between angles to maintain audience engagement.",
         "main_topic": "Video Production"
     },
     {
         "id": 32,
-        "chunk": "Module: Motion Graphics, UI Animation & Telestration.\nCovers the creation of visual overlays, lower thirds, and animated UI flows for SaaS platforms. Includes 'Telestration' for tactical analysis (like football) and motion assets that make interviews 'pop' and look polished.",
+        "chunk": "Motion Graphics, UI Animation & Telestration.\nCovers the creation of visual overlays, lower thirds, and animated UI flows for SaaS platforms. Includes 'Telestration' for tactical analysis (like football) and motion assets that make interviews 'pop' and look polished.",
         "main_topic": "Video Production"
     },
     {
         "id": 33,
-        "chunk": "Module: Audio Restoration & Professional Sound Design.\nFocuses on the 'Voice First' principle: noise reduction, spectral healing, and leveling for podcasts and e-learning. Includes creative sound design (SFX), background music mixing, and ensuring broadcast-quality audio clarity.",
+        "chunk": "Audio Restoration & Professional Sound Design.\nFocuses on the 'Voice First' principle: noise reduction, spectral healing, and leveling for podcasts and e-learning. Includes creative sound design (SFX), background music mixing, and ensuring broadcast-quality audio clarity.",
         "main_topic": "Video Production"
     },
     {
         "id": 34,
-        "chunk": "Module: Cinematic Color Grading & Look Development.\nFocuses on the artistic aesthetic of the video. Includes color correction for mixed-lighting shoots, applying LUTs for a cinematic 'film' look, and matching colors across different camera sensors (Log, 4K, Mobile).",
+        "chunk": "Cinematic Color Grading & Look Development.\nFocuses on the artistic aesthetic of the video. Includes color correction for mixed-lighting shoots, applying LUTs for a cinematic 'film' look, and matching colors across different camera sensors (Log, 4K, Mobile).",
         "main_topic": "Video Production"
     },
     {
         "id": 35,
-        "chunk": "Module: Short-Form Viral Optimization & Repurposing.\nCovers the art of turning long-form content (Podcasts/Matches) into high-impact social media clips. Focuses on manual editing for Reels/TikTok/LinkedIn, scroll-stopping hooks, and platform-specific aspect ratios.",
+        "chunk": "Short-Form Viral Optimization & Repurposing.\nCovers the art of turning long-form content (Podcasts/Matches) into high-impact social media clips. Focuses on manual editing for Reels/TikTok/LinkedIn, scroll-stopping hooks, and platform-specific aspect ratios.",
         "main_topic": "Video Production"
     },
     {
         "id": 36,
-        "chunk": "Module: Pre-Production Research, SEO & Copywriting.\nFocuses on the editorial side: researching topics for tactical analysis or podcasts, writing SEO-friendly YouTube titles, meta-descriptions, and show notes that improve discoverability and E-E-A-T standards.",
+        "chunk": "Pre-Production Research, SEO & Copywriting.\nFocuses on the editorial side: researching topics for tactical analysis or podcasts, writing SEO-friendly YouTube titles, meta-descriptions, and show notes that improve discoverability and E-E-A-T standards.",
         "main_topic": "Video Production"
     },
     {
         "id": 37,
-        "chunk": "Module: Technical Screen Recording & E-Learning Design.\nFocuses on high-fidelity capturing of software demos (SaaS) and slide presentations (Keynote/PowerPoint). Includes pedagogical pacing, syncing voiceover with animations, and structured educational layouts.",
+        "chunk": "Technical Screen Recording & E-Learning Design.\nFocuses on high-fidelity capturing of software demos (SaaS) and slide presentations (Keynote/PowerPoint). Includes pedagogical pacing, syncing voiceover with animations, and structured educational layouts.",
         "main_topic": "Video Production"
     },
     {
         "id": 38,
-        "chunk": "Module: Cinematography Theory & High-End Lighting.\nCovers the fundamentals of visual storytelling: 3-point lighting setups, frame composition, lens selection, and artistic cinematography 'taste' that separates professional films from generic content.",
+        "chunk": "Cinematography Theory & High-End Lighting.\nCovers the fundamentals of visual storytelling: 3-point lighting setups, frame composition, lens selection, and artistic cinematography 'taste' that separates professional films from generic content.",
         "main_topic": "Video Production"
     },
     {
         "id": 39,
-        "chunk": "Module: Resource Management & Stock Asset Sourcing.\nFocuses on the strategic use of high-quality stock footage (Storyblocks/Envato), licensed music, and b-roll. Includes managing asset libraries and ensuring all elements align with the brand's visual identity.",
+        "chunk": "Resource Management & Stock Asset Sourcing.\nFocuses on the strategic use of high-quality stock footage (Storyblocks/Envato), licensed music, and b-roll. Includes managing asset libraries and ensuring all elements align with the brand's visual identity.",
         "main_topic": "Video Production"
     },
     {
         "id": 40,
-        "chunk": "Module: Post-Production Workflow & Review Logistics.\nCovers the 'Reliability' factor: proxy workflows for 4K footage, file organization, backup strategies, and using collaborative review tools (like Frame.io) to manage client feedback and version control.",
+        "chunk": "Post-Production Workflow & Review Logistics.\nCovers the 'Reliability' factor: proxy workflows for 4K footage, file organization, backup strategies, and using collaborative review tools (like Frame.io) to manage client feedback and version control.",
         "main_topic": "Video Production"
     }
 ]
