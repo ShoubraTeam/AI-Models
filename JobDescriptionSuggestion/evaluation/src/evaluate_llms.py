@@ -10,15 +10,16 @@
 # ---------------------------------------------------------------------------
  
 
-
+import pandas as pd
 from groq import Groq
 import src.config as CFG
 import ast
 from ragas import evaluate, RunConfig
-from ragas.metrics import _answer_correctness, _answer_similarity
+from ragas.metrics import _answer_similarity
 from datasets import Dataset
 from sambanova import SambaNova
 import os
+import time
 # ------------------------------------------------------------------------------------------------
 # Accessing Models
 
@@ -52,15 +53,16 @@ def query_model(
         {"role" : "user", "content" : query}
     ]
 
+    start_time = time.perf_counter()
     response = client.chat.completions.create(
         model = model_name,
         messages = messages,
         stream = False,
         **kwargs
     )
+    inference_time = time.perf_counter() - start_time
 
     model_output = response.choices[0].message.content
-    inference_time = response.usage.total_time
 
     return model_output, inference_time
 # ------------------------------------------------------------------------------------------------
@@ -110,15 +112,13 @@ def evaluate_tools_extractor(true_tools: list, model_output: str):
     FP = len(extracted_tools - true_tools)
     FN = len(true_tools - extracted_tools)
 
-    
-    try:
-        precision = TP / (TP + FP)
-        recall = TP / (TP + FN)
-        f1 = (2 * precision * recall) / (precision + recall)
-    except Exception as e:
-        raise Exception(e)
-    
-
+    if TP == 0:
+        return 0, 0, 0, extracted_tools
+  
+    precision = TP / (TP + FP)
+    recall = TP / (TP + FN)
+    f1 = (2 * precision * recall) / (precision + recall)
+  
     return precision, recall, f1, extracted_tools
     
 # ------------------------------------------------------------------------------------------------
@@ -140,6 +140,10 @@ def evaluate_llms(
         client = get_sambanova_client()
     else:
         raise ValueError("Invalid Client Name")
+    
+
+    client = get_groq_client()
+    enhancement_client = client if client_name == 'groq' else get_sambanova_client()
 
     # detector metrics
     detector_time = 0
@@ -195,11 +199,11 @@ def evaluate_llms(
         
         # evaluate the enhancer
         question, model_output, inference_time = construct_ragas_question(
-            client, 
+            enhancement_client, 
             job_enhnacer, 
             sample["original_job_description"], 
             extracted_tools, 
-        **kwargs
+            **kwargs
         )
 
         ragas_dataset["question"].append(question)
@@ -211,18 +215,16 @@ def evaluate_llms(
     ragas_dataset = Dataset.from_dict(ragas_dataset)
     ragas_scores = evaluate(
         ragas_dataset,
-        metrics = [_answer_similarity, _answer_correctness],
+        metrics = [_answer_similarity],
         llm = judge_llm,
         embeddings = judge_embeddings,
         run_config = RunConfig(
             timeout = 120,
-            max_retries = 3,
-            max_workers = 1
+            max_retries = 10,      
+            max_wait = 60,
+            max_workers = 2
         )
     )
-
-    ragas_scores = dict(ragas_scores)
-        
 
     
     # averaging 
@@ -235,6 +237,10 @@ def evaluate_llms(
     extractor_f1 /= n_jobs_has_tools
 
     enhancer_time /= len(eval_data)
+    answer_similarity = ragas_scores["answer_similarity"]
+    valid_sims = [s for s in answer_similarity if not pd.isna(s)]
+    avg_similarity = sum(valid_sims) / len(valid_sims) if valid_sims else 0
+
         
     return {
         'avg_detector_time' : detector_time,
@@ -243,8 +249,8 @@ def evaluate_llms(
         'avg_extractor_pre' : extractor_pre,
         'avg_extractor_rec' : extractor_rec,
         'avg_extractor_f1'  : extractor_f1,
-        "ragas_scores"      : ragas_scores,
         "enhancer_time"     : enhancer_time,
+        "answer_similarity" : avg_similarity,
     }
 
 
@@ -272,6 +278,7 @@ Tools: {tools_str}
         query = job_desc,
         model_name = job_enhnacer,
         system_prompt = system_prompt,
+        max_tokens = 1024,
         **kwargs
     )
 

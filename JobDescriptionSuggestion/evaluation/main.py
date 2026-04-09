@@ -30,7 +30,7 @@ def log_event(file, message, title = False, dic = False, special = False):
     file.write(f"\n")
     if title:
         message = f" {message} "
-        file.write(message.center(150, "="))
+        file.write(message.center(100, "-"))
     
     elif dic:
         for key, val in message.items():
@@ -44,8 +44,8 @@ def log_event(file, message, title = False, dic = False, special = False):
 
     file.flush()
 
-def save_result(type, embedder, reranker, model, metric, value):
-    csv_writer.writerow([type, embedder, reranker, model, metric, value])
+def save_result(type = "", embedder = "", reranker = "", detector = "", extractor = "", enhancer = "", metric = "", value = ""):
+    csv_writer.writerow([type, embedder, reranker, detector, extractor, enhancer, metric, value])
     csv_file.flush() 
 
 
@@ -53,25 +53,27 @@ load_dotenv()
 if __name__ == "__main__":
     # ----------------------------------------------------------------------------------------------------
     # Setup
-    print_title("Parsing Arguments")
     args = parse_arguments()
+    print_title(f"Run #{args['run_id']}")
+
     log_file = open(file = args["log_file"], mode = "a", encoding = "utf-8")
     csv_file = open(file = args["csv_file"], mode = "a", newline = "", encoding = "utf-8")
     csv_writer = csv.writer(csv_file)
+
     log_event(file = log_file, message = f"Current Run ID: {args['run_id']}", title = True)
     # ----------------------------------------------------------------------------------------------------
-    # Loading Global Variables & Data
-    log_event(file = log_file, message = "Loading Global Variables & Data", title = True)
-    client = get_weaviate_client()
-    llm_judge, embedding_judge = load_judges()
+    # Loading Data
+    log_event(file = log_file, message = "Loading Global Variables & Data", title = True)    
     relevant_doc = load_data(args["relevant_doc_path"])
     eval_data = load_data(args["eval_data_path"])
-    log_event(file = log_file, message = {"Number of Records in Eval Data" : len(eval_data), "Number of Relevant Documents"   : len(relevant_doc)}, dic = True)
+    log_event(file = log_file, message = {"Number of Samples in Eval Data" : len(eval_data), "Number of Relevant Documents" : len(relevant_doc)}, dic = True)
 
     # ----------------------------------------------------------------------------------------------------
     # RAG
     if args["component"] == "RAG":
         log_event(file = log_file, message = "Embedding & Constructing Vector Database", title = True)
+        client = get_weaviate_client()
+
         embedding_model = load_embedding_model(args["embedding_model"])
         reranker = load_reranker(model_name = args['reranker'])
         avg_emb_time = get_embedding_time(embedding_model, chunks = [doc['chunk'] for doc in relevant_doc], repeats = args["repeats"])
@@ -80,6 +82,10 @@ if __name__ == "__main__":
     
 
         log_event(file = log_file, message = "Evaluating Retreival Process", title = True)
+
+        print("- Embedder : " + args["embedding_model"])
+        print("- Reranker: " + args["reranker"])
+
         retreival_results = evaluate_retreival_operation(
             eval_data = eval_data,
             embedding_model = embedding_model,
@@ -89,7 +95,7 @@ if __name__ == "__main__":
 
         log_event(
             file = log_file,
-            message = {"Embedder" : args["embedding_model"], "Reraner" : args["reranker"]},
+            message = {"Embedder" : args["embedding_model"], "Rerakner" : args["reranker"]},
             dic = True,
             special = True
         )
@@ -107,8 +113,6 @@ if __name__ == "__main__":
         save_result(
             type = "RAG",
             embedder = args["embedding_model"],
-            reranker = "",
-            model = "",
             metric = "embedding_time",
             value = avg_emb_time
         )
@@ -118,7 +122,6 @@ if __name__ == "__main__":
                 type = "RAG",
                 embedder = args["embedding_model"],
                 reranker = args["reranker"],
-                model = "",
                 metric = metric,
                 value = round(value, 4)
             )   
@@ -127,21 +130,48 @@ if __name__ == "__main__":
     # LLMs
     elif args['component'] == "LLM":
         log_event(file = log_file, message = "Evaluating LLMs", title = True)
-        results = evaluate_llms(
+        llm_judge, embedding_judge = load_judges()
+        client_name = "sambanova" if args["enhancer"] == "deepseek" else "groq"
+
+        print("- Detector : " + args["detector"])
+        print("- Extractor: " + args["extractor"])
+        print("- Enhancer : " + args["enhancer"])
+
+        llms_results = evaluate_llms(
+            client_name = "groq",
             eval_data = eval_data,
-            tools_detector = CFG.MODELS_DICT[args["tools_detector"]],
-            tools_extractor = CFG.MODELS_DICT[args["tools_extractor"]],
-            job_enhnacer = CFG.MODELS_DICT[args["job_enhnacer"]],
+            tools_detector = CFG.MODELS_DICT[args["detector"]],
+            tools_extractor = CFG.MODELS_DICT[args["extractor"]],
+            job_enhnacer = CFG.MODELS_DICT[args["enhancer"]],
             judge_llm = llm_judge,
             judge_embeddings = embedding_judge,
             temperature = 0.7,
         )
 
-        log_event(file = log_file, message = results, dic = True)
+        log_event(
+            file = log_file,
+            message = {"Detector" : args["detector"], "Extractor" : args["extractor"], "Enhancer" : args["enhancer"]},
+            dic = True,
+            special = True
+        )
+
+
+        log_event(file = log_file, message = llms_results, dic = True)
+
+        for metric, value in llms_results.items():
+            save_result(
+                type = "LLM",
+                detector = args["detector"],
+                extractor = args["extractor"],
+                enhancer = args["enhancer"],
+                metric = metric,
+                value = value
+            )
 
     # ----------------------------------------------------------------------------------------------------
     # Finishing
+    log_event(file = log_file, message = 150 * '=')
     log_file.close()
     csv_file.close()
-    client.close()
+    # client.close()
     # ----------------------------------------------------------------------------------------------------

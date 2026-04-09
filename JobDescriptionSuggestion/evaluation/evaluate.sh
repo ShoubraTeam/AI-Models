@@ -19,8 +19,9 @@ CSV_PATH="./results/results.csv"
 EMBEDDING_MODELS=("bge" "nomic")
 RERANKER_MODELS=("minilm" "mixedbread")
 TOOLS_DETECTORS=("llama" "gpt")
-TOOLS_EXTRACTORS=("gpt" "qwen")
-ENHANCEMENT_MODELS=("llama-big" "deepseek")
+TOOLS_EXTRACTORS=("llama" "gpt")
+# ENHANCEMENT_MODELS=("meta-llama" "llama-big" "deepseek")
+ENHANCEMENT_MODELS=("meta-llama")
 
 
 
@@ -30,16 +31,17 @@ ENHANCEMENT_MODELS=("llama-big" "deepseek")
 > $lOG_FILE_PATH
 > $CSV_PATH
 
-echo "Start Evaluation Process" > $lOG_FILE_PATH
-echo "type,embedder,reranker,model,metric,value" > $CSV_PATH
+echo "type,embedder,reranker,detector,extractor,enhancer,metric,value" > $CSV_PATH
 
 source "$VENV_PATH"
 run_id=1
 
 
 # Evaluate RAG Components
+echo "Start RAG Evaluation Process" > $lOG_FILE_PATH
 for emb in "${EMBEDDING_MODELS[@]}"; do
     for r in "${RERANKER_MODELS[@]}"; do
+
         python main.py \
             --run_id $run_id \
             --repeats 5 \
@@ -50,6 +52,35 @@ for emb in "${EMBEDDING_MODELS[@]}"; do
             --reranker $r \
             --log_file $lOG_FILE_PATH \
             --csv_file $CSV_PATH
+
         ((run_id++))
     done
 done
+
+
+
+# Evaluate LLMs Components
+echo "Start LLM Evaluation Process" >> $lOG_FILE_PATH
+for detector in "${TOOLS_DETECTORS[@]}"; do
+    for extractor in "${TOOLS_EXTRACTORS[@]}"; do
+        for enhancer in "${ENHANCEMENT_MODELS[@]}"; do
+
+            python main.py \
+                --run_id $run_id \
+                --component LLM \
+                --eval_data_path $EVAL_DATA_PATH \
+                --relevant_doc_path $RELEVANT_CHUNKS_PATH \
+                --detector $detector \
+                --extractor $extractor \
+                --enhancer $enhancer \
+                --log_file $lOG_FILE_PATH \
+                --csv_file $CSV_PATH
+
+        ((run_id++))
+        done
+    done
+done
+
+
+echo "Finished Evaluating" >> $lOG_FILE_PATH
+

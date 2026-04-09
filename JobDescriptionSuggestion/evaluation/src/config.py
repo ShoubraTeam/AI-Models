@@ -22,6 +22,7 @@ GPT_MODEL = "openai/gpt-oss-20b"
 QWEN_EXTRACTION_MODEL = "qwen/qwen3-32b"
 
 LLAMA_ENHANCEMENT_MODEL = "llama-3.3-70b-versatile"
+META_LLAMA_ENHANCEMENT_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
 DEEPSEEK_ENHANCEMENT_MODEL = "DeepSeek-V3.2"
 
 MODELS_DICT = {
@@ -33,7 +34,8 @@ MODELS_DICT = {
     "gpt"       : GPT_MODEL,
     "qwen"      : QWEN_EXTRACTION_MODEL,
     "llama-big" : LLAMA_ENHANCEMENT_MODEL,
-    "deepseek"  : DEEPSEEK_ENHANCEMENT_MODEL
+    "deepseek"  : DEEPSEEK_ENHANCEMENT_MODEL,
+    "meta-llama": META_LLAMA_ENHANCEMENT_MODEL
 }
 
 
@@ -79,7 +81,7 @@ Instructions
 
 
 
-LLAMA_JUDGE_MODEL = "openai/gpt-oss-120b"
+JUDGE_MODEL = "openai/gpt-oss-120b"
 
 # Errors
 TOOLS_DETECTOR_ERROR_OUTPUT = -1

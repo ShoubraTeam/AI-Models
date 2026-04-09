@@ -32,9 +32,9 @@ def parse_arguments():
     # models
     parser.add_argument("--embedding_model", type = str, help = "Model to use in Embedding")
     parser.add_argument("--reranker", type = str, help = "Model to use in Reranker")
-    parser.add_argument("--tools_detector", type = str, help = "Model to detect the existing tools in the given job description")
-    parser.add_argument("--tools_extractor", type = str, help = "Model to extract the existing tools in the given job description")
-    parser.add_argument("--job_enhnacer", type = str, help = "Model to enhance the given job description")
+    parser.add_argument("--detector", type = str, help = "Model to detect the existing tools in the given job description")
+    parser.add_argument("--extractor", type = str, help = "Model to extract the existing tools in the given job description")
+    parser.add_argument("--enhancer", type = str, help = "Model to enhance the given job description")
 
     # output paths
     parser.add_argument("--log_file", type = str, help = "File to log while the program runs")
@@ -50,7 +50,10 @@ def parse_arguments():
 
 
 def load_judges():
-    llm_judge = ChatGroq(model = CFG.LLAMA_JUDGE_MODEL)
+    llm_judge = ChatGroq(
+        model = CFG.JUDGE_MODEL,
+        max_tokens = 4096 
+    )
     embedding_judge = HuggingFaceEmbeddings(model_name = CFG.BGE_EMBEDDING_MODEL_NAME)
 
     return llm_judge, embedding_judge
