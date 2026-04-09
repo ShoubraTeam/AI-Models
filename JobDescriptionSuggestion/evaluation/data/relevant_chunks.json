@@ -98,5 +98,107 @@
         "id": 20,
         "chunk": "Job Title: Backend Engineer — Node.js API Fixes, Nginx Configuration, and Observability Stack.\\nJob Description:\\nHelix Software Group is a product studio that builds and maintains web applications for mid-market clients. One of our client projects — a React.js frontend paired with a Node.js REST API — is in a broken deployment state and requires an experienced engineer to diagnose, fix, and redeploy the backend with proper infrastructure surrounding it. The frontend requires no changes. All work is backend and infrastructure only. The Node.js API currently exhibits several categories of issues: routes returning incorrect HTTP status codes, middleware executing out of order causing authentication bypass on certain endpoints, database connections not being released properly under load leading to pool exhaustion, and environment configuration being partially hardcoded rather than sourced from environment variables. Your first week will be triage and fixing — working through these issues systematically, committing fixes with clear messages, and maintaining a living bug log that the client can review. Docker containerization must be applied or corrected: the existing Dockerfile uses a non-pinned base image and installs devDependencies in the production image, inflating size and introducing unnecessary risk. You will rewrite it using a multi-stage build pattern, pin the Node.js base image version, and ensure the production stage runs as a non-root user. The docker-compose setup must bring up the API, database, and Nginx proxy together with a single command for both local development and staging verification. AWS infrastructure centers on EC2 with an Nginx reverse proxy. You will configure Nginx as a proper upstream proxy to the Node.js container: setting correct proxy_pass directives, configuring keepalive connections to the upstream, enabling gzip compression for API responses where appropriate, and handling SSL via ACM certificates fronted by an AWS Application Load Balancer. Monitoring setup requires deploying a Grafana instance (self-hosted on EC2 or via Grafana Cloud free tier) connected to a Prometheus scraper targeting the Node.js application's /metrics endpoint, exposed via the prom-client library. Dashboards must cover HTTP request duration histograms, active database connections, heap memory usage, and event loop lag. Automated testing scope is limited but important: you will write integration tests for the five highest-risk API endpoints using Supertest, ensure they run in the GitHub Actions pipeline on every pull request, and configure the pipeline to build and push the Docker image to ECR on merges to main. Manual testing coverage must be documented in a Postman collection exported and committed to the repository. Technical requirements: Node.js (Express.js), Docker multi-stage builds, AWS EC2 and ALB, Nginx, Prometheus and prom-client, Grafana, Supertest and Jest, GitHub Actions, AWS ECR. Deliverables: fixed API codebase, corrected Docker setup, live AWS deployment, Grafana observability dashboards, Supertest integration tests, passing CI pipeline, and a Postman collection.",
         "main_topic": "Backend"
-    }      
+    },
+    
+    {
+        "id": 21,
+        "chunk": "Multilingual & Cultural Localization.\nFocuses on translating and adapting content across multiple languages while maintaining linguistic accuracy and cultural resonance. Includes expertise in DeepL, LanguageTool, and managing 'Transcreation' to ensure content doesn't feel like a literal translation.",
+        "main_topic": "Content Writing"
+    },
+    {
+        "id": 22,
+        "chunk": "Visual Design & Presentation Architecture.\nFocuses on creating visually compelling layouts, infographics, and professional presentations. Includes mastery of Canva, Adobe InDesign, and Illustrator to transform text-heavy documents into visually rich assets.",
+        "main_topic": "Content Creation"
+    },
+    {
+        "id": 23,
+        "chunk": "AI-Human Hybrid Editorial Standards.\nFocuses on leveraging Generative AI (ChatGPT, Claude) for drafting and research, followed by rigorous human editing to remove 'AI jargon' and add personalized insights, ensuring content bypasses AI-detection and sounds natural.",
+        "main_topic": "Content Writing"
+    },
+    {
+        "id": 24,
+        "chunk": "Short-Form Video Scripting & Viral Hooks.\nFocuses on writing 60-90 second scripts designed for high retention on Reels/TikTok/Shorts. Includes 'Hook Engineering' and pacing content to match fast-paced visual beats and social media algorithms.",
+        "main_topic": "Content Writing"
+    },
+    {
+        "id": 25,
+        "chunk": "SEO Strategy & Google E-E-A-T Standards.\nFocuses on meeting Google’s Experience, Expertise, Authoritativeness, and Trustworthiness guidelines. Includes keyword research (Ahrefs, SEMrush), technical SEO structure, and integrating credible references.",
+        "main_topic": "Content Writing"
+    },
+    {
+        "id": 26,
+        "chunk": "Multi-Platform Social Media Management.\nFocuses on managing a consistent content rhythm across LinkedIn, X, Instagram, and Discord. Includes community engagement, sentiment analysis, and adapting tone per platform without losing brand voice.",
+        "main_topic": "Social Media Management"
+    },
+    {
+        "id": 27,
+        "chunk": "Dynamic Narrative Tone & Voice Mastery.\nFocuses on executing specific brand voices, ranging from 'Funny/Edgy/Sarcastic' for viral content to 'Sophisticated/Credible' for luxury and fine art sectors. Ensures content is tailored to specific audience demographics.",
+        "main_topic": "Content Writing"
+    },
+    {
+        "id": 28,
+        "chunk": "Technical & SaaS Documentation (Dev-Focused).\nFocuses on explaining complex technical concepts, APIs, and frameworks (React, Vue.js) to a developer audience. Includes writing clean code snippets and creating technical diagrams (Lucidchart).",
+        "main_topic": "Content Writing"
+    },
+    {
+        "id": 29,
+        "chunk": "Professional B2B Branding & Thought Leadership.\nFocuses on building authority on LinkedIn and professional blogs. Includes writing 'how-to' guides, industry insights, and managing 'Employee Advocacy' to boost corporate brand presence.",
+        "main_topic": "Social Media Management"
+    },
+    {
+        "id": 30,
+        "chunk": "Workflow Logistics & Proposal Compliance.\nFocuses on managing the production lifecycle, from initial outlines to final delivery. Includes RFP/RFQ compliance, time-zone collaboration, and maintaining reusable template libraries.",
+        "main_topic": "Content Writing"
+    },
+    
+    {
+        "id": 31,
+        "chunk": "Module: Advanced Multi-Cam Editing & Narrative Flow.\nFocuses on synchronizing and cutting multi-camera setups (3-cam 4K, Riverside, or interview formats). Includes mastering narrative pacing, identifying the best takes, and ensuring a seamless transition between angles to maintain audience engagement.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 32,
+        "chunk": "Module: Motion Graphics, UI Animation & Telestration.\nCovers the creation of visual overlays, lower thirds, and animated UI flows for SaaS platforms. Includes 'Telestration' for tactical analysis (like football) and motion assets that make interviews 'pop' and look polished.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 33,
+        "chunk": "Module: Audio Restoration & Professional Sound Design.\nFocuses on the 'Voice First' principle: noise reduction, spectral healing, and leveling for podcasts and e-learning. Includes creative sound design (SFX), background music mixing, and ensuring broadcast-quality audio clarity.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 34,
+        "chunk": "Module: Cinematic Color Grading & Look Development.\nFocuses on the artistic aesthetic of the video. Includes color correction for mixed-lighting shoots, applying LUTs for a cinematic 'film' look, and matching colors across different camera sensors (Log, 4K, Mobile).",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 35,
+        "chunk": "Module: Short-Form Viral Optimization & Repurposing.\nCovers the art of turning long-form content (Podcasts/Matches) into high-impact social media clips. Focuses on manual editing for Reels/TikTok/LinkedIn, scroll-stopping hooks, and platform-specific aspect ratios.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 36,
+        "chunk": "Module: Pre-Production Research, SEO & Copywriting.\nFocuses on the editorial side: researching topics for tactical analysis or podcasts, writing SEO-friendly YouTube titles, meta-descriptions, and show notes that improve discoverability and E-E-A-T standards.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 37,
+        "chunk": "Module: Technical Screen Recording & E-Learning Design.\nFocuses on high-fidelity capturing of software demos (SaaS) and slide presentations (Keynote/PowerPoint). Includes pedagogical pacing, syncing voiceover with animations, and structured educational layouts.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 38,
+        "chunk": "Module: Cinematography Theory & High-End Lighting.\nCovers the fundamentals of visual storytelling: 3-point lighting setups, frame composition, lens selection, and artistic cinematography 'taste' that separates professional films from generic content.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 39,
+        "chunk": "Module: Resource Management & Stock Asset Sourcing.\nFocuses on the strategic use of high-quality stock footage (Storyblocks/Envato), licensed music, and b-roll. Includes managing asset libraries and ensuring all elements align with the brand's visual identity.",
+        "main_topic": "Video Production"
+    },
+    {
+        "id": 40,
+        "chunk": "Module: Post-Production Workflow & Review Logistics.\nCovers the 'Reliability' factor: proxy workflows for 4K footage, file organization, backup strategies, and using collaborative review tools (like Frame.io) to manage client feedback and version control.",
+        "main_topic": "Video Production"
+    }
 ]
