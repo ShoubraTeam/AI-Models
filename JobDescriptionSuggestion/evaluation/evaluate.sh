@@ -18,10 +18,9 @@ CSV_PATH="./results/results.csv"
 # -- Models
 EMBEDDING_MODELS=("bge" "nomic")
 RERANKER_MODELS=("minilm" "mixedbread")
-TOOLS_DETECTORS=("llama" "gpt")
+TOOLS_DETECTORS=("meta-llama" "llama")
 TOOLS_EXTRACTORS=("llama" "gpt")
-# ENHANCEMENT_MODELS=("meta-llama" "llama-big" "deepseek")
-ENHANCEMENT_MODELS=("meta-llama")
+ENHANCEMENT_MODELS=("llama" "qwen" "meta-llama")
 
 
 
