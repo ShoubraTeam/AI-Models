@@ -165,6 +165,7 @@ def evaluate_llms(
     enhancer_time = 0
 
     for sample in eval_data:
+        time.sleep(1)
         extracted_tools = []
 
         # evaluate tools detector
@@ -176,11 +177,13 @@ def evaluate_llms(
             max_tokens = 1,
             **kwargs
         )
+        time.sleep(1)
         detector_time += inference_time
         detector_acc += 1 if evaluate_tools_detector(true = sample["has_tools"], model_output = model_output) == 1 else 0
 
         # evaluate tools extractor
         if sample["has_tools"]:
+            time.sleep(1)
             n_jobs_has_tools += 1
             model_output, inference_time = query_model(
                 client = client,
