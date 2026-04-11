@@ -85,7 +85,7 @@ class Enhancer:
         )
 
         try:
-            tools = list(set(ast.literal_eval(tools)))[:20]
+            tools = list(set(ast.literal_eval(tools)))[:10]
         except Exception as e:
             if max_retries == 0:
                 print()
