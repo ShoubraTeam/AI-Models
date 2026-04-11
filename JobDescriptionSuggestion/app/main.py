@@ -55,7 +55,7 @@ async def detect_tools(data: ToolsDetectionIP):
         }
     
     else:
-        tools = enhnacer.get_relevant_tools(job_title = job_title, job_desc = job_desc)
+        tools = enhnacer.get_relevant_tools(job_title = job_title, job_desc = job_desc, max_retries = 3)
         return {
             'status'         : 'success',
             'has_tools'      : 0,

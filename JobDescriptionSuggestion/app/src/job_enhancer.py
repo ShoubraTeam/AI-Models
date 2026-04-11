@@ -59,7 +59,7 @@ class Enhancer:
         else:
             return self.detect_tools(job_desc)
     # -------------------------------------------------------------------------------------
-    def get_relevant_tools(self, job_title: str, job_desc: str):
+    def get_relevant_tools(self, job_title: str, job_desc: str, max_retries = 3):
         """
         Retrieving relevant jobs end extract common tools/frameworks mentioned in them
         """
@@ -84,7 +84,19 @@ class Enhancer:
             temperature = 0.7
         )
 
-        tools = list(set(ast.literal_eval(tools)))[:20]
+        try:
+            tools = list(set(ast.literal_eval(tools)))[:20]
+        except Exception as e:
+            if max_retries == 0:
+                print()
+                print(f"The model output is not valid. Stop calling the model. Try change the input. Error: {e}")
+                print()
+                return None
+
+            print()
+            print(f"The model output is not valid. Call the model again. Error: {e}")
+            print()
+            return self.get_relevant_tools(job_title = job_title, job_desc = job_desc, max_retries = max_retries - 1)
         return tools
     # -------------------------------------------------------------------------------------
     def enhnace(self, job_title: str, job_desc: str, suggested_tools: list = None, stream = False, **kwargs) -> str:
