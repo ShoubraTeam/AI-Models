@@ -44,8 +44,8 @@ def log_event(file, message, title = False, dic = False, special = False):
 
     file.flush()
 
-def save_result(type = "", embedder = "", reranker = "", detector = "", extractor = "", enhancer = "", metric = "", value = ""):
-    csv_writer.writerow([type, embedder, reranker, detector, extractor, enhancer, metric, value])
+def save_result(values: list):
+    csv_writer.writerow(values)
     csv_file.flush() 
 
 
@@ -110,21 +110,10 @@ if __name__ == "__main__":
             dic = True
         )
 
-        save_result(
-            type = "RAG",
-            embedder = args["embedding_model"],
-            metric = "embedding_time",
-            value = avg_emb_time
-        )
+        save_result(values = [args["embedding_model"], args["reranker"], "embedding_time", avg_emb_time])
 
         for metric, value in retreival_results.items():
-            save_result(
-                type = "RAG",
-                embedder = args["embedding_model"],
-                reranker = args["reranker"],
-                metric = metric,
-                value = round(value, 4)
-            )   
+            save_result([args["embedding_model"], args["reranker"], metric, round(value, 4)])   
 
     # ----------------------------------------------------------------------------------------------------
     # LLMs
@@ -159,14 +148,8 @@ if __name__ == "__main__":
         log_event(file = log_file, message = llms_results, dic = True)
 
         for metric, value in llms_results.items():
-            save_result(
-                type = "LLM",
-                detector = args["detector"],
-                extractor = args["extractor"],
-                enhancer = args["enhancer"],
-                metric = metric,
-                value = value
-            )
+            save_result([args["detector"], args["extractor"], args["enhancer"], metric, value])
+            
 
     # ----------------------------------------------------------------------------------------------------
     # Finishing

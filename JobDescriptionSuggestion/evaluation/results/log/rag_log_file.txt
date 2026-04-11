@@ -1,0 +1,74 @@
+Start RAG Evaluation Process
+
+---------------------------------------- Current Run ID: 1 -----------------------------------------
+--------------------------------- Loading Global Variables & Data ----------------------------------
+- Number of Samples in Eval Data --> 29
+- Number of Relevant Documents --> 40
+
+----------------------------- Embedding & Constructing Vector Database -----------------------------
+----------------------------------- Evaluating Retreival Process -----------------------------------
+>> Embedder: bge
+>> Rerakner: minilm
+
+- Embedding Time --> 0.695
+- Number of Embedded Documents --> 40
+
+- Average Recall@k --> 0.341
+- Average Precision@k --> 0.524
+- Average MRR --> 0.454
+
+======================================================================================================================================================
+---------------------------------------- Current Run ID: 2 -----------------------------------------
+--------------------------------- Loading Global Variables & Data ----------------------------------
+- Number of Samples in Eval Data --> 29
+- Number of Relevant Documents --> 40
+
+----------------------------- Embedding & Constructing Vector Database -----------------------------
+----------------------------------- Evaluating Retreival Process -----------------------------------
+>> Embedder: bge
+>> Rerakner: mixedbread
+
+- Embedding Time --> 0.7
+- Number of Embedded Documents --> 40
+
+- Average Recall@k --> 0.347
+- Average Precision@k --> 0.579
+- Average MRR --> 0.498
+
+======================================================================================================================================================
+---------------------------------------- Current Run ID: 3 -----------------------------------------
+--------------------------------- Loading Global Variables & Data ----------------------------------
+- Number of Samples in Eval Data --> 29
+- Number of Relevant Documents --> 40
+
+----------------------------- Embedding & Constructing Vector Database -----------------------------
+----------------------------------- Evaluating Retreival Process -----------------------------------
+>> Embedder: nomic
+>> Rerakner: minilm
+
+- Embedding Time --> 1.587
+- Number of Embedded Documents --> 40
+
+- Average Recall@k --> 0.34
+- Average Precision@k --> 0.503
+- Average MRR --> 0.443
+
+======================================================================================================================================================
+---------------------------------------- Current Run ID: 4 -----------------------------------------
+--------------------------------- Loading Global Variables & Data ----------------------------------
+- Number of Samples in Eval Data --> 29
+- Number of Relevant Documents --> 40
+
+----------------------------- Embedding & Constructing Vector Database -----------------------------
+----------------------------------- Evaluating Retreival Process -----------------------------------
+>> Embedder: nomic
+>> Rerakner: mixedbread
+
+- Embedding Time --> 1.587
+- Number of Embedded Documents --> 40
+
+- Average Recall@k --> 0.34
+- Average Precision@k --> 0.559
+- Average MRR --> 0.512
+
+======================================================================================================================================================Finished Evaluating

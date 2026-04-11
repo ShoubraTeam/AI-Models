@@ -1,0 +1,17 @@
+embedder,reranker,metric,value
+bge,minilm,embedding_time,0.6946047799894586
+bge,minilm,recall@k,0.3414
+bge,minilm,precision@k,0.5241
+bge,minilm,mrr,0.454
+bge,mixedbread,embedding_time,0.6995304399868474
+bge,mixedbread,recall@k,0.3466
+bge,mixedbread,precision@k,0.5793
+bge,mixedbread,mrr,0.4983
+nomic,minilm,embedding_time,1.587361819972284
+nomic,minilm,recall@k,0.3397
+nomic,minilm,precision@k,0.5034
+nomic,minilm,mrr,0.4425
+nomic,mixedbread,embedding_time,1.5870970400050282
+nomic,mixedbread,recall@k,0.3397
+nomic,mixedbread,precision@k,0.5586
+nomic,mixedbread,mrr,0.5121
