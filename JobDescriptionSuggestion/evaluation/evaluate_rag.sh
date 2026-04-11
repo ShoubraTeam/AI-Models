@@ -21,9 +21,6 @@ EMBEDDING_MODELS=("bge" "nomic")
 RERANKER_MODELS=("minilm" "mixedbread")
 
 
-
-## Setup
-
 # -- empty result files 
 > $RAG_lOG_FILE_PATH
 > $RAG_CSV_PATH
@@ -33,7 +30,6 @@ echo "embedder,reranker,metric,value" > $RAG_CSV_PATH
 
 source "$VENV_PATH"
 run_id=1
-
 
 
 # Evaluate RAG Components
