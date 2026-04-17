@@ -1,10 +1,12 @@
 The Data Required
->> A list of JSON objects
+>> A list of JSON objects [20 : 30 object]
 >> Each object is a [job - accepted proposal -- 3:5 rejected proposals] (the more the better)
 >> Each object is in the following format:
 
 {
     "job" (str): "the posted job",
+    "job_requirements" (list) : list of job requirement that the client needs,
+    "job_tools" (list) : list of tools that the client mentioned,
 
     "accepted_proposal" : {
         "overall_score" (float) (0.0 : 1.0) : how much is the proposal a match to the job,
@@ -17,12 +19,14 @@ The Data Required
 
         "requirement_coverage_evaluation" : {
             "score" (float) (0.0 : 1.0): score represents how many of the client requirements are covered in the proposal
-            "details"
+            "details",
+            "requirements" (list) : List of requirement covered in the proposal
         },
 
         "tool_alignment_evaluation" : {
             "score" (float) (0.0 : 1.0): score represents how many of the client tools/frameworks are covered in the proposal
-            "details"
+            "details",
+            "tools" (list) : list of tools mentioned in the Proposal
         },
 
         "language_clarity_evaluation" : {
