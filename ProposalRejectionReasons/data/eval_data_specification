@@ -1,0 +1,53 @@
+The Data Required
+>> A list of JSON objects
+>> Each object is a [job - accepted proposal -- 3:5 rejected proposals] (the more the better)
+>> Each object is in the following format:
+
+{
+    "job" (str): "the posted job",
+
+    "accepted_proposal" : {
+        "overall_score" (float) (0.0 : 1.0) : how much is the proposal a match to the job,
+        "details" (str) : "the justification of that score (what was right, what was wrong, what are the highlights, etc...)",
+
+        "job_understanding_evaluation" : {
+            "score" (float) (0.0 : 1.0): score indicates how much does the freelancer (within the proposal) understands the Job & suggest good solutions for it.
+            "details"
+        },
+
+        "requirement_coverage_evaluation" : {
+            "score" (float) (0.0 : 1.0): score represents how many of the client requirements are covered in the proposal
+            "details"
+        },
+
+        "tool_alignment_evaluation" : {
+            "score" (float) (0.0 : 1.0): score represents how many of the client tools/frameworks are covered in the proposal
+            "details"
+        },
+
+        "language_clarity_evaluation" : {
+            "score" (float) (0.0 : 1.0): score represents how good is the language
+            "details"
+        },
+
+        "evidence_of_experience_evaluation" : {
+            "exist" (bool) (0 | 1): boolean indicates if the freelancer mentioned previous experience or not
+            "details": if (1) --> mention those details
+        },
+
+    },
+
+    "rejected_proposal_1" : {
+        ## same features as accepted_proposal
+    },
+
+    "rejected_proposal_2" : {
+        ## same features as accepted_proposal
+    },
+
+    "rejected_proposal_3" : {
+        ## same features as accepted_proposal
+    },
+
+    .... up to 5
+}

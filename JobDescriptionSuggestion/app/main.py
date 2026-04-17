@@ -1,6 +1,6 @@
-# ------------------------------------------
+# ---------------------------------------------
 # FastAPI server for serving ASync AI Calls
-# ------------------------------------------
+# ---------------------------------------------
 
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
