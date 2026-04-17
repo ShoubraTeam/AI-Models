@@ -1,0 +1,2 @@
+# GoFreelance: Proposal Rejection Reasons
+A comprehensive system designed to help freelancers understand why their proposals are rejected by clients. It leverages an agentic AI framework based on a multi-agent (sub-agent) architecture to analyze both the client’s job requirements and the freelancer’s proposal. The system identifies the key reasons behind rejection and provides targeted recommendations to improve skills and increase the likelihood of success in future opportunities.
