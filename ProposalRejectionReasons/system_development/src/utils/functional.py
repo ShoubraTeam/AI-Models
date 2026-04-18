@@ -17,4 +17,5 @@ def load_json(file_path: str, encoding: str = "utf-8"):
     """
     with open(file = file_path, mode = 'r', encoding = encoding) as f:
         return json.load(f)
+# ------------------------------------------------------------------------------------
     
