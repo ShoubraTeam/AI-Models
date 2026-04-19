@@ -16,4 +16,7 @@ class JobUnderstanding(BaseModel):
     # details: str = Field 
 
 
-    
+class ToolsAlignment(BaseModel):
+    job_tools: list[str] = Field(description = "List of the technical tools/frameworks that the client mentioned in their job description")
+    proposal_tools: list[str] = Field(description = "List of the technical tools/frameworks that the freelancer mentioned in their proposal")
+    confidence_score: float = Field(description = "How much are you (as a model) confident in your analysis & results")
