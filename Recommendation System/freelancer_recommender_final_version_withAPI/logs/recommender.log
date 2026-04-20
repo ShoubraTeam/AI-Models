@@ -1,0 +1,93 @@
+2026-04-20 12:11:42  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
+2026-04-20 12:11:42  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2026-04-20 12:11:47  INFO      models.vector_store                  Qdrant running in-memory.
+2026-04-20 12:11:47  INFO      models.recommendation_engine         === Building RecommendationEngine ===
+2026-04-20 12:11:47  INFO      data.preprocessor                    Loading freelancers from C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\data\freelancers_master_cleaned.csv
+2026-04-20 12:11:47  INFO      data.preprocessor                    Loading jobs from C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\data\jobs_master_cleaned.csv
+2026-04-20 12:11:48  INFO      data.preprocessor                    Loaded 1355 freelancers and 10062 jobs after cleaning
+2026-04-20 12:11:48  INFO      models.embedding_engine              No cache found — computing all embeddings from scratch.
+2026-04-20 12:11:48  INFO      models.embedding_engine              Freelancer embeddings: 1355 texts with batch_size=32
+2026-04-20 12:12:13  INFO      models.embedding_engine              Job embeddings: 10062 texts with batch_size=32
+2026-04-20 12:14:43  INFO      models.embedding_engine              Computing freelancer profiles (budget + location inference) ...
+2026-04-20 12:14:45  INFO      models.embedding_engine              Embeddings cached at C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\cache\embeddings.pkl
+2026-04-20 12:14:45  INFO      models.recommendation_engine         Indexing vectors in Qdrant …
+2026-04-20 12:14:45  INFO      models.vector_store                  Created collection 'jobs'
+2026-04-20 12:14:52  INFO      models.vector_store                  Indexed 10062 jobs into 'jobs'
+2026-04-20 12:14:52  INFO      models.vector_store                  Created collection 'freelancers'
+2026-04-20 12:14:53  INFO      models.vector_store                  Indexed 1355 freelancers into 'freelancers'
+2026-04-20 12:14:53  INFO      models.recommendation_engine         === Engine ready ===
+2026-04-20 12:14:54  INFO      api.server                           Starting up — building RecommendationEngine ...
+2026-04-20 12:14:54  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
+2026-04-20 12:14:54  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2026-04-20 12:14:58  INFO      models.vector_store                  Qdrant running in-memory.
+2026-04-20 12:14:58  INFO      models.recommendation_engine         === Building RecommendationEngine ===
+2026-04-20 12:14:58  INFO      data.preprocessor                    Loading freelancers from C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\data\freelancers_master_cleaned.csv
+2026-04-20 12:14:58  INFO      data.preprocessor                    Loading jobs from C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\data\jobs_master_cleaned.csv
+2026-04-20 12:14:58  INFO      data.preprocessor                    Loaded 1355 freelancers and 10062 jobs after cleaning
+2026-04-20 12:14:58  INFO      models.embedding_engine              Loaded cache from C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\cache\embeddings.pkl (1355 freelancers, 10062 jobs)
+2026-04-20 12:14:58  INFO      models.embedding_engine              Cache is up-to-date. No re-encoding needed.
+2026-04-20 12:14:58  INFO      models.embedding_engine              Embeddings cached at C:\Users\DLLE\Downloads\freelancer_recommender_final\freelancer_project_modified\freelancer_recommender\cache\embeddings.pkl
+2026-04-20 12:14:58  INFO      models.recommendation_engine         Indexing vectors in Qdrant …
+2026-04-20 12:14:58  INFO      models.vector_store                  Created collection 'jobs'
+2026-04-20 12:15:05  INFO      models.vector_store                  Indexed 10062 jobs into 'jobs'
+2026-04-20 12:15:05  INFO      models.vector_store                  Created collection 'freelancers'
+2026-04-20 12:15:05  INFO      models.vector_store                  Indexed 1355 freelancers into 'freelancers'
+2026-04-20 12:15:05  INFO      models.recommendation_engine         === Engine ready ===
+2026-04-20 12:15:05  INFO      api.server                           Engine ready.
+2026-04-20 12:30:48  INFO      models.embedding_engine              Freelancer embed: 1 texts with batch_size=32
+2026-04-20 12:32:42  INFO      models.embedding_engine              Job embed: 1 texts with batch_size=32
+2026-04-20 20:23:11  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
+2026-04-20 20:23:11  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2026-04-20 20:23:16  INFO      models.vector_store                  Qdrant running in-memory.
+2026-04-20 20:23:16  INFO      models.recommendation_engine         === Building RecommendationEngine ===
+2026-04-20 20:23:16  INFO      data.preprocessor                    Loading freelancers from C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\data\freelancers_master_cleaned.csv
+2026-04-20 20:23:16  INFO      data.preprocessor                    Loading jobs from C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\data\jobs_master_cleaned.csv
+2026-04-20 20:23:17  INFO      data.preprocessor                    Loaded 1355 freelancers and 10062 jobs after cleaning
+2026-04-20 20:23:17  INFO      models.embedding_engine              Loaded cache from C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl (1355 freelancers, 10062 jobs)
+2026-04-20 20:23:17  INFO      models.embedding_engine              Cache is up-to-date. No re-encoding needed.
+2026-04-20 20:23:17  INFO      models.embedding_engine              Embeddings cached at C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl
+2026-04-20 20:23:17  INFO      models.recommendation_engine         Indexing vectors in Qdrant …
+2026-04-20 20:23:17  INFO      models.vector_store                  Created collection 'jobs'
+2026-04-20 20:23:25  INFO      models.vector_store                  Indexed 10062 jobs into 'jobs'
+2026-04-20 20:23:25  INFO      models.vector_store                  Created collection 'freelancers'
+2026-04-20 20:23:26  INFO      models.vector_store                  Indexed 1355 freelancers into 'freelancers'
+2026-04-20 20:23:26  INFO      models.recommendation_engine         === Engine ready ===
+2026-04-20 20:23:27  INFO      api.server                           Starting up — building RecommendationEngine ...
+2026-04-20 20:23:27  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
+2026-04-20 20:23:27  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2026-04-20 20:23:31  INFO      models.vector_store                  Qdrant running in-memory.
+2026-04-20 20:23:31  INFO      models.recommendation_engine         === Building RecommendationEngine ===
+2026-04-20 20:23:31  INFO      data.preprocessor                    Loading freelancers from C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\data\freelancers_master_cleaned.csv
+2026-04-20 20:23:31  INFO      data.preprocessor                    Loading jobs from C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\data\jobs_master_cleaned.csv
+2026-04-20 20:23:32  INFO      data.preprocessor                    Loaded 1355 freelancers and 10062 jobs after cleaning
+2026-04-20 20:23:32  INFO      models.embedding_engine              Loaded cache from C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl (1355 freelancers, 10062 jobs)
+2026-04-20 20:23:32  INFO      models.embedding_engine              Cache is up-to-date. No re-encoding needed.
+2026-04-20 20:23:32  INFO      models.embedding_engine              Embeddings cached at C:\Users\DLLE\Downloads\freelancer_recommender_updated\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl
+2026-04-20 20:23:32  INFO      models.recommendation_engine         Indexing vectors in Qdrant …
+2026-04-20 20:23:32  INFO      models.vector_store                  Created collection 'jobs'
+2026-04-20 20:23:41  INFO      models.vector_store                  Indexed 10062 jobs into 'jobs'
+2026-04-20 20:23:41  INFO      models.vector_store                  Created collection 'freelancers'
+2026-04-20 20:23:42  INFO      models.vector_store                  Indexed 1355 freelancers into 'freelancers'
+2026-04-20 20:23:42  INFO      models.recommendation_engine         === Engine ready ===
+2026-04-20 20:23:42  INFO      api.server                           Engine ready.
+2026-04-20 20:31:28  INFO      models.embedding_engine              Freelancer embed: 1 texts with batch_size=32
+2026-04-20 20:32:08  INFO      models.embedding_engine              Job embed: 1 texts with batch_size=32
+2026-04-20 20:35:12  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
+2026-04-20 20:35:12  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2026-04-20 20:35:51  INFO      models.vector_store                  Qdrant running in-memory.
+2026-04-20 20:35:51  INFO      models.recommendation_engine         === Building RecommendationEngine ===
+2026-04-20 20:35:51  INFO      data.preprocessor                    Loading freelancers from C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\data\freelancers_master_cleaned.csv
+2026-04-20 20:35:51  INFO      data.preprocessor                    Loading jobs from C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\data\jobs_master_cleaned.csv
+2026-04-20 20:35:51  INFO      data.preprocessor                    Loaded 1355 freelancers and 10062 jobs after cleaning
+2026-04-20 20:35:51  INFO      models.embedding_engine              Loaded cache from C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl (1355 freelancers, 10062 jobs)
+2026-04-20 20:35:51  INFO      models.embedding_engine              Cache is up-to-date. No re-encoding needed.
+2026-04-20 20:35:51  INFO      models.embedding_engine              Embeddings cached at C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl
+2026-04-20 20:35:51  INFO      models.recommendation_engine         Indexing vectors in Qdrant …
+2026-04-20 20:35:51  INFO      models.vector_store                  Created collection 'jobs'
+2026-04-20 20:35:58  INFO      models.vector_store                  Indexed 10062 jobs into 'jobs'
+2026-04-20 20:35:58  INFO      models.vector_store                  Created collection 'freelancers'
+2026-04-20 20:35:59  INFO      models.vector_store                  Indexed 1355 freelancers into 'freelancers'
+2026-04-20 20:35:59  INFO      models.recommendation_engine         === Engine ready ===
+2026-04-20 20:35:59  INFO      api.server                           Starting up — building RecommendationEngine ...
+2026-04-20 20:35:59  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
+2026-04-20 20:35:59  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
