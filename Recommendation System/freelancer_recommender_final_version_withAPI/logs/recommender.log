@@ -91,3 +91,19 @@
 2026-04-20 20:35:59  INFO      api.server                           Starting up — building RecommendationEngine ...
 2026-04-20 20:35:59  INFO      models.embedding_engine              Loading embedding model BAAI/bge-base-en-v1.5 on cuda
 2026-04-20 20:35:59  INFO      sentence_transformers.SentenceTransformer  Load pretrained SentenceTransformer: BAAI/bge-base-en-v1.5
+2026-04-20 20:36:21  INFO      models.vector_store                  Qdrant running in-memory.
+2026-04-20 20:36:21  INFO      models.recommendation_engine         === Building RecommendationEngine ===
+2026-04-20 20:36:21  INFO      data.preprocessor                    Loading freelancers from C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\data\freelancers_master_cleaned.csv
+2026-04-20 20:36:21  INFO      data.preprocessor                    Loading jobs from C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\data\jobs_master_cleaned.csv
+2026-04-20 20:36:21  INFO      data.preprocessor                    Loaded 1355 freelancers and 10062 jobs after cleaning
+2026-04-20 20:36:21  INFO      models.embedding_engine              Loaded cache from C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl (1355 freelancers, 10062 jobs)
+2026-04-20 20:36:21  INFO      models.embedding_engine              Cache is up-to-date. No re-encoding needed.
+2026-04-20 20:36:21  INFO      models.embedding_engine              Embeddings cached at C:\Users\DLLE\AI-Models\Recommendation System\freelancer_recommender_final_version_withAPI\cache\embeddings.pkl
+2026-04-20 20:36:21  INFO      models.recommendation_engine         Indexing vectors in Qdrant …
+2026-04-20 20:36:21  INFO      models.vector_store                  Created collection 'jobs'
+2026-04-20 20:36:27  INFO      models.vector_store                  Indexed 10062 jobs into 'jobs'
+2026-04-20 20:36:28  INFO      models.vector_store                  Created collection 'freelancers'
+2026-04-20 20:36:28  INFO      models.vector_store                  Indexed 1355 freelancers into 'freelancers'
+2026-04-20 20:36:28  INFO      models.recommendation_engine         === Engine ready ===
+2026-04-20 20:36:28  INFO      api.server                           Engine ready.
+2026-04-20 20:37:00  INFO      api.server                           Shutting down.
