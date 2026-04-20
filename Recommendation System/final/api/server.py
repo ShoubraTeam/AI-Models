@@ -23,7 +23,7 @@ import math
 from contextlib import asynccontextmanager
 from typing import Any, Optional
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -159,79 +159,115 @@ class MatchResponse(BaseModel):
     payload: dict[str, Any]
 
 
+# ── Input schemas (data sent BY the backend) ─────────────────────────────────
+
+class FreelancerInput(BaseModel):
+    """
+    Raw freelancer data sent by the backend.
+    The API processes this, embeds it, and returns the full profile.
+    All fields are optional — missing fields get sensible defaults.
+    """
+    freelancer_id:    str           = Field(...,  description="Your internal freelancer ID")
+    job_title:        Optional[str] = Field(None, description="Freelancer's headline / job title")
+    skills:           Optional[str] = Field(None, description="Comma-separated skills or raw skill string")
+    description:      Optional[str] = Field(None, description="Freelancer bio / profile description")
+    hour_rate:        Optional[str] = Field(None, description="Hourly rate as string e.g. '$15' or '15'")
+    feedback_percent: Optional[str] = Field(None, description="Job success score e.g. '98%' or '0.98'")
+    fixed_jobs_done:  Optional[str] = Field(None, description="Completed jobs e.g. '12 fixed price jobs' or '12'")
+    location:         Optional[str] = Field(None, description="Country name e.g. 'Pakistan'")
+
+
+class JobInput(BaseModel):
+    """
+    Raw job data sent by the backend.
+    The API processes this, embeds it, and returns the full job profile.
+    All fields are optional — missing fields get sensible defaults.
+    """
+    job_id:                   Optional[Any] = Field(None, description="Your internal job ID")
+    job_title:                Optional[str] = Field(None, description="Job title")
+    job_description:          Optional[str] = Field(None, description="Full job description text")
+    tags:                     Optional[Any] = Field(None, description="Skills/tags — string or list")
+    client_country:           Optional[str] = Field(None, description="Client country name e.g. 'Germany'")
+    client_state:             Optional[str] = Field(None, description="Client state or city")
+    client_average_rating:    Optional[float] = Field(None, description="Client rating 0–5")
+    client_review_count:      Optional[int]   = Field(None, description="Number of client reviews")
+    min_price:                Optional[float] = Field(None, description="Minimum budget (USD)")
+    max_price:                Optional[float] = Field(None, description="Maximum budget (USD)")
+    avg_price:                Optional[float] = Field(None, description="Average budget (USD)")
+
+
+# ── Output schemas (returned TO the backend) ─────────────────────────────────
+
 class FreelancerScoringSignals(BaseModel):
     """
-    All freelancer-side signals needed to compute the hybrid score on the backend.
+    All freelancer-side signals the backend needs to compute hybrid scores.
 
     rate_compat  = exp(-0.5 * (ln(rate_usd / (job.budget_avg / weekly_hours)))^2 / 0.64)
     reputation   = 0.7 * feedback_score + 0.3 * min(jobs_done / 50, 1.0)
     geo_bonus    = scoring_config.geo_bonus  if  country_code == job.country_code
     hybrid       = w_semantic * cosine_sim + w_structured * (w_rate * rate_compat + w_rep * reputation) + geo_bonus
     """
-    rate_usd:         Optional[float] = Field(None,  description="Hourly rate in USD")
-    feedback_score:   float           = Field(...,   description="Feedback percentage normalised [0, 1]")
-    jobs_done:        int             = Field(...,   description="Completed fixed-price jobs count")
-    country_code:     str             = Field(...,   description="ISO-2 country code for geo bonus")
-    reputation_score: float           = Field(...,   description="Pre-computed: 0.7*feedback + 0.3*min(jobs_done/50,1)")
+    rate_usd:         Optional[float] = Field(None, description="Parsed hourly rate in USD")
+    feedback_score:   float           = Field(...,  description="Feedback percentage normalised [0, 1]")
+    jobs_done:        int             = Field(...,  description="Completed fixed-price jobs count")
+    country_code:     str             = Field(...,  description="ISO-2 country code for geo bonus")
+    reputation_score: float           = Field(...,  description="Pre-computed: 0.7*feedback + 0.3*min(jobs_done/50,1)")
 
 
 class FreelancerProfileResponse(BaseModel):
     """
-    Full freelancer profile — store once, use for self-managed ranking.
+    Full freelancer profile — returned after processing backend-supplied data.
 
     Backend workflow
     ----------------
-    1. Fetch + store this once per freelancer (refresh on profile update).
-    2. Fetch + store all jobs via GET /v1/job-embeddings.
-    3. At recommendation time:
+    1. POST freelancer data → receive + store this response.
+    2. POST each job → receive + store job responses.
+    3. At recommendation time (fully on backend):
        a. Filter jobs:  budget_label IN preferred_budget_range
                         AND client_country IN preferred_locations
        b. Rank filtered jobs:
-            similarity     = cosine_similarity(this.embedding, job.embedding)
-            rate_compat    = exp(-0.5 * ln(rate_usd / (job.budget_avg / weekly_hours))^2 / 0.64)
-            reputation     = scoring_signals.reputation_score
-            structured     = w_rate * rate_compat + w_rep * reputation
-            geo            = geo_bonus if scoring_signals.country_code == job.country_code else 0
-            hybrid_score   = w_sem * similarity + w_struct * structured + geo   (clip to 1.0)
-       c. Return top-N by hybrid_score.
+            similarity   = cosine_similarity(this.embedding, job.embedding)
+            rate_compat  = exp(-0.5 * ln(rate_usd / (job.budget_avg / weekly_hours))^2 / 0.64)
+            reputation   = scoring_signals.reputation_score
+            structured   = w_rate * rate_compat + w_rep * reputation
+            geo          = geo_bonus if scoring_signals.country_code == job.country_code else 0
+            hybrid_score = w_sem * similarity + w_struct * structured + geo  (clipped to 1.0)
+       c. Sort by hybrid_score DESC, return top-N.
     """
     freelancer_id:          str
-    embedding:              list[float]         = Field(..., description="Semantic vector for cosine similarity")
-    preferred_budget_range: tuple[str, str]     = Field(..., description="(min_label, max_label) — use as budget pre-filter")
-    preferred_locations:    list[str]           = Field(..., description="Preferred client countries — use as geo pre-filter")
+    embedding:              list[float]     = Field(..., description="Semantic vector for cosine similarity")
+    preferred_budget_range: tuple[str, str] = Field(..., description="(min_label, max_label) — budget pre-filter")
+    preferred_locations:    list[str]       = Field(..., description="Preferred client countries — geo pre-filter")
     scoring_signals:        FreelancerScoringSignals
-    scoring_config:         dict[str, Any]      = Field(..., description="Exact weights + formulas to replicate hybrid scoring")
+    scoring_config:         dict[str, Any]  = Field(..., description="Exact weights + formulas to replicate hybrid scoring")
 
 
 class JobEmbeddingResponse(BaseModel):
     """
-    Job embedding + all filter and scoring signals.
+    Job profile — returned after processing backend-supplied data.
 
-    Filter fields (narrow candidates before similarity):
+    Filter fields (apply BEFORE similarity to narrow candidates):
       budget_label    → compare against freelancer.preferred_budget_range
       client_country  → compare against freelancer.preferred_locations
 
-    Scoring fields (re-rank after similarity):
-      budget_avg      → implied_rate = budget_avg / weekly_hours  → rate_compat
+    Scoring fields (apply AFTER similarity to re-rank):
+      budget_avg      → implied_rate = budget_avg / weekly_hours → rate_compat
       country_code    → compare to freelancer.country_code for geo bonus
-      client_rating   → optional quality signal
-      review_count    → optional quality signal
     """
-    job_index:      int
-    job_id:         Optional[int]
+    job_id:         Optional[Any]
     job_title:      str
-    embedding:      list[float] = Field(..., description="Semantic vector for cosine similarity")
-    budget_min:     float       = Field(..., description="Min posted budget (USD)")
-    budget_max:     float       = Field(..., description="Max posted budget (USD)")
-    budget_avg:     float       = Field(..., description="Avg budget (USD) — used in rate_compat formula")
-    budget_label:   str         = Field(..., description="Budget tier: micro|small|medium|large|enterprise")
-    client_country: str         = Field(..., description="Client country name — filter against preferred_locations")
-    client_state:   str         = Field(..., description="Client state/city")
-    country_code:   str         = Field(..., description="ISO-2 code — compare to freelancer.country_code for geo bonus")
-    client_rating:  float       = Field(..., description="Client average rating (0–5)")
-    review_count:   int         = Field(..., description="Number of client reviews")
-    tags:           str         = Field(..., description="Cleaned skill tags")
-    scoring_config: dict[str, Any] = Field(..., description="Weights + formulas — identical for all jobs")
+    embedding:      list[float]    = Field(..., description="Semantic vector for cosine similarity")
+    budget_min:     float          = Field(..., description="Min posted budget (USD)")
+    budget_max:     float          = Field(..., description="Max posted budget (USD)")
+    budget_avg:     float          = Field(..., description="Avg budget (USD) — used in rate_compat formula")
+    budget_label:   str            = Field(..., description="Budget tier: micro|small|medium|large|enterprise")
+    client_country: str            = Field(..., description="Client country — filter against preferred_locations")
+    client_state:   str            = Field(..., description="Client state/city")
+    country_code:   str            = Field(..., description="ISO-2 code — compare to freelancer.country_code for geo bonus")
+    client_rating:  float          = Field(..., description="Client average rating (0–5)")
+    review_count:   int            = Field(..., description="Number of client reviews")
+    tags:           str            = Field(..., description="Cleaned skill tags")
+    scoring_config: dict[str, Any] = Field(..., description="Weights + formulas — same for all jobs")
 
 
 # ── Endpoints ─────────────────────────────────────────────────────────────────
@@ -303,167 +339,122 @@ async def recommend_freelancers(req: FreelancerRecommendRequest):
     ]
 
 
-# ── Freelancer profile (backend does ranking) ─────────────────────────────────
+# ── Freelancer profile — backend sends data, API processes + returns profile ──
 
-@app.get(f"/{API_VERSION}/freelancers/{{freelancer_id}}")
-async def get_freelancer(freelancer_id: str):
-    """Raw freelancer record lookup."""
-    _check_engine()
-    row = engine.df_freelancers[engine.df_freelancers["id"] == freelancer_id]
-    if row.empty:
-        raise HTTPException(status_code=404, detail=f"Freelancer '{freelancer_id}' not found.")
-    return row.iloc[0].to_dict()
-
-
-@app.get(
-    f"/{API_VERSION}/freelancers/{{freelancer_id}}/profile",
+@app.post(
+    f"/{API_VERSION}/freelancers/profile",
     response_model=FreelancerProfileResponse,
 )
-async def get_freelancer_profile(freelancer_id: str):
+async def embed_freelancer(req: FreelancerInput):
     """
-    Full freelancer profile for backend storage and self-managed ranking.
+    Process raw freelancer data sent by the backend and return a full profile.
 
-    Returns embedding + preferred_budget_range + preferred_locations
-    + all scoring signals + exact formulas.
-    Backend stores this and uses it to rank jobs without calling back.
+    The backend sends the freelancer's raw fields.
+    This endpoint:
+      1. Cleans and enriches the text (job_title + skills + bio)
+      2. Generates a semantic embedding via the ML model
+      3. Predicts preferred_budget_range from the hourly rate
+      4. Predicts preferred_locations from location + job demand data
+      5. Computes all scoring signals (rate_usd, feedback_score, etc.)
+      6. Returns everything the backend needs to store and rank later
+
+    No stored data is used — everything is computed from the input.
     """
     _check_engine()
-    try:
-        profile = engine.get_freelancer_profile(freelancer_id=freelancer_id)
-    except KeyError:
-        raise HTTPException(status_code=404, detail=f"Freelancer '{freelancer_id}' not found.")
-    except IndexError as exc:
-        raise HTTPException(status_code=500, detail=str(exc))
 
-    row = engine.df_freelancers[engine.df_freelancers["id"] == freelancer_id].iloc[0]
+    preprocessor = engine._preprocessor
+    embedder     = engine._embedder
 
-    feedback   = _safe_float(row.get("feedback_score"))
-    jobs_done  = _safe_int(row.get("jobs_done"))
+    # 1. Clean and build enriched text from backend-supplied data
+    row = preprocessor.process_freelancer_input(req.model_dump())
+
+    # 2. Embed the enriched text
+    emb = embedder.encode([row["enriched_text"]], desc="Freelancer embed")[0]
+
+    # 3. Predict budget range from parsed rate
+    from models.embedding_engine import _infer_budget_range, _infer_preferred_locations
+    budget_range = _infer_budget_range(
+        float(row["rate_usd"]) if row["rate_usd"] is not None else None
+    )
+
+    # 4. Predict preferred locations using job demand data
+    locations = _infer_preferred_locations(
+        row["location"], budget_range, engine.df_jobs, top_n=5
+    )
+
+    # 5. Compute scoring signals
+    feedback   = float(row["feedback_score"] or 0)
+    jobs_done  = int(row["jobs_done"] or 0)
     jobs_norm  = min(jobs_done / 50, 1.0)
     reputation = round(0.7 * feedback + 0.3 * jobs_norm, 4)
-
-    rate     = row.get("rate_usd")
-    rate_val = float(rate) if rate is not None and not _is_nan(rate) else None
+    rate_val   = float(row["rate_usd"]) if row["rate_usd"] is not None else None
 
     signals = FreelancerScoringSignals(
         rate_usd         = round(rate_val, 4) if rate_val is not None else None,
         feedback_score   = round(feedback, 4),
         jobs_done        = jobs_done,
-        country_code     = _safe_str(row.get("country_code")),
+        country_code     = str(row["country_code"] or ""),
         reputation_score = reputation,
     )
 
     return FreelancerProfileResponse(
-        freelancer_id          = profile.freelancer_id,
-        embedding              = [round(float(x), 6) for x in profile.embedding],
-        preferred_budget_range = profile.preferred_budget_range,
-        preferred_locations    = profile.preferred_locations,
+        freelancer_id          = req.freelancer_id,
+        embedding              = [round(float(x), 6) for x in emb],
+        preferred_budget_range = budget_range,
+        preferred_locations    = locations,
         scoring_signals        = signals,
         scoring_config         = SCORING_CONFIG,
     )
 
 
-# ── Job embeddings (backend does ranking) ─────────────────────────────────────
+# ── Job embedding — backend sends data, API processes + returns job profile ───
 
-@app.get(
-    f"/{API_VERSION}/job-embeddings",
-    response_model=list[JobEmbeddingResponse],
-)
-async def get_all_job_embeddings(
-    offset: int = Query(0,    ge=0,         description="Pagination start index"),
-    limit:  int = Query(1000, ge=1, le=5000, description="Max records per page"),
-):
-    """
-    All job embeddings + filter and scoring signals — paginated.
-
-    Call repeatedly to populate the backend job store:
-      GET /v1/job-embeddings?offset=0&limit=1000
-      GET /v1/job-embeddings?offset=1000&limit=1000
-      ... until response length < limit
-
-    Each record contains everything needed to filter and score
-    without further API calls at recommendation time.
-    """
-    _check_engine()
-
-    df    = engine.df_jobs
-    emb   = engine._j_emb
-    total = len(df)
-    end   = min(offset + limit, total)
-
-    if offset >= total:
-        return []
-
-    result = []
-    for i in range(offset, end):
-        row = df.iloc[i]
-        vec = emb[i]
-
-        budget_avg    = _safe_float(row.get("budget_avg"))
-        budget_min    = _safe_float(row.get("budget_min"))
-        budget_max    = _safe_float(row.get("budget_max"))
-        client_rating = _safe_float(row.get("client_rating"))
-        review_count  = _safe_int(row.get("review_count"))
-
-        result.append(JobEmbeddingResponse(
-            job_index      = i,
-            job_id         = _safe_int(row.get("projectId"), default=-1) if row.get("projectId") is not None else None,
-            job_title      = _safe_str(row.get("job_title")),
-            embedding      = [round(float(x), 6) for x in vec],
-            budget_min     = round(budget_min, 2),
-            budget_max     = round(budget_max, 2),
-            budget_avg     = round(budget_avg, 2),
-            budget_label   = _budget_label(budget_avg),
-            client_country = _safe_str(row.get("client_country")),
-            client_state   = _safe_str(row.get("client_state")),
-            country_code   = _safe_str(row.get("country_code")),
-            client_rating  = round(client_rating, 2),
-            review_count   = review_count,
-            tags           = _safe_str(row.get("tags_cleaned")),
-            scoring_config = SCORING_CONFIG,
-        ))
-
-    return result
-
-
-@app.get(
-    f"/{API_VERSION}/job-embeddings/{{job_index}}",
+@app.post(
+    f"/{API_VERSION}/jobs/embed",
     response_model=JobEmbeddingResponse,
 )
-async def get_job_embedding(job_index: int):
+async def embed_job(req: JobInput):
     """
-    Single job embedding + filter and scoring signals by index.
-    Use to refresh one job in the backend store without re-fetching everything.
+    Process raw job data sent by the backend and return a full job profile.
+
+    The backend sends the job's raw fields.
+    This endpoint:
+      1. Cleans tags, parses budget fields, resolves country code
+      2. Builds enriched text (title + tags + reputation tier + description)
+      3. Generates a semantic embedding via the ML model
+      4. Returns everything needed to filter and score against freelancers
+
+    No stored data is used — everything is computed from the input.
     """
     _check_engine()
 
-    if job_index < 0 or job_index >= len(engine.df_jobs):
-        raise HTTPException(status_code=404, detail=f"Job index {job_index} out of range.")
+    preprocessor = engine._preprocessor
+    embedder     = engine._embedder
 
-    row = engine.df_jobs.iloc[job_index]
-    vec = engine._j_emb[job_index]
+    # 1. Clean and build enriched text from backend-supplied data
+    row = preprocessor.process_job_input(req.model_dump())
 
-    budget_avg    = _safe_float(row.get("budget_avg"))
-    budget_min    = _safe_float(row.get("budget_min"))
-    budget_max    = _safe_float(row.get("budget_max"))
-    client_rating = _safe_float(row.get("client_rating"))
-    review_count  = _safe_int(row.get("review_count"))
+    # 2. Embed
+    emb = embedder.encode([row["enriched_text"]], desc="Job embed")[0]
+
+    budget_avg = float(row["budget_avg"] or 0)
+    budget_min = float(row["budget_min"] or 0)
+    budget_max = float(row["budget_max"] or 0)
 
     return JobEmbeddingResponse(
-        job_index      = job_index,
-        job_id         = _safe_int(row.get("projectId"), default=-1) if row.get("projectId") is not None else None,
-        job_title      = _safe_str(row.get("job_title")),
-        embedding      = [round(float(x), 6) for x in vec],
+        job_id         = req.job_id,
+        job_title      = str(row["job_title"] or ""),
+        embedding      = [round(float(x), 6) for x in emb],
         budget_min     = round(budget_min, 2),
         budget_max     = round(budget_max, 2),
         budget_avg     = round(budget_avg, 2),
         budget_label   = _budget_label(budget_avg),
-        client_country = _safe_str(row.get("client_country")),
-        client_state   = _safe_str(row.get("client_state")),
-        country_code   = _safe_str(row.get("country_code")),
-        client_rating  = round(client_rating, 2),
-        review_count   = review_count,
-        tags           = _safe_str(row.get("tags_cleaned")),
+        client_country = str(row["client_country"] or ""),
+        client_state   = str(row["client_state"]   or ""),
+        country_code   = str(row["country_code"]   or ""),
+        client_rating  = round(float(row["client_rating"] or 0), 2),
+        review_count   = int(row["review_count"] or 0),
+        tags           = str(row["tags_cleaned"] or ""),
         scoring_config = SCORING_CONFIG,
     )
 

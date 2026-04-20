@@ -38,6 +38,96 @@ class DataPreprocessor:
 
     # ── Public API ────────────────────────────────────────────────────────────
 
+    def process_freelancer_input(self, data: dict) -> pd.Series:
+        """
+        Process a raw freelancer dict sent by the backend into a clean Series
+        ready for embedding and scoring — no CSV needed.
+
+        Expected input fields (all optional, missing = sensible default):
+            job_title, skills, description, hour_rate, feedback_percent,
+            fixed_jobs_done, location
+        """
+        skills_raw = data.get("skills") or data.get("skills_cleaned") or ""
+        skills_cleaned = self._clean_skill_list(skills_raw)
+
+        rate_usd      = self._parse_usd(data.get("hour_rate"))
+        feedback_score = self._parse_percent(data.get("feedback_percent"))
+        jobs_done     = self._parse_jobs_done(data.get("fixed_jobs_done"))
+        location      = str(data.get("location") or "").strip()
+        country_code  = self.COUNTRY_CODES.get(location, "")
+
+        row = pd.Series({
+            "job_title":      str(data.get("job_title") or ""),
+            "skills_cleaned": skills_cleaned,
+            "description":    str(data.get("description") or ""),
+            "rate_usd":       rate_usd,
+            "feedback_score": feedback_score,
+            "jobs_done":      jobs_done,
+            "location":       location,
+            "country_code":   country_code,
+        })
+        row["enriched_text"] = self._build_freelancer_text(row)
+        return row
+
+    def process_job_input(self, data: dict) -> pd.Series:
+        """
+        Process a raw job dict sent by the backend into a clean Series
+        ready for embedding and scoring — no CSV needed.
+
+        Expected input fields (all optional, missing = sensible default):
+            job_title, job_description, tags, client_country, client_state,
+            client_average_rating, client_review_count,
+            min_price, max_price, avg_price
+        """
+        import math as _math
+
+        def _to_float(v):
+            try:
+                f = float(v)
+                return 0.0 if _math.isnan(f) else f
+            except (TypeError, ValueError):
+                return 0.0
+
+        def _to_int(v):
+            try:
+                f = float(v)
+                return 0 if _math.isnan(f) else int(f)
+            except (TypeError, ValueError):
+                return 0
+
+        tags_raw = data.get("tags") or data.get("tags_cleaned") or ""
+        if isinstance(tags_raw, list):
+            tags_cleaned = ", ".join(str(t).strip() for t in tags_raw if str(t).strip())
+        else:
+            tags_cleaned = self._clean_skill_list(tags_raw)
+
+        client_country = str(data.get("client_country") or "").strip()
+        country_code   = self.COUNTRY_CODES.get(client_country, "")
+
+        budget_min = _to_float(data.get("min_price"))
+        budget_max = _to_float(data.get("max_price"))
+        budget_avg = _to_float(data.get("avg_price")) or (
+            (budget_min + budget_max) / 2 if budget_min or budget_max else 0.0
+        )
+
+        row = pd.Series({
+            "job_title":             str(data.get("job_title") or ""),
+            "job_description":       str(data.get("job_description") or ""),
+            "tags_cleaned":          tags_cleaned,
+            "client_country":        client_country,
+            "client_state":          str(data.get("client_state") or ""),
+            "client_average_rating": _to_float(data.get("client_average_rating")),
+            "client_review_count":   _to_int(data.get("client_review_count")),
+            "client_rating":         _to_float(data.get("client_average_rating")),
+            "review_count":          _to_int(data.get("client_review_count")),
+            "budget_min":            budget_min,
+            "budget_max":            budget_max,
+            "budget_avg":            budget_avg,
+            "country_code":          country_code,
+        })
+        row["enriched_text"] = self._build_job_text(row)
+        return row
+
     def load_and_clean(self) -> tuple[pd.DataFrame, pd.DataFrame]:
         """Return (df_freelancers, df_jobs) after full cleaning pipeline."""
         logger.info("Loading freelancers from %s", self.freelancers_path)
