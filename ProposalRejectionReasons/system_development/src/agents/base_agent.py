@@ -25,7 +25,7 @@ class BaseAgent:
         invoke    : Quering the agent
         evaluate  : Evaluate the agent [the model, system_prompt, tools specifications, etc...] using the eval_data
     """
-    def __init__(self, model_name: str, system_prompt: str, tools: list, response_format, model_provider: str = None, **kwargs):
+    def __init__(self, model_name: str, system_prompt: str, response_format, tools: list = [], model_provider: str = None, **kwargs):
         # CFG
         self.model_name = model_name
         self.system_prompt = system_prompt
@@ -48,6 +48,8 @@ class BaseAgent:
     def init_agent(self):
         self.init_model()
 
+
+
         self.agent = create_agent(
             model = self.model,
             tools = self.tools,
@@ -66,11 +68,9 @@ class BaseAgent:
             response (str): the model response
         """
         messages = {
-            "messages" : {
-                [
+            "messages" : [
                     {"role" : "user", "content" : query}
-                ]
-            }
+            ]
         }
 
         if stream:
