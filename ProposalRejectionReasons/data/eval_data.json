@@ -1,0 +1,1282 @@
+[
+  {
+    "job_desc": "I need a WordPress developer to convert 5 basic design templates into a working corporate website.\n\nScope:\n- Build 5 page templates in WordPress (e.g. Home, About, Services, Contact, etc.)\n- Use a clean, lightweight theme or builder (no heavy setups)\n- Ensure responsive design (mobile + desktop)\n- Basic styling to match provided designs\n- No complex functionality required\n\nRequirements:\n- Experience with WordPress theme/template development\n- Ability to follow simple designs accurately\n- Keep code clean and simple\n- Structure should be ready to support Arabic (RTL) in a later phase\n\nTimeline:\nLooking to complete within a few days",
+    "job_requirements": [
+      "Convert 5 basic design templates into a working corporate WordPress website",
+      "Build 5 page templates such as Home About Services Contact and similar pages",
+      "Use a clean lightweight WordPress theme or builder",
+      "Avoid heavy setups and unnecessary complex functionality",
+      "Ensure responsive design for mobile and desktop",
+      "Apply basic styling to match the provided designs accurately",
+      "Keep code clean simple and maintainable",
+      "Prepare the structure to support Arabic RTL in a later phase",
+      "Complete the work within a few days",
+      "Have experience with WordPress theme or template development"
+    ],
+    "job_tools": [
+      "WordPress",
+      "WordPress theme development",
+      "WordPress template development",
+      "Lightweight WordPress theme or builder",
+      "RTL-ready structure"
+    ],
+    "accepted_proposal": {
+      "proposal": "Hello, I can convert your 5 provided design templates into a clean responsive corporate WordPress website within a few days. I will create the required page templates such as Home, About, Services, Contact, and the fifth page based on your design files.\n\nI will keep the setup lightweight, either using a clean theme structure or a simple builder only if it helps match the designs without adding unnecessary bloat. I will avoid heavy plugins and complex functionality since your scope is mainly template conversion and basic styling.\n\nThe pages will be built to work properly on desktop and mobile, with styling matched closely to the provided designs. I will also keep the code and structure clean so the site can later support Arabic RTL without needing a major rebuild.\n\nI have experience building WordPress corporate websites, custom page templates, responsive layouts, and simple theme-based implementations. I can deliver the first version quickly and then adjust any spacing, typography, or responsive details based on your review.",
+      "overall_score": 0.94,
+      "details": "Strong match. The proposal addresses WordPress template conversion, 5 pages, lightweight setup, responsive design, matching designs, clean code, future RTL readiness, and short timeline. It also provides relevant WordPress experience.",
+      "job_understanding_evaluation": {
+        "score": 0.95,
+        "details": "The freelancer clearly understands that the job is a simple corporate WordPress template conversion project, not a complex custom application. The approach is lightweight and suitable for the client’s scope."
+      },
+      "requirement_coverage_evaluation": {
+        "score": 0.94,
+        "details": "Almost all client requirements are directly covered with good specificity.",
+        "requirements": [
+          "Convert 5 designs into WordPress",
+          "Build Home About Services Contact and fifth page",
+          "Use lightweight theme or simple builder",
+          "Avoid heavy plugins",
+          "Ensure desktop and mobile responsiveness",
+          "Match provided designs",
+          "Keep code and structure clean",
+          "Prepare for future Arabic RTL support",
+          "Complete within a few days"
+        ]
+      },
+      "tool_alignment_evaluation": {
+        "score": 0.92,
+        "details": "The proposal mentions WordPress, theme structure, simple builder, plugins, page templates, and RTL-ready structure.",
+        "tools": [
+          "WordPress",
+          "WordPress theme structure",
+          "Simple builder",
+          "WordPress page templates",
+          "RTL-ready structure"
+        ]
+      },
+      "language_clarity_evaluation": {
+        "score": 0.95,
+        "details": "Clear, professional, specific, and easy to understand."
+      },
+      "evidence_of_experience_evaluation": {
+        "exist": true,
+        "details": "Mentions experience with WordPress corporate websites, custom page templates, responsive layouts, and theme-based implementations."
+      }
+    },
+    "proposals": [
+      {
+        "proposal": "Hello sir, I am expert website developer and I can make your website perfectly. I have many years of experience and can start now. I will give you the best quality and unlimited revisions.",
+        "overall_score": 0.18,
+        "details": "Very generic. It does not mention WordPress, 5 templates, lightweight setup, responsive design, RTL support, or timeline.",
+        "job_understanding_evaluation": {
+          "score": 0.15,
+          "details": "The freelancer only understands that a website is needed, but does not demonstrate understanding of the actual WordPress template conversion task."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.05,
+          "details": "Nearly all specific requirements are missing.",
+          "requirements": [
+            "Build a website"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.0,
+          "details": "No required tools are mentioned.",
+          "tools": []
+        },
+        "language_clarity_evaluation": {
+          "score": 0.58,
+          "details": "Readable but generic and unconvincing."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Only vague claim of many years of experience without relevant proof."
+        }
+      },
+      {
+        "proposal": "Hi, I can build your corporate site using React and Node.js with a custom backend, login system, dashboard, and database. I will create a scalable application with modern animations and API support.",
+        "overall_score": 0.21,
+        "details": "Wrong technical direction. The client asked for a simple WordPress website and no complex functionality.",
+        "job_understanding_evaluation": {
+          "score": 0.1,
+          "details": "The freelancer misunderstands the job by proposing a full-stack custom application."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.12,
+          "details": "Only the broad idea of building a website is covered.",
+          "requirements": [
+            "Build a corporate website"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.0,
+          "details": "Mentions irrelevant technologies instead of WordPress.",
+          "tools": [
+            "React",
+            "Node.js",
+            "Database",
+            "API"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.82,
+          "details": "Clear language, but technically misaligned."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "I can build your WordPress website using Elementor, Slider Revolution, WooCommerce, booking plugins, membership plugins, and several premium add-ons. I will make it dynamic and feature rich.",
+        "overall_score": 0.36,
+        "details": "Mentions WordPress but conflicts with the lightweight and no-complex-functionality requirement. It suggests too many unnecessary tools.",
+        "job_understanding_evaluation": {
+          "score": 0.35,
+          "details": "The freelancer understands WordPress is needed but misses the simplicity and lightweight nature of the task."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.32,
+          "details": "Some WordPress implementation is implied but several important constraints are ignored.",
+          "requirements": [
+            "Build WordPress website",
+            "Use page builder"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.5,
+          "details": "WordPress and builder tools are mentioned but many are unnecessary or heavy.",
+          "tools": [
+            "WordPress",
+            "Elementor",
+            "Slider Revolution",
+            "WooCommerce",
+            "Booking plugins",
+            "Membership plugins"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.78,
+          "details": "Clear but overloaded with irrelevant features."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hi, I can convert your 5 designs into WordPress pages. I will use a simple theme, make the pages responsive on mobile and desktop, and follow the designs closely.",
+        "overall_score": 0.75,
+        "details": "Good but incomplete. It covers the core task, WordPress, 5 pages, simple theme, responsiveness, and design matching. It misses RTL readiness, clean code details, timeline, and experience evidence.",
+        "job_understanding_evaluation": {
+          "score": 0.82,
+          "details": "The freelancer understands the basic task well."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.72,
+          "details": "Most core requirements are covered, but important secondary requirements are missing.",
+          "requirements": [
+            "Convert 5 designs into WordPress pages",
+            "Use simple theme",
+            "Responsive mobile and desktop",
+            "Follow designs closely"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.72,
+          "details": "Mentions WordPress and a simple theme but not template development or RTL-ready structure.",
+          "tools": [
+            "WordPress",
+            "Simple theme"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.9,
+          "details": "Clear and concise."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hello dear I make wordpress site good and fast. Your design I can copy same. Mobile also ok desktop also ok. I know theme and page. Please award me I start now.",
+        "overall_score": 0.43,
+        "details": "Partially relevant but weak language and shallow coverage. It mentions WordPress, design matching, mobile, desktop, and theme but misses many important details.",
+        "job_understanding_evaluation": {
+          "score": 0.45,
+          "details": "Shows partial understanding of WordPress and responsive page creation."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.38,
+          "details": "Covers only broad requirements with little detail.",
+          "requirements": [
+            "Build WordPress site",
+            "Match design",
+            "Support mobile and desktop",
+            "Use theme"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.45,
+          "details": "Mentions WordPress and theme only.",
+          "tools": [
+            "WordPress",
+            "Theme"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.35,
+          "details": "The language has weak grammar and poor professional presentation."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      }
+    ]
+  },
+  {
+    "job_desc": "We are seeking a skilled web developer to create a mobile-friendly website that provides an optimal user experience across devices. The ideal candidate will have experience with responsive design, HTML, CSS, and JavaScript, ensuring the site is visually appealing and functional on smartphones and tablets. You will collaborate with our design team to implement the latest web technologies and best practices. If you are passionate about creating user-centric websites and have a strong portfolio to showcase your work, we would love to hear from you.",
+    "job_requirements": [
+      "Create a mobile-friendly website",
+      "Provide optimal user experience across devices",
+      "Implement responsive design",
+      "Use HTML CSS and JavaScript",
+      "Ensure the site is visually appealing",
+      "Ensure functionality on smartphones and tablets",
+      "Collaborate with the design team",
+      "Apply latest web technologies and best practices",
+      "Have a strong portfolio of user-centric websites"
+    ],
+    "job_tools": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Responsive design"
+    ],
+    "accepted_proposal": {
+      "proposal": "Hello, I can help build a mobile-friendly website that delivers a smooth user experience across smartphones, tablets, and desktop screens. I will implement the design using clean HTML, CSS, and JavaScript, with responsive layouts, flexible sections, optimized spacing, and device-specific testing.\n\nI can work closely with your design team to translate their layouts into accurate, functional pages while following modern front-end best practices such as semantic HTML, reusable CSS structure, responsive breakpoints, accessibility basics, and performance-conscious JavaScript.\n\nI have built responsive websites for business and product pages before, focusing on clean UI, mobile usability, fast loading, and consistent behavior across screen sizes. I can share relevant portfolio examples and adjust the implementation based on design feedback.",
+      "overall_score": 0.93,
+      "details": "Strong match. The proposal directly addresses mobile-friendly development, responsive design, HTML, CSS, JavaScript, collaboration with design team, best practices, user experience, and portfolio evidence.",
+      "job_understanding_evaluation": {
+        "score": 0.94,
+        "details": "The freelancer understands that the goal is a user-centric responsive website across multiple devices, not just a desktop page."
+      },
+      "requirement_coverage_evaluation": {
+        "score": 0.92,
+        "details": "Most requirements are covered in a direct and relevant way.",
+        "requirements": [
+          "Mobile-friendly website",
+          "Responsive design",
+          "Good UX across devices",
+          "HTML CSS JavaScript implementation",
+          "Visually appealing layout",
+          "Smartphone and tablet support",
+          "Collaboration with design team",
+          "Modern best practices",
+          "Portfolio examples"
+        ]
+      },
+      "tool_alignment_evaluation": {
+        "score": 0.95,
+        "details": "All mentioned technologies are covered clearly.",
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive breakpoints",
+          "Semantic HTML"
+        ]
+      },
+      "language_clarity_evaluation": {
+        "score": 0.95,
+        "details": "Professional, clear, and specific."
+      },
+      "evidence_of_experience_evaluation": {
+        "exist": true,
+        "details": "Mentions previous responsive websites for business and product pages and offers portfolio examples."
+      }
+    },
+    "proposals": [
+      {
+        "proposal": "Hello, I can make your website. I am very experienced and can create a beautiful website for you. I always deliver quality work and can start immediately.",
+        "overall_score": 0.2,
+        "details": "Generic proposal. It does not mention responsive design, mobile devices, HTML, CSS, JavaScript, design collaboration, or portfolio.",
+        "job_understanding_evaluation": {
+          "score": 0.18,
+          "details": "The freelancer only understands that a website is needed."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.08,
+          "details": "Almost no specific requirements are covered.",
+          "requirements": [
+            "Create a website"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.0,
+          "details": "No required technologies are mentioned.",
+          "tools": []
+        },
+        "language_clarity_evaluation": {
+          "score": 0.7,
+          "details": "Readable but generic."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Vague claim of being experienced without portfolio or relevant examples."
+        }
+      },
+      {
+        "proposal": "I can build this using WordPress with many plugins and a premium theme. I will install a template and customize colors and text. This will be fast and easy.",
+        "overall_score": 0.37,
+        "details": "Some website-building relevance but misses the requested front-end technologies and responsive implementation details. WordPress was not requested.",
+        "job_understanding_evaluation": {
+          "score": 0.35,
+          "details": "The freelancer understands a website is needed but assumes a CMS/template approach rather than custom responsive front-end work."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.25,
+          "details": "Covers only the broad website creation need.",
+          "requirements": [
+            "Create website",
+            "Customize visual design"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.15,
+          "details": "Does not mention HTML CSS or JavaScript directly.",
+          "tools": [
+            "WordPress",
+            "Plugins",
+            "Premium theme"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.78,
+          "details": "Clear but not well aligned."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hi, I can create a responsive website using HTML, CSS, and JavaScript. I will make it work on mobile and desktop and follow your design team's layouts.",
+        "overall_score": 0.78,
+        "details": "Good proposal but somewhat brief. It covers responsive design, HTML, CSS, JavaScript, mobile/desktop support, and collaboration with the design team. It lacks portfolio evidence, best practices, UX details, and tablet-specific mention.",
+        "job_understanding_evaluation": {
+          "score": 0.82,
+          "details": "The freelancer understands the main technical need."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.74,
+          "details": "Several important requirements are covered, but not deeply.",
+          "requirements": [
+            "Responsive website",
+            "HTML CSS JavaScript",
+            "Mobile and desktop support",
+            "Follow design team layouts"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.95,
+          "details": "The requested tools are directly mentioned.",
+          "tools": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.88,
+          "details": "Clear and concise."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "I specialize in UI/UX design and can create beautiful mobile mockups in Figma. I will design the screens for smartphones and tablets and provide the design files to your developers.",
+        "overall_score": 0.3,
+        "details": "The proposal focuses on design only, while the client needs a web developer to implement the website.",
+        "job_understanding_evaluation": {
+          "score": 0.25,
+          "details": "The freelancer misunderstands the role as a designer rather than a developer."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.22,
+          "details": "Only mobile visual design is partially covered.",
+          "requirements": [
+            "Mobile-friendly design",
+            "Smartphone and tablet layouts"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.0,
+          "details": "Required development tools are missing.",
+          "tools": [
+            "Figma"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.88,
+          "details": "Clear and professional but misaligned."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Mentions UI/UX design specialization, but not web development implementation experience."
+        }
+      },
+      {
+        "proposal": "Hello dear I can make responsive site with html css js. It will be mobile good and tablet good. I do fast and nice work. You give design and I make page same.",
+        "overall_score": 0.55,
+        "details": "Partially relevant. It mentions HTML, CSS, JS, responsiveness, mobile/tablet support, and following design. However, language is weak and the proposal lacks best practices, UX depth, portfolio, and collaboration details.",
+        "job_understanding_evaluation": {
+          "score": 0.62,
+          "details": "The freelancer broadly understands responsive front-end implementation."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.55,
+          "details": "Covers several core points but in a shallow way.",
+          "requirements": [
+            "Responsive site",
+            "HTML CSS JS",
+            "Mobile support",
+            "Tablet support",
+            "Follow design"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.9,
+          "details": "Mentions the requested front-end tools.",
+          "tools": [
+            "HTML",
+            "CSS",
+            "JavaScript"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.38,
+          "details": "Understandable but grammatically weak and not polished."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      }
+    ]
+  },
+  {
+    "job_desc": "We’re looking for an experienced WordPress developer who specializes in Elementor to help improve and maintain our website. This is an ongoing role for the right person.\n\nWhat we need:\nImprove website loading speed and performance\nClean up and optimize the site (fix layout issues, remove unused elements, improve structure)\nReplace current copy-paste headers/footers with a global Elementor header and footer\nAdd and format new pages/content using Elementor\nEnsure mobile responsiveness and consistent design across pages\n\nRequirements:\nStrong experience with WordPress + Elementor (this is required)\nExperience improving site speed (Core Web Vitals, caching, image optimization, etc.)\nAbility to clean up messy or inconsistent page builds\nGood design sense and attention to detail\nReliable communication\n\nNice to have:\nFamiliarity with Elementor Theme Builder\nBasic SEO knowledge\nAbility to suggest improvements (UX, layout, performance)\n\nBudget:\n$5–$10/hour\nPrefer developers based in India or the Philippines\n\nTo apply:\nPlease include:\nExamples of Elementor sites you’ve worked on\nWhat specific steps you take to improve WordPress site speed\nYour availability (hours per week)\n\nWe are looking for someone long-term if it’s a good fit.",
+    "job_requirements": [
+      "Improve and maintain an existing WordPress website",
+      "Specialize in Elementor",
+      "Improve loading speed and performance",
+      "Work on Core Web Vitals caching and image optimization",
+      "Clean up layout issues unused elements and messy page structure",
+      "Replace copy-paste headers and footers with global Elementor header and footer",
+      "Add and format new pages or content using Elementor",
+      "Ensure mobile responsiveness",
+      "Maintain consistent design across pages",
+      "Have good design sense and attention to detail",
+      "Communicate reliably",
+      "Prefer familiarity with Elementor Theme Builder",
+      "Prefer basic SEO knowledge",
+      "Suggest UX layout and performance improvements",
+      "Provide Elementor site examples",
+      "Explain specific speed improvement steps",
+      "Mention weekly availability",
+      "Fit a long-term hourly role"
+    ],
+    "job_tools": [
+      "WordPress",
+      "Elementor",
+      "Elementor Theme Builder",
+      "Core Web Vitals",
+      "Caching",
+      "Image optimization",
+      "SEO"
+    ],
+    "accepted_proposal": {
+      "proposal": "Hello, I specialize in WordPress and Elementor maintenance, and your project fits my experience well. I can help clean up the current site, improve page structure, fix layout inconsistencies, replace duplicated headers and footers with a proper global Elementor header/footer, and add or format new pages using Elementor.\n\nFor speed improvement, I usually start with an audit using PageSpeed Insights or GTmetrix, then optimize images, remove unused sections/widgets, reduce plugin bloat, configure caching, improve asset loading, check fonts/scripts, and review Core Web Vitals issues such as LCP, CLS, and INP. I will keep the design consistent across pages and make sure the layouts work properly on mobile.\n\nI have worked on Elementor business sites where I cleaned messy page builds, rebuilt global templates using Elementor Theme Builder, improved mobile layouts, and optimized performance. I can share examples of Elementor sites I have worked on. I am available around 20 hours per week and I am interested in a long-term role if the collaboration works well.",
+      "overall_score": 0.95,
+      "details": "Excellent match. The proposal directly addresses Elementor, WordPress maintenance, speed optimization, Core Web Vitals, cleanup, global headers/footers, mobile responsiveness, design consistency, Theme Builder, examples, availability, and long-term fit.",
+      "job_understanding_evaluation": {
+        "score": 0.96,
+        "details": "The freelancer clearly understands that this is an ongoing Elementor maintenance and optimization role, not a one-time generic WordPress build."
+      },
+      "requirement_coverage_evaluation": {
+        "score": 0.95,
+        "details": "Nearly all required and nice-to-have points are covered.",
+        "requirements": [
+          "Improve WordPress Elementor site",
+          "Improve speed and performance",
+          "Audit with PageSpeed Insights or GTmetrix",
+          "Optimize images",
+          "Remove unused widgets and sections",
+          "Reduce plugin bloat",
+          "Configure caching",
+          "Review Core Web Vitals",
+          "Clean messy page builds",
+          "Create global Elementor header and footer",
+          "Add and format new pages",
+          "Ensure mobile responsiveness",
+          "Keep design consistent",
+          "Use Elementor Theme Builder",
+          "Share Elementor examples",
+          "Provide weekly availability",
+          "Open to long-term work"
+        ]
+      },
+      "tool_alignment_evaluation": {
+        "score": 0.96,
+        "details": "Strong alignment with WordPress, Elementor, Elementor Theme Builder, caching, image optimization, Core Web Vitals, PageSpeed Insights, and GTmetrix.",
+        "tools": [
+          "WordPress",
+          "Elementor",
+          "Elementor Theme Builder",
+          "PageSpeed Insights",
+          "GTmetrix",
+          "Caching",
+          "Image optimization",
+          "Core Web Vitals"
+        ]
+      },
+      "language_clarity_evaluation": {
+        "score": 0.94,
+        "details": "Clear, structured, and directly responsive to the application instructions."
+      },
+      "evidence_of_experience_evaluation": {
+        "exist": true,
+        "details": "Mentions previous Elementor business sites, messy page cleanup, global templates, mobile layout improvements, and performance optimization."
+      }
+    },
+    "proposals": [
+      {
+        "proposal": "Hi, I can make WordPress websites and install themes and plugins. I can complete your website quickly and provide good quality work. Please send me the details.",
+        "overall_score": 0.22,
+        "details": "Generic WordPress proposal. It does not address Elementor specialization, speed optimization, cleanup, global headers/footers, mobile consistency, examples, or availability.",
+        "job_understanding_evaluation": {
+          "score": 0.18,
+          "details": "The freelancer treats the project as a generic WordPress website build."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.08,
+          "details": "Very few requirements are covered.",
+          "requirements": [
+            "WordPress website work"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.22,
+          "details": "Mentions WordPress but not Elementor or optimization tools.",
+          "tools": [
+            "WordPress",
+            "Themes",
+            "Plugins"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.7,
+          "details": "Clear but too generic."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "I am a React developer and can rebuild your website with Next.js for better performance. I recommend moving away from WordPress and Elementor because custom code is better. I can build a modern frontend from scratch.",
+        "overall_score": 0.24,
+        "details": "Misaligned. The client specifically requires WordPress and Elementor for ongoing maintenance, not a rebuild in React.",
+        "job_understanding_evaluation": {
+          "score": 0.12,
+          "details": "The freelancer ignores the required Elementor maintenance scope."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.12,
+          "details": "Only performance improvement is indirectly addressed.",
+          "requirements": [
+            "Improve performance"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.0,
+          "details": "Mentions the wrong tools and rejects the required stack.",
+          "tools": [
+            "React",
+            "Next.js"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.86,
+          "details": "Clear but unsuitable."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Mentions React development experience, but not relevant Elementor experience."
+        }
+      },
+      {
+        "proposal": "Hello, I can work on your Elementor website. I can add new pages, fix mobile issues, and make the design more consistent. I have used Elementor for several websites and can start this week.",
+        "overall_score": 0.68,
+        "details": "Relevant but incomplete. It covers Elementor, new pages, mobile issues, and design consistency, but misses speed optimization details, global header/footer, Core Web Vitals, availability hours, and examples.",
+        "job_understanding_evaluation": {
+          "score": 0.72,
+          "details": "The freelancer understands the Elementor maintenance aspect but not the full optimization scope."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.58,
+          "details": "Several important requirements are missing.",
+          "requirements": [
+            "Work on Elementor website",
+            "Add new pages",
+            "Fix mobile issues",
+            "Improve design consistency",
+            "Start this week"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.68,
+          "details": "Mentions Elementor but not performance tools, Theme Builder, caching, or Core Web Vitals.",
+          "tools": [
+            "Elementor"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.86,
+          "details": "Clear and professional."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Mentions using Elementor on several websites, but without examples."
+        }
+      },
+      {
+        "proposal": "Dear client, I will improve your website speed by installing a caching plugin and compressing images. I can also check PageSpeed score. I do not work much with Elementor but I can try to edit the pages if needed.",
+        "overall_score": 0.46,
+        "details": "Good speed focus but weak Elementor fit. Since Elementor is required, the lack of strong Elementor experience is a major issue.",
+        "job_understanding_evaluation": {
+          "score": 0.52,
+          "details": "The freelancer understands the speed optimization part but not the Elementor specialization requirement."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.42,
+          "details": "Covers performance partially but misses cleanup, global templates, design consistency, and reliable Elementor workflow.",
+          "requirements": [
+            "Improve speed",
+            "Install caching plugin",
+            "Compress images",
+            "Check PageSpeed score"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.45,
+          "details": "Mentions speed tools but admits weak Elementor experience.",
+          "tools": [
+            "Caching plugin",
+            "Image compression",
+            "PageSpeed",
+            "Elementor"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.8,
+          "details": "Clear and honest."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hello dear I know wordpress elementor very good. I can fix all issue and speed and mobile and header footer. I work fast and long time. I am available many hours. Please give me chance.",
+        "overall_score": 0.54,
+        "details": "Some relevant keywords are present, including WordPress, Elementor, speed, mobile, header/footer, and availability. However, it lacks details, examples, specific speed steps, and has weak language.",
+        "job_understanding_evaluation": {
+          "score": 0.58,
+          "details": "The freelancer has a broad understanding but does not explain a reliable approach."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.52,
+          "details": "Mentions multiple required areas but without detail.",
+          "requirements": [
+            "WordPress Elementor work",
+            "Fix issues",
+            "Improve speed",
+            "Mobile responsiveness",
+            "Header and footer",
+            "Long-term availability"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.62,
+          "details": "Mentions WordPress and Elementor but no Theme Builder or speed optimization methods.",
+          "tools": [
+            "WordPress",
+            "Elementor"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.38,
+          "details": "Understandable but grammatically weak and not professional."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      }
+    ]
+  },
+  {
+    "job_desc": "We are looking for an experienced full-stack developer (or small team) to build an MVP version of an SEO Management SaaS platform. The goal is to create a scalable and clean system that helps manage SEO campaigns, track keywords, and generate reports.\n\nTech Stack (Preferred):\nFrontend: React.js (Next.js is a plus)\nBackend: Node.js (Express.js or NestJS)\nDatabase: MongoDB or PostgreSQL\n\nCore Features (MVP Scope):\nUser Authentication (Login/Signup)\nDashboard (overview of SEO metrics)\nKeyword Tracking System\nWebsite/Project Management (multiple sites per user)\nBasic On-Page SEO Audit (meta tags, headings, etc.)\nBacklink Tracking Module (manual or API-based)\nReport Generation (PDF or dashboard-based)\nSubscription System (basic SaaS billing - optional for MVP)\n\nNice to Have:\nExperience with SEO tools or platforms\nAPI integrations (Ahrefs, SEMrush, or similar)\nClean UI/UX sense\nSaaS architecture experience\n\nProject Scope:\nMVP development (4–6 Days timeline)\nClean and scalable code\nDocumentation required\n\nTo Apply:\nPlease include:\n1. Relevant portfolio (especially SaaS or SEO tools)\n2. Tech stack you recommend\n3. Estimated timeline\n4. Any suggestions for MVP improvement\nWe are looking to build a long-term relationship for future upgrades.\nNote: Only apply if you have prior experience in SaaS or SEO related projects.",
+    "job_requirements": [
+      "Build an MVP SEO Management SaaS platform",
+      "Use full-stack development",
+      "Create scalable and clean architecture",
+      "Manage SEO campaigns",
+      "Track keywords",
+      "Generate reports",
+      "Implement user authentication login and signup",
+      "Build dashboard for SEO metrics",
+      "Implement keyword tracking system",
+      "Support website/project management with multiple sites per user",
+      "Implement basic on-page SEO audit for meta tags headings and similar items",
+      "Implement backlink tracking manually or through APIs",
+      "Generate reports as PDF or dashboard-based reports",
+      "Optionally implement subscription or SaaS billing",
+      "Prefer React or Next.js frontend",
+      "Prefer Node.js backend with Express.js or NestJS",
+      "Use MongoDB or PostgreSQL",
+      "Prefer SEO tool/platform experience",
+      "Prefer Ahrefs SEMrush or similar API integration experience",
+      "Provide clean UI/UX",
+      "Have SaaS architecture experience",
+      "Deliver MVP within 4 to 6 days",
+      "Provide clean scalable code",
+      "Provide documentation",
+      "Include relevant SaaS or SEO portfolio",
+      "Recommend tech stack",
+      "Estimate timeline",
+      "Suggest MVP improvements",
+      "Prior experience in SaaS or SEO projects"
+    ],
+    "job_tools": [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "NestJS",
+      "MongoDB",
+      "PostgreSQL",
+      "Ahrefs API",
+      "SEMrush API",
+      "PDF generation",
+      "SaaS billing"
+    ],
+    "accepted_proposal": {
+      "proposal": "Hello, I can build the MVP for your SEO Management SaaS platform using a clean full-stack architecture. For this timeline, I would recommend Next.js for the frontend, Node.js with NestJS or Express for the backend, and PostgreSQL for structured SaaS data such as users, projects, keywords, audits, reports, and subscriptions.\n\nFor the MVP, I would focus on login/signup, a dashboard with SEO campaign overview, project management for multiple websites per user, keyword tracking, basic on-page audit checks for title tags, meta descriptions, headings, and indexable pages, a simple backlink tracking module, and dashboard-based or PDF reports. Since the 4-6 day timeline is tight, I would suggest making SaaS billing optional in phase one or implementing a very basic Stripe-ready structure without full subscription automation.\n\nI have worked on SaaS dashboards and SEO-related tools before, including keyword/reporting workflows, API-based data collection, and admin dashboards. I can provide a simple documentation file covering setup, environment variables, architecture, API routes, and future upgrade notes. For future improvements, I would suggest adding scheduled keyword checks, Ahrefs or SEMrush integrations, competitor tracking, and automated email reports after the MVP is stable.",
+      "overall_score": 0.94,
+      "details": "Very strong match. The proposal addresses the SaaS MVP, recommended stack, major features, timeline concern, documentation, scalability, SEO experience, and sensible MVP suggestions.",
+      "job_understanding_evaluation": {
+        "score": 0.96,
+        "details": "The freelancer understands both the product goal and the MVP constraints. They correctly prioritize core SaaS SEO features and suggest postponing complex billing due to the short timeline."
+      },
+      "requirement_coverage_evaluation": {
+        "score": 0.93,
+        "details": "Most required features and application instructions are covered.",
+        "requirements": [
+          "Build SEO Management SaaS MVP",
+          "Use full-stack architecture",
+          "Recommend Next.js Node.js and PostgreSQL",
+          "User authentication",
+          "SEO dashboard",
+          "Multiple websites per user",
+          "Keyword tracking",
+          "On-page SEO audit",
+          "Backlink tracking",
+          "Dashboard or PDF reports",
+          "Optional SaaS billing",
+          "Clean scalable code",
+          "Documentation",
+          "Estimated approach for 4-6 day timeline",
+          "Suggest MVP improvements",
+          "Long-term upgrade ideas"
+        ]
+      },
+      "tool_alignment_evaluation": {
+        "score": 0.94,
+        "details": "Strong alignment with preferred stack and optional integrations.",
+        "tools": [
+          "Next.js",
+          "React.js",
+          "Node.js",
+          "NestJS",
+          "Express.js",
+          "PostgreSQL",
+          "PDF reports",
+          "Stripe",
+          "Ahrefs API",
+          "SEMrush API"
+        ]
+      },
+      "language_clarity_evaluation": {
+        "score": 0.95,
+        "details": "Clear, technically specific, and well organized."
+      },
+      "evidence_of_experience_evaluation": {
+        "exist": true,
+        "details": "Mentions SaaS dashboards, SEO-related tools, keyword/reporting workflows, API-based data collection, and admin dashboards."
+      }
+    },
+    "proposals": [
+      {
+        "proposal": "Hello, I can build your SaaS platform perfectly. I am a full stack developer with many years of experience. I can create a dashboard and all features you need. Please send more details.",
+        "overall_score": 0.29,
+        "details": "Generic. It mentions SaaS and dashboard but does not address SEO, keyword tracking, audits, backlink tracking, stack, documentation, timeline, or prior relevant experience.",
+        "job_understanding_evaluation": {
+          "score": 0.28,
+          "details": "The freelancer understands only that a SaaS platform and dashboard are needed."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.15,
+          "details": "Very few requirements are covered.",
+          "requirements": [
+            "Build SaaS platform",
+            "Create dashboard"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.0,
+          "details": "No preferred technologies are mentioned.",
+          "tools": []
+        },
+        "language_clarity_evaluation": {
+          "score": 0.74,
+          "details": "Clear but generic."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Vague claim of full-stack experience without SaaS or SEO examples."
+        }
+      },
+      {
+        "proposal": "I can build this in WordPress using SEO plugins like Yoast and RankMath. I will create pages for users and add reports manually. This will be cheaper and faster than custom development.",
+        "overall_score": 0.25,
+        "details": "Wrong approach. The client wants a custom full-stack SaaS MVP, not a WordPress plugin-based website.",
+        "job_understanding_evaluation": {
+          "score": 0.18,
+          "details": "The freelancer misunderstands the requested SaaS product architecture."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.16,
+          "details": "Only the SEO theme is somewhat addressed.",
+          "requirements": [
+            "SEO-related platform",
+            "Reports"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.05,
+          "details": "Mentions SEO tools but not the requested stack.",
+          "tools": [
+            "WordPress",
+            "Yoast",
+            "RankMath"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.82,
+          "details": "Clear but misaligned."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hi, I can build the frontend using React and a dashboard UI. I can create pages for login, dashboard, keywords, reports, and projects. You can connect the backend later with another developer.",
+        "overall_score": 0.44,
+        "details": "Partial fit. It addresses frontend and some feature pages but not full-stack development, backend, database, SEO audit logic, reports, documentation, or SaaS architecture.",
+        "job_understanding_evaluation": {
+          "score": 0.48,
+          "details": "The freelancer understands some UI modules but not the full MVP development requirement."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.38,
+          "details": "Covers visible frontend pages but misses backend-heavy features.",
+          "requirements": [
+            "React frontend",
+            "Login page",
+            "Dashboard page",
+            "Keyword page",
+            "Reports page",
+            "Projects page"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.4,
+          "details": "Mentions React but no Node.js backend or database.",
+          "tools": [
+            "React"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.84,
+          "details": "Clear and honest but incomplete."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "I can build the MVP with Next.js, Node.js, and MongoDB. I will add authentication, a dashboard, project management, and reports. I estimate 5 days for the first version. I have built dashboards before.",
+        "overall_score": 0.72,
+        "details": "Good but incomplete. It matches the stack and some features, but misses keyword tracking details, on-page audit, backlink tracking, SaaS billing, documentation, SEO-specific experience, and suggestions.",
+        "job_understanding_evaluation": {
+          "score": 0.75,
+          "details": "The freelancer understands the general SaaS MVP task but not all SEO-specific modules."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.62,
+          "details": "Several major requirements are covered, but important SEO features are omitted.",
+          "requirements": [
+            "Next.js frontend",
+            "Node.js backend",
+            "MongoDB database",
+            "Authentication",
+            "Dashboard",
+            "Project management",
+            "Reports",
+            "5-day timeline"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.82,
+          "details": "Good alignment with preferred stack, though no mention of Express or NestJS and no SEO APIs.",
+          "tools": [
+            "Next.js",
+            "Node.js",
+            "MongoDB"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.88,
+          "details": "Clear and concise."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Mentions building dashboards before but does not provide SaaS or SEO-specific portfolio."
+        }
+      },
+      {
+        "proposal": "Dear client, 4 to 6 days is enough for a complete SEO SaaS with Ahrefs, SEMrush, Stripe subscriptions, keyword ranking, backlinks, audits, PDF reports, AI suggestions, and competitor tracking. I can do everything quickly with perfect quality.",
+        "overall_score": 0.5,
+        "details": "Mentions many relevant features and tools but sounds unrealistic and overpromises within the short timeline. It does not explain architecture or prioritization.",
+        "job_understanding_evaluation": {
+          "score": 0.52,
+          "details": "The freelancer recognizes the feature domain but does not understand realistic MVP scoping."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.68,
+          "details": "Many features are mentioned, but without practical planning or prioritization.",
+          "requirements": [
+            "SEO SaaS",
+            "Ahrefs integration",
+            "SEMrush integration",
+            "Stripe subscriptions",
+            "Keyword ranking",
+            "Backlink tracking",
+            "SEO audits",
+            "PDF reports",
+            "Competitor tracking"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.65,
+          "details": "Mentions relevant SEO and billing tools but not the preferred core stack.",
+          "tools": [
+            "Ahrefs",
+            "SEMrush",
+            "Stripe",
+            "PDF reports"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.72,
+          "details": "Readable but overly promotional and unrealistic."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      }
+    ]
+  },
+  {
+    "job_desc": "We are seeking an AI and Automation Expert to develop an advanced chatbot designed to manage incoming messages from Facebook Messenger and Instagram DMs, with future scalability to WhatsApp.\n\nThe bot's primary objective is twofold: to qualify leads through dynamic filtering and to provide precise customer support based on our internal documentation.\n\nKey Responsibilities:\nLead Qualification: Implement a lead scoring system and dynamic qualifying questions. The system must be easily adjustable to effectively warm up and filter prospects.\n\nAI Knowledge Base: Integrate an AI engine (e.g., DeepSeek) to enable the bot to respond naturally to specific customer inquiries, relying exclusively on the proprietary materials and files we provide.\n\nMulti-Channel Integration: Ensure seamless synchronization across Messenger and Instagram.\n\nScalability: The architecture should be pre-configured for future integration with the WhatsApp Business API",
+    "job_requirements": [
+      "Develop an advanced AI chatbot",
+      "Manage incoming Facebook Messenger messages",
+      "Manage incoming Instagram DMs",
+      "Prepare architecture for future WhatsApp Business API integration",
+      "Implement lead qualification",
+      "Create lead scoring system",
+      "Use dynamic qualifying questions",
+      "Make lead qualification rules easily adjustable",
+      "Warm up and filter prospects",
+      "Integrate AI engine such as DeepSeek",
+      "Answer customer support questions naturally",
+      "Use only proprietary internal documentation and files as knowledge source",
+      "Synchronize conversations across Messenger and Instagram",
+      "Build scalable automation architecture"
+    ],
+    "job_tools": [
+      "Facebook Messenger API",
+      "Instagram DM API",
+      "WhatsApp Business API",
+      "DeepSeek",
+      "AI chatbot",
+      "Knowledge base",
+      "Lead scoring",
+      "Automation workflow"
+    ],
+    "accepted_proposal": {
+      "proposal": "Hello, I can build an AI automation chatbot for Facebook Messenger and Instagram DMs with a scalable structure ready for future WhatsApp Business API integration.\n\nMy approach would include three main parts. First, I would create the multi-channel messaging layer to receive and synchronize conversations from Messenger and Instagram. Second, I would build a lead qualification workflow with adjustable scoring rules, dynamic questions, lead stages, and filtering logic so your team can update qualification criteria without rebuilding the bot. Third, I would integrate an AI knowledge base using DeepSeek or another suitable model with retrieval from your internal documents only, so the bot can answer customer questions based strictly on your approved files.\n\nI would also include fallback handling when the answer is not found in the documentation, human handoff rules, conversation logging, and a structure that can later add WhatsApp Business API without redesigning the whole system.\n\nI have experience building chatbot automations, lead qualification flows, AI knowledge-base assistants, and CRM-style message routing. I can start by mapping your lead questions, scoring rules, document sources, and channel requirements, then deliver the first working version in stages.",
+      "overall_score": 0.95,
+      "details": "Excellent match. The proposal covers Messenger, Instagram, future WhatsApp scalability, lead scoring, dynamic qualifying questions, adjustable rules, AI knowledge base, DeepSeek, proprietary-doc-only answers, synchronization, fallback handling, human handoff, and experience.",
+      "job_understanding_evaluation": {
+        "score": 0.96,
+        "details": "The freelancer clearly understands both objectives: lead qualification and documentation-based customer support, plus the need for multi-channel and scalable architecture."
+      },
+      "requirement_coverage_evaluation": {
+        "score": 0.95,
+        "details": "Nearly all requirements are covered thoroughly.",
+        "requirements": [
+          "AI chatbot",
+          "Facebook Messenger integration",
+          "Instagram DM integration",
+          "Future WhatsApp Business API readiness",
+          "Multi-channel synchronization",
+          "Lead qualification workflow",
+          "Lead scoring",
+          "Dynamic qualifying questions",
+          "Adjustable scoring rules",
+          "AI knowledge base",
+          "DeepSeek integration",
+          "Answers based only on internal documents",
+          "Fallback handling",
+          "Human handoff",
+          "Conversation logging",
+          "Scalable architecture"
+        ]
+      },
+      "tool_alignment_evaluation": {
+        "score": 0.94,
+        "details": "Strong alignment with the requested AI and messaging tools.",
+        "tools": [
+          "Facebook Messenger API",
+          "Instagram DM API",
+          "WhatsApp Business API",
+          "DeepSeek",
+          "AI knowledge base",
+          "Lead scoring workflow",
+          "Automation workflow"
+        ]
+      },
+      "language_clarity_evaluation": {
+        "score": 0.95,
+        "details": "Clear, structured, and technically specific."
+      },
+      "evidence_of_experience_evaluation": {
+        "exist": true,
+        "details": "Mentions chatbot automations, lead qualification flows, AI knowledge-base assistants, and CRM-style message routing."
+      }
+    },
+    "proposals": [
+      {
+        "proposal": "Hello, I can create a chatbot for your business. I have experience with AI and automation and can make it answer customers automatically. Please send me details and I can start.",
+        "overall_score": 0.28,
+        "details": "Generic. It mentions chatbot, AI, and automation but misses Messenger, Instagram, WhatsApp scalability, lead scoring, dynamic questions, proprietary documentation, and synchronization.",
+        "job_understanding_evaluation": {
+          "score": 0.25,
+          "details": "The freelancer understands only that an AI chatbot is needed."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.12,
+          "details": "Very few specific requirements are covered.",
+          "requirements": [
+            "Create chatbot",
+            "Answer customers automatically"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.18,
+          "details": "Mentions AI and automation generally but no specific platforms or tools.",
+          "tools": [
+            "AI",
+            "Automation"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.76,
+          "details": "Clear but very generic."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Vague claim of AI and automation experience without relevant details."
+        }
+      },
+      {
+        "proposal": "I can build a WhatsApp chatbot using Twilio. It will answer customer questions and collect user details. I can connect it to Google Sheets for storing leads.",
+        "overall_score": 0.35,
+        "details": "Partially relevant but focuses on WhatsApp, which is only a future requirement. It ignores current Messenger and Instagram integration and does not address documentation-based AI or dynamic scoring.",
+        "job_understanding_evaluation": {
+          "score": 0.32,
+          "details": "The freelancer focuses on the wrong channel for the current phase."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.28,
+          "details": "Covers basic chatbot and lead collection but misses most core requirements.",
+          "requirements": [
+            "Chatbot",
+            "Collect user details",
+            "Future WhatsApp-related channel"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.3,
+          "details": "Mentions WhatsApp/Twilio but misses Messenger, Instagram, DeepSeek, and knowledge base.",
+          "tools": [
+            "WhatsApp",
+            "Twilio",
+            "Google Sheets"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.82,
+          "details": "Clear but not aligned with the immediate scope."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hi, I can connect Messenger and Instagram DMs to an automation flow and create questions for users. The bot can collect leads and send them to your team. I can also add AI replies later.",
+        "overall_score": 0.58,
+        "details": "Relevant to multi-channel and lead collection, but weak on AI knowledge base, proprietary documentation, lead scoring, dynamic adjustable rules, synchronization, and WhatsApp scalability.",
+        "job_understanding_evaluation": {
+          "score": 0.6,
+          "details": "The freelancer understands the messaging automation and lead collection part but treats AI support as a later add-on."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.52,
+          "details": "Covers some channel and lead flow requirements but misses key AI and scoring requirements.",
+          "requirements": [
+            "Messenger integration",
+            "Instagram DM integration",
+            "Automation flow",
+            "Qualifying questions",
+            "Collect leads",
+            "Send leads to team"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.55,
+          "details": "Mentions Messenger and Instagram but not DeepSeek, knowledge base, or WhatsApp Business API.",
+          "tools": [
+            "Messenger",
+            "Instagram DMs",
+            "Automation flow"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.86,
+          "details": "Clear and relevant but incomplete."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "I can create a custom AI model trained on your company data so it will answer all customer questions. I will scrape your files and train the model directly. The bot will be connected to social media later if needed.",
+        "overall_score": 0.31,
+        "details": "Misguided AI approach. The client needs documentation-based answers using proprietary materials, not necessarily training a custom model. Also social media integration is treated as later, although Messenger and Instagram are core requirements.",
+        "job_understanding_evaluation": {
+          "score": 0.26,
+          "details": "The freelancer over-focuses on model training and misses the automation/channel requirements."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.24,
+          "details": "Only the documentation-answering concept is partially addressed.",
+          "requirements": [
+            "AI answers based on company data",
+            "Use company files"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.2,
+          "details": "Does not mention the requested channels or DeepSeek. The custom training approach may be unnecessary.",
+          "tools": [
+            "Custom AI model"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.78,
+          "details": "Clear but technically questionable for the requested scope."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": false,
+          "details": ""
+        }
+      },
+      {
+        "proposal": "Hello dear I make bot for Facebook and Instagram. It ask customer question and reply with AI. I can make score for leads and connect WhatsApp after. I do automation many time.",
+        "overall_score": 0.63,
+        "details": "The proposal mentions several relevant points: Facebook, Instagram, questions, AI replies, lead scoring, WhatsApp later, and automation experience. However, language is weak and it lacks details on knowledge base restrictions, synchronization, adjustable rules, and architecture.",
+        "job_understanding_evaluation": {
+          "score": 0.68,
+          "details": "The freelancer understands the core idea but does not explain implementation depth."
+        },
+        "requirement_coverage_evaluation": {
+          "score": 0.62,
+          "details": "Covers many requirements at a high level but lacks precision.",
+          "requirements": [
+            "Facebook bot",
+            "Instagram bot",
+            "Qualifying questions",
+            "AI replies",
+            "Lead scoring",
+            "Future WhatsApp integration",
+            "Automation experience"
+          ]
+        },
+        "tool_alignment_evaluation": {
+          "score": 0.62,
+          "details": "Mentions the channels and AI generally but not DeepSeek, proprietary knowledge base, or specific APIs.",
+          "tools": [
+            "Facebook",
+            "Instagram",
+            "AI",
+            "WhatsApp",
+            "Automation"
+          ]
+        },
+        "language_clarity_evaluation": {
+          "score": 0.42,
+          "details": "Understandable but grammatically weak and not highly professional."
+        },
+        "evidence_of_experience_evaluation": {
+          "exist": true,
+          "details": "Claims to have done automation many times, but without specific examples."
+        }
+      }
+    ]
+  }
+]
