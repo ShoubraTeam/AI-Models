@@ -72,3 +72,16 @@ The methodology is done as follows:
 This way, the banned user cannot re-sign up.
 
 In order to reach the best possible result, various AI models are explored, trained, and evaluated. Finally, the champion model is deployed as the main Face Recognition model in our platform.
+
+---
+
+### Job Description Enhancement
+
+---
+
+### Proposal Rejection Reasons
+
+
+## Requirements
+- Python 3.10 or later.
+- Supported LLM provider API Keys.
