@@ -72,6 +72,7 @@ cp .env.example .env
 Then add the required API keys and configuration values inside `.env`.
 
 ### 5. Run the app
+```bash
 python main.py
-
+```
 ---
