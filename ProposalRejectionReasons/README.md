@@ -26,3 +26,52 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
     - tool name
     - tool necessity level: whether the tool was mandatory, recommended, optional, or even forbidden.
     
+
+---
+
+
+## Requirements
+
+- Python 3.10 or later
+- A supported LLM provider API key
+- Python virtual environment recommended
+
+## setup
+### 1. Clone the repository
+
+```bash
+git clone <repo-url>
+cd Proposal-Rejection-Reasons
+```
+
+
+### 2. Create a virtual environment (Recommended)
+
+* windows
+```bash 
+python -m venv venv
+venv\Scripts\activate
+```
+
+* Linux / macOS
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure the environment file
+copy the example environment file:
+```bash
+cp .env.example .env
+```
+Then add the required API keys and configuration values inside `.env`.
+
+### 5. Run the app
+python main.py
+
+---
