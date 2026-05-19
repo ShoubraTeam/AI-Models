@@ -1,0 +1,100 @@
+[33m1cb3377[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Updating GitIgnore and Add Modifications
+[33ma239d46[m Adding Identity Recognition V2
+[33m209c891[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Updating GitIgnore
+[33mfbce694[m Update GitIgnore
+[33mb1b1007[m Updating README
+[33m193aa1f[m Updating GitIgnore
+[33m210765d[m Update the AI-Models README
+[33m6f251a4[m removing .env for security
+[33m69644ed[m Merge branch 'main' of https://github.com/ShoubraTeam/AI-Models
+[33mc6b92db[m fix api
+[33m41fea7f[m fix API
+[33m37e4053[m Add .gitignore for Python, macOS, venv, and model weights
+[33m1000834[m Merge branch 'main' of https://github.com/ShoubraTeam/AI-Models
+[33m33ccf72[m edite API
+[33mcf62181[m Simple ToolsAligment Working Example
+[33mb06d635[m Merge branch 'main' of https://github.com/ShoubraTeam/AI-Models
+[33m8dc76ae[m api editing
+[33m903f9cd[m Merge branch 'main' of https://github.com/ShoubraTeam/AI-Models
+[33mbf47f14[m Implementing (building/invoking) agents in the BaseAgent
+[33m63c5ec8[m Create README.md in Proposal Rejection Reasons
+[33m1a5c683[m Update README.md
+[33mccaa709[m Update README.md
+[33m6cb0501[m Update README.md
+[33mb64d6b4[m Create README.md
+[33mdd9765c[m Modifying the Required Data
+[33mae9b2df[m Adding the Proposal Rejection Reasons Schema
+[33mc5682b8[m final
+[33mf0e3f5d[m[33m ([m[1;32mbackup-current-work[m[33m)[m Proposal Rejection Reasons
+[33m6518173[m Suggesting Only 10 Tools to the Client
+[33m9f7480e[m Merge remote changes and add requirements.txt
+[33m87a5a90[m Forcing the Model to output a list
+[33mfbca6aa[m Merging ....
+[33m47f95a6[m Update .env file
+[33ma1ee645[m Add files via upload
+[33m4838e9f[m Adding llm_results.csv
+[33m5308e19[m Delete llm_results.csv
+[33m69d3839[m Adding llm_log_file
+[33m02df982[m Delete llm_log_file.txt
+[33mf1a7195[m Renaming
+[33me094b8f[m Organizing Evaluate.sh
+[33md62f49c[m Organizing & Testing the RAG
+[33m7d4212c[m Introduce sleep delays in evaluation process
+[33m67c763a[m Adding llm_plots Notebook
+[33m2c693fd[m Adding LLM Results Files
+[33m1c5b9ff[m Update model configurations in evaluate.sh
+[33m74b4c76[m[33m ([m[1;31morigin/chore/requirements[m[33m)[m chore(requirements):Add requirements.txt for job description suggestion model
+[33m572977f[m Automate The LLM Evaluation
+[33mdd25518[m Update eval_data with AI and data analysis.json
+[33m2013fe3[m Automating RAG Evaluation
+[33m3f49e47[m The Whole Pipeline [need edits]
+[33m5843cea[m Update job descriptions in relevant_chunks.json
+[33m58eca57[m Update relevant_chunks.json with Content Creation and Video Production data
+[33m316a713[m Update relevant_chunks.json with Content Creation and Video Production data
+[33meac483e[m Update eval_data.json with Content Creation and Video Production data
+[33m2a5e3cb[m Update eval_data.json with content creation and video production jobs data
+[33mf57508e[m Adding RAG Evaluation Pipeline
+[33m16fc5a5[m Use source to activate venv instead of calling binaries directly
+[33mf462fae[m Merge branch 'main' of https://github.com/ShoubraTeam/AI-Models
+[33maab0e11[m the new database
+[33m22e896a[m Add setup script and API dependencies for IdentityRecognition
+[33m79d0b29[m Update IdentityRecognition inference files and expand gitignore
+[33m8c649b3[m Merge remote changes and add Model Stack documentation
+[33m6ba6335[m Adding FastAPI app
+[33m10f6ab3[m Merge branch 'main' of https://github.com/ShoubraTeam/AI-Models
+[33medd7329[m Best Models Search & performance measures
+[33m468f1c2[m Adding Embeddings - Construct Collection - Testing
+[33me363d28[m Permenantely Embeddings -- Constructing the Collection -- Test Working
+[33md1f302f[m Upload Data Profiling Script for jobs_5_data.csv
+[33m9c0e93d[m edit data
+[33mbe15271[m Upload the updated jobs_5_data file
+[33mdb8859d[m Delete JobDescriptionSuggestion/data/data/individual_data_files/jobs_5_data.csv
+[33m3deded4[m Slight CHange In prompting
+[33m81cd687[m restructing the directories -- restructing the methodology -- enhancing the response
+[33m625a639[m Integrating the System - Testing
+[33m54f45ad[m Completing Prompts Methods for job description analysis and enhancement
+[33md59cce0[m Implementing the required methods in connect_to_groq.py
+[33m5a788d2[m Implementing the required methods
+[33m08d5767[m edit job enhancer and format jobs
+[33m638e553[m Add Reranking
+[33m698c02a[m Modifying Preparing_For_RAG
+[33m4fb842d[m Formed Documents - Embed the Documents - Constructed the VectorDatabase - Implemented the Hybrid Retrieval Operation
+[33m3573d61[m Chunking the Data
+[33me374443[m Preparing Data For RAG
+[33m1138552[m Add files via upload
+[33m6ad02ec[m Add files via upload
+[33m0b58dab[m Delete JobDescriptionSuggestion/data/jobs_3_data.csv
+[33maea434f[m Add files via upload
+[33m30d844d[m Rename jobs_2_cleaned.csv to jobs_3_data.csv
+[33m5d8c8ab[m Add files via upload
+[33m9422e69[m merging
+[33mae2f91f[m add data profiling files
+[33m1025d77[m Delete JobDescriptionSuggestion/data/jobs_3_data.csv
+[33ma7cd844[m Add files via upload
+[33m405ed18[m Adding JobDescSuggestion
+[33m592e860[m adding job_description_suggestion files
+[33mf663d1e[m Adding Term-one Projects
+[33mb0046dc[m modifying structure
+[33mc19f3cd[m Delete .vscode directory
+[33m6e0306b[m Rag System
+[33ma2f1a39[m[33m ([m[1;31morigin/master[m[33m)[m RAG System

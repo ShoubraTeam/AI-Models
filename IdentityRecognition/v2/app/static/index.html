@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArcFace Verification</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+    <body>
+
+    <div class="container">
+        <div class="card">
+            <h1>Face Verification</h1>
+            <p class="subtitle">Upload two face images to verify if they belong to the same person</p>
+
+            <div class="upload-area">
+                <div class="upload-box">
+                    <label for="image1">First Image</label>
+                    <input type="file" id="image1" accept="image/*">
+                    <img id="preview1">
+                </div>
+
+                <div class="upload-box">
+                    <label for="image2">Second Image</label>
+                    <input type="file" id="image2" accept="image/*">
+                    <img id="preview2">
+                </div>
+            </div>
+
+            <button onclick="verifyFaces()">Verify</button>
+
+            <div id="loader" class="loader hidden"></div>
+
+            <div id="result" class="result hidden"></div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+    </body>
+</html>
