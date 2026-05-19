@@ -5,6 +5,7 @@
 from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
 from langchain.agents.structured_output import ToolStrategy
+from typing import Any
 
 class BaseAgent:
     """
@@ -42,7 +43,7 @@ class BaseAgent:
     def get_agent(self):
         model = init_chat_model(
             model = self.model_name,
-            model_provider = self.model_provider
+            model_provider = self.model_provider,
             **self.kwargs
         )
 
@@ -82,11 +83,19 @@ class BaseAgent:
                 {"role" : "user", "content" : input},
             ]
 
-            response = self.agent.invoke(messages)
+            return self.agent.invoke(messages)
 
         # return desired op
         if return_structured_op_only:
             return response["structured_response"]
         
         return response
-    # -------------------------------------------------------
+    # --------------------------------------------------------------
+    def validate_agent_output(self, agent_output: Any):
+        """
+        Validate if the agent output as expected or not
+
+        Returns:
+            validated (bool)
+        """
+        pass
