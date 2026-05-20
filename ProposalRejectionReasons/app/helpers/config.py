@@ -20,12 +20,26 @@ MODELS_CFG = {
     "tools_alignment_pipeline" : {
         "job_tools_extractor_temperature" : 0.0,
         "job_tools_extractor_max_tokens"  : 512,
+        "proposal_tools_analyzer_temperature"  : 0.0,
+        "proposal_tools_analyzer_max_tokens"  : 1024
     },
     "requirement_coverage_pipeline" : {
         "job_requirements_extractor_temperature" : 0.0,
         "job_requirements_extractor_max_tokens"  : 512,
         
         "job_requirements_matcher_temperature" : 0.0,
-        "job_requirements_matcher_max_tokens"  : 1024 # كبرنا الـ tokens هنا لأن الـ Matcher بيطلع نص طويل في الـ details
+        "job_requirements_matcher_max_tokens"  : 1024 
     }
 }
+
+
+# Tools Alignment Scoring Schema
+NECESSITY_LEVEL_WEIGHTS = {
+    "mandatory"  : 1,
+    "forbidden"  : -1,
+    "recommended": 0.7,
+    "optional"   : 0.5
+}
+
+WITH_CONFIDENCE_TOOL_WEIGHT = 1
+GENERIC_TOOL_WEIGHT = 0.5

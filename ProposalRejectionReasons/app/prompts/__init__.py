@@ -1,1 +1,1 @@
-from .tools_alignment import JOB_TOOLS_EXTRACTION_PROMPT
+from .tools_alignment import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT

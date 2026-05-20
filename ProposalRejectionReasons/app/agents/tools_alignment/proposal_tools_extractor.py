@@ -7,7 +7,7 @@ from ..BaseAgent import BaseAgent
 # from schemas import JobTool, JobToolResponse
 # from typing import get_args
 
-class JobToolsExtractor(BaseAgent):
+class ProposalToolsAnalyzer(BaseAgent):
     def __init__(
         self,
         model_name: str,

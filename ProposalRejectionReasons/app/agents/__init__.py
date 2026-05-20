@@ -1,1 +1,1 @@
-from .tools_alignment import JobToolsExtractor
+from .tools_alignment import JobToolsExtractor, ProposalToolsAnalyzer

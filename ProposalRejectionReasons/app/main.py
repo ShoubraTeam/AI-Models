@@ -4,26 +4,41 @@
 
 # agents
 from agents import JobToolsExtractor
+from agents import ProposalToolsAnalyzer
 from agents.requirement_coverage.requirement_coverage_agent import RequirementCoverageAgent
 
 # schemas
-from schemas import JobToolResponse
+from schemas import JobToolResponse, ProposalToolsResponse
 
 # prompts
-from prompts import JOB_TOOLS_EXTRACTION_PROMPT
+from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
+
+# data processing
+from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
 
 # others
+import os
+from pathlib import Path
 import helpers.config as CFG
 import helpers.functional as F
 from dotenv import load_dotenv
 
+
 load_dotenv()
+
+DATA_PATH = os.path.join(
+    Path(__file__).parent,
+    "data_examples"
+)
 
 if __name__ == "__main__":
     F.print_title("1.0 Starting the APP")
-    
+
     print("- Waking Up Agents...")
 
+    # -----------------------------------------------------------------
+    # Tools Alignment Agents Initialization
+    # -----------------------------------------------------------------
     job_tool_extractor = JobToolsExtractor(
         model_name = CFG.GROQ_LLAMA_8b,
         system_prompt = JOB_TOOLS_EXTRACTION_PROMPT,
@@ -33,36 +48,72 @@ if __name__ == "__main__":
         max_tokens = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_max_tokens"],
     )
 
-    requirement_agent = RequirementCoverageAgent(
-        extractor_model=CFG.GROQ_LLAMA_70b,
-        matcher_model=CFG.GROQ_LLAMA_70b
+    proposal_tools_analyzer = ProposalToolsAnalyzer(
+        model_name = CFG.GROQ_LLAMA_70b,
+        system_prompt = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
+        structured_response = ProposalToolsResponse,
+        model_provider = CFG.PROVIDER_GROQ,
+        temperature = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_temperature"],
+        max_tokens = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_max_tokens"],
     )
+
+    # -----------------------------------------------------------------
+    # Requirement Coverage Agent Initialization
+    # -----------------------------------------------------------------
+    requirement_agent = RequirementCoverageAgent()
+
 
     print("- Loading data...")
-    job_description = """
-We need a corporate blog website. 
-The project must be built STRICTLY using Python and Django. No PHP or WordPress allowed.
-Also, the project must be fully delivered within 5 days due to a strict marketing launch deadline.
-"""
-
-    proposal_text = """
-Hello, I can build a wonderful corporate blog website for you. 
-I have 5 years of experience creating highly optimized blogs. 
-I will use WordPress and PHP to build it, ensuring a beautiful custom design and SEO optimization. 
-I am available to start now and will deliver the complete project in 3 weeks.
-"""
-    F.print_title("2.0 Testing Tool Agent")
-    tool_response = job_tool_extractor.invoke(
-        input = job_description
+    # Loading Tools Alignment Data
+    tools_alignment_data_samples = F.load_json(
+        file_path = os.path.join(DATA_PATH, "tools_alignment_tools.json")
     )
-    F.print_title("3.0 Printing Tool Output")
-    F.print_structured_response(tool_response)
 
-    F.print_title("4.0 Testing Requirement Coverage Agent")
+    # Loading Requirement Coverage Data
+    requirement_data_samples = F.load_json(
+        file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
+    )
+
+
+    # ==================================================================
+    # 2.0 Testing Tools Alignment Agents
+    # ==================================================================
+    F.print_title("2.0 Testing Tools Alignment Agents")
+    tools_sample = tools_alignment_data_samples[0]
+
+    job_description_tools = tools_sample["job_desc"]
+    proposal_tools = tools_sample["proposal1"]
+
+    print("- Extracting Job Tools...")
+    job_tools_response = job_tool_extractor.invoke(
+        input = job_description_tools
+    )
+    F.print_structured_response(job_tools_response)
+
+    print("- Analyzing Proposal Tools...")
+    prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
+        job_tools = job_tools_response.tools,
+        proposal = proposal_tools
+    )
+
+    proposal_tools_analysis = proposal_tools_analyzer.invoke(
+        input = prepared_analysis_tool_ip
+    )
+    F.print_structured_response(proposal_tools_analysis)
+    
+    print("- Tool Alignment Score...")
+    print(calc_tools_alignment_score(proposal_tools_analysis))
+
+
+    # ==================================================================
+    # 3.0 Testing Requirement Coverage Agent
+    # ==================================================================
+    F.print_title("3.0 Testing Requirement Coverage Agent")
+    req_sample = requirement_data_samples[0]
+
+    print("- Running Requirement Coverage Analysis...")
     req_response = requirement_agent.invoke(
-        job_description = job_description,
-        proposal_text = proposal_text
+        job_description = req_sample["job_desc"],
+        proposal_text = req_sample["proposal1"]
     )
-
-    F.print_title("5.0 Printing Requirement Output")
     F.print_structured_response(req_response)

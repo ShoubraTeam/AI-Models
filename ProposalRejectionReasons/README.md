@@ -20,11 +20,19 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
 
 ## Workflow
 
-### 1.0 Tools Alignment Agent
+### 1.0 Tools Alignment
 
 - Job Tools Extraction: Utilizing an LLM to extract the tools mentioned in the job description. Each tool will contain:
     - tool name
     - tool necessity level: whether the tool was mandatory, recommended, optional, or even forbidden.
+
+- Proposal Analysis: Utilizing an LLM to analyze the proposal & return a report for each tool extracted from the job description. The report will contain:
+    - tool name & tool necessity level as found in the job description.
+    - found in proposal: a boolean variable indicating if the tool was mentioned in the proposal or not.
+    - with confidence: a boolean variable indicating if the freelancer mentioned the tool with confidence or it was just generic mentioning. The agent outputs that by analyzing context.
+
+- Scoring: A scoring mechanism calculates the ratio of the tools mentioned in the proposal weighted by the necessity level & confidence.
+---
     
 ### 2.0 Requirement Coverage Agent
 
@@ -32,7 +40,6 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
 - **Proposal Semantic Matching**: Employs the `JobRequirementsMatcher` sub-agent to map the extracted requirements against the freelancer's proposal. It applies a strict validation evaluation to penalize missing features or timeline violations, preventing False Positives.
 - **Pipeline Orchestration**: The `RequirementCoverageAgent` coordinates the sequential execution flow, formatting and passing the extraction data directly into the matcher, returning a fully validated Pydantic data object (`score`, `details`, `client_requirements`, `requirements_covered`, `missing_requirements`).
 
----
 
 
 ## Requirements

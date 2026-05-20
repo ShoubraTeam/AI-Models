@@ -1,7 +1,7 @@
 # --------------------------------------------
 # Import Utility Functions
 # --------------------------------------------
-
+import json 
 from typing import Any
 
 def print_title(title: str, n_sep: int =  100, sep: str = "="):
@@ -48,3 +48,14 @@ def print_agent_response(response: Any):
     print_structured_response(response["print_structured_response"])
     
 
+
+
+def load_file(file_path: str):
+    with open(file_path, mode = "r", encoding = "utf-8") as f:
+        return f.read()
+
+
+
+def load_json(file_path: str) -> dict:
+    with open(file_path, mode = "r", encoding = "utf-8") as f:
+        return json.load(f)
