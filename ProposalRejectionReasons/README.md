@@ -26,7 +26,9 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
     - tool name
     - tool necessity level: whether the tool was mandatory, recommended, optional, or even forbidden.
     
-
+- Proposal Tools Extraction: Utilizing an LLM to extract the tools mentioned in the proposal. Each tool will contain:
+    - tool name
+    - tool context: whether the tool was mentioned with confidence or in a generic manner.
 ---
 
 

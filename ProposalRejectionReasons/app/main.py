@@ -5,20 +5,31 @@
 
 # agents
 from agents import JobToolsExtractor
+from agents import ProposalToolsAnalyzer
 
 # schemas
-from schemas import JobToolResponse
+from schemas import JobToolResponse, ProposalToolsResponse
 
 # prompts
-from prompts import JOB_TOOLS_EXTRACTION_PROMPT
+from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
+
+# data processing
+from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
 
 # others
+import os
+from pathlib import Path
 import helpers.config as CFG
 import helpers.functional as F
 from dotenv import load_dotenv
 
 
 load_dotenv()
+
+DATA_PATH = os.path.join(
+    Path(__file__).parent,
+    "data_examples"
+)
 
 if __name__ == "__main__":
     F.print_title("1.0 Starting the APP")
@@ -35,37 +46,47 @@ if __name__ == "__main__":
         max_tokens = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_max_tokens"],
     )
 
-
-    print("- Loading data...")
-    job_description = """I’m ready to launch a small business website whose sole purpose is to give visitors clear, trustworthy information about our company. I already know an “About Us” page is essential, and I’m happy to hear your recommendations on whether a Home, Contact, or any other page would improve navigation and credibility.
-
-You’ll take the project from zero to live, handling design, development, hosting configuration, and fundamental search-engine optimisation so the site is easy to find the moment it goes online. A lightweight, easily editable CMS such as WordPress, Webflow, or a similar platform is preferred for ongoing updates.
-
-Deliverables
-• Fully responsive website built on the agreed CMS
-• At least one complete “About Us” page, with room for expansion
-• On-page SEO: keyword research, meta titles/descriptions, alt tags, schema where appropriate
-• XML sitemap and robots.txt, submitted to Google Search Console
-• Basic performance tuning to meet core-web-vital standards
-• Handover of all credentials, theme files, and a brief how-to guide for future edits
-
-Acceptance criteria
-The site must load cleanly on mobile and desktop, score green on Google’s PageSpeed Insights, and be indexed in Google with no critical errors.
-
-If this sounds like your wheelhouse, tell me how you’ll approach the build and SEO rollout, along with a rough timeline.
-"""
-
-    F.print_title("2.0 Testing the Agent")
-    response = job_tool_extractor.invoke(
-        input = job_description
+    proposal_tools_analyzer = ProposalToolsAnalyzer(
+        model_name = CFG.GROQ_LLAMA_70b,
+        system_prompt = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
+        structured_response = ProposalToolsResponse,
+        model_provider = CFG.PROVIDER_GROQ,
+        temperature = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_temperature"],
+        max_tokens = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_max_tokens"],
     )
 
 
-    F.print_title("3.0 Printing the Output")
-    F.print_structured_response(response)
+    print("- Loading data...")
+    tools_alignment_data_samples = F.load_json(
+        file_path = os.path.join(DATA_PATH, "tools_alignment_tools.json")
+    )
+
+
+    F.print_title("2.0 Testing the Agents")
+    sample = tools_alignment_data_samples[0]
+
+    job_description = sample["job_desc"]
+    proposal = sample["proposal1"]
+
+    print("- Extracting Job Tools...")
+    job_tools_response = job_tool_extractor.invoke(
+        input = job_description
+    )
+    F.print_structured_response(job_tools_response)
+
+    print("- Analyzing Proposal Tools...")
+    prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
+        job_tools = job_tools_response.tools,
+        proposal = proposal
+    )
+
+
+    proposal_tools_analysis = proposal_tools_analyzer.invoke(
+        input = prepared_analysis_tool_ip
+    )
+
+    F.print_structured_response(proposal_tools_analysis)
     
     
-    is_agent_op_ok = job_tool_extractor.validate_agent_output(agent_output = response)
-    print(is_agent_op_ok)
 
 

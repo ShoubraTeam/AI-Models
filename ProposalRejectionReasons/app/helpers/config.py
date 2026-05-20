@@ -20,5 +20,7 @@ MODELS_CFG = {
     "tools_alignment_pipeline" : {
         "job_tools_extractor_temperature" : 0.0,
         "job_tools_extractor_max_tokens"  : 512,
+        "proposal_tools_analyzer_temperature"  : 0.0,
+        "proposal_tools_analyzer_max_tokens"  : 1024
     }
 }
