@@ -46,10 +46,10 @@ Also, the project must be fully delivered within 5 days due to a strict marketin
 """
 
     proposal_text = """
-Hello, I can build a wonderful corporate blog website for you. 
-I have 5 years of experience creating highly optimized blogs. 
-I will use WordPress and PHP to build it, ensuring a beautiful custom design and SEO optimization. 
-I am available to start now and will deliver the complete project in 3 weeks.
+Hi, I will build your web app using React and Node.js. 
+For security, I will implement OAuth2 with JWT for secure user sessions. 
+I will also configure cron jobs on AWS to trigger daily database snapshots to S3 at 00:00 UTC. 
+To secure data in transit, I will enforce HTTPS with SSL/TLS encryption.
 """
     F.print_title("2.0 Testing Tool Agent")
     tool_response = job_tool_extractor.invoke(

@@ -40,17 +40,23 @@ if __name__ == "__main__":
 
     print("- Loading data...")
     job_description = """
-We need a corporate blog website. 
-The project must be built STRICTLY using Python and Django. No PHP or WordPress allowed.
-Also, the project must be fully delivered within 5 days due to a strict marketing launch deadline.
+We need a web-based Inventory Management System for our warehouse. 
+The core and mandatory feature is that warehouse workers must be able to bulk-upload product data using Excel/CSV files to update the stock automatically. 
+
+Important Note: This is Phase 1. Do NOT implement any payment gateways or online checkout features now; we strictly prohibit online transactions in this version to avoid security compliance issues. 
+
+The system must include a clean dashboard showing low-stock alerts.
 """
 
     proposal_text = """
-Hello, I can build a wonderful corporate blog website for you. 
-I have 5 years of experience creating highly optimized blogs. 
-I will use WordPress and PHP to build it, ensuring a beautiful custom design and SEO optimization. 
-I am available to start now and will deliver the complete project in 3 weeks.
+Dear Client, 
+I am a senior full-stack web developer with over 7 years of experience in building modern websites. 
+I have worked on many projects similar to yours and I always deliver high-quality work on time and within budget. 
+Please check my profile and portfolio to see my previous work. 
+I am available to start immediately and would love to jump on a quick call to discuss how I can help you. 
+Thank you for your time!
 """
+
     F.print_title("2.0 Testing Tool Agent")
     tool_response = job_tool_extractor.invoke(
         input = job_description

@@ -40,16 +40,18 @@ if __name__ == "__main__":
 
     print("- Loading data...")
     job_description = """
-We need a corporate blog website. 
-The project must be built STRICTLY using Python and Django. No PHP or WordPress allowed.
-Also, the project must be fully delivered within 5 days due to a strict marketing launch deadline.
+We need a secure web application. 
+The requirements are:
+1. User registration and login functionality.
+2. Automatic data saving every midnight to prevent data loss.
+3. Data protection from hackers during transmission.
 """
 
     proposal_text = """
-Hello, I can build a wonderful corporate blog website for you. 
-I have 5 years of experience creating highly optimized blogs. 
-I will use WordPress and PHP to build it, ensuring a beautiful custom design and SEO optimization. 
-I am available to start now and will deliver the complete project in 3 weeks.
+Hi, I can build a high-secure e-commerce and inventory website for you. 
+I am an expert in integrating secure payment gateways like Stripe, PayPal, and credit cards to handle online transactions flawlessly. 
+I will design a beautiful product catalog and a fully functional dashboard for your warehouse workers with real-time notifications. 
+I can start right away and deliver within 2 weeks!
 """
     F.print_title("2.0 Testing Tool Agent")
     tool_response = job_tool_extractor.invoke(

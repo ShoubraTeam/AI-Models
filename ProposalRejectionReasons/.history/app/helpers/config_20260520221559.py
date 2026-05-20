@@ -20,12 +20,5 @@ MODELS_CFG = {
     "tools_alignment_pipeline" : {
         "job_tools_extractor_temperature" : 0.0,
         "job_tools_extractor_max_tokens"  : 512,
-    },
-    "requirement_coverage_pipeline" : {
-        "job_requirements_extractor_temperature" : 0.0,
-        "job_requirements_extractor_max_tokens"  : 512,
-        
-        "job_requirements_matcher_temperature" : 0.0,
-        "job_requirements_matcher_max_tokens"  : 1024 # كبرنا الـ tokens هنا لأن الـ Matcher بيطلع نص طويل في الـ details
     }
 }

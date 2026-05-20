@@ -26,6 +26,11 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
     - tool name
     - tool necessity level: whether the tool was mandatory, recommended, optional, or even forbidden.
     
+### 2.0 Requirement Coverage Agent
+
+- **Job Requirements Extraction**: Utilizes the `JobRequirementsExtractor` sub-agent to parse the raw job description text and compile an atomic, clean list of core functional deliverables and timeline constraints (strictly excluding developer tools or languages to avoid architectural redundancy).
+- **Proposal Semantic Matching**: Employs the `JobRequirementsMatcher` sub-agent to map the extracted requirements against the freelancer's proposal. It applies a strict validation evaluation to penalize missing features or timeline violations, preventing False Positives.
+- **Pipeline Orchestration**: The `RequirementCoverageAgent` coordinates the sequential execution flow, formatting and passing the extraction data directly into the matcher, returning a fully validated Pydantic data object (`score`, `details`, `client_requirements`, `requirements_covered`, `missing_requirements`).
 
 ---
 
