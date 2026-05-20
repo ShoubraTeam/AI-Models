@@ -14,7 +14,7 @@ from schemas import JobToolResponse, ProposalToolsResponse
 from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
 
 # data processing
-from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
+from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
 
 # others
 import os
@@ -88,5 +88,5 @@ if __name__ == "__main__":
     F.print_structured_response(proposal_tools_analysis)
     
     
-
-
+    print("- Tool Alignment Score...")
+    print(calc_tools_alignment_score(proposal_tools_analysis))

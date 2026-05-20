@@ -24,3 +24,15 @@ MODELS_CFG = {
         "proposal_tools_analyzer_max_tokens"  : 1024
     }
 }
+
+
+# Tools Alignment Scoring Schema
+NECESSITY_LEVEL_WEIGHTS = {
+    "mandatory"  : 1,
+    "forbidden"  : -1,
+    "recommended": 0.7,
+    "optional"   : 0.5
+}
+
+WITH_CONFIDENCE_TOOL_WEIGHT = 1
+GENERIC_TOOL_WEIGHT = 0.5

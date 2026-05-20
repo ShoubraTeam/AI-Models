@@ -26,6 +26,6 @@ class ProposalToolReview(BaseModel):
 
 class ProposalToolsResponse(BaseModel):
     """The Job Tool Extractor Response"""
-    tools: list[ProposalToolReview] = Field(
+    tool_reviews: list[ProposalToolReview] = Field(
         description = "The list of the reviews for each tool mentioned in job_tools_list."
     )

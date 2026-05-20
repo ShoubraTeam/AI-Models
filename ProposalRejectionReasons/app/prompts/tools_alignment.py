@@ -42,6 +42,7 @@ Your task is to examine these data and report the following for each tool in the
     * if the freelancer mentioned it in a generic manner: return False
     * if the freelancer did not mention it: return None
 
+    
 Instructions
 - Do not invent tools  by yourself. Just use the tools given in the job_tools_list.
 - Do not invent a necessity_level either. Also use the necessity_level given in the job_tools_list.
