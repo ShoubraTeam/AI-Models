@@ -20,15 +20,18 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
 
 ## Workflow
 
-### 1.0 Tools Alignment Agent
+### 1.0 Tools Alignment
 
 - Job Tools Extraction: Utilizing an LLM to extract the tools mentioned in the job description. Each tool will contain:
     - tool name
     - tool necessity level: whether the tool was mandatory, recommended, optional, or even forbidden.
     
-- Proposal Tools Extraction: Utilizing an LLM to extract the tools mentioned in the proposal. Each tool will contain:
-    - tool name
-    - tool context: whether the tool was mentioned with confidence or in a generic manner.
+- Proposal Analysis: Utilizing an LLM to analyze the proposal & return a report for each tool extracted from the job description. The report will contain:
+    - tool name & tool necessity level as found in the job description.
+    - found in proposal: a boolean variable indicating if the tool was mentioned in the proposal or not.
+    - with confidence: a boolean variable indicating if the freelancer mentioned the tool with confidence or it was just generic mentioning. The agent outputs that by analyzing context.
+
+- Scoring: A scoring mechanism calculates the ratio of the tools mentioned in the proposal weighted by the necessity level & confidence.
 ---
 
 
