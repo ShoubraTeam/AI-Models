@@ -1,0 +1,2 @@
+from .job_key_points_extraction_prompt import JOB_KEY_POINTS_EXTRACTION_PROMPT
+from .job_understanding_evaluator_prompt import JOB_UNDERSTANDING_EVALUATOR_PROMPT

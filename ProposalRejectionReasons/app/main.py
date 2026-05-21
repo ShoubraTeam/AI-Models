@@ -6,6 +6,7 @@
 from agents import JobToolsExtractor
 from agents import ProposalToolsAnalyzer
 from agents.requirement_coverage.requirement_coverage_agent import RequirementCoverageAgent
+from agents.job_understanding.job_understanding_agent import JobUnderstandingAgent
 
 # schemas
 from schemas import JobToolResponse, ProposalToolsResponse
@@ -15,6 +16,7 @@ from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMP
 
 # data processing
 from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
+from processing.job_understanding_processing import calc_job_understanding_result
 
 # others
 import os
@@ -40,27 +42,32 @@ if __name__ == "__main__":
     # Tools Alignment Agents Initialization
     # -----------------------------------------------------------------
     job_tool_extractor = JobToolsExtractor(
-        model_name = CFG.GROQ_LLAMA_8b,
-        system_prompt = JOB_TOOLS_EXTRACTION_PROMPT,
+        model_name          = CFG.GROQ_LLAMA_8b,
+        system_prompt       = JOB_TOOLS_EXTRACTION_PROMPT,
         structured_response = JobToolResponse,
-        model_provider = CFG.PROVIDER_GROQ,
-        temperature = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_temperature"],
-        max_tokens = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_max_tokens"],
+        model_provider      = CFG.PROVIDER_GROQ,
+        temperature         = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_temperature"],
+        max_tokens          = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_max_tokens"],
     )
 
     proposal_tools_analyzer = ProposalToolsAnalyzer(
-        model_name = CFG.GROQ_LLAMA_70b,
-        system_prompt = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
+        model_name          = CFG.GROQ_LLAMA_70b,
+        system_prompt       = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
         structured_response = ProposalToolsResponse,
-        model_provider = CFG.PROVIDER_GROQ,
-        temperature = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_temperature"],
-        max_tokens = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_max_tokens"],
+        model_provider      = CFG.PROVIDER_GROQ,
+        temperature         = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_temperature"],
+        max_tokens          = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_max_tokens"],
     )
 
     # -----------------------------------------------------------------
     # Requirement Coverage Agent Initialization
     # -----------------------------------------------------------------
     requirement_agent = RequirementCoverageAgent()
+
+    # -----------------------------------------------------------------
+    # Job Understanding Agent Initialization
+    # -----------------------------------------------------------------
+    job_understanding_agent = JobUnderstandingAgent()
 
 
     print("- Loading data...")
@@ -74,6 +81,11 @@ if __name__ == "__main__":
         file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
     )
 
+    # Loading Job Understanding Data
+    job_understanding_data_samples = F.load_json(
+        file_path = os.path.join(DATA_PATH, "job_understanding_samples.json")
+    )
+
 
     # ==================================================================
     # 2.0 Testing Tools Alignment Agents
@@ -82,7 +94,7 @@ if __name__ == "__main__":
     tools_sample = tools_alignment_data_samples[0]
 
     job_description_tools = tools_sample["job_desc"]
-    proposal_tools = tools_sample["proposal1"]
+    proposal_tools        = tools_sample["proposal1"]
 
     print("- Extracting Job Tools...")
     job_tools_response = job_tool_extractor.invoke(
@@ -93,14 +105,14 @@ if __name__ == "__main__":
     print("- Analyzing Proposal Tools...")
     prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
         job_tools = job_tools_response.tools,
-        proposal = proposal_tools
+        proposal  = proposal_tools
     )
 
     proposal_tools_analysis = proposal_tools_analyzer.invoke(
         input = prepared_analysis_tool_ip
     )
     F.print_structured_response(proposal_tools_analysis)
-    
+
     print("- Tool Alignment Score...")
     print(calc_tools_alignment_score(proposal_tools_analysis))
 
@@ -114,6 +126,31 @@ if __name__ == "__main__":
     print("- Running Requirement Coverage Analysis...")
     req_response = requirement_agent.invoke(
         job_description = req_sample["job_desc"],
-        proposal_text = req_sample["proposal1"]
+        proposal_text   = req_sample["proposal1"]
     )
     F.print_structured_response(req_response)
+
+
+    # ==================================================================
+    # 4.0 Testing Job Understanding Agent
+    # ==================================================================
+    F.print_title("4.0 Testing Job Understanding Agent")
+
+    for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
+        ju_sample = job_understanding_data_samples[0]
+
+        F.print_title(f"4.{i} Proposal #{i}")
+        print("- Running Job Understanding Analysis...")
+
+        ju_response = job_understanding_agent.invoke(
+            job_description = ju_sample["job_desc"],
+            proposal_text   = ju_sample[proposal_key]
+        )
+        F.print_structured_response(ju_response)
+
+        print("\n- Job Understanding Result...")
+        ju_result = calc_job_understanding_result(ju_response)
+        for key, value in ju_result.items():
+            print(f"  {key} => {value}")
+
+        print()
