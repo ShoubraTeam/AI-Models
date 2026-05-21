@@ -1,87 +1,111 @@
-# Go Freelance - AI Features
-
-This repository contains the implementation of the AI features for the GoFreelance platform. Each feature has its own sub-directory, dependencies, documentation, and implementation.
-
-These features aim to achieve the platform's core goal which is connecting clients with freelancers professionally helping startup freelancers land jobs faster and helping clients find the right candidates for their jobs.
-
-The main AI features employed to achieve this are:
-
-- AI Profile Analyzer & Enhancer
-- AI Recommendation System
-- Job Description Enhancement
-- Proposal Rejection Reasons
-
-In addition to that, it is necessary to prevent harmfulness, cheating, scams, hacking, or any disrespectful behaviors on the platform.
-
-The feature employed for this purpose is:
-
-- Identity Recognition
+# GoFreelance: AI System for Proposal Rejection Reasons
+A comprehensive system designed to help freelancers understand why their proposals are rejected by clients. It leverages an agentic AI framework based on a multi-agent (sub-agent) architecture to analyze both the client's job requirements and the freelancer's proposal. The system identifies the key reasons behind rejection and provides targeted recommendations to improve skills and increase the likelihood of success in future opportunities.
 
 
+## System Description
+The system is designed to evaluate the **job–proposal match**, which measures how well a freelancer's proposal aligns with a client's job posting. It is built on a multi-agent architecture composed of five specialized sub-agents, each responsible for analyzing a distinct aspect of the match:
 
-## AI Features
+- **Job Understanding Agent**: Evaluates whether the freelancer has accurately understood the job and proposed relevant solutions or methods to accomplish it.
 
-The implemented AI features are described as follows:
+- **Requirement Coverage Agent**: Assesses how many of the client's stated requirements are explicitly addressed in the freelancer's proposal.
 
-### AI Profile Analyzer & Enhancer
+- **Tools Alignment Agent**: Examines whether the freelancer mentions the tools, technologies, or platforms specified by the client in the job post.
 
-A freelancer's portfolio is one of the most important factors affecting their visibility on the platform, so it is crucial to build a strong, professional, and era-adapted portfolio.
+- **Evidence of Experience Agent**: Determines whether the proposal includes references to prior work or experience relevant to the job.
 
-This feature aims to analyze the freelancer's portfolio on our platform, highlight strengths and weaknesses, and provide suggestions for enhancement. This helps freelancers address visibility issues and the always-being-refused dilemma.
+- **Language Clarity Agent**: Analyzes the clarity, professionalism, and correctness of the proposal's language, including misleading phrasing or grammatical issues.
 
----
+A SuperAgent coordinates the workflow among these sub-agents by managing their outputs and aggregating their findings. It then synthesizes the results into a final assessment and generates personalized recommendations to help the freelancer improve future proposals and increase their chances of being accepted.
 
-### Recommendation System
 
-Often, clients struggle to find the appropriate freelancers for their requirements, and freelancers also struggle to reach jobs that match their skills and abilities.
+## Workflow
 
-The AI Recommendation System solves these problems by recommending the best suitable jobs for freelancers. The recommendation process is mainly based on three aspects:
+### 1.0 Tools Alignment
 
-#### 1. Freelancer Data — Content-Based Filtering
+- **Job Tools Extraction**: Utilizing an LLM to extract the tools mentioned in the job description. Each tool will contain:
+    - tool name
+    - tool necessity level: whether the tool was mandatory, recommended, optional, or even forbidden.
 
-Here, the freelancer's job title, portfolio, skills, and previous work on the platform are considered. The relevance between this data and the job posted by the client is measured to decide whether the job is a good match for the freelancer or not.
+- **Proposal Analysis**: Utilizing an LLM to analyze the proposal & return a report for each tool extracted from the job description. The report will contain:
+    - tool name & tool necessity level as found in the job description.
+    - found in proposal: a boolean variable indicating if the tool was mentioned in the proposal or not.
+    - with confidence: a boolean variable indicating if the freelancer mentioned the tool with confidence or it was just generic mentioning. The agent outputs that by analyzing context.
 
-#### 2. Similar Freelancers Approach — Collaborative Filtering
-
-Here, the freelancer is recommended jobs that similar freelancers in terms of portfolio, job title, skills, and other data usually apply to. This ensures that the jobs recommended to the freelancer follow the most recent updates and trends in their field.
-
-#### 3. Basic Filtering
-
-After the AI recommends the best matches for a freelancer, the platform still provides a backend metadata filtering mechanism that allows freelancers to choose whatever they want.
-
-This ensures that freelancers have full flexibility in exploring other job opportunities, price ranges, categories, and other available options.
+- **Scoring**: A scoring mechanism calculates the ratio of the tools mentioned in the proposal weighted by the necessity level & confidence.
 
 ---
 
-### Identity Recognition
+### 2.0 Requirement Coverage Agent
 
-In a platform that contains financial data and users' private data, it is crucial to ensure that all users follow respectful and professional behaviors while dealing with others on the platform.
-
-Therefore, a strict ban system is employed to provide only one account for each user. Hence, if a user does not follow the professional manners of the platform, they get banned and cannot sign up again.
-
-The technology used behind this feature is Face Recognition technology, which is commonly used for security purposes such as in our case.
-
-The methodology is done as follows:
-
-1. When a user signs up for the first time, they are asked to upload two images: one for their own face and another for a national identity card. The system ensures that the person has a reliable national identity.
-
-2. The facial features of the person are then saved as high-dimensional embeddings, also known as vectors, in a vector database using PostgreSQL.
-
-3. If another user tries to sign up later, their facial embeddings are compared with our recorded embeddings in the vector database. If a match is found, the sign-up process is refused.
-
-This way, the banned user cannot re-sign up.
-
-In order to reach the best possible result, various AI models are explored, trained, and evaluated. Finally, the champion model is deployed as the main Face Recognition model in our platform.
+- **Job Requirements Extraction**: Utilizes the `JobRequirementsExtractor` sub-agent to parse the raw job description text and compile an atomic, clean list of core functional deliverables and timeline constraints (strictly excluding developer tools or languages to avoid architectural redundancy).
+- **Proposal Semantic Matching**: Employs the `JobRequirementsMatcher` sub-agent to map the extracted requirements against the freelancer's proposal. It applies a strict validation evaluation to penalize missing features or timeline violations, preventing False Positives.
+- **Pipeline Orchestration**: The `RequirementCoverageAgent` coordinates the sequential execution flow, formatting and passing the extraction data directly into the matcher, returning a fully validated Pydantic data object (`score`, `details`, `client_requirements`, `requirements_covered`, `missing_requirements`).
 
 ---
 
-### Job Description Enhancement
+### 3.0 Job Understanding Agent
+
+- **Job Key Points Extraction**: Utilizes the `JobKeyPointsExtractor` sub-agent to parse the job description and extract:
+    - core problem: the main goal or problem the client wants to solve.
+    - required deliverables: the concrete outcomes the client expects.
+    - key keywords: domain-specific tools, skills, and technologies mentioned in the job.
+
+- **Proposal Evaluation**: Employs the `JobUnderstandingEvaluator` sub-agent to assess the proposal against the extracted key points. It checks whether the freelancer identified the core problem, proposed a concrete solution, mentioned practical steps, and covered the key keywords. The evaluator returns:
+    - score (0–10): how well the freelancer understood the job.
+    - matched / missing keywords: which key terms appeared or were absent in the proposal.
+    - boolean flags: problem identified, solution proposed, practical steps mentioned.
+    - irrelevant content: any off-topic content found in the proposal.
+    - summary: a short explanation of the score.
+    - confidence score: how confident the agent is in its evaluation.
+
+- **Rule-Based Decision**: A scoring threshold (default: 5.0/10) determines whether the proposal passes or fails this dimension. Proposals that fall below the threshold receive a rejection reason generated from the evaluation summary.
+
+- **Pipeline Orchestration**: The `JobUnderstandingAgent` coordinates the sequential execution of both sub-agents, passing the extracted key points directly into the evaluator and returning a fully validated Pydantic data object.
 
 ---
-
-### Proposal Rejection Reasons
-
 
 ## Requirements
-- Python 3.10 or later.
-- Supported LLM provider API Keys.
+
+- Python 3.10 or later
+- A supported LLM provider API key
+- Python virtual environment recommended
+
+## Setup
+### 1. Clone the repository
+
+```bash
+git clone <repo-url>
+cd Proposal-Rejection-Reasons
+```
+
+### 2. Create a virtual environment (Recommended)
+
+* Windows
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+* Linux / macOS
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure the environment file
+Copy the example environment file:
+```bash
+cp .env.example .env
+```
+Then add the required API keys and configuration values inside `.env`.
+
+### 5. Run the app
+```bash
+cd app
+python main.py
+```
