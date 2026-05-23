@@ -3,6 +3,23 @@
 # --------------------------------------------
 import json 
 from typing import Any
+from helpers.config import BLUE, RESET, GREEN, RED
+from argparse import ArgumentParser
+
+
+# Printing Utilities
+def print_subtitle(subtitle: str):
+    print()
+    subtitle = f" {subtitle} ".center(50, "=")
+    print(f"{BLUE}{subtitle}{RESET}")
+    print()
+
+
+def print_success_message(message: str):
+    print(f"{GREEN}>> {message} <<{RESET}")
+
+def print_error_message(message: str):
+    print(f"{RED}>> {message} <<{RESET}")
 
 def print_title(title: str, n_sep: int =  100, sep: str = "="):
     """Printing a title in a well-formatted manner"""
@@ -10,10 +27,9 @@ def print_title(title: str, n_sep: int =  100, sep: str = "="):
     print(title)
 
 
-
 def print_structured_response(structured_response):
     """Printing the Agent Structured Response"""
-    print_title("Structured Response", 50)
+    # print_title("Structured Response", 50)
     structured_response = structured_response.model_dump()
 
     for attb, value in structured_response.items():
@@ -49,13 +65,28 @@ def print_agent_response(response: Any):
     
 
 
-
+# Loading data
 def load_file(file_path: str):
     with open(file_path, mode = "r", encoding = "utf-8") as f:
         return f.read()
 
 
-
 def load_json(file_path: str) -> dict:
     with open(file_path, mode = "r", encoding = "utf-8") as f:
         return json.load(f)
+    
+
+# accepting terminal arguments
+def parse_terminal_arguments():
+    """
+    Return dict of given arguments
+    """
+
+    parser = ArgumentParser(description = "Parsing Terminal Arguments")
+    
+
+    parser.add_argument(
+        "--pipeline", 
+        type = "str",
+        help = "represent the pipeline to evaluate, tools_alignment, job_understanding, etc..."
+    )

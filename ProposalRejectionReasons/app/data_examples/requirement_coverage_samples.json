@@ -1,12 +1,16 @@
 [
     {
         "job_desc": "We need a web-based Inventory Management System for our warehouse. The core and mandatory feature is that warehouse workers must be able to bulk-upload product data using Excel/CSV files to update the stock automatically. Important Note: This is Phase 1. Do NOT implement any payment gateways or online checkout features now; we strictly prohibit online transactions in this version to avoid security compliance issues. The system must include a clean dashboard showing low-stock alerts.",
-        "proposal1": "Hi, I can build a highly secure e-commerce and inventory website for you. I am an expert in integrating secure payment gateways like Stripe, PayPal, and credit cards to handle online transactions flawlessly. I will design a beautiful product catalog and a fully functional dashboard for your warehouse workers with real-time notifications. I can start right away and deliver within 2 weeks!",
-        "proposal2": "Hello. I will develop the inventory system focusing strictly on the warehouse operations. I will implement the bulk CSV/Excel parser so workers can update stock in one click. As requested for Phase 1, I will completely exclude any payment processing or checkout mechanisms to ensure compliance. The dashboard will feature real-time low-stock threshold triggers and visual alerts."
+        "proposals" : [
+            "Hi, I can build a highly secure e-commerce and inventory website for you. I am an expert in integrating secure payment gateways like Stripe, PayPal, and credit cards to handle online transactions flawlessly. I will design a beautiful product catalog and a fully functional dashboard for your warehouse workers with real-time notifications. I can start right away and deliver within 2 weeks!",
+            "Hello. I will develop the inventory system focusing strictly on the warehouse operations. I will implement the bulk CSV/Excel parser so workers can update stock in one click. As requested for Phase 1, I will completely exclude any payment processing or checkout mechanisms to ensure compliance. The dashboard will feature real-time low-stock threshold triggers and visual alerts."
+        ]
     },
     {
         "job_desc": "I need a simple, single landing page for my local dental clinic. The only critical requirement is a contact form that contains exactly 3 fields: Patient Name, Phone Number, and Desired Appointment Date. The project must be fully delivered within 5 days due to a strict marketing launch deadline.",
-        "proposal1": "Hi, I am an expert Enterprise Cloud Architect. I will build a highly scalable microservices architecture for your medical platform using Kubernetes, Docker, and AWS cloud solutions. We will deploy a multi-region PostgreSQL database and guarantee 99.99% uptime. I am available to start now and will deliver the complete project in 3 weeks.",
-        "proposal2": "Hi, I can deliver your dental clinic landing page within the 5-day deadline. I will design a clean layout centered around the 3-field booking form (Name, Phone, and Appointment Date) to maximize user conversions for your marketing launch. I can start immediately."
+        "proposals" : [
+            "Hi, I am an expert Enterprise Cloud Architect. I will build a highly scalable microservices architecture for your medical platform using Kubernetes, Docker, and AWS cloud solutions. We will deploy a multi-region PostgreSQL database and guarantee 99.99% uptime. I am available to start now and will deliver the complete project in 3 weeks.",
+            "Hi, I can deliver your dental clinic landing page within the 5-day deadline. I will design a clean layout centered around the 3-field booking form (Name, Phone, and Appointment Date) to maximize user conversions for your marketing launch. I can start immediately."
+        ]
     }
 ]
