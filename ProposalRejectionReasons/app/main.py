@@ -15,11 +15,12 @@ from schemas import ExtractedRequirementsSchema, RequirementCoverageSchema
 # prompts
 from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
 from prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT, JOB_UNDERSTANDING_EVALUATOR_PROMPT
-from prompts import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
+from prompts.requirement_coverage import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
 
 # data processing
 from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
 from processing.job_understanding_processing import calc_job_understanding_result
+from processing.requirement_coverage_processing import calc_requirement_coverage_score 
 
 # others
 import os
@@ -78,10 +79,16 @@ if __name__ == "__main__":
         print("\t>> Requirement Coverage Agents")
         requirement_extractor  = JobRequirementsExtractor(
             model_name          = CFG.GROQ_LLAMA_8b,
+            system_prompt       = REQUIREMENT_EXTRACTOR_PROMPT,
+            model_provider      = CFG.PROVIDER_GROQ,
+            structured_response = ExtractedRequirementsSchema,
         )
 
         requirement_matcher  = JobRequirementsMatcher(
             model_name          = CFG.GROQ_LLAMA_70b,
+            system_prompt       = REQUIREMENT_MATCHER_PROMPT,
+            model_provider      = CFG.PROVIDER_GROQ,
+            structured_response = RequirementCoverageSchema,
         )
 
         F.print_success_message("Agents Loaded Successfully")
@@ -170,13 +177,14 @@ if __name__ == "__main__":
 
         F.print_structured_response(requirements_matching)
         
-        total_reqs = len(extracted_data.requirements)
-        covered_reqs = len(requirements_matching.requirements_covered_ids)
-        calculated_score = covered_reqs / total_reqs if total_reqs > 0 else 0.0
+        calculated_score = calc_requirement_coverage_score(
+            extracted_requirements = extracted_data.requirements,
+            final_coverage = requirements_matching
+        )
         
-        print(f"\t>> Calculated Requirement Coverage Score (Manual): {calculated_score}\n")
+        print(f"\t>> Calculated Requirement Coverage Score (Weighted): {calculated_score}\n")
 
-    
+
     # --------------------------------------------
     F.print_subtitle("Job Understanding")
 

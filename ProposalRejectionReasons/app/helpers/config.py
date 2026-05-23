@@ -52,6 +52,8 @@ NECESSITY_LEVEL_WEIGHTS = {
     "recommended": 0.7,
     "optional"   : 0.5
 }
+
+
 WITH_CONFIDENCE_TOOL_WEIGHT = 1
 GENERIC_TOOL_WEIGHT         = 0.5
 
