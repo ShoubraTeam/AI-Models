@@ -6,13 +6,15 @@
 from agents import JobToolsExtractor
 from agents import ProposalToolsAnalyzer
 from agents.requirement_coverage.requirement_coverage_agent import RequirementCoverageAgent
-from agents.job_understanding.job_understanding_agent import JobUnderstandingAgent
+from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
 
 # schemas
 from schemas import JobToolResponse, ProposalToolsResponse
+from schemas import JobKeyPointsSchema, JobUnderstandingEvalSchema
 
 # prompts
 from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
+from prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT, JOB_UNDERSTANDING_EVALUATOR_PROMPT
 
 # data processing
 from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
@@ -36,18 +38,18 @@ DATA_PATH = os.path.join(
 if __name__ == "__main__":
     F.print_title("1.0 Starting the APP")
 
-    print("- Waking Up Agents...")
-
     # -----------------------------------------------------------------
     # Tools Alignment Agents Initialization
     # -----------------------------------------------------------------
+
+    print("- Waking Up Agents...")
+
+    print("\t>> Tools Alignment Agents...")
     job_tool_extractor = JobToolsExtractor(
         model_name          = CFG.GROQ_LLAMA_8b,
         system_prompt       = JOB_TOOLS_EXTRACTION_PROMPT,
         structured_response = JobToolResponse,
         model_provider      = CFG.PROVIDER_GROQ,
-        temperature         = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_temperature"],
-        max_tokens          = CFG.MODELS_CFG["tools_alignment_pipeline"]["job_tools_extractor_max_tokens"],
     )
 
     proposal_tools_analyzer = ProposalToolsAnalyzer(
@@ -55,19 +57,32 @@ if __name__ == "__main__":
         system_prompt       = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
         structured_response = ProposalToolsResponse,
         model_provider      = CFG.PROVIDER_GROQ,
-        temperature         = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_temperature"],
-        max_tokens          = CFG.MODELS_CFG["tools_alignment_pipeline"]["proposal_tools_analyzer_max_tokens"],
     )
 
-    # -----------------------------------------------------------------
-    # Requirement Coverage Agent Initialization
-    # -----------------------------------------------------------------
+
+    print("\t>> Job Understanding Agents...")
+    extractor  = JobKeyPointsExtractor(
+        model_name = CFG.GROQ_LLAMA_70b,
+        system_prompt = JOB_KEY_POINTS_EXTRACTION_PROMPT,
+        model_provider = CFG.PROVIDER_GROQ,
+        structured_response = JobKeyPointsSchema,
+    )
+
+    evaluator  = JobUnderstandingEvaluator(
+        model_name = CFG.GROQ_LLAMA_70b,
+        system_prompt = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
+        model_provider = CFG.PROVIDER_GROQ,
+        structured_response = JobUnderstandingEvalSchema,
+    )
+
+
+    print("\t>> Requirement Coverage Agents...")
     requirement_agent = RequirementCoverageAgent()
 
     # -----------------------------------------------------------------
     # Job Understanding Agent Initialization
     # -----------------------------------------------------------------
-    job_understanding_agent = JobUnderstandingAgent()
+    # job_understanding_agent = JobUnderstandingAgent()
 
 
     print("- Loading data...")
@@ -140,8 +155,7 @@ ju_sample       = job_understanding_data_samples[0]
 job_desc_ju     = ju_sample["job_desc"]
 
 # Initialize sub-agents independently (no orchestrator class)
-extractor  = JobKeyPointsExtractor()
-evaluator  = JobUnderstandingEvaluator()
+
 
 for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
     proposal_text = ju_sample[proposal_key]

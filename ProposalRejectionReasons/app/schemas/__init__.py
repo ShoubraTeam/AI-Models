@@ -1,3 +1,3 @@
 from .tools_alignment import JobToolResponse, JobTool
 from .tools_alignment import ProposalToolReview, ProposalToolsResponse
-from .job_understanding import JobKeyPointsSchema, JobUnderstandingSchema
+from .job_understanding import JobKeyPointsSchema, JobUnderstandingEvalSchema

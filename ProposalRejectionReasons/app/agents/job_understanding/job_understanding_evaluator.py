@@ -1,7 +1,7 @@
 from agents.BaseAgent import BaseAgent
 from schemas.job_understanding.job_understanding_eval_schema import JobUnderstandingEvalSchema
 from prompts.job_understanding.job_understanding_evaluator_prompt import JOB_UNDERSTANDING_EVALUATOR_PROMPT
-import helpers.config as CFG
+from helpers.config import DEFAULT_MODELS_CFG
 from typing import List
 
 
@@ -27,21 +27,43 @@ class JobUnderstandingEvaluator(BaseAgent):
         - confidence_score          : float
     """
 
-    def __init__(self, model_name: str = CFG.GROQ_LLAMA_70b, temperature: float = None):
+    # def __init__(self, model_name: str = CFG.GROQ_LLAMA_70b, temperature: float = None):
 
-        if temperature is None:
-            temperature = CFG.MODELS_CFG["job_understanding_pipeline"]["job_understanding_evaluator_temperature"]
+    #     if temperature is None:
+    #         temperature = CFG.MODELS_CFG["job_understanding_pipeline"]["job_understanding_evaluator_temperature"]
 
-        max_tokens = CFG.MODELS_CFG["job_understanding_pipeline"]["job_understanding_evaluator_max_tokens"]
+    #     max_tokens = CFG.MODELS_CFG["job_understanding_pipeline"]["job_understanding_evaluator_max_tokens"]
 
-        super().__init__(
-            model_name=model_name,
-            system_prompt=JOB_UNDERSTANDING_EVALUATOR_PROMPT,
-            model_provider=CFG.PROVIDER_GROQ,
-            structured_response=JobUnderstandingEvalSchema,
-            temperature=temperature,
-            max_tokens=max_tokens
-        )
+    #     super().__init__(
+    #         model_name=model_name,
+    #         system_prompt=JOB_UNDERSTANDING_EVALUATOR_PROMPT,
+    #         model_provider=CFG.PROVIDER_GROQ,
+    #         structured_response=JobUnderstandingEvalSchema,
+    #         temperature=temperature,
+    #         max_tokens=max_tokens
+    #     )
+
+    def __init__(
+        self,
+        model_name: str,
+        system_prompt: str,
+        model_provider: str = "groq",
+        tools: list = [],
+        structured_response = None,
+        **kwargs
+    ):
+        
+        if not kwargs or kwargs is None:
+            kwargs = DEFAULT_MODELS_CFG["job_understanding_evaluator"]
+
+        super().__init__(model_name, system_prompt, model_provider, tools, structured_response, **kwargs)
+
+
+    def get_agent(self):
+        return super().get_agent()
+    
+    def validate_agent_output(self, agent_output):
+        return super().validate_agent_output(agent_output)
 
     def invoke(
         self,

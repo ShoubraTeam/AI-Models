@@ -1,2 +1,2 @@
 from .tools_alignment import JobToolsExtractor, ProposalToolsAnalyzer
-from .job_understanding import JobUnderstandingAgent
+from .job_understanding import JobKeyPointsExtractor, JobUnderstandingEvaluator
