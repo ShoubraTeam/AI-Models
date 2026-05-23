@@ -5,11 +5,15 @@
 # agents
 from agents import JobToolsExtractor
 from agents import ProposalToolsAnalyzer
-from agents.requirement_coverage.requirement_coverage_agent import RequirementCoverageAgent
+from agents.requirement_coverage.job_requirements_extractor import JobRequirementsExtractor
+from agents.requirement_coverage.job_requirements_matcher import JobRequirementsMatcher
 from agents.job_understanding.job_understanding_agent import JobUnderstandingAgent
 
 # schemas
 from schemas import JobToolResponse, ProposalToolsResponse
+from schemas.requirement_coverage.requirement_extraction_schema import ExtractedRequirementsSchema
+from schemas.requirement_coverage.requirement_coverage_schema import RequirementCoverageSchema
+
 
 # prompts
 from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
@@ -60,9 +64,15 @@ if __name__ == "__main__":
     )
 
     # -----------------------------------------------------------------
-    # Requirement Coverage Agent Initialization
+    # Requirement Coverage Agents Initialization (Direct Pipeline)
     # -----------------------------------------------------------------
-    requirement_agent = RequirementCoverageAgent()
+    job_requirements_extractor = JobRequirementsExtractor(
+        model_name = CFG.GROQ_LLAMA_8b
+    )
+
+    job_requirements_matcher = JobRequirementsMatcher(
+        model_name = CFG.GROQ_LLAMA_70b
+    )
 
     # -----------------------------------------------------------------
     # Job Understanding Agent Initialization
@@ -118,18 +128,39 @@ if __name__ == "__main__":
 
 
     # ==================================================================
-    # 3.0 Testing Requirement Coverage Agent
+    # 3.0 Testing Requirement Coverage Agents (Direct & Flattened)
     # ==================================================================
-    F.print_title("3.0 Testing Requirement Coverage Agent")
+    F.print_title("3.0 Testing Requirement Coverage Agents Directly")
     req_sample = requirement_data_samples[0]
 
-    print("- Running Requirement Coverage Analysis...")
-    req_response = requirement_agent.invoke(
-        job_description = req_sample["job_desc"],
-        proposal_text   = req_sample["proposal1"]
+    print("- Step 1: Extracting Requirements with IDs...")
+    extracted_data = job_requirements_extractor.invoke(
+        input = req_sample["job_desc"]
     )
-    F.print_structured_response(req_response)
+    F.print_structured_response(extracted_data)
 
+    formatted_matcher_input = f"""
+    Extracted Requirements (with IDs):
+    {extracted_data.model_dump_json(indent=2)}
+
+    Freelancer Proposal Text:
+    {req_sample["proposal2"]}
+    """
+
+    print("- Step 2: Running Semantic Matching via IDs...")
+    final_coverage = job_requirements_matcher.invoke(
+        job_requirements = extracted_data.requirements,
+        proposal_text    = req_sample["proposal2"]
+    )
+    F.print_structured_response(final_coverage)
+
+    total_reqs = len(extracted_data.requirements)
+    covered_reqs = len(final_coverage.requirements_covered_ids)
+    
+    calculated_score = covered_reqs / total_reqs if total_reqs > 0 else 0.0
+    
+    print("\n- Calculated Requirement Coverage Score (Manual):")
+    print(f"  Score => {calculated_score}")
 
     # ==================================================================
     # 4.0 Testing Job Understanding Agent
