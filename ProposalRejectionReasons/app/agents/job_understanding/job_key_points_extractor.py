@@ -1,6 +1,4 @@
 from agents.BaseAgent import BaseAgent
-from schemas.job_understanding.job_key_points_schema import JobKeyPointsSchema
-from prompts.job_understanding.job_key_points_extraction_prompt import JOB_KEY_POINTS_EXTRACTION_PROMPT
 from helpers.config import DEFAULT_MODELS_CFG
 
 

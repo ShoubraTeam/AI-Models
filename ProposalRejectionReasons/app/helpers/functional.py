@@ -3,6 +3,19 @@
 # --------------------------------------------
 import json 
 from typing import Any
+from helpers.config import BLUE, RESET, GREEN, RED
+
+
+def print_subtitle(subtitle: str):
+    print()
+    print(f"{BLUE}=== {subtitle} ==={RESET}")
+
+
+def print_success_message(message: str):
+    print(f"{GREEN}>> {message} <<{RESET}")
+
+def print_error_message(message: str):
+    print(f"{RED}>> {message} <<{RESET}")
 
 def print_title(title: str, n_sep: int =  100, sep: str = "="):
     """Printing a title in a well-formatted manner"""

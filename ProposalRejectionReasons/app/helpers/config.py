@@ -57,3 +57,10 @@ GENERIC_TOOL_WEIGHT         = 0.5
 
 # Job Understanding Scoring
 JOB_UNDERSTANDING_THRESHOLD = 5.0
+
+
+# printing utils
+RED = "\033[91m"
+GREEN = "\033[92m"
+BLUE = "\033[94m"
+RESET = "\033[0m"
