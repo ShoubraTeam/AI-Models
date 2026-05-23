@@ -90,7 +90,8 @@ class BaseAgent:
             return response["structured_response"]
         
         return response
-    # --------------------------------------------------------------
+    
+    
     def validate_agent_output(self, agent_output: Any):
         """
         Validate if the agent output as expected or not
@@ -98,4 +99,8 @@ class BaseAgent:
         Returns:
             validated (bool)
         """
+        pass
+    
+
+    def evaluate(self, eval_data: list):
         pass

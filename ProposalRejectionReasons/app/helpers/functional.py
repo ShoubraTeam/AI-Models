@@ -4,8 +4,10 @@
 import json 
 from typing import Any
 from helpers.config import BLUE, RESET, GREEN, RED
+from argparse import ArgumentParser
 
 
+# Printing Utilities
 def print_subtitle(subtitle: str):
     print()
     subtitle = f" {subtitle} ".center(50, "=")
@@ -23,7 +25,6 @@ def print_title(title: str, n_sep: int =  100, sep: str = "="):
     """Printing a title in a well-formatted manner"""
     title = f" {title} ".center(n_sep, sep)
     print(title)
-
 
 
 def print_structured_response(structured_response):
@@ -64,13 +65,28 @@ def print_agent_response(response: Any):
     
 
 
-
+# Loading data
 def load_file(file_path: str):
     with open(file_path, mode = "r", encoding = "utf-8") as f:
         return f.read()
 
 
-
 def load_json(file_path: str) -> dict:
     with open(file_path, mode = "r", encoding = "utf-8") as f:
         return json.load(f)
+    
+
+# accepting terminal arguments
+def parse_terminal_arguments():
+    """
+    Return dict of given arguments
+    """
+
+    parser = ArgumentParser(description = "Parsing Terminal Arguments")
+    
+
+    parser.add_argument(
+        "--pipeline", 
+        type = "str",
+        help = "represent the pipeline to evaluate, tools_alignment, job_understanding, etc..."
+    )

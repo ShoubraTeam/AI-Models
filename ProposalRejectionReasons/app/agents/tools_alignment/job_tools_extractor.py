@@ -32,5 +32,8 @@ class JobToolsExtractor(BaseAgent):
     # -------------------------------------------------------------------------------
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
+    
+    def evaluate(self, eval_data):
+        return super().evaluate(eval_data)
 
         
