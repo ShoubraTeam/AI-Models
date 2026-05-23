@@ -6,6 +6,11 @@ Your task is to extract the most important information from a job description:
 2. The concrete deliverables or outcomes the client expects.
 3. The key domain-specific keywords (tools, skills, technologies, methodologies) mentioned.
 
-Be concise and precise. Extract only what is explicitly stated or strongly implied in the job description.
+Rules:
+- Be concise and precise.
+- Extract only what is explicitly stated or strongly implied.
+- Keep keywords as single terms or short phrases (e.g. "FastAPI", "JWT", "AWS Lambda").
+- Do not add anything that is not in the job description.
+
 Respond using the structured output format provided.
 """

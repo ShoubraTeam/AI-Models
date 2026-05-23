@@ -6,8 +6,15 @@ import helpers.config as CFG
 
 class JobKeyPointsExtractor(BaseAgent):
     """
-    Sub-agent 1: Extracts core_problem, required_deliverables,
-    and key_keywords from the job description.
+    Sub-agent 1: Extracts core_problem, required_deliverables, and key_keywords
+    from the job description.
+
+    Designed to be tested and evaluated independently.
+
+    Output: JobKeyPointsSchema
+        - core_problem          : str
+        - required_deliverables : List[str]
+        - key_keywords          : List[str]  ← used by processing layer for keyword metrics
     """
 
     def __init__(self, model_name: str = CFG.GROQ_LLAMA_70b, temperature: float = None):

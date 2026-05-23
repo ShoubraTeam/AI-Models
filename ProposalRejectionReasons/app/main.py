@@ -131,26 +131,51 @@ if __name__ == "__main__":
     F.print_structured_response(req_response)
 
 
-    # ==================================================================
-    # 4.0 Testing Job Understanding Agent
-    # ==================================================================
-    F.print_title("4.0 Testing Job Understanding Agent")
+# ==================================================================
+# 4.0 Testing Job Understanding
+# ==================================================================
+F.print_title("4.0 Testing Job Understanding")
 
-    for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
-        ju_sample = job_understanding_data_samples[0]
+ju_sample       = job_understanding_data_samples[0]
+job_desc_ju     = ju_sample["job_desc"]
 
-        F.print_title(f"4.{i} Proposal #{i}")
-        print("- Running Job Understanding Analysis...")
+# Initialize sub-agents independently (no orchestrator class)
+extractor  = JobKeyPointsExtractor()
+evaluator  = JobUnderstandingEvaluator()
 
-        ju_response = job_understanding_agent.invoke(
-            job_description = ju_sample["job_desc"],
-            proposal_text   = ju_sample[proposal_key]
-        )
-        F.print_structured_response(ju_response)
+for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
+    proposal_text = ju_sample[proposal_key]
 
-        print("\n- Job Understanding Result...")
-        ju_result = calc_job_understanding_result(ju_response)
-        for key, value in ju_result.items():
-            print(f"  {key} => {value}")
+    F.print_title(f"4.{i} Proposal #{i}")
 
-        print()
+    # -----------------------------------------------------------------
+    # Step 1 — Extract key points (independently testable)
+    # -----------------------------------------------------------------
+    print("- Extracting Job Key Points...")
+    extraction = extractor.invoke(input=job_desc_ju)
+    F.print_structured_response(extraction)
+
+    # -----------------------------------------------------------------
+    # Step 2 — LLM evaluation (independently testable)
+    # -----------------------------------------------------------------
+    print("- Running LLM Evaluation (3 questions only)...")
+    llm_eval = evaluator.invoke(
+        core_problem          = extraction.core_problem,
+        required_deliverables = extraction.required_deliverables,
+        proposal_text         = proposal_text
+    )
+    F.print_structured_response(llm_eval)
+
+    # -----------------------------------------------------------------
+    # Step 3 — Metrics + scoring in processing layer (no LLM)
+    # -----------------------------------------------------------------
+    print("- Computing Final Result (keyword metrics + scoring)...")
+    result = calc_job_understanding_result(
+        extraction    = extraction,
+        llm_eval      = llm_eval,
+        proposal_text = proposal_text
+    )
+    for key, value in result.items():
+        print(f"  {key} => {value}")
+
+    print()
