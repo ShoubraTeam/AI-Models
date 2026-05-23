@@ -87,6 +87,39 @@ def parse_terminal_arguments():
 
     parser.add_argument(
         "--pipeline", 
-        type = "str",
-        help = "represent the pipeline to evaluate, tools_alignment, job_understanding, etc..."
+        type = str,
+        help = "The pipeline to evaluate, tools_alignment, job_understanding, etc..."
     )
+
+    parser.add_argument(
+        "--round",
+        type = int,
+        help = "The number of times the evaluation process should run.",
+        default = 5
+    )
+
+
+    parser.add_argument(
+        "--models",
+        nargs = "+",
+        help = "The model used in evaluating. Assuming `model_1` for extraction, `model_2` for matching, ..."
+    )
+
+
+
+    # files
+    parser.add_argument(
+        "--eval_data_path",
+        type = str,
+        help = "The path to the evaluation data."
+    )
+
+    parser.add_argument(
+        "--output_path",
+        type = str,
+        help = "The path to output the results in."
+    )
+
+
+    args = parser.parse_args().__dict__
+    return args

@@ -3,13 +3,14 @@
 # ----------------------------------------------------------------
 # Models
 PROVIDER_GROQ         = "groq"
-GROQ_LLAMA_8b         = "llama-3.1-8b-instant"
-GROQ_LLAMA_70b        = "llama-3.3-70b-versatile"
-GROQ_QWEN_32b         = "qwen/qwen3-32b"
-GROQ_GPT_120b         = "openai/gpt-oss-120b"
+GROQ_LLAMA_8b         = "groq:llama-3.1-8b-instant"
+GROQ_LLAMA_70b        = "groq:llama-3.3-70b-versatile"
+GROQ_QWEN_32b         = "groq:qwen/qwen3-32b"
+GROQ_GPT_120b         = "groq:openai/gpt-oss-120b"
+
 PROVIDER_GOOGLE_GENAI = "google_genai"
-GEMINI_FLASH_LITE     = "gemini-2.5-flash-lite"
-GEMINI_FLASH          = "gemini-2.5-flash"
+GEMINI_FLASH_LITE     = "google_genai:gemini-2.5-flash-lite"
+GEMINI_FLASH          = "google_genai:gemini-2.5-flash"
 
 # Models CFG
 DEFAULT_MODELS_CFG = {

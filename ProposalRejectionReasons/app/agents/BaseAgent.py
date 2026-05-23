@@ -12,8 +12,7 @@ class BaseAgent:
     General class for building & Invoking agents
 
     Args:
-        model_name     (str): the name of the model used.
-        model_provider (str): the provider name. e.g Groq, OpenAI, ...
+        model_name     (str): the name of the model wits its provider (provider:model).
         system_prompt  (str): the system prompt used to instuct the model to control its output
         tools (list)        : langchain tools that the agent should use
         structured_response : langchain structured response that the agent should return
@@ -23,7 +22,6 @@ class BaseAgent:
         self,
         model_name: str,
         system_prompt: str,
-        model_provider: str = "groq",
         tools: list = [],
         structured_response = None,
         **kwargs
@@ -31,7 +29,6 @@ class BaseAgent:
         
         # setup
         self.model_name = model_name
-        self.model_provider = model_provider
         self.system_prompt = system_prompt
         self.tools = tools
         self.structured_response = structured_response
@@ -43,7 +40,6 @@ class BaseAgent:
     def get_agent(self):
         model = init_chat_model(
             model = self.model_name,
-            model_provider = self.model_provider,
             **self.kwargs
         )
 
@@ -100,7 +96,7 @@ class BaseAgent:
             validated (bool)
         """
         pass
-    
+
 
     def evaluate(self, eval_data: list):
         pass
