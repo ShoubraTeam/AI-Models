@@ -70,6 +70,7 @@ REQUIREMENT_COVERAGE_MATCHER=(
 source "$VENV_PATH"
 
 python evaluate.py \
-    --pipeline tools_alignment \
-    --models  QWEN_32B QWEN_32B
+    --task     tools_alignment \
+    --models   QWEN_32B QWEN_32B \
+    --temperature 0.0 \
 
