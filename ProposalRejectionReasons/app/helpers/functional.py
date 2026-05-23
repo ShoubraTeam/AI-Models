@@ -8,7 +8,9 @@ from helpers.config import BLUE, RESET, GREEN, RED
 
 def print_subtitle(subtitle: str):
     print()
-    print(f"{BLUE}=== {subtitle} ==={RESET}")
+    subtitle = f" {subtitle} ".center(50, "=")
+    print(f"{BLUE}{subtitle}{RESET}")
+    print()
 
 
 def print_success_message(message: str):
@@ -26,7 +28,7 @@ def print_title(title: str, n_sep: int =  100, sep: str = "="):
 
 def print_structured_response(structured_response):
     """Printing the Agent Structured Response"""
-    print_title("Structured Response", 50)
+    # print_title("Structured Response", 50)
     structured_response = structured_response.model_dump()
 
     for attb, value in structured_response.items():

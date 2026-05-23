@@ -37,11 +37,10 @@ DATA_PATH = os.path.join(
 )
 
 if __name__ == "__main__":
+    # -----------------------------------------------------------------
+    # Agents & Data Initialization
+    # -----------------------------------------------------------------
     F.print_title("1.0 Starting the APP")
-
-    # -----------------------------------------------------------------
-    # Agents Initialization
-    # -----------------------------------------------------------------
 
     F.print_subtitle("Wake up Agents")
 
@@ -64,32 +63,32 @@ if __name__ == "__main__":
 
         print("\t>> Job Understanding Agents")
         job_key_points_extractor  = JobKeyPointsExtractor(
-            model_name = CFG.GROQ_LLAMA_70b,
-            system_prompt = JOB_KEY_POINTS_EXTRACTION_PROMPT,
-            model_provider = CFG.PROVIDER_GROQ,
+            model_name          = CFG.GROQ_LLAMA_70b,
+            system_prompt       = JOB_KEY_POINTS_EXTRACTION_PROMPT,
+            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = JobKeyPointsSchema,
         )
 
         job_understanding_evaluator  = JobUnderstandingEvaluator(
-            model_name = CFG.GROQ_LLAMA_70b,
-            system_prompt = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
-            model_provider = CFG.PROVIDER_GROQ,
+            model_name          = CFG.GROQ_LLAMA_70b,
+            system_prompt       = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
+            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = JobUnderstandingEvalSchema,
         )
 
 
         print("\t>> Requirement Coverage Agents")
         requirement_extractor  = JobRequirementsExtractor(
-            model_name = CFG.GROQ_LLAMA_70b,
-            system_prompt = REQUIREMENT_EXTRACTOR_PROMPT,
-            model_provider = CFG.PROVIDER_GROQ,
+            model_name          = CFG.GROQ_LLAMA_70b,
+            system_prompt       = REQUIREMENT_EXTRACTOR_PROMPT,
+            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = ExtractedRequirementsSchema,
         )
 
         requirement_matcher  = JobRequirementsMatcher(
-            model_name = CFG.GROQ_LLAMA_70b,
-            system_prompt = REQUIREMENT_MATCHER_PROMPT,
-            model_provider = CFG.PROVIDER_GROQ,
+            model_name          = CFG.GROQ_LLAMA_70b,
+            system_prompt       = REQUIREMENT_MATCHER_PROMPT,
+            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = RequirementCoverageSchema,
         )
 
@@ -99,10 +98,6 @@ if __name__ == "__main__":
         F.print_error_message("Error While Loading Agents")
         F.print_error_message(e)
 
-
-    # -----------------------------------------------------------------
-    # Agents Initialization
-    # -----------------------------------------------------------------
 
 
     F.print_subtitle("Loading Data")
@@ -130,94 +125,121 @@ if __name__ == "__main__":
         F.print_error_message(e)
 
 
-#     # ==================================================================
-#     # 2.0 Testing Tools Alignment Agents
-#     # ==================================================================
-#     F.print_title("2.0 Testing Tools Alignment Agents")
-#     tools_sample = tools_alignment_data_samples[0]
-
-#     job_description_tools = tools_sample["job_desc"]
-#     proposal_tools        = tools_sample["proposal1"]
-
-#     print("- Extracting Job Tools")
-#     job_tools_response = job_tool_extractor.invoke(
-#         input = job_description_tools
-#     )
-#     F.print_structured_response(job_tools_response)
-
-#     print("- Analyzing Proposal Tools")
-#     prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
-#         job_tools = job_tools_response.tools,
-#         proposal  = proposal_tools
-#     )
-
-#     proposal_tools_analysis = proposal_tools_analyzer.invoke(
-#         input = prepared_analysis_tool_ip
-#     )
-#     F.print_structured_response(proposal_tools_analysis)
-
-#     print("- Tool Alignment Score")
-#     print(calc_tools_alignment_score(proposal_tools_analysis))
 
 
-#     # ==================================================================
-#     # 3.0 Testing Requirement Coverage Agent
-#     # ==================================================================
-#     F.print_title("3.0 Testing Requirement Coverage Agent")
-#     req_sample = requirement_data_samples[0]
+    # ==================================================================
+    # 2.0 Testing Agents
+    # ==================================================================
+    F.print_title("2.0 Testing Agents")
 
-#     print("- Running Requirement Coverage Analysis")
-#     req_response = requirement_agent.invoke(
-#         job_description = req_sample["job_desc"],
-#         proposal_text   = req_sample["proposal1"]
-#     )
-#     F.print_structured_response(req_response)
+    F.print_subtitle("Tools Alignment")
+
+    tools_sample = tools_alignment_data_samples[0]
+    job_desc  = tools_sample["job_desc"]
+    proposals = tools_sample["proposals"]
+
+    print("\t>> Extracting Job Tools")
+    job_tools_response = job_tool_extractor.invoke(input = job_desc)
+    F.print_structured_response(job_tools_response)
+
+    print("\t>> Analyzing Proposal Tools")
+    for idx, proposal in enumerate(proposals, start = 1):
+        print(f"--- Analyzing Proposal {idx} ---")
+
+        prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
+            job_tools = job_tools_response.tools,
+            proposal  = proposal
+        )
+
+        proposal_tools_analysis = proposal_tools_analyzer.invoke(
+            input = prepared_analysis_tool_ip
+        )
+
+        F.print_structured_response(proposal_tools_analysis)
+        print()
+
+        print("\t>> Tools Alignment Score: ", end = "")
+        print(calc_tools_alignment_score(proposal_tools_analysis))
 
 
-# # ==================================================================
-# # 4.0 Testing Job Understanding
-# # ==================================================================
-# F.print_title("4.0 Testing Job Understanding")
+    # --------------------------------------------
+    F.print_subtitle("Requirement Coverage")
+    job_desc = requirement_data_samples[0]["job_desc"]
+    proposals = requirement_data_samples[0]["proposals"]
+    
+    
+    print("\t>> Extracting Job Requirements")
+    job_requirements = requirement_extractor.invoke(input = job_desc)
+    F.print_structured_response(job_requirements)
 
-# ju_sample       = job_understanding_data_samples[0]
-# job_desc_ju     = ju_sample["job_desc"]
 
-# # Initialize sub-agents independently (no orchestrator class)
+    print("\t>> Evaluating Requirements in Proposal")
+    for idx, proposal in enumerate(proposals, start = 1):
+        print(f"--- Analyzing Proposal {idx} ---")
+        requirements_matching = requirement_matcher.invoke(
+            job_requirements = job_requirements,
+            proposal_text = proposal
+        )
+
+        F.print_structured_response(requirements_matching)
+        print()
+
+    
+    # --------------------------------------------
+    F.print_subtitle("Job Understanding")
+
+    # job_desc  = requirement_data_samples[0]["job_desc"]
+    # proposals = requirement_data_samples[0]["proposals"]
+    
+    # print("\t>> Extracting Job Key Points")
+    # job_key_points = job_key_points_extractor.invoke(input = job_desc)
+    # F.print_structured_response(job_key_points)
+
+    # print("\t>> Evaluating Proposal Quality (freelancer addressing the job professionally)")
+    # for idx, proposal in enumerate(proposals, start = 1):
+    #     print(f"--- Analyzing Proposal {idx} ---")
+    #     understanding_evaluation = job_understanding_evaluator.invoke(
+    #         job_requirements = job_requirements,
+    #         proposal_text = proposal
+    #     )
+
+    #     F.print_structured_response(requirements_matching)
+    #     print()
 
 
-# for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
-#     proposal_text = ju_sample[proposal_key]
+    # for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
+    #     proposal_text = ju_sample[proposal_key]
 
-#     F.print_title(f"4.{i} Proposal #{i}")
+    #     F.print_title(f"4.{i} Proposal #{i}")
 
-#     # -----------------------------------------------------------------
-#     # Step 1 — Extract key points (independently testable)
-#     # -----------------------------------------------------------------
-#     print("- Extracting Job Key Points")
-#     extraction = extractor.invoke(input=job_desc_ju)
-#     F.print_structured_response(extraction)
+    #     # -----------------------------------------------------------------
+    #     # Step 1 — Extract key points (independently testable)
+    #     # -----------------------------------------------------------------
+    #     print("- Extracting Job Key Points")
+    #     extraction = extractor.invoke(input=job_desc_ju)
+    #     F.print_structured_response(extraction)
 
-#     # -----------------------------------------------------------------
-#     # Step 2 — LLM evaluation (independently testable)
-#     # -----------------------------------------------------------------
-#     print("- Running LLM Evaluation (3 questions only)")
-#     llm_eval = evaluator.invoke(
-#         core_problem          = extraction.core_problem,
-#         required_deliverables = extraction.required_deliverables,
-#         proposal_text         = proposal_text
-#     )
-#     F.print_structured_response(llm_eval)
+    #     # -----------------------------------------------------------------
+    #     # Step 2 — LLM evaluation (independently testable)
+    #     # -----------------------------------------------------------------
+    #     print("- Running LLM Evaluation (3 questions only)")
+    #     llm_eval = evaluator.invoke(
+    #         core_problem          = extraction.core_problem,
+    #         required_deliverables = extraction.required_deliverables,
+    #         proposal_text         = proposal_text
+    #     )
+    #     F.print_structured_response(llm_eval)
 
-#     # -----------------------------------------------------------------
-#     # Step 3 — Metrics + scoring in processing layer (no LLM)
-#     # -----------------------------------------------------------------
-#     print("- Computing Final Result (keyword metrics + scoring)")
-#     result = calc_job_understanding_result(
-#         extraction    = extraction,
-#         llm_eval      = llm_eval,
-#         proposal_text = proposal_text
-#     )
-#     for key, value in result.items():
-#         print(f"  {key} => {value}")
+    #     # -----------------------------------------------------------------
+    #     # Step 3 — Metrics + scoring in processing layer (no LLM)
+    #     # -----------------------------------------------------------------
+    #     print("- Computing Final Result (keyword metrics + scoring)")
+    #     result = calc_job_understanding_result(
+    #         extraction    = extraction,
+    #         llm_eval      = llm_eval,
+    #         proposal_text = proposal_text
+    #     )
+    #     for key, value in result.items():
+    #         print(f"  {key} => {value}")
 
-#     print()
+    #     print()
