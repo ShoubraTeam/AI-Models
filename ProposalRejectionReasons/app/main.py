@@ -188,58 +188,34 @@ if __name__ == "__main__":
     # --------------------------------------------
     F.print_subtitle("Job Understanding")
 
-    # job_desc  = requirement_data_samples[0]["job_desc"]
-    # proposals = requirement_data_samples[0]["proposals"]
+    job_desc  = requirement_data_samples[0]["job_desc"]
+    proposals = requirement_data_samples[0]["proposals"]
     
     # print("\t>> Extracting Job Key Points")
-    # job_key_points = job_key_points_extractor.invoke(input = job_desc)
-    # F.print_structured_response(job_key_points)
-
-    # print("\t>> Evaluating Proposal Quality (freelancer addressing the job professionally)")
-    # for idx, proposal in enumerate(proposals, start = 1):
-    #     print(f"--- Analyzing Proposal {idx} ---")
-    #     understanding_evaluation = job_understanding_evaluator.invoke(
-    #         job_requirements = job_requirements,
-    #         proposal_text = proposal
-    #     )
-
-    #     F.print_structured_response(requirements_matching)
-    #     print()
+    job_key_points = job_key_points_extractor.invoke(input = job_desc)
+    F.print_structured_response(job_key_points)
 
 
-    # for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
-    #     proposal_text = ju_sample[proposal_key]
+    print("\t>> Evaluating Proposal Quality (freelancer addressing the job professionally)")
+    for idx, proposal in enumerate(proposals, start = 1):
+        print(f"--- Analyzing Proposal {idx} ---")
+        understanding_evaluation = job_understanding_evaluator.invoke(
+            core_problem = job_key_points.core_problem,
+            required_deliverables = job_key_points.required_deliverables,
+            proposal_text = proposal
+        )
 
-    #     F.print_title(f"4.{i} Proposal #{i}")
+        F.print_structured_response(requirements_matching)
+        print()
 
-    #     # -----------------------------------------------------------------
-    #     # Step 1 — Extract key points (independently testable)
-    #     # -----------------------------------------------------------------
-    #     print("- Extracting Job Key Points")
-    #     extraction = extractor.invoke(input=job_desc_ju)
-    #     F.print_structured_response(extraction)
 
-    #     # -----------------------------------------------------------------
-    #     # Step 2 — LLM evaluation (independently testable)
-    #     # -----------------------------------------------------------------
-    #     print("- Running LLM Evaluation (3 questions only)")
-    #     llm_eval = evaluator.invoke(
-    #         core_problem          = extraction.core_problem,
-    #         required_deliverables = extraction.required_deliverables,
-    #         proposal_text         = proposal_text
-    #     )
-    #     F.print_structured_response(llm_eval)
+        print("Final Result (keyword metrics + scoring): ", end = "")
+        result = calc_job_understanding_result(
+            extraction    = job_key_points,
+            llm_eval      = understanding_evaluation,
+            proposal_text = proposal
+        )
+        for key, value in result.items():
+            print(f"  {key} => {value}")
 
-    #     # -----------------------------------------------------------------
-    #     # Step 3 — Metrics + scoring in processing layer (no LLM)
-    #     # -----------------------------------------------------------------
-    #     print("- Computing Final Result (keyword metrics + scoring)")
-    #     result = calc_job_understanding_result(
-    #         extraction    = extraction,
-    #         llm_eval      = llm_eval,
-    #         proposal_text = proposal_text
-    #     )
-    #     for key, value in result.items():
-    #         print(f"  {key} => {value}")
-
-    #     print()
+        print()
