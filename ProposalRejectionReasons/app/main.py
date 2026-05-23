@@ -30,6 +30,7 @@ import helpers.functional as F
 from dotenv import load_dotenv
 
 
+
 load_dotenv()
 
 DATA_PATH = os.path.join(
@@ -51,28 +52,24 @@ if __name__ == "__main__":
             model_name          = CFG.GROQ_LLAMA_8b,
             system_prompt       = JOB_TOOLS_EXTRACTION_PROMPT,
             structured_response = JobToolResponse,
-            model_provider      = CFG.PROVIDER_GROQ,
         )
 
         proposal_tools_analyzer = ProposalToolsAnalyzer(
             model_name          = CFG.GROQ_LLAMA_70b,
             system_prompt       = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
             structured_response = ProposalToolsResponse,
-            model_provider      = CFG.PROVIDER_GROQ,
         )
 
         print("\t>> Job Understanding Agents")
         job_key_points_extractor  = JobKeyPointsExtractor(
             model_name          = CFG.GROQ_LLAMA_70b,
             system_prompt       = JOB_KEY_POINTS_EXTRACTION_PROMPT,
-            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = JobKeyPointsSchema,
         )
 
         job_understanding_evaluator  = JobUnderstandingEvaluator(
             model_name          = CFG.GROQ_LLAMA_70b,
             system_prompt       = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
-            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = JobUnderstandingEvalSchema,
         )
 
@@ -80,14 +77,12 @@ if __name__ == "__main__":
         requirement_extractor  = JobRequirementsExtractor(
             model_name          = CFG.GROQ_LLAMA_8b,
             system_prompt       = REQUIREMENT_EXTRACTOR_PROMPT,
-            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = ExtractedRequirementsSchema,
         )
 
         requirement_matcher  = JobRequirementsMatcher(
             model_name          = CFG.GROQ_LLAMA_70b,
             system_prompt       = REQUIREMENT_MATCHER_PROMPT,
-            model_provider      = CFG.PROVIDER_GROQ,
             structured_response = RequirementCoverageSchema,
         )
 
@@ -96,6 +91,7 @@ if __name__ == "__main__":
     except Exception as e:
         F.print_error_message("Error While Loading Agents")
         F.print_error_message(e)
+        exit()
 
 
     F.print_subtitle("Loading Data")
@@ -121,7 +117,7 @@ if __name__ == "__main__":
     except Exception as e:
         F.print_error_message("Error While Loading Data")
         F.print_error_message(e)
-
+        exit()
 
     # ==================================================================
     # 2.0 Testing Agents

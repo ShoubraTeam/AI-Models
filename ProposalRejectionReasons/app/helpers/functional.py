@@ -5,7 +5,7 @@ import json
 from typing import Any
 from helpers.config import BLUE, RESET, GREEN, RED
 from argparse import ArgumentParser
-
+from .config import EVALUATION_MODELS_MAPPING
 
 # Printing Utilities
 def print_subtitle(subtitle: str):
@@ -77,7 +77,7 @@ def load_json(file_path: str) -> dict:
     
 
 # accepting terminal arguments
-def parse_terminal_arguments():
+def get_terminal_arguments():
     """
     Return dict of given arguments
     """
@@ -86,7 +86,87 @@ def parse_terminal_arguments():
     
 
     parser.add_argument(
-        "--pipeline", 
-        type = "str",
-        help = "represent the pipeline to evaluate, tools_alignment, job_understanding, etc..."
+        "--task", 
+        type = str,
+        help = "The task to evaluate, tools_alignment, job_understanding, etc..."
     )
+
+    parser.add_argument(
+        "--rounds",
+        type = int,
+        help = "The number of times the evaluation process should run.",
+        default = 5
+    )
+
+
+    parser.add_argument(
+        "--models",
+        type = str,
+        nargs = "+",
+        help = "The model used in evaluating. Assuming `model_1` for extraction, `model_2` for matching, ..."
+    )
+
+    parser.add_argument(
+        "--temperature",
+        type = float,
+        help = "The temperature that controls the model's randomness."
+    )
+
+    parser.add_argument(
+        "--max_tokens",
+        type = int,
+        help = "The max_tokens that the model should generate."
+    )
+
+
+    parser.add_argument(
+        "--top_p",
+        type = float,
+        help = "The top_p that control's selected tokens"
+    )
+
+
+
+    # files
+    parser.add_argument(
+        "--eval_data_path",
+        type = str,
+        help = "The path to the evaluation data."
+    )
+
+    parser.add_argument(
+        "--output_path",
+        type = str,
+        help = "The path to output the results in."
+    )
+
+
+    args = parser.parse_args().__dict__
+    return args
+
+def parse_terminal_arguments():
+    """
+    Accepting the terminal arguments & parse them
+    """
+
+    args = get_terminal_arguments()
+
+
+    # parse models
+    models = args["models"]
+    args["models"] = [
+        EVALUATION_MODELS_MAPPING[model]
+        for model in models
+    ]
+
+    # parse model args
+    kwargs = {}
+    for arg in ["temperature", "max_tokens", "top_p"]:
+        value = args.pop(arg, None)
+
+        if value is not None:
+            kwargs[arg] = value
+    
+    args["model_kwargs"] = kwargs
+
+    return args

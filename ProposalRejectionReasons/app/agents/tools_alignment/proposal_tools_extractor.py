@@ -14,7 +14,6 @@ class ProposalToolsAnalyzer(BaseAgent):
         self,
         model_name: str,
         system_prompt: str,
-        model_provider: str = "groq",
         tools: list = [],
         structured_response = None,
         **kwargs
@@ -23,7 +22,7 @@ class ProposalToolsAnalyzer(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["proposal_tools_analyzer"]
 
-        super().__init__(model_name, system_prompt, model_provider, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
     
     def get_agent(self):
         return super().get_agent()
@@ -33,5 +32,8 @@ class ProposalToolsAnalyzer(BaseAgent):
 
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
+    
+    def evaluate(self, eval_data):
+        return 1
 
         
