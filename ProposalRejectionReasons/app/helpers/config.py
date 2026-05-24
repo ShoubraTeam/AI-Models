@@ -50,6 +50,10 @@ DEFAULT_MODELS_CFG = {
         "temperature": 0.0,
         "max_tokens" : 1024
     },
+    "experience_evidence_agent" : {
+        "temperature": 0.0,
+        "max_tokens" : 1024
+    },
 }
 
 # Tools Alignment Scoring

@@ -6,8 +6,11 @@
 from agents import JobToolsExtractor, ProposalToolsAnalyzer
 from agents import JobRequirementsExtractor, JobRequirementsMatcher
 from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
+from agents import ExperienceEvidenceAgent
+
 
 # schemas
+from schemas import ExperienceEvidenceSchema
 from schemas import JobToolResponse, ProposalToolsResponse
 from schemas import JobKeyPointsSchema, JobUnderstandingEvalSchema
 from schemas import ExtractedRequirementsSchema, RequirementCoverageSchema
@@ -15,7 +18,8 @@ from schemas import ExtractedRequirementsSchema, RequirementCoverageSchema
 # prompts
 from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
 from prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT, JOB_UNDERSTANDING_EVALUATOR_PROMPT
-from prompts.requirement_coverage import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
+from prompts import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
+from prompts import EXPERIENCE_EVIDENCE_PROMPT
 
 # data processing
 from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
@@ -85,6 +89,12 @@ if __name__ == "__main__":
             system_prompt       = REQUIREMENT_MATCHER_PROMPT,
             structured_response = RequirementCoverageSchema,
         )
+        print("\t>> Evidence of Experience Agent")  
+        experience_evidence_agent = ExperienceEvidenceAgent(
+            model_name          = CFG.GROQ_LLAMA_70b,
+            system_prompt       = EXPERIENCE_EVIDENCE_PROMPT,
+            structured_response = ExperienceEvidenceSchema,
+        )
 
         F.print_success_message("Agents Loaded Successfully")
     
@@ -111,7 +121,10 @@ if __name__ == "__main__":
         requirement_data_samples = F.load_json(
             file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
         )
-
+        print("\t>> Evidence of Experience Data")
+        experience_data_samples = F.load_json(
+            file_path = os.path.join(DATA_PATH, "experience_samples.json")
+        )
         F.print_success_message("Data Loaded Successfully")
     
     except Exception as e:
@@ -212,4 +225,21 @@ if __name__ == "__main__":
         for key, value in result.items():
             print(f"  {key} => {value}")
 
+        print()
+
+    # --------------------------------------------
+    F.print_subtitle("Evidence of Experience")  
+
+    exp_job_desc  = experience_data_samples[1]["job_desc"]
+    exp_proposals = experience_data_samples[1]["proposals"]
+
+    print("\t>> Auditing Proposals for Past Experience Evidence")
+    for idx, proposal in enumerate(exp_proposals, start = 1):
+        print(f"--- Analyzing Proposal {idx} ---")
+        experience_audit = experience_evidence_agent.invoke(
+            job_desc      = exp_job_desc,
+            proposal_text = proposal
+        )
+
+        F.print_structured_response(experience_audit)
         print()
