@@ -1,2 +1,0 @@
-from .job_requirements_extractor import JobRequirementsExtractor
-from .job_requirements_matcher import JobRequirementsMatcher
