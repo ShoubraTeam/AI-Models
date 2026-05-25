@@ -36,10 +36,18 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
 ---
 
 ### 2.0 Requirement Coverage Agent
+- **Job Requirements Extraction (The Extractor)**: Utilizes the `JobRequirementsExtractor` sub-agent to parse the raw job description text and compile an atomic, clean list of core functional deliverables and timeline constraints (strictly excluding developer tools or languages to avoid architectural redundancy). Each extracted requirement contains:
+    - `id`: A unique sequential identifier (`REQ_1`, `REQ_2`, ...).
+    - `text`: A clear, direct statement of the functional requirement.
+    - `necessity_level`: Categorized based on the client's phrasing into one of four levels (`mandatory`, `recommended`, `optional`, or `forbidden`).
+- **Proposal Semantic Matching (The Matcher)**: Employs the `JobRequirementsMatcher` sub-agent to map the extracted requirements against the freelancer's proposal using their unique `id` and `necessity_level`. It performs semantic analysis on the proposal text to determine the coverage of each requirement, outputting categorized lists of `covered_ids` (successfully implemented features) and `missing_ids` (omitted or violated constraints).
+- **Necessity Level & Score Calculation**: Passes the categorized IDs into the programmatic evaluation layer (`calc_requirement_coverage_score`) where the `necessity_level` acts as the primary weight driver to calculate the final match percentage using the following mathematical formulation:
 
-- **Job Requirements Extraction**: Utilizes the `JobRequirementsExtractor` sub-agent to parse the raw job description text and compile an atomic, clean list of core functional deliverables and timeline constraints (strictly excluding developer tools or languages to avoid architectural redundancy).
-- **Proposal Semantic Matching**: Employs the `JobRequirementsMatcher` sub-agent to map the extracted requirements against the freelancer's proposal. It applies a strict validation evaluation to penalize missing features or timeline violations, preventing False Positives.
-- **Pipeline Orchestration**: The `RequirementCoverageAgent` coordinates the sequential execution flow, formatting and passing the extraction data directly into the matcher, returning a fully validated Pydantic data object (`score`, `details`, `client_requirements`, `requirements_covered`, `missing_requirements`).
+$$\text{Final Score} = \frac{\text{Proposal Score (Numerator)}}{\text{Ground Truth (Denominator)}}$$
+
+Where the scoring treats omissions and explicit violations differently:
+* **Implicit Penalty (Omissions)**: Missing a `mandatory` or `recommended` feature results in a $0$ added to the Numerator, while its weight remains in the Denominator, automatically dragging the score down.
+* **Explicit Penalty (Violations)**: Violating a `forbidden` constraint (e.g., using a strictly prohibited external API) applies an active architectural penalty, subtracting exactly $-1.0$ directly from the Numerator to heavily penalize security or compliance breaches.
 
 ---
 
@@ -61,6 +69,18 @@ A SuperAgent coordinates the workflow among these sub-agents by managing their o
 - **Rule-Based Decision**: A scoring threshold (default: 5.0/10) determines whether the proposal passes or fails this dimension. Proposals that fall below the threshold receive a rejection reason generated from the evaluation summary.
 
 - **Pipeline Orchestration**: The `JobUnderstandingAgent` coordinates the sequential execution of both sub-agents, passing the extracted key points directly into the evaluator and returning a fully validated Pydantic data object.
+
+---
+### 4.0 Evidence of Experience Agent
+- **Concrete Evidence Auditing**: Utilizes the `ExperienceEvidenceAgent` to parse the freelancer's proposal against the current Job Description (JD) context to verify hands-on professional history.
+- **Generic Claim Filtering (Strict Classification)**: The agent implements a strict boundary between unverified claims and proof. 
+    * The system flags `has_experience_evidence` as `True` **ONLY** if the freelancer explicitly references a past named project, case study, or specialized system they built.
+    * It explicitly forces `has_experience_evidence` to `False` if the proposal contains only generic statements, uncontextualized certifications, or empty promises (e.g., "I have 5 years of experience in React" or "I am a certified developer" without linking it to a past project deliverable).
+- **Project Structure Extraction**: If validated evidence is found, the agent extracts a structured list of past projects, capturing:
+    * `project_title`: The explicit name or type of the past system.
+    * `project_description`: What the freelancer actually built and delivered.
+    * `tools_used`: The specific tech stack applied *within that project's scope*.
+    * `relevance_analysis`: A scientific, direct mapping by the LLM explaining how the architecture or features of that past system qualify the freelancer for the current JD.
 
 ---
 
