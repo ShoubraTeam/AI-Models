@@ -1,0 +1,17 @@
+[
+    {
+        "freelancer_name": "person1 (Professional Case)",
+        "job_role": "Software Engineer",
+        "image_name": "developer.jpg"
+    },
+    {
+        "freelancer_name": "person1 (Casual/Unprofessional Case for Software Engineer)",
+        "job_role": "Software Engineer",
+        "image_name": "graphic_designer.webp"
+    },
+        {
+        "freelancer_name": "person1 (Professional Case for Graphic Designer)",
+        "job_role": "Graphic Designer",
+        "image_name": "graphic_designer.webp"
+    }
+]

@@ -1,0 +1,1 @@
+from .visual_brand import VisualBrandEvaluationSchema
