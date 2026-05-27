@@ -5,32 +5,17 @@
             "tools": [
                 {
                   "tool": "shopify",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
-                },
-                
-                {
-                  "tool": "payments",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
+                  "necessity_level": "mandatory"
                 },
 
                 {
                   "tool":  "razorpay",
-                  "necessity_level": "optional",
-                  "is_explicit": true
+                  "necessity_level": "optional"
                 },
 
                 {
                   "tool":  "phonepay",
-                  "necessity_level": "optional",
-                  "is_explicit": true
-                },
-
-                {
-                  "tool": "theme design",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
+                  "necessity_level": "optional"
                 }
             ],
 
@@ -47,14 +32,7 @@
             "tools": [
                 {
                     "tool": "shopify",
-                    "with_confidence": true,
-                    "is_explicit": true
-                },
-
-                {
-                    "tool": "theme design",
-                    "with_confidence": true,
-                    "is_explicit": true
+                    "with_confidence": true
                 }
             ],
 
@@ -65,14 +43,7 @@
             "tools": [
                 {
                     "tool": "shopify",
-                    "with_confidence": true,
-                    "is_explicit": true
-                },
-
-                {
-                    "tool": "theme design",
-                    "with_confidence": true,
-                    "is_explicit": true
+                    "with_confidence": true
                 }
             ],
             
@@ -87,48 +58,35 @@
           "tools" : [
               {
                   "tool": "CMS",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
+                  "necessity_level": "mandatory"
               },
 
               {
                   "tool": "SEO",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
-              },
-
-              {
-                  "tool": "responsive design",
-                  "necessity_level": "mandatory",
-                  "is_explicit": false
+                  "necessity_level": "mandatory"
               },
 
               {
                   "tool": "wordpress",
-                  "necessity_level": "optional",
-                  "is_explicit": true
+                  "necessity_level": "optional"
               },
 
               {
                   "tool": "Gatsby",
-                  "necessity_level": "optional",
-                  "is_explicit": true
+                  "necessity_level": "optional"
               },
               {
                   "tool": "Kotlin",
-                  "necessity_level": "optional",
-                  "is_explicit": true
+                  "necessity_level": "optional"
               },
               {
                   "tool": "Flutter",
-                  "necessity_level": "optional",
-                  "is_explicit": true
+                  "necessity_level": "optional"
               },
 
               {
                   "tool": "React",
-                  "necessity_level": "optional",
-                  "is_explicit": true
+                  "necessity_level": "optional"
               },
 
               {
@@ -148,20 +106,17 @@
               "tools": [
                   {
                       "tool" : "wordpress",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   },
 
                   {
                       "tool": "SEO",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   },
 
                   {
                       "tool": "Kotlin",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   }
               ],
               
@@ -173,23 +128,19 @@
               "tools": [
                   {
                       "tool": "wordpress",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   },
                   {
                       "tool": "CMS",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   },
                   {
                       "tool": "SEO",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   },
                   {
                       "tool": "Flutter",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   }
               ],
                 "other data": "!!!!!!"
@@ -204,26 +155,12 @@
           "tools" : [
               {
                   "tool": "Wix",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
+                  "necessity_level": "mandatory"
               },
 
               {
                   "tool": "SEO",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
-              },
-
-              {
-                  "tool": "responsive design",
-                  "necessity_level": "mandatory",
-                  "is_explicit": true
-              },
-
-              {
-                  "tool": "UI/UX",
-                  "necessity_level": "mandatory",
-                  "is_explicit": false
+                  "necessity_level": "mandatory"
               }
 
           ],
@@ -241,12 +178,6 @@
                       "tool" : "Wix",
                       "with_confidence": true,
                       "is_explicit": true
-                  },
-
-                  {
-                      "tool": "UI/UX",
-                      "with_confidence": true,
-                      "is_explicit": false
                   }
               ],
 
@@ -258,18 +189,11 @@
               "tools": [
                   {
                       "tool": "Wix",
-                      "with_confidence": true,
-                      "is_explicit": true
-                  },
-                  {
-                      "tool": "UI/UX",
-                      "with_confidence": true,
-                      "is_explicit": false
+                      "with_confidence": true
                   },
                   {
                       "tool": "SEO",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "with_confidence": true
                   }
               ],
 
@@ -278,5 +202,5 @@
       ]
     }
 
-    
+
 ]
