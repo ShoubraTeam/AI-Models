@@ -28,7 +28,7 @@ def calc_keyword_metrics(
     matched = [kw for kw in key_keywords if kw.lower() in proposal_lower]
     missing = [kw for kw in key_keywords if kw.lower() not in proposal_lower]
 
-    total = len(key_keywords)
+    total    = len(key_keywords)
     coverage = len(matched) / total if total > 0 else 0.0
 
     return {
@@ -71,17 +71,57 @@ def calc_job_understanding_score(
     return round(score, 2)
 
 
+def build_rejection_reasons(
+    llm_eval  : JobUnderstandingEvalSchema,
+    kw_metrics: dict
+) -> list[str]:
+    """
+    Build a list of specific, actionable rejection reasons from the flags and metrics.
+    Each reason maps directly to one failed check.
+    This list is what the SuperAgent will consume to generate recommendations.
+
+    Args:
+        llm_eval   : Output of JobUnderstandingEvaluator.
+        kw_metrics : Output of calc_keyword_metrics.
+
+    Returns:
+        List of specific rejection reason strings. Empty if everything passed.
+    """
+    reasons = []
+
+    if not llm_eval.problem_identified:
+        reasons.append(
+            "Your proposal doesn't show you understood what the client needs."
+        )
+    if not llm_eval.solution_proposed:
+        reasons.append(
+            "You didn't propose how you would solve the problem."
+        )
+    if not llm_eval.practical_steps_mentioned:
+        reasons.append(
+            "You didn't explain your approach or methodology."
+        )
+    if kw_metrics["keyword_coverage_score"] < 0.5:
+        missing = ", ".join(kw_metrics["missing_keywords"])
+        reasons.append(
+            f"You missed key topics the client cares about: {missing}."
+        )
+
+    return reasons
+
+
 def calc_job_understanding_result(
-    extraction : JobKeyPointsSchema,
-    llm_eval   : JobUnderstandingEvalSchema,
+    extraction   : JobKeyPointsSchema,
+    llm_eval     : JobUnderstandingEvalSchema,
     proposal_text: str,
-    threshold  : float = JOB_UNDERSTANDING_THRESHOLD
+    threshold    : float = JOB_UNDERSTANDING_THRESHOLD
 ) -> dict:
     """
     Full processing pipeline:
         1. Compute keyword metrics via string matching
         2. Compute final score from LLM flags + keyword coverage
-        3. Apply rule-based acceptance decision
+        3. Build specific rejection reasons from flags
+        4. Apply rule-based acceptance decision
 
     Args:
         extraction    : Output of JobKeyPointsExtractor
@@ -104,16 +144,18 @@ def calc_job_understanding_result(
         keyword_coverage_score=kw_metrics["keyword_coverage_score"]
     )
 
-    # Step 3 — rule-based decision
+    # Step 3 — specific reasons from flags (used by SuperAgent)
+    reasons = build_rejection_reasons(
+        llm_eval=llm_eval,
+        kw_metrics=kw_metrics
+    )
+
+    # Step 4 — rule-based acceptance decision
     accepted = score >= threshold
 
     rejection_reason = None
     if not accepted:
-        rejection_reason = (
-            f"The proposal did not demonstrate sufficient understanding of the job. "
-            f"Score: {score:.1f}/10 (threshold: {threshold}). "
-            f"{llm_eval.summary}"
-        )
+        rejection_reason = " ".join(reasons) if reasons else llm_eval.summary
 
     return {
         "score"                  : score,
@@ -125,6 +167,7 @@ def calc_job_understanding_result(
         "matched_keywords"       : kw_metrics["matched_keywords"],
         "missing_keywords"       : kw_metrics["missing_keywords"],
         "keyword_coverage_score" : kw_metrics["keyword_coverage_score"],
-        "rejection_reason"       : rejection_reason,
-        "summary"                : llm_eval.summary,
+        "reasons"                : reasons,          # specific per-flag reasons → SuperAgent
+        "rejection_reason"       : rejection_reason, # combined string → rejection report
+        "summary"                : llm_eval.summary, # LLM explanation → human readability
     }
