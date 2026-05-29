@@ -54,7 +54,7 @@ def print_structured_response(structured_response):
 def print_agent_response(response: Any):
     """Printing the Agent Response"""
 
-    print_title("Messages", 50)
+    print_title("Agent Messages", 50)
     for idx, message in enumerate(response["messages"], start = 1):
         print(f"Message #{idx}")
         print(f"Message Type => {message.type.capitalize()}")
@@ -63,6 +63,26 @@ def print_agent_response(response: Any):
     
     print_structured_response(response["print_structured_response"])
     
+
+
+def print_eval_data(eval_data: list[dict]):
+    print_subtitle("Extracted Eval Data:")
+    
+    for idx, sample in enumerate(eval_data, start = 1):
+        print(f"Sample #{idx}")
+
+        job_data = sample["job"]
+        for k, v in job_data.items():
+            print(f">> {k}:\n{v}\n\n")
+
+        proposals = sample["proposals"]
+        for proposal_idx, proposal in enumerate(proposals, start = 1):
+            print(f"Proposal #{proposal_idx}")
+
+            for k, v in proposal.items():
+                print(f">> {k}:\n{v}\n\n")
+            
+        print("------")
 
 
 # Loading data
