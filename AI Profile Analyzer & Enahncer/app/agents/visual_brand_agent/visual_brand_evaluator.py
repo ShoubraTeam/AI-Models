@@ -51,3 +51,10 @@ class VisualBrandEvaluator(BaseAgent):
         ]
         
         return super().invoke(input=multimodal_content)
+    
+
+    def get_agent(self):
+        return super().get_agent()
+    
+    def validate_agent_output(self, agent_output):
+        return super().validate_agent_output(agent_output)

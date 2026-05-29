@@ -21,6 +21,14 @@ DEFAULT_MODELS_CFG = {
         "temperature" : 0.2,
         "max_tokens"  : 1024
     },
+    "bio_analyzer" : {
+        "temperature" : 0.3,
+        "max_tokens"  : 1024
+    },
+    "skills_analyzer" : {
+        "temperature" : 0.0,
+        "max_tokens"  : 1024
+    },
 }
 
 # printing utils

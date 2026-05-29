@@ -1,0 +1,17 @@
+[
+    {
+        "freelancer_name": "Khaled Omar (Missing Essential Skills Case)",
+        "job_role": "AI Engineer",
+        "declared_skills": ["Python", "SQL", "Git", "HTML", "Data Entry"]
+    },
+    {
+        "freelancer_name": "Mona Hassan (Profile Dilution Case)",
+        "job_role": "Backend Developer",
+        "declared_skills": ["Node.js", "Express", "MongoDB", "Adobe Photoshop", "Video Editing", "Social Media Management"]
+    },
+    {
+        "freelancer_name": "Youssef Ali (Perfect Match Case)",
+        "job_role": "Graphic Designer",
+        "declared_skills": ["Adobe Photoshop", "Adobe Illustrator", "Figma", "Typography", "Branding", "Vector Illustration"]
+    }
+]
