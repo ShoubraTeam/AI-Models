@@ -108,4 +108,10 @@ ALLOWED_EVALUATION_TASKS = [
     SUPER_AGENT_TASK
 ]
 
+
+AGENT_JOB_TOOLS_EXTRACTOR = "job_tools_extractor"
+AGENT_PROPOSAL_TOOL_ANALYZER = "proposal_tools_analyzer"
+
+
+
 EVAL_DATA_PATH = "/mnt/d/Education/College/______GraduationProject/AI-Models/ProposalRejectionReasons/eval_data"

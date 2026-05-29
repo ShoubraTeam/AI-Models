@@ -14,7 +14,11 @@ import os
 from .task_data_parser import EvaluationDataParser
 from .agents_initializer import AgentsInitializer
 
+from agents import JobToolsExtractor, ProposalToolsAnalyzer
+from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
+from agents import JobRequirementsExtractor, JobRequirementsMatcher
 
+Agent_Type = JobToolsExtractor | ProposalToolsAnalyzer | JobKeyPointsExtractor | JobUnderstandingEvaluator | JobRequirementsExtractor | JobRequirementsMatcher
 # -------------------------------------------- Acquiring Agents & Data --------------------------------------------------
 
 def get_task_eval_data(all_data: list[dict], task_name: str) -> list[dict]:
@@ -156,6 +160,20 @@ def calc_avg_for_multiple_metrics(scores: list[dict[str, float]]) -> defaultdict
 
     return averages
 
+def evaluate_agent(agent: tuple[str, Agent_Type], data: list[dict]):
+    """
+    Evaluate the given agent once
+    
+    Args:
+        agent: tuple of (agent-name, agent-obj)
+        data : the list of data samples
+    """
+
+    agent_name, agent_obj = agent
+
+    if agent_name == CFG.AGENT_JOB_TOOLS_EXTRACTOR:
+        agent_obj.evaluate(data["job"])
+
 
 
 def evaluate_agents_on_task(
@@ -211,21 +229,23 @@ def evaluate_agents_on_task(
 
     # eval data
     eval_data = get_eval_data(data_file_name = eval_data_file_name, task_name = task_name)
-    F.print_eval_data(eval_data)
+    # F.print_eval_data(eval_data)
 
     # scoring
     average_scores = []
     for agent in agents:
         # get agent data
         agent_name = agent[0]
-        agent_obj  = agent[1]
         F.print_subtitle(f"Evaluating: {agent_name}")
 
         # evaluate
         agent_scores = []
         for round in range(rounds):
             print(f">> Round {round + 1}")
-            agent_scores.append(agent_obj.evaluate(eval_data))
+
+            agent_scores.append(evaluate_agent(agent = agent, data = eval_data))
+            
+  
 
         # calc avg
         if isinstance(agent_scores[0], dict):  # if multiple metrics
