@@ -16,7 +16,7 @@ class LanguageClarityEvaluator(BaseAgent):
         - is_professional        : is the tone appropriate for a client?
         - has_misleading_phrasing: are there vague or empty promises?
 
-    Text metrics (word count, sentence length) are handled in processing.
+    Text metrics (word count, sentence length, grammar) are handled in processing.
 
     Designed to be tested and evaluated independently.
 
@@ -31,14 +31,13 @@ class LanguageClarityEvaluator(BaseAgent):
     def __init__(self, model_name: str = CFG.GROQ_LLAMA_70b, temperature: float = None):
 
         if temperature is None:
-            temperature = CFG.MODELS_CFG["language_clarity_pipeline"]["language_clarity_evaluator_temperature"]
+            temperature = CFG.DEFAULT_MODELS_CFG["language_clarity_evaluator"]["temperature"]
 
-        max_tokens = CFG.MODELS_CFG["language_clarity_pipeline"]["language_clarity_evaluator_max_tokens"]
+        max_tokens = CFG.DEFAULT_MODELS_CFG["language_clarity_evaluator"]["max_tokens"]
 
         super().__init__(
             model_name=model_name,
             system_prompt=LANGUAGE_CLARITY_EVALUATOR_PROMPT,
-            model_provider=CFG.PROVIDER_GROQ,
             structured_response=LanguageClarityEvalSchema,
             temperature=temperature,
             max_tokens=max_tokens
