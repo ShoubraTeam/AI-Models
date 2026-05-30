@@ -1,5 +1,8 @@
 from pydantic import BaseModel, Field
 
+# ----------------------------- Modifications -------------------------------
+# --> Remove confidence_score
+# ---------------------------------------------------------------------------
 
 class LanguageClarityEvalSchema(BaseModel):
     """
@@ -14,6 +17,7 @@ class LanguageClarityEvalSchema(BaseModel):
         description="Whether the proposal is easy to understand. "
                     "False if sentences are confusing, overly complex, or hard to follow."
     )
+    
     is_professional: bool = Field(
         description="Whether the tone is professional and appropriate for a client. "
                     "False if the tone is too casual, rude, or unprofessional."

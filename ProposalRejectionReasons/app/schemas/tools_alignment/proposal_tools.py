@@ -5,6 +5,11 @@
 from pydantic import BaseModel, Field
 from typing import Literal
 
+# -------------------- Modifications
+# --> adding summary
+# -----------------------------------------
+
+
 class ProposalToolReview(BaseModel):
     """A tool extracted from the job description"""
     tool_name: str = Field(

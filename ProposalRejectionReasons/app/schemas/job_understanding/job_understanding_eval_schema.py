@@ -1,6 +1,11 @@
 from pydantic import BaseModel, Field
 
 
+# ------------- Modifications ------------
+# --> Removing confidence_score
+# --> Adding detecting proposal keywords using agent
+# ---------------------------------------
+
 class JobUnderstandingEvalSchema(BaseModel):
     """
     Output of JobUnderstandingEvaluator.

@@ -13,6 +13,7 @@ TOOLS_ALIGNMENT_JOB_TOOLS_EXTRACTOR=(
     "GPT_OSS_120B"
 )
 
+
 TOOLS_ALIGNMENT_PROPOSAL_ANALYZER=(
     "LLAMA_8B"
     "GEMINI_FLASH_LITE"
@@ -23,6 +24,7 @@ TOOLS_ALIGNMENT_PROPOSAL_ANALYZER=(
     "GPT_OSS_120B"
 )
 
+
 JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR=(
     "LLAMA_8B"
     "GEMINI_FLASH_LITE"
@@ -32,6 +34,7 @@ JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR=(
     "LLAMA_70B"
     "GPT_OSS_120B"
 )
+
 
 JOB_UNDERSTANDING_MATCHER=(
     "LLAMA_8B"
@@ -71,6 +74,6 @@ source "$VENV_PATH"
 
 python evaluate.py \
     --task     tools_alignment \
-    --models   QWEN_32B QWEN_32B \
+    --models   LLAMA_8B LLAMA_8B \
     --temperature 0.0 \
 

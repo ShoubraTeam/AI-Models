@@ -47,7 +47,8 @@ if __name__ == "__main__":
         system_prompts = [JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT],
         structured_responses = [JobToolResponse, ProposalToolsResponse],
         eval_data_file_name = "eval_data.json",
-        rounds = args["rounds"],
+        # rounds = args["rounds"],
+        rounds = 1,
         kwargs = args["model_kwargs"]
     )
 

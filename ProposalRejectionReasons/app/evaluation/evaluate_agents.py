@@ -143,6 +143,7 @@ def calc_avg_for_multiple_metrics(scores: list[dict[str, float]]) -> defaultdict
         averages: a dict contains mapping each metric to its corresponding average
     """
     if not isinstance(scores[0], dict):
+        print(type(scores[0]))
         raise TypeError("The metrics should be a dict object")
     
     totals = defaultdict(float)
@@ -160,6 +161,7 @@ def calc_avg_for_multiple_metrics(scores: list[dict[str, float]]) -> defaultdict
 
     return averages
 
+
 def evaluate_agent(agent: tuple[str, Agent_Type], data: list[dict]):
     """
     Evaluate the given agent once
@@ -172,7 +174,9 @@ def evaluate_agent(agent: tuple[str, Agent_Type], data: list[dict]):
     agent_name, agent_obj = agent
 
     if agent_name == CFG.AGENT_JOB_TOOLS_EXTRACTOR:
-        agent_obj.evaluate(data["job"])
+        return agent_obj.evaluate([d["job"] for d in data])
+    
+    
 
 
 
@@ -239,20 +243,23 @@ def evaluate_agents_on_task(
         F.print_subtitle(f"Evaluating: {agent_name}")
 
         # evaluate
-        agent_scores = []
+        agent_metrics = []
         for round in range(rounds):
             print(f">> Round {round + 1}")
 
-            agent_scores.append(evaluate_agent(agent = agent, data = eval_data))
+            agent_metrics.append(evaluate_agent(agent = agent, data = eval_data))
             
-  
 
         # calc avg
-        if isinstance(agent_scores[0], dict):  # if multiple metrics
-            agent_avg_scores = calc_avg_for_multiple_metrics(agent_scores)
+        if isinstance(agent_metrics[0], dict):  # if multiple metrics
+            agent_metrics = [
+                round_metrics.pop("agent_response") for round_metrics in agent_metrics
+            ]        
+
+            agent_avg_scores = calc_avg_for_multiple_metrics(agent_metrics)
         
         else: # single metric
-            agent_avg_scores = sum(agent_scores) / len(agent_scores)
+            agent_avg_scores = sum(agent_metrics) / len(agent_metrics)
 
         average_scores.append({
             agent_name : agent_avg_scores

@@ -1,6 +1,10 @@
 from pydantic import BaseModel, Field
 from typing import List
 
+# -------------------- Modifications
+# --> adding summary
+# -----------------------------------------
+
 class RequirementCoverageSchema(BaseModel):
     details: str = Field(
         description="A clear, scientific justification explaining which requirement IDs were found, which were missing, and why."

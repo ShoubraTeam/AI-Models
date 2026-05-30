@@ -171,3 +171,4 @@ def calc_job_understanding_result(
         "rejection_reason"       : rejection_reason, # combined string → rejection report
         "summary"                : llm_eval.summary, # LLM explanation → human readability
     }
+

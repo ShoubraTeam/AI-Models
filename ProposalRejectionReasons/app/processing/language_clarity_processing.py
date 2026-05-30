@@ -195,3 +195,4 @@ def calc_language_clarity_result(
         "rejection_reason"        : rejection_reason,  # combined string → rejection report
         "summary"                 : llm_eval.summary,  # LLM explanation → human readability
     }
+
