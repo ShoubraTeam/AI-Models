@@ -30,6 +30,10 @@ MODELS_CFG = {
         "job_understanding_extractor_max_tokens" : 512,
         "job_understanding_evaluator_temperature": 0.0,
         "job_understanding_evaluator_max_tokens" : 1024
+    },
+    "language_clarity_pipeline": {
+    "language_clarity_evaluator_temperature": 0.0,
+    "language_clarity_evaluator_max_tokens" : 512
     }
 }
 

@@ -179,3 +179,37 @@ for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=
         print(f"  {key} => {value}")
 
     print()
+# ==================================================================
+# 5.0 Testing Language Clarity
+# ==================================================================
+F.print_title("5.0 Testing Language Clarity")
+
+lc_sample = language_clarity_data_samples[0]
+
+# Initialize sub-agent independently
+lc_evaluator = LanguageClarityEvaluator()
+
+for i, proposal_key in enumerate(["proposal1", "proposal2", "proposal3"], start=1):
+    proposal_text = lc_sample[proposal_key]
+
+    F.print_title(f"5.{i} Proposal #{i}")
+
+    # -----------------------------------------------------------------
+    # Step 1 — LLM evaluation (independently testable)
+    # -----------------------------------------------------------------
+    print("- Running Language Clarity Evaluation...")
+    llm_eval = lc_evaluator.invoke(proposal_text=proposal_text)
+    F.print_structured_response(llm_eval)
+
+    # -----------------------------------------------------------------
+    # Step 2 — Text metrics + scoring in processing layer (no LLM)
+    # -----------------------------------------------------------------
+    print("- Computing Final Result (text metrics + scoring)...")
+    result = calc_language_clarity_result(
+        llm_eval=llm_eval,
+        proposal_text=proposal_text
+    )
+    for key, value in result.items():
+        print(f"  {key} => {value}")
+
+    print()
