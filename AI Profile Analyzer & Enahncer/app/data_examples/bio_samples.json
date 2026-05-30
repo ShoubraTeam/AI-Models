@@ -1,0 +1,17 @@
+[
+    {
+        "freelancer_name": "John Doe",
+        "job_role": "Backend Developer",
+        "bio_text": "I am a hardworking person who loves coding. I am a coding ninja and software guru. I can do any job you want because I have 3 years of experience in computer things. I work with python and databases. Hire me because I need money and I am very fast and dedicated to my work."
+    },
+    {
+        "freelancer_name": "Alice Smith",
+        "job_role": "Graphic Designer",
+        "bio_text": "Transforming complex brand ideas into high-converting visual stories. With 5+ years of digital agency experience, I specialize in premium UI visual design and modern typography assets. Check my portfolio below to see how I increased client click-through rates by 40%."
+    },
+    {
+        "freelancer_name": "Samir Ali (Very Generic Case)",
+        "job_role": "Frontend Developer",
+        "bio_text": "I am a passionate Frontend Developer with experience in HTML, CSS, and JavaScript. I love creating beautiful websites and am a highly motivated team player who always delivers on time. I am looking for exciting freelance projects where I can use my skills to help your business grow. Fast learner and very hardworking."
+    }
+]

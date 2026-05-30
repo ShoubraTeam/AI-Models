@@ -1,0 +1,1 @@
+from .skills_analysis_schema import SkillsAnalyzerSchema

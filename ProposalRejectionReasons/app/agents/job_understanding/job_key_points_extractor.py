@@ -1,7 +1,5 @@
 from agents.BaseAgent import BaseAgent
-from schemas.job_understanding.job_key_points_schema import JobKeyPointsSchema
-from prompts.job_understanding.job_key_points_extraction_prompt import JOB_KEY_POINTS_EXTRACTION_PROMPT
-import helpers.config as CFG
+from helpers.config import DEFAULT_MODELS_CFG
 
 
 class JobKeyPointsExtractor(BaseAgent):
@@ -16,19 +14,27 @@ class JobKeyPointsExtractor(BaseAgent):
         - required_deliverables : List[str]
         - key_keywords          : List[str]  ← used by processing layer for keyword metrics
     """
+    def __init__(
+        self,
+        model_name: str,
+        system_prompt: str,
+        tools: list = [],
+        structured_response = None,
+        **kwargs
+    ):
+        
+        if "temperature" not in kwargs:
+            kwargs = DEFAULT_MODELS_CFG["job_key_points_extractor"]
 
-    def __init__(self, model_name: str = CFG.GROQ_LLAMA_70b, temperature: float = None):
+        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
 
-        if temperature is None:
-            temperature = CFG.MODELS_CFG["job_understanding_pipeline"]["job_understanding_extractor_temperature"]
-
-        max_tokens = CFG.MODELS_CFG["job_understanding_pipeline"]["job_understanding_extractor_max_tokens"]
-
-        super().__init__(
-            model_name=model_name,
-            system_prompt=JOB_KEY_POINTS_EXTRACTION_PROMPT,
-            model_provider=CFG.PROVIDER_GROQ,
-            structured_response=JobKeyPointsSchema,
-            temperature=temperature,
-            max_tokens=max_tokens
-        )
+    
+    def get_agent(self):
+        return super().get_agent()
+    
+    def invoke(self, input, return_structured_op_only = True):
+        return super().invoke(input, return_structured_op_only)
+    
+    def validate_agent_output(self, agent_output):
+        return super().validate_agent_output(agent_output)
+    

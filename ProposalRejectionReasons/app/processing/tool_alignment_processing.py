@@ -54,6 +54,7 @@ def calc_tools_alignment_score(
             with_confidence_weight = WITH_CONFIDENCE_TOOL_WEIGHT if tool_review.with_confidence else GENERIC_TOOL_WEIGHT
             
             proposal_score += 1.0 * necessity_level_weight * with_confidence_weight
-            grd_truth += 1.0
+            
+        grd_truth += 1.0
     
     return proposal_score / grd_truth

@@ -1,0 +1,206 @@
+[
+    {
+        "job_desc": "I need a complete Shopify store built from the ground up to sell a line of physical products. The project starts with crafting a fully custom theme that reflects my brand’s personality and delivers a smooth shopping experience on desktop and mobile.\n\nBeyond the visual design, I also want the store configured with:\n• Customer reviews displayed on each product page and summarized site-wide\n• A secure payment gateway set up and tested (Shopify Payments plus one additional method, phonepay , Razorpay etc)\n• Inventory management configured so stock levels sync automatically and low-stock alerts fire without fail\n\nI will supply product photos, copy, and brand guidelines. You’ll handle theme design, layout, app selection or custom code (if needed) for the three features above, and launch-ready testing. Please outline your approach, timeline, and any past Shopify builds that show similar custom work.",
+        "job_data": {
+            "tools": [
+                {
+                  "tool_name": "shopify",
+                  "necessity_level": "mandatory"
+                },
+
+                {
+                  "tool_name":  "razorpay",
+                  "necessity_level": "optional"
+                },
+
+                {
+                  "tool_name":  "phonepay",
+                  "necessity_level": "optional"
+                }
+            ],
+
+        "requirements": [],
+
+        "core_problem": "",
+        
+        "deliverables": []
+      },
+
+      "proposals": [
+        {
+            "proposal": "Hi I am a shopify developer, And I came across your project and would love to help you with your Shopify requirements.\nWith solid experience in Shopify design, development, and customization.\n\nA Few Examples of My Work:\nhttps://www.solawave.co/products/wrinkle-retreat-pro-red-light-therapy-led-face-mask-infrared-fda-cleared\nhttps://basedbodyworks.com/products/bodywash?variant=46330709541093\nhttps://coreve.in/products/zivana-winterberry-girl-sneaker-shoe\nhttps://simpletics.com/products/texture-powder\nhttps://mairaonline.com/\nhttps://shopgreenboxart.com/\nhttps://www.plumplay.co.uk/\nhttps://bensoleimani.com/\nhttps://petiteadele.com/\nhttps://www.farmergracy.co.uk/\nhttps://sgcoffee.sarnies.com/\nhttps://withjean.com.au/\nhttps://sodastream.co.uk/pages/co2-cylinders\nhttps://www.theorientuk.com/\nhttps://www.lavieworld.com/\nhttps://www.capresebags.com/\nhttps://accessorizelondon.in/collections/handbags\nhttps://bageasy.in/\nhttps://zouk.co.in/collections/bags\nhttps://miraggiolife.com/\nhttps://pipocadogwear.com/products/collar-estrellas\n\nIf you could share more details (like design preferences, reference stores, or a feature list), I can prepare a clear project roadmap with Figma design and share you",
+            "tools": [
+                {
+                    "tool_name": "shopify",
+                    "with_confidence": true
+                }
+            ],
+
+            "other data related to requirements, job understanding, ...!!!!!!!!!": ""
+        },
+        {
+            "proposal": "Hi there,\n\nI came across your project and completely understand that you're looking to build a sleek, modern,\nand minimalist Shopify e-commerce website and I'd love to help you bring that vision to life.\nWith a strong focus on clean design, performance, and user experience, I’ve worked with several brands to create Shopify stores that not only look stunning but also convert visitors into customers.\n\nHere are a few recent Shopify stores I’ve worked on:\n\nhttps://divineluxuryhub.co.uk/\nhttps://neown.in/\nhttps://universalpaving.co.uk/\nhttps://scoogcoffee.com/\nhttps://www.zolai.co/\nhttps://mildcares.com/\nhttps://www.emqueen.in/\nhttps://maddwoo.com/\nhttps://curedpharmacy.com/\nhttps://kidocoo.com/\n\nYou only pay once you're fully satisfied I believe in honest work, quality delivery, and long-term partnerships.\nLet’s connect to discuss your vision I’m confident we can build something great together.",
+            "tools": [
+                {
+                    "tool_name": "shopify",
+                    "with_confidence": true
+                }
+            ],
+            
+            "other data related to requirements, job understanding, ...!!!!!!!!!": ""
+        }
+      ]
+    },
+
+    {
+      "job_desc": "I want to launch a clean, fast-loading blog and pair it with a native Android companion app.\n\nFor the web side, the priority is a flexible CMS that lets me post articles, embed images and video, manage categories, and track basic analytics without digging into code every time. A modern, mobile-responsive theme and solid SEO foundations are essential; if you prefer WordPress, Gatsby, or another stack, let me know why it’s the right fit.\n\nOn Android I need an app that pulls the same content, displays posts neatly, allows offline reading of cached articles, and sends push notifications when a new piece goes live. I’m open to Kotlin, Flutter, or React Native—whichever you’re most confident will keep maintenance straightforward.\n\nDeliverables\n• Live blog website deployed on my chosen host and domain\n• Source code and build of the Android app published to my Google Play console\n• Brief hand-over guide covering content management and future updates\n\nI’ll provide brand assets and initial copy as soon as we start. Let me know your preferred tech stack, timeline, and anything else you need to hit the ground running.",
+      "job_data" : {
+          "tools" : [
+              {
+                  "tool_name": "CMS",
+                  "necessity_level": "mandatory"
+              },
+
+              {
+                  "tool_name": "SEO",
+                  "necessity_level": "mandatory"
+              },
+
+              {
+                  "tool_name": "wordpress",
+                  "necessity_level": "optional"
+              },
+
+              {
+                  "tool_name": "Gatsby",
+                  "necessity_level": "optional"
+              },
+              {
+                  "tool_name": "Kotlin",
+                  "necessity_level": "optional"
+              },
+              {
+                  "tool_name": "Flutter",
+                  "necessity_level": "optional"
+              },
+
+              {
+                  "tool_name": "React",
+                  "necessity_level": "optional"
+              },
+
+              {
+                  "tool_name": "Google Play",
+                  "necessity_level": "recommended",
+                  "is_explicit": true
+              }
+          ],
+          "core_problem": "",
+          "deliverables": [],
+          "requirements": []
+      },
+
+      "proposals" : [
+          {
+              "proposal": "Hi there,\n\nYour project is a great fit for the type of systems we build at Lattice Teams.\n\nBased on your requirements, I’d recommend WordPress for the blog (easy content management, SEO-friendly, scalable, and fast to maintain) and Native Android with Kotlin for the app (better performance, offline caching, and reliable push notifications).\n\nWhat I’ll deliver:\nFully deployed blog website on your hosting/domain\nAndroid app connected to blog content\nOffline reading + push notifications\nGoogle Play publishing support\nSource code + handover guide\n\nEstimated timeline: ~3–5 weeks depending on design and revision scope.\n\nA few quick questions:\n• Do you already have hosting/domain setup?\n• Do you prefer a clean premium template or a more custom design?\n\nLooking forward to discussing this further.",
+              "tools": [
+                  {
+                      "tool" : "wordpress",
+                      "with_confidence": true
+                  },
+
+                  {
+                      "tool_name": "SEO",
+                      "with_confidence": true
+                  },
+
+                  {
+                      "tool_name": "Kotlin",
+                      "with_confidence": true
+                  }
+              ],
+              
+              "other data":""
+          
+          },
+          {
+              "proposal": "Hi, hope you're doing well! I'd love to help you launch your blog and Android app together as a cohesive product.\n\nHere's my approach:\n\nCMS and Blog: WordPress with a lightweight theme gives you full content control, SEO tools, and analytics without touching code.\n\nAndroid App: Flutter is my pick here as it keeps maintenance simple and supports offline caching and push notifications cleanly.\n\nFoundations: Fast load times, mobile-responsive design, and solid SEO baked in from day one.\n\nHere's a similar project I built: https://octoro.co.uk/\n\nA few questions to help me plan this properly:\n\n1. Do you have a visual style or brand colors in mind, or would you like design suggestions?\n\n2. How frequently do you plan to publish, and do you need any scheduling or draft workflow features?\n\n3. For push notifications, should they trigger automatically on publish or go through a manual approval step?\n\nReady to get started whenever you are!",
+              "tools": [
+                  {
+                      "tool_name": "wordpress",
+                      "with_confidence": true
+                  },
+                  {
+                      "tool_name": "CMS",
+                      "with_confidence": true
+                  },
+                  {
+                      "tool_name": "SEO",
+                      "with_confidence": true
+                  },
+                  {
+                      "tool_name": "Flutter",
+                      "with_confidence": true
+                  }
+              ],
+                "other data": "!!!!!!"
+          }
+      ]
+    },
+
+
+    {
+      "job_desc": "I need a clean, professional Wix website that presents my spinal surgery practice clearly and guides visitors straight to booking a consultation online. The structure is already mapped out; I now want a designer-developer who can turn the outline into a polished, responsive site that feels reassuring to patients and straightforward for referrers.\nCore flow\nThe pages that must stand out are “Conditions”, “Treatments” and, above all, “Book a Consultation”. The booking link should be visible on every page and integrate smoothly with my existing scheduling tool (or a native Wix alternative if it works better). Clear calls-to-action are essential: request an appointment, download a form, or read a testimonial—all should be no more than one click away.\nPatient-centred resources\nThe Patient Resources hub needs space for genuine patient testimonials (video or text), an easy-to-browse FAQ, and a section where visitors can download consent forms and pre-op instructions. I would like these resources set up so my team can add new files or stories without touching the layout.\nComplete site map to build\n• Home\n• Conditions\n• Treatments\n• Patient Resources (testimonials, FAQ, downloads)\n• Healthcare Professionals\n• Book a Consultation\n• About Mr Madi\n• Endoscopic Spine Surgery\n• Scoliosis\n• Contact Us\n• Privacy Policy\nLook & feel\nModern, clean medical aesthetic: calming colours, ample white space, large readable fonts and clear iconography. Please optimise text styles for mobile reading and include basic on-page SEO setup (meta titles, descriptions, alt text).\nDeliverables\n1. Fully functional Wix site matching the structure above\n2. Booking integration tested end-to-end\n3. Editable testimonial, FAQ and download sections with simple instructions for my staff\n4. Mobile responsiveness across all breakpoints\n5. Handover session or concise video showing how to update content\nIf you have relevant medical or healthcare portfolio pieces, include links with your proposal. I’m ready to begin as soon as I find the right fit.",
+      "job_data" : {
+          "tools" : [
+              {
+                  "tool_name": "Wix",
+                  "necessity_level": "mandatory"
+              },
+
+              {
+                  "tool_name": "SEO",
+                  "necessity_level": "mandatory"
+              }
+
+          ],
+          
+          "core_problem": "",
+          "deliverables": [],
+          "requirements": []
+      },
+
+      "proposals" : [
+          {
+              "proposal": "Hi — Elias here from Miami.\n\nI understand you’re looking to create a professional Wix website for your spinal surgery practice. The goal is to present your services clearly while guiding potential patients through the booking process.\n\nWhat usually matters most here is ensuring the site is visually appealing and easy to navigate. A common issue in projects like this is integrating the booking system seamlessly. The tricky part is balancing aesthetics with functionality, especially as you may want to expand your services in the future.\n\nMy approach would involve creating a clean layout that highlights your expertise while ensuring the booking process is straightforward. I’d focus on structuring the site for performance and maintainability, allowing for easy updates as your practice grows.\n\nI’ve worked on similar healthcare projects where clarity and ease of use were key. This experience helps me foresee potential pitfalls and streamline development.\n\nA few questions to better understand the scope:\n\nQ1 – What specific features do you envision for the booking system?\nQ2 – Are there particular design elements or styles you want to incorporate?\nQ3 – Do you have existing content, or will I need to assist with content creation?\n\nHappy to go through the details and suggest the best technical approach.\n\nLooking forward to hearing from you.",
+              "tools": [
+                  {
+                      "tool" : "Wix",
+                      "with_confidence": true,
+                      "is_explicit": true
+                  }
+              ],
+
+              "other data": ""
+          
+          },
+          {
+              "proposal": "Hi, I hope you are doing well! I would love to help bring your spinal surgery practice to life on Wix with a clean, reassuring design that works for both patients and referrers.\nHere is how I will approach it:\nCalm medical aesthetic with clear CTAs and booking visible on every page.\nEditable testimonials, FAQ, and download sections your team can update easily.\nFull mobile optimization and basic on-page SEO across all pages.\nEnd-to-end booking integration with a handover walkthrough for your staff.\nHere is a similar healthcare site I built: https://shamiahtisham77.wixstudio.com/my-site-3\nA few questions before we begin:\n1. Do you have existing branding such as a logo, colour palette, or font preferences, or would you like me to suggest a direction?\n2. Which scheduling tool are you currently using, or are you open to a native Wix booking solution?\n3. Is there a target launch date, and do you have content ready or will you need guidance on structuring it?\nLooking forward to building a site that earns patient trust from the first click.",
+              "tools": [
+                  {
+                      "tool_name": "Wix",
+                      "with_confidence": true
+                  },
+                  {
+                      "tool_name": "SEO",
+                      "with_confidence": true
+                  }
+              ],
+
+                "other data": "!!!!!!"
+          }
+      ]
+    }
+
+
+]

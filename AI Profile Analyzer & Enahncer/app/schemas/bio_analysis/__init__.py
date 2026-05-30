@@ -1,0 +1,1 @@
+from .bio_analysis_schema import BioAnalyzerSchema
