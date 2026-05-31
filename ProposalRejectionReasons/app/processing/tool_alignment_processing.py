@@ -4,6 +4,8 @@
 
 from schemas import JobTool, ProposalToolsResponse
 from helpers.config import NECESSITY_LEVEL_WEIGHTS, WITH_CONFIDENCE_TOOL_WEIGHT, GENERIC_TOOL_WEIGHT
+from typing import Any
+# ------------------------------------- Pre-Processing ---------------------------------------------
 
 def format_ip_for_proposal_tools_analyzer(
     job_tools: list[JobTool],
@@ -33,28 +35,46 @@ def format_ip_for_proposal_tools_analyzer(
     return formatted
 
 
+# ------------------------------------- Post-Processing ---------------------------------------------
+
 def calc_tools_alignment_score(
     proposal_tools_response: ProposalToolsResponse
-):
+) -> float | None:
     """
-    Calculates the score of the tools mentioned in the proposal W.R.T to the job tools.
+    Calculates how well the proposal tools align with the job-required tools.
 
     Args:
-        proposal_tools_response: the response from proposal-tools-analyzer
-    
-    Return:
-        score (float)
+        proposal_tools_response: response from proposal-tools-analyzer
+
+    Returns:
+        float: normalized tools alignment score or None if len(job_tools) == 0
     """
+
     proposal_score = 0.0
-    grd_truth = 0.0
+    ground_truth_score = 0.0
 
     for tool_review in proposal_tools_response.tool_reviews:
-        if tool_review.found_in_proposal:
-            necessity_level_weight = NECESSITY_LEVEL_WEIGHTS[tool_review.necessity_level]
-            with_confidence_weight = WITH_CONFIDENCE_TOOL_WEIGHT if tool_review.with_confidence else GENERIC_TOOL_WEIGHT
-            
-            proposal_score += 1.0 * necessity_level_weight * with_confidence_weight
-            
-        grd_truth += 1.0
-    
-    return proposal_score / grd_truth
+        necessity_level_weight = NECESSITY_LEVEL_WEIGHTS[tool_review.necessity_level]
+
+        ground_truth_score += necessity_level_weight
+
+        if not tool_review.found_in_proposal:
+            continue
+
+        confidence_weight = WITH_CONFIDENCE_TOOL_WEIGHT if tool_review.with_confidence else GENERIC_TOOL_WEIGHT
+        proposal_score += necessity_level_weight * confidence_weight
+
+    if ground_truth_score == 0:
+        return None
+
+    return proposal_score / ground_truth_score
+
+
+
+def get_final_tool_alignment_result(
+    proposal_tools_response: ProposalToolsResponse,
+
+) -> dict[str, Any]:
+    """
+    Get the final tool alignmnt result. This result will be passed to the Super-Agent.
+    """

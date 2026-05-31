@@ -9,7 +9,7 @@ from typing import Literal
 # --> adding summary
 # -----------------------------------------
 
-from schemas import Summary
+from ..schema_config import Summary
 
 class ProposalToolReview(BaseModel):
     """A tool extracted from the job description"""

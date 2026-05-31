@@ -4,7 +4,7 @@ from typing import List
 # -------------------- Modifications
 # --> adding summary
 # -----------------------------------------
-from schemas import Summary
+from ..schema_config import Summary
 class RequirementCoverageSchema(BaseModel):
     details: str = Field(
         description="A clear, scientific justification explaining which requirement IDs were found, which were missing, and why."

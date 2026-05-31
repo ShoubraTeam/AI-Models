@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 # --> Removing confidence_score
 # --> Adding detecting proposal keywords using agent
 # ---------------------------------------
-from schemas import Summary
+from ..schema_config import Summary
 
 class JobUnderstandingEvalSchema(BaseModel):
     """
@@ -28,7 +28,7 @@ class JobUnderstandingEvalSchema(BaseModel):
         description="Whether the freelancer mentioned practical or actionable steps."
     )
 
-    summary: summary
+    summary: Summary
     
     confidence_score: float = Field(
         description="How confident the agent is in its evaluation. Between 0.0 and 1.0."

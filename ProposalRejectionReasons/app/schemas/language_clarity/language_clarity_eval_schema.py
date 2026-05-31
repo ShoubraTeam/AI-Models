@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 # ----------------------------- Modifications -------------------------------
 # --> Remove confidence_score
 # ---------------------------------------------------------------------------
-from schemas import Summary
+from ..schema_config import Summary
 class LanguageClarityEvalSchema(BaseModel):
     """
     Output of LanguageClarityEvaluator.

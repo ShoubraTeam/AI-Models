@@ -177,97 +177,98 @@ if __name__ == "__main__":
             input = prepared_analysis_tool_ip
         )
         F.print_structured_response(proposal_tools_analysis)
-        print("\t>> Tools Alignment Score: ", end="")
+        print()
+        print(">> Tools Alignment Score: ", end="")
         print(calc_tools_alignment_score(proposal_tools_analysis))
         print()
 
     # --------------------------------------------
-    F.print_subtitle("Requirement Coverage")
+    # F.print_subtitle("Requirement Coverage")
 
-    job_desc  = requirement_data_samples[0]["job_desc"]
-    proposals = requirement_data_samples[0]["proposals"]
+    # job_desc  = requirement_data_samples[0]["job_desc"]
+    # proposals = requirement_data_samples[0]["proposals"]
 
-    print("\t>> Extracting Job Requirements")
-    extracted_data = requirement_extractor.invoke(input=job_desc)
-    F.print_structured_response(extracted_data)
+    # print("\t>> Extracting Job Requirements")
+    # extracted_data = requirement_extractor.invoke(input=job_desc)
+    # F.print_structured_response(extracted_data)
 
-    print("\t>> Evaluating Requirements in Proposal")
-    for idx, proposal in enumerate(proposals, start=1):
-        print(f"--- Analyzing Proposal {idx} ---")
-        requirements_matching = requirement_matcher.invoke(
-            job_requirements = extracted_data.requirements,
-            proposal_text    = proposal
-        )
-        F.print_structured_response(requirements_matching)
-        calculated_score = calc_requirement_coverage_score(
-            extracted_requirements = extracted_data.requirements,
-            final_coverage         = requirements_matching
-        )
-        print(f"\t>> Calculated Requirement Coverage Score (Weighted): {calculated_score}\n")
+    # print("\t>> Evaluating Requirements in Proposal")
+    # for idx, proposal in enumerate(proposals, start=1):
+    #     print(f"--- Analyzing Proposal {idx} ---")
+    #     requirements_matching = requirement_matcher.invoke(
+    #         job_requirements = extracted_data.requirements,
+    #         proposal_text    = proposal
+    #     )
+    #     F.print_structured_response(requirements_matching)
+    #     calculated_score = calc_requirement_coverage_score(
+    #         extracted_requirements = extracted_data.requirements,
+    #         final_coverage         = requirements_matching
+    #     )
+    #     print(f"\t>> Calculated Requirement Coverage Score (Weighted): {calculated_score}\n")
 
-    # --------------------------------------------
-    F.print_subtitle("Job Understanding")
+    # # --------------------------------------------
+    # F.print_subtitle("Job Understanding")
 
-    job_desc  = job_understanding_data_samples[0]["job_desc"]
-    proposals = job_understanding_data_samples[0]["proposals"]
+    # job_desc  = job_understanding_data_samples[0]["job_desc"]
+    # proposals = job_understanding_data_samples[0]["proposals"]
 
-    print("\t>> Extracting Job Key Points")
-    job_key_points = job_key_points_extractor.invoke(input=job_desc)
-    F.print_structured_response(job_key_points)
+    # print("\t>> Extracting Job Key Points")
+    # job_key_points = job_key_points_extractor.invoke(input=job_desc)
+    # F.print_structured_response(job_key_points)
 
-    print("\t>> Evaluating Proposal Quality")
-    for idx, proposal in enumerate(proposals, start=1):
-        print(f"--- Analyzing Proposal {idx} ---")
-        understanding_evaluation = job_understanding_evaluator.invoke(
-            core_problem          = job_key_points.core_problem,
-            required_deliverables = job_key_points.required_deliverables,
-            proposal_text         = proposal
-        )
-        F.print_structured_response(understanding_evaluation)
+    # print("\t>> Evaluating Proposal Quality")
+    # for idx, proposal in enumerate(proposals, start=1):
+    #     print(f"--- Analyzing Proposal {idx} ---")
+    #     understanding_evaluation = job_understanding_evaluator.invoke(
+    #         core_problem          = job_key_points.core_problem,
+    #         required_deliverables = job_key_points.required_deliverables,
+    #         proposal_text         = proposal
+    #     )
+    #     F.print_structured_response(understanding_evaluation)
 
-        print("Final Result (keyword metrics + scoring): ")
-        result = calc_job_understanding_result(
-            extraction    = job_key_points,
-            llm_eval      = understanding_evaluation,
-            proposal_text = proposal
-        )
-        for key, value in result.items():
-            print(f"  {key} => {value}")
-        print()
+    #     print("Final Result (keyword metrics + scoring): ")
+    #     result = calc_job_understanding_result(
+    #         extraction    = job_key_points,
+    #         llm_eval      = understanding_evaluation,
+    #         proposal_text = proposal
+    #     )
+    #     for key, value in result.items():
+    #         print(f"  {key} => {value}")
+    #     print()
 
-    # --------------------------------------------
-    F.print_subtitle("Language Clarity")
+    # # --------------------------------------------
+    # F.print_subtitle("Language Clarity")
 
-    lc_sample = language_clarity_data_samples[0]
-    proposals = lc_sample["proposals"]
+    # lc_sample = language_clarity_data_samples[0]
+    # proposals = lc_sample["proposals"]
 
-    print("\t>> Evaluating Language Clarity")
-    for idx, proposal in enumerate(proposals, start=1):
-        print(f"--- Analyzing Proposal {idx} ---")
-        llm_eval = language_clarity_evaluator.invoke(proposal_text=proposal)
-        F.print_structured_response(llm_eval)
+    # print("\t>> Evaluating Language Clarity")
+    # for idx, proposal in enumerate(proposals, start=1):
+    #     print(f"--- Analyzing Proposal {idx} ---")
+    #     llm_eval = language_clarity_evaluator.invoke(proposal_text=proposal)
+    #     F.print_structured_response(llm_eval)
 
-        print("Final Result (text metrics + scoring): ")
-        result = calc_language_clarity_result(
-            llm_eval      = llm_eval,
-            proposal_text = proposal
-        )
-        for key, value in result.items():
-            print(f"  {key} => {value}")
-        print()
+    #     print("Final Result (text metrics + scoring): ")
+    #     result = calc_language_clarity_result(
+    #         llm_eval      = llm_eval,
+    #         proposal_text = proposal
+    #     )
+    #     for key, value in result.items():
+    #         print(f"  {key} => {value}")
+    #     print()
 
-    # --------------------------------------------
-    F.print_subtitle("Evidence of Experience")
+    # # --------------------------------------------
+    # F.print_subtitle("Evidence of Experience")
 
-    exp_job_desc  = experience_data_samples[1]["job_desc"]
-    exp_proposals = experience_data_samples[1]["proposals"]
+    # exp_job_desc  = experience_data_samples[1]["job_desc"]
+    # exp_proposals = experience_data_samples[1]["proposals"]
 
-    print("\t>> Auditing Proposals for Past Experience Evidence")
-    for idx, proposal in enumerate(exp_proposals, start=1):
-        print(f"--- Analyzing Proposal {idx} ---")
-        experience_audit = experience_evidence_agent.invoke(
-            job_desc      = exp_job_desc,
-            proposal_text = proposal
-        )
-        F.print_structured_response(experience_audit)
-        print()
+    # print("\t>> Auditing Proposals for Past Experience Evidence")
+    # for idx, proposal in enumerate(exp_proposals, start=1):
+    #     print(f"--- Analyzing Proposal {idx} ---")
+    #     experience_audit = experience_evidence_agent.invoke(
+    #         job_desc      = exp_job_desc,
+    #         proposal_text = proposal
+    #     )
+    #     F.print_structured_response(experience_audit)
+    #     print()

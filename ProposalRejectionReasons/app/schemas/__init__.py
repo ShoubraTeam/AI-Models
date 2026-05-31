@@ -4,4 +4,3 @@ from .job_understanding import JobKeyPointsSchema, JobUnderstandingEvalSchema
 from .requirement_coverage import ExtractedRequirementsSchema, RequirementCoverageSchema
 from .experience_evidence import ExperienceEvidenceSchema
 from .language_clarity import LanguageClarityEvalSchema
-from .schema_config import Summary

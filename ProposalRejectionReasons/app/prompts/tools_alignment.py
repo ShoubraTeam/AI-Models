@@ -16,6 +16,7 @@ Instructions
     * forbidden: If the client prohibit using this tool.
 - Do not invent tools by yourself. Just use the tools mentioned in the description.
 - Do not invent a necessity level either.
+- At the end of the job description, you may find a section called `tags`. If you find it, some tags may represent tools that you should include them in your response. 
 """
 
 
@@ -42,10 +43,12 @@ Your task is to examine these data and report the following for each tool in the
     * if the freelancer mentioned it in a generic manner: return False
     * if the freelancer did not mention it: return None
 
-    
+Beside reporting those reviews for each tool, you should generate a breif summary highlighting the strengths & weeknesses of the proposal in the context of tools.
+
 Instructions
 - Do not invent tools  by yourself. Just use the tools given in the job_tools_list.
 - Do not invent a necessity_level either. Also use the necessity_level given in the job_tools_list.
 - For each tool given to you, you should return a report.
 - Some tools may have many common un-normalized names. For example: (react = react.js), (node.js = node), (torch = PyTorch), and so on.
 """
+

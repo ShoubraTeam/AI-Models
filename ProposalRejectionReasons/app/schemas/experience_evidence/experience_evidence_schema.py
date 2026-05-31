@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
-from schemas import Summary
+from ..schema_config import Summary
 
 ###
 # Modifications:
