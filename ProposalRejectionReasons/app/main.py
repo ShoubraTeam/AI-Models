@@ -24,10 +24,11 @@ from prompts import EXPERIENCE_EVIDENCE_PROMPT
 from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
 
 # data processing
-from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
-from processing.job_understanding_processing import calc_job_understanding_result
+# from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
+# from processing.job_understanding_processing import calc_job_understanding_result
 from processing.requirement_coverage_processing import calc_requirement_coverage_score
-from processing.language_clarity_processing import calc_language_clarity_result
+# from processing.language_clarity_processing import calc_language_clarity_result
+#from processing.experience_evidence import calc_experience_evidence_result
 
 # others
 import os
@@ -153,59 +154,67 @@ if __name__ == "__main__":
     # ==================================================================
     # 2.0 Testing Agents
     # ==================================================================
-    F.print_title("2.0 Testing Agents")
+    # F.print_title("2.0 Testing Agents")
 
     
-    F.print_subtitle("Tools Alignment")
+    # F.print_subtitle("Tools Alignment")
 
-    tools_sample = tools_alignment_data_samples[0]
-    job_desc     = tools_sample["job_desc"]
-    proposals    = tools_sample["proposals"]
+    # tools_sample = tools_alignment_data_samples[0]
+    # job_desc     = tools_sample["job_desc"]
+    # proposals    = tools_sample["proposals"]
 
-    print("\t>> Extracting Job Tools")
-    job_tools_response = job_tool_extractor.invoke(input=job_desc)
-    F.print_structured_response(job_tools_response)
+    # print("\t>> Extracting Job Tools")
+    # job_tools_response = job_tool_extractor.invoke(input=job_desc)
+    # F.print_structured_response(job_tools_response)
 
-    print("\t>> Analyzing Proposal Tools")
-    for idx, proposal in enumerate(proposals, start=1):
-        print(f"--- Analyzing Proposal {idx} ---")
-        prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
-            job_tools = job_tools_response.tools,
-            proposal  = proposal
-        )
-        proposal_tools_analysis = proposal_tools_analyzer.invoke(
-            input = prepared_analysis_tool_ip
-        )
-        F.print_structured_response(proposal_tools_analysis)
-        print()
-        print(">> Tools Alignment Score: ", end="")
-        print(calc_tools_alignment_score(proposal_tools_analysis))
-        print()
-
-    # --------------------------------------------
-    # F.print_subtitle("Requirement Coverage")
-
-    # job_desc  = requirement_data_samples[0]["job_desc"]
-    # proposals = requirement_data_samples[0]["proposals"]
-
-    # print("\t>> Extracting Job Requirements")
-    # extracted_data = requirement_extractor.invoke(input=job_desc)
-    # F.print_structured_response(extracted_data)
-
-    # print("\t>> Evaluating Requirements in Proposal")
+    # print("\t>> Analyzing Proposal Tools")
     # for idx, proposal in enumerate(proposals, start=1):
     #     print(f"--- Analyzing Proposal {idx} ---")
-    #     requirements_matching = requirement_matcher.invoke(
-    #         job_requirements = extracted_data.requirements,
-    #         proposal_text    = proposal
+    #     prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
+    #         job_tools = job_tools_response.tools,
+    #         proposal  = proposal
     #     )
-    #     F.print_structured_response(requirements_matching)
-    #     calculated_score = calc_requirement_coverage_score(
-    #         extracted_requirements = extracted_data.requirements,
-    #         final_coverage         = requirements_matching
+    #     proposal_tools_analysis = proposal_tools_analyzer.invoke(
+    #         input = prepared_analysis_tool_ip
     #     )
-    #     print(f"\t>> Calculated Requirement Coverage Score (Weighted): {calculated_score}\n")
+    #     F.print_structured_response(proposal_tools_analysis)
+    #     print()
+    #     print(">> Tools Alignment Score: ", end="")
+    #     print(calc_tools_alignment_score(proposal_tools_analysis))
+    #     print()
 
+    # --------------------------------------------
+    F.print_subtitle("Requirement Coverage")
+
+    job_desc  = requirement_data_samples[0]["job_desc"]
+    proposals = requirement_data_samples[0]["proposals"]
+
+    print("\t>> Extracting Job Requirements")
+    extracted_data = requirement_extractor.invoke(input=job_desc)
+    F.print_structured_response(extracted_data)
+
+    print("\t>> Evaluating Requirements in Proposal")
+    for idx, proposal in enumerate(proposals, start=1):
+        print(f"--- Analyzing Proposal {idx} ---")
+        requirements_matching = requirement_matcher.invoke(
+            job_requirements = extracted_data.requirements,
+            proposal_text    = proposal
+        )
+        print("\t>> LLM Raw Matcher Response:")
+        F.print_structured_response(requirements_matching)
+        
+        final_result = calc_requirement_coverage_score(
+            extracted_requirements = extracted_data.requirements,
+            final_coverage         = requirements_matching
+        )
+        
+        print("\t>> Final Standardized Subagent Result:")
+        print(f"  score              => {final_result.score}")
+        print(f"  accepted           => {final_result.accepted}")
+        print(f"  summary            => {final_result.summary}")
+        print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
+        print(f"  rejection_reasons  => {final_result.rejection_reasons}")
+        print()
     # # --------------------------------------------
     # F.print_subtitle("Job Understanding")
 
@@ -257,7 +266,8 @@ if __name__ == "__main__":
     #         print(f"  {key} => {value}")
     #     print()
 
-    # # --------------------------------------------
+    # --------------------------------------------
+    # --------------------------------------------
     # F.print_subtitle("Evidence of Experience")
 
     # exp_job_desc  = experience_data_samples[1]["job_desc"]
@@ -266,9 +276,20 @@ if __name__ == "__main__":
     # print("\t>> Auditing Proposals for Past Experience Evidence")
     # for idx, proposal in enumerate(exp_proposals, start=1):
     #     print(f"--- Analyzing Proposal {idx} ---")
+        
     #     experience_audit = experience_evidence_agent.invoke(
     #         job_desc      = exp_job_desc,
     #         proposal_text = proposal
     #     )
+    #     print("\t>> LLM Raw Audit Response:")
     #     F.print_structured_response(experience_audit)
+
+    #     print("\t>> Final Standardized Subagent Result:")
+    #     final_result = calc_experience_evidence_result(llm_audit=experience_audit)
+        
+    #     print(f"  score              => {final_result.score}")
+    #     print(f"  accepted           => {final_result.accepted}")
+    #     print(f"  summary            => {final_result.summary}")
+    #     print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
+    #     print(f"  rejection_reasons  => {final_result.rejection_reasons}")
     #     print()

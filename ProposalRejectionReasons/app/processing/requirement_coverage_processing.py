@@ -1,6 +1,23 @@
 from helpers.config import NECESSITY_LEVEL_WEIGHTS
+from schemas import SubagentResult
 
-def calc_requirement_coverage_score(extracted_requirements, final_coverage) -> float:
+REQUIREMENT_THRESHOLD = 0.5
+
+
+def build_requirement_reasons(accepted: bool) -> list[str]:
+    reasons = []
+    if accepted:
+        reasons.append("Mandatory requirements are fully covered.")
+    else:
+        reasons.append("Mandatory job requirements were missed.")
+    return reasons
+
+
+def calc_requirement_coverage_score(
+    extracted_requirements, 
+    final_coverage, 
+    threshold: float = REQUIREMENT_THRESHOLD
+) -> SubagentResult:
     req_necessity_map = {
         req.id: req.necessity_level 
         for req in extracted_requirements
@@ -29,7 +46,27 @@ def calc_requirement_coverage_score(extracted_requirements, final_coverage) -> f
             proposal_score += NECESSITY_LEVEL_WEIGHTS["forbidden"]
 
     if grd_truth == 0:
-        return 0.0
+        score = 0.0
+    else:
+        final_score = proposal_score / grd_truth
+        score = max(0.0, round(final_score, 4))
         
-    final_score = proposal_score / grd_truth
-    return max(0.0, round(final_score, 4))
+    accepted = score >= threshold
+    reasons = build_requirement_reasons(accepted)
+    
+    if accepted:
+        acceptance_reasons = reasons
+        rejection_reasons = None
+    else:
+        acceptance_reasons = None
+        rejection_reasons = reasons
+
+    summary_text = getattr(final_coverage, "summary", "Requirements coverage evaluation completed.")
+
+    return SubagentResult(
+        score=score,
+        accepted=accepted,
+        summary=summary_text,
+        acceptance_reasons=acceptance_reasons,
+        rejection_reasons=rejection_reasons
+    )

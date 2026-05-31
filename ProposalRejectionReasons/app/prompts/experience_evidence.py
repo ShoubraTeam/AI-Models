@@ -10,9 +10,14 @@ Strict Classification Rules for 'has_experience_evidence':
 - Set to `False` if the proposal contains ONLY generic, unverified claims of experience, skills, or certifications without linking them to a specific past deliverable or project context (e.g., "I have 5 years of experience in React", "I am a certified AWS architect", "I have done many similar projects before" without naming or describing any).
 
 Extraction Rules (Only applicable if 'has_experience_evidence' is True):
-1. Extract the project title, description, and the specific tools/tech stack used *within the context of that past project*.
-2. Provide a rigorous 'relevance_analysis' explaining scientifically how the architecture, features, or tools of this past project align with or map to the needs of the current Job Description.
+1. For each project inside the 'extracted_projects' list, provide:
+   - 'project_overview': A concise summary of the past project, its core functionality, and any key tools or technologies explicitly mentioned within its context.
+   - 'relevance_analysis': A rigorous analysis explaining scientifically how the architecture, features, or tools of this past project align with or map to the needs of the current Job Description.
+   - 'relevance_score': A float strictly between 0.0 and 1.0, evaluating how closely the technical nature of this past project matches the current Job Description context (where 1.0 represents a perfect architectural/functional match and 0.0 means completely irrelevant).
+
+Global Summary Rule (Applicable to the root 'summary' field):
+- Provide a concise 2-3 lines summary synthesizing all extracted past projects and their overall technical relevance to the Job Description. If 'has_experience_evidence' is False and no projects are found, provide a brief sentence explaining that no concrete past project evidence was found in the proposal.
 
 Output Format:
-Your output must conform exactly to the ExperienceEvidenceSchema structure, populating 'has_experience_evidence' and the 'extracted_projects' list accurately.
+Your output must conform exactly to the ExperienceEvidenceSchema structure, populating 'has_experience_evidence', the 'extracted_projects' list, and the root 'summary' field accurately. The 'extracted_projects' list must be empty if 'has_experience_evidence' is False.
 """

@@ -1,0 +1,37 @@
+[
+    {
+        "freelancer_name": "Boundary Case 1: The Razor Edge (Exact Mid-Tier Max)",
+        "job_role": "Backend Developer",
+        "hourly_rate": 65.0,
+        "rating": 4.7,
+        "total_completed_jobs": 25
+    },
+    {
+        "freelancer_name": "Boundary Case 2: The One-Dollar Trap (Beginner Overpriced by $1)",
+        "job_role": "AI Engineer",
+        "hourly_rate": 36.0,
+        "rating": 4.8,
+        "total_completed_jobs": 4
+    },
+    {
+        "freelancer_name": "Boundary Case 3: The Expert Transition (Creative Just Underpriced)",
+        "job_role": "Graphic Designer",
+        "hourly_rate": 54.0,
+        "rating": 5.0,
+        "total_completed_jobs": 26
+    },
+    {
+        "freelancer_name": "Boundary Case 4: The Rating Penalty Cliff (Fair Price but Bad Rating)",
+        "job_role": "Frontend Developer",
+        "hourly_rate": 50.0,
+        "rating": 4.6,
+        "total_completed_jobs": 10
+    },
+    {
+        "freelancer_name": "Boundary Case 5: The Chaos Nightmare (Double Penalty Floor Test)",
+        "job_role": "Content Writer",
+        "hourly_rate": 120.0,
+        "rating": 3.5,
+        "total_completed_jobs": 1
+    }
+]
