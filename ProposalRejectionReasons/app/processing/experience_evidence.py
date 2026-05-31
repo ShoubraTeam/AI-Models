@@ -1,5 +1,5 @@
 from schemas.experience_evidence import ExperienceEvidenceSchema
-from schemas import SubagentResult 
+from schemas import FinalSubagentResult
 
 EXPERIENCE_THRESHOLD = 0.5
 
@@ -43,7 +43,7 @@ def build_experience_acceptance_reasons(score: float) -> list[str]:
 def calc_experience_evidence_result(
     llm_audit: ExperienceEvidenceSchema,
     threshold: float = EXPERIENCE_THRESHOLD
-) -> SubagentResult:
+) -> FinalSubagentResult:
     score = calc_experience_score(
         has_experience_evidence=llm_audit.has_experience_evidence,
         extracted_projects=llm_audit.extracted_projects
@@ -64,7 +64,7 @@ def calc_experience_evidence_result(
         acceptance_reasons = None
         rejection_reasons = reasons
 
-    return SubagentResult(
+    return FinalSubagentResult(
         score=score,
         accepted=accepted,
         summary=llm_audit.summary, 

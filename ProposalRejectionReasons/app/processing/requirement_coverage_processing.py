@@ -1,5 +1,5 @@
 from helpers.config import NECESSITY_LEVEL_WEIGHTS
-from schemas import SubagentResult
+from schemas import FinalSubagentResult
 
 REQUIREMENT_THRESHOLD = 0.5
 
@@ -17,7 +17,7 @@ def calc_requirement_coverage_score(
     extracted_requirements, 
     final_coverage, 
     threshold: float = REQUIREMENT_THRESHOLD
-) -> SubagentResult:
+) -> FinalSubagentResult:
     req_necessity_map = {
         req.id: req.necessity_level 
         for req in extracted_requirements
@@ -63,7 +63,7 @@ def calc_requirement_coverage_score(
 
     summary_text = getattr(final_coverage, "summary", "Requirements coverage evaluation completed.")
 
-    return SubagentResult(
+    return FinalSubagentResult(
         score=score,
         accepted=accepted,
         summary=summary_text,
