@@ -58,6 +58,8 @@ DEFAULT_MODELS_CFG = {
     },
 }
 
+# --------------------------------------------------- Scoring ----------------------------------------------------
+
 # Tools Alignment Scoring
 NECESSITY_LEVEL_WEIGHTS = {
     "mandatory"  : 1,
@@ -70,7 +72,8 @@ NECESSITY_LEVEL_WEIGHTS = {
 WITH_CONFIDENCE_TOOL_WEIGHT = 1
 GENERIC_TOOL_WEIGHT         = 0.5
 
-# Job Understanding Scoring
+# thresholds
+TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD = 0.5
 JOB_UNDERSTANDING_THRESHOLD = 5.0
 
 

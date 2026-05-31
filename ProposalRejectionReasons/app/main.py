@@ -24,7 +24,7 @@ from prompts import EXPERIENCE_EVIDENCE_PROMPT
 from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
 
 # data processing
-from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, calc_tools_alignment_score
+from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer, get_final_tool_alignment_result
 from processing.job_understanding_processing import calc_job_understanding_result
 from processing.requirement_coverage_processing import calc_requirement_coverage_score
 from processing.language_clarity_processing import calc_language_clarity_result
@@ -178,8 +178,8 @@ if __name__ == "__main__":
         )
         F.print_structured_response(proposal_tools_analysis)
         print()
-        print(">> Tools Alignment Score: ", end="")
-        print(calc_tools_alignment_score(proposal_tools_analysis))
+        print(">> Tools Alignment Final Result: ", end="")
+        F.print_data(get_final_tool_alignment_result(proposal_tools_analysis))
         print()
 
     # --------------------------------------------
