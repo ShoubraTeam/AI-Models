@@ -51,17 +51,42 @@ def print_structured_response(structured_response):
             print(f"=> {value}")
 
 
-def print_agent_response(response: Any):
-    """Printing the Agent Response"""
-
-    print_title("Agent Messages", 50)
-    for idx, message in enumerate(response["messages"], start = 1):
-        print(f"Message #{idx}")
-        print(f"Message Type => {message.type.capitalize()}")
-        print(f"Message Content:\n{message.content}")
-        print()
+def print_dict(dic: dict):
+    print()
+    for k, v in dic.items():
+        print(f"{k} => {v}")
     
-    print_structured_response(response["print_structured_response"])
+def print_semi_dict(semi_dict: Any):
+    print()
+    items = semi_dict.__dict__.items()
+    for k, v in items:
+        print(f"{k} => {v}")
+
+    
+
+def print_data(data: Any):
+    if isinstance(data, list):
+        if isinstance(data[0], dict):
+            for dic in data:
+                print_dict(dic)
+        
+        elif hasattr(data[0], "__dict__"):
+            for dic in data:
+                print_semi_dict(dic)
+        
+        else:
+            print()
+            print(data)
+
+    elif isinstance(data, dict):
+        print_dict(data)
+    
+    elif hasattr(data, "__dict__"):
+        print_semi_dict(data)
+    
+    else:
+        print()
+        print(data)
     
 
 

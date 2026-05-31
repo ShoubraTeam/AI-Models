@@ -1,1 +1,1 @@
-from .final_subagents_schema import SubagentResult
+from .final_subagents_schema import FinalSubagentResult

@@ -8,12 +8,19 @@ from typing import Annotated
 from ..schema_config import Summary
 
 Score   = Annotated[float, Field(ge = 0.0, le = 1.0)]
-Reason  = Annotated[str, Field(min_length = 10, max_length = 50)]
+Reason  = Annotated[str, Field(min_length = 10, max_length = 100)]
 
 
-class SubagentResult(BaseModel):
+class FinalSubagentResult(BaseModel):
     """
     General Result schema for any sub-agent
+
+    Attbs:
+        - score             : the score at the level of task
+        - accepted          : if the proposal marked as accepted or not by comparing the score to a threshold related to the task
+        - summary           : summary given by the sub-agent highlighting the proposal strenghts & weaknesses.
+        - acceptance_reasons: if accepted --> clear short sentences justifying acceptance
+        - rejection_reasons : if rejected --> clear short sentences justifying rejection 
     """
     model_config = ConfigDict(
         strict = True,

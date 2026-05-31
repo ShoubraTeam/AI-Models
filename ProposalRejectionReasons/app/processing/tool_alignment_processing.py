@@ -2,8 +2,9 @@
 # Functions to pre-process | post-process data from the tools_alignment agents
 # -------------------------------------------------------------------------------
 
-from schemas import JobTool, ProposalToolsResponse
+from schemas import JobTool, ProposalToolsResponse, FinalSubagentResult, ProposalToolReview
 from helpers.config import NECESSITY_LEVEL_WEIGHTS, WITH_CONFIDENCE_TOOL_WEIGHT, GENERIC_TOOL_WEIGHT
+from helpers.config import TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
 from typing import Any
 # ------------------------------------- Pre-Processing ---------------------------------------------
 
@@ -38,13 +39,13 @@ def format_ip_for_proposal_tools_analyzer(
 # ------------------------------------- Post-Processing ---------------------------------------------
 
 def calc_tools_alignment_score(
-    proposal_tools_response: ProposalToolsResponse
+    tool_reviews: list[ProposalToolReview]
 ) -> float | None:
     """
     Calculates how well the proposal tools align with the job-required tools.
 
     Args:
-        proposal_tools_response: response from proposal-tools-analyzer
+        tool_reviews: the list of tool reviews returned by the analyzer sub-agent
 
     Returns:
         float: normalized tools alignment score or None if len(job_tools) == 0
@@ -53,7 +54,7 @@ def calc_tools_alignment_score(
     proposal_score = 0.0
     ground_truth_score = 0.0
 
-    for tool_review in proposal_tools_response.tool_reviews:
+    for tool_review in tool_reviews:
         necessity_level_weight = NECESSITY_LEVEL_WEIGHTS[tool_review.necessity_level]
 
         ground_truth_score += necessity_level_weight
@@ -71,10 +72,124 @@ def calc_tools_alignment_score(
 
 
 
+def get_mentioned_tools(
+    tool_reviews: list[ProposalToolReview]
+) -> tuple[int, int, str, str]:
+    """
+    Return:
+        - number of total job tools
+        - number of tools mentioned in the proposal
+        - tools mentioned with confidence as a str
+        - tools mentioned without confidence as a str
+    """
+    total_tools = len(tool_reviews)
+    mentioned_tools_with_confidence = []
+    mentioned_tools_generally = []
+    for tool_review in tool_reviews:
+        if tool_review.with_confidence == True:
+            mentioned_tools_with_confidence.append(tool_review.tool_name)
+        else:
+            mentioned_tools_generally.append(tool_review.tool_name)
+    
+    num_of_mentioned_tools = len(mentioned_tools_with_confidence) + len(mentioned_tools_generally)
+
+    return (
+        total_tools,
+        num_of_mentioned_tools,
+        ", ".join(mentioned_tools_with_confidence),
+        ", ".join(mentioned_tools_generally),
+    )
+
+
+def get_acceptance_reasons(
+    tool_reviews: list[ProposalToolReview],
+    score       : float
+) -> list[str]:
+    """
+    Return acceptance reasons based on sub-agent results
+    """
+    reasons = ["Acceptance Reasons:"]
+
+    # score
+    reasons.append(f"- Score ({score}) is bigger than the acceptance threshold ({TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD})")
+
+    # tools
+    total_tools, num_of_mentioned_tools, mentioned_tools_with_confidence, mentioned_tools_generally = get_mentioned_tools(
+        tool_reviews = tool_reviews
+    ) 
+
+    reasons.append(f"- The proposal mentioned majority of job tools: ({num_of_mentioned_tools}) tools out of ({total_tools}) tools that client required.")
+    reasons.append(f"- Tools mentioned with confidence: {mentioned_tools_with_confidence}")
+    reasons.append(f"- Tools mentioned without confidence: {mentioned_tools_generally}")
+    
+    return reasons
+    
+
+def get_rejection_reasons(
+    tool_reviews: list[ProposalToolReview],
+    score       : float
+) -> list[str]:
+    """
+    Return rejections reasons based on sub-agent results
+    """
+    reasons = ["Rejection Reasons:"]
+
+    # score
+    reasons.append(f"- Score ({score}) is less than the acceptance threshold ({TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD})")
+
+    # tools
+    total_tools, num_of_mentioned_tools, mentioned_tools_with_confidence, mentioned_tools_generally = get_mentioned_tools(
+        tool_reviews = tool_reviews
+    ) 
+
+    reasons.append(f"- The proposal mentioned only: ({num_of_mentioned_tools}) tools out of ({total_tools}) tools that client required.")
+    reasons.append(f"- Tools mentioned with confidence: {mentioned_tools_with_confidence}")
+    reasons.append(f"- Tools mentioned without confidence: {mentioned_tools_generally}")
+    
+    return reasons
+
+
 def get_final_tool_alignment_result(
     proposal_tools_response: ProposalToolsResponse,
 
-) -> dict[str, Any]:
+) -> FinalSubagentResult:
     """
     Get the final tool alignmnt result. This result will be passed to the Super-Agent.
+
+    Args:
+        proposal_tools_response: the analysis of the proposal tools returned by the sub-agent
+
+    Returns:
+        FinalSubagentResult object: the final result of the sub-agent after post-processings contains:
     """
+    # calc score & acceptance
+    tool_alignment_score = calc_tools_alignment_score(proposal_tools_response.tool_reviews)
+    accepted = tool_alignment_score >= TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
+
+    # summary
+    summary = proposal_tools_response.summary
+
+    # reasons
+    acceptance_reasons = None
+    rejection_reasons  = None
+
+    if accepted:
+        acceptance_reasons = get_acceptance_reasons(
+            tool_reviews = proposal_tools_response.tool_reviews,
+            score        = tool_alignment_score
+        )
+
+    else:
+        rejection_reasons = get_rejection_reasons(
+            tool_reviews = proposal_tools_response.tool_reviews,
+            score        = tool_alignment_score
+        )
+
+
+    return FinalSubagentResult(
+        score              = tool_alignment_score,
+        accepted           = accepted,
+        summary            = summary,
+        acceptance_reasons = acceptance_reasons,
+        rejection_reasons  = rejection_reasons
+    )
