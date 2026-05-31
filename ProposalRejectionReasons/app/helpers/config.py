@@ -15,9 +15,6 @@ GEMINI_FLASH          = "google_genai:gemini-2.5-flash"
 
 
 
-
-
-
 # Models CFG
 DEFAULT_MODELS_CFG = {
     "job_tools_extractor" : {
@@ -54,6 +51,7 @@ DEFAULT_MODELS_CFG = {
         "temperature": 0.0,
         "max_tokens" : 1024
     },
+    
     "language_clarity_evaluator": {
         "temperature": 0.0,
         "max_tokens" : 512
@@ -81,6 +79,7 @@ RED = "\033[91m"
 GREEN = "\033[92m"
 BLUE = "\033[94m"
 RESET = "\033[0m"
+
 
 
 

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List
+from schemas import Summary
 
 ###
 # Modifications:
@@ -34,7 +35,8 @@ class ExperienceEvidenceSchema(BaseModel):
         description="True ONLY if the freelancer explicitly mentions specific past projects or hands-on built solutions. False if they only provide generic claims of years of experience without context."
     )
 
-
     extracted_projects: List[ExtractedProject] = Field(
         description="List of all validated past projects extracted from the proposal text. Must be empty if has_experience_evidence is False."
     )
+
+    summary: Summary

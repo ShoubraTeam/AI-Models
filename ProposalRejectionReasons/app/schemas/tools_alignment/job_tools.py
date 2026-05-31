@@ -5,6 +5,7 @@
 from pydantic import BaseModel, Field
 from typing import Literal
 
+
 class JobTool(BaseModel):
     """A tool extracted from the job description"""
     tool_name: str = Field(
@@ -20,3 +21,4 @@ class JobToolResponse(BaseModel):
     tools: list[JobTool] = Field(
         description = "The list of the tools mentioned in the job description & their necessity levels."
     )
+

@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 # ----------------------------- Modifications -------------------------------
 # --> Remove confidence_score
 # ---------------------------------------------------------------------------
-
+from schemas import Summary
 class LanguageClarityEvalSchema(BaseModel):
     """
     Output of LanguageClarityEvaluator.
@@ -26,9 +26,8 @@ class LanguageClarityEvalSchema(BaseModel):
         description="Whether the proposal contains vague or misleading statements "
                     "such as 'I can do everything', 'guaranteed results', or empty promises."
     )
-    summary: str = Field(
-        description="A short 1-2 sentence explanation of the language clarity evaluation."
-    )
+    summary: Summary
+    
     confidence_score: float = Field(
         description="How confident the agent is in its evaluation. Between 0.0 and 1.0."
     )

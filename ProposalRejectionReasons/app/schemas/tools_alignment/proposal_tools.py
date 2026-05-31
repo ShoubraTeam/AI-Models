@@ -9,6 +9,7 @@ from typing import Literal
 # --> adding summary
 # -----------------------------------------
 
+from schemas import Summary
 
 class ProposalToolReview(BaseModel):
     """A tool extracted from the job description"""
@@ -34,3 +35,5 @@ class ProposalToolsResponse(BaseModel):
     tool_reviews: list[ProposalToolReview] = Field(
         description = "The list of the reviews for each tool mentioned in job_tools_list."
     )
+
+    summary: Summary

@@ -2,3 +2,4 @@ from .tools_alignment import JobToolsExtractor, ProposalToolsAnalyzer
 from .job_understanding import JobKeyPointsExtractor, JobUnderstandingEvaluator
 from .requirement_coverage import JobRequirementsExtractor, JobRequirementsMatcher
 from .experience_evidence import ExperienceEvidenceAgent
+from .language_clarity import LanguageClarityEvaluator

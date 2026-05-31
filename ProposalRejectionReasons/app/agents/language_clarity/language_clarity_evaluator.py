@@ -1,6 +1,6 @@
 from agents.BaseAgent import BaseAgent
 from schemas.language_clarity.language_clarity_eval_schema import LanguageClarityEvalSchema
-from prompts.language_clarity.language_clarity_evaluator_prompt import LANGUAGE_CLARITY_EVALUATOR_PROMPT
+from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
 import helpers.config as CFG
 
 
@@ -28,20 +28,18 @@ class LanguageClarityEvaluator(BaseAgent):
         - confidence_score       : float
     """
 
-    def __init__(self, model_name: str = CFG.GROQ_LLAMA_70b, temperature: float = None):
+    def __init__(
+        self,
+        model_name: str,
+        system_prompt: str,
+        tools: list = [],
+        structured_response = None,
+        **kwargs
+    ):
+        if "temperature" not in kwargs:
+            kwargs = CFG.DEFAULT_MODELS_CFG["language_clarity_evaluator"]
 
-        if temperature is None:
-            temperature = CFG.DEFAULT_MODELS_CFG["language_clarity_evaluator"]["temperature"]
-
-        max_tokens = CFG.DEFAULT_MODELS_CFG["language_clarity_evaluator"]["max_tokens"]
-
-        super().__init__(
-            model_name=model_name,
-            system_prompt=LANGUAGE_CLARITY_EVALUATOR_PROMPT,
-            structured_response=LanguageClarityEvalSchema,
-            temperature=temperature,
-            max_tokens=max_tokens
-        )
+        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
 
     def invoke(self, proposal_text: str) -> LanguageClarityEvalSchema:
         """
