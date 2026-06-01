@@ -1,12 +1,13 @@
 from schemas.language_clarity.language_clarity_eval_schema import LanguageClarityEvalSchema
+from schemas.final_result_schema import FinalSubagentResult
 import language_tool_python
 
-LANGUAGE_CLARITY_THRESHOLD = 5.0
+LANGUAGE_CLARITY_THRESHOLD = 0.5  # normalized 0.0–1.0
 
 # Thresholds for text metrics
-MIN_WORD_COUNT            = 50
-MAX_AVG_SENTENCE_LENGTH   = 35   # words per sentence — above this is hard to read
-MAX_GRAMMAR_ERRORS_MINOR  = 3    # <= 3 errors → minor issues, half penalty
+MIN_WORD_COUNT           = 50
+MAX_GRAMMAR_ERRORS_MINOR = 3   # <= 3 errors → minor issues, half penalty
+
 _grammar_tool = language_tool_python.LanguageTool('en-US')
 
 
@@ -15,11 +16,11 @@ def calc_text_metrics(proposal_text: str) -> dict:
     Calculate text metrics using pure code — no LLM needed.
 
     Metrics:
-        - word_count            : total number of words
-        - avg_sentence_length   : average words per sentence
-        - length_score          : 1.0 if word_count >= MIN_WORD_COUNT, else 0.0
-        - grammar_error_count   : number of grammar/spelling errors detected
-        - grammar_score         : 1.0 if 0 errors, 0.5 if <= 3 errors, 0.0 if > 3
+        - word_count           : total number of words
+        - avg_sentence_length  : average words per sentence
+        - length_score         : 1.0 if word_count >= MIN_WORD_COUNT, else 0.0
+        - grammar_error_count  : number of grammar/spelling errors detected
+        - grammar_score        : 1.0 if 0 errors | 0.5 if <= 3 errors | 0.0 if > 3
 
     Args:
         proposal_text: The freelancer's proposal text.
@@ -27,7 +28,6 @@ def calc_text_metrics(proposal_text: str) -> dict:
     Returns:
         dict with all text metrics.
     """
-    # word and sentence counts
     words     = proposal_text.split()
     sentences = [
         s.strip()
@@ -39,7 +39,6 @@ def calc_text_metrics(proposal_text: str) -> dict:
     avg_sentence_length = round(word_count / len(sentences), 2) if sentences else 0.0
     length_score        = 1.0 if word_count >= MIN_WORD_COUNT else 0.0
 
-    # grammar and spelling check
     grammar_errors      = _grammar_tool.check(proposal_text)
     grammar_error_count = len(grammar_errors)
 
@@ -64,19 +63,19 @@ def calc_language_clarity_score(
     text_metrics: dict
 ) -> float:
     """
-    Compute the final language clarity score.
+    Compute the final language clarity score (normalized 0.0–1.0).
 
     Weights:
         is_clear                    → 3 points
         is_professional             → 3 points
         not has_misleading_phrasing → 2 points
-        grammar_score               → 1 point   (0.0 / 0.5 / 1.0)
-        length_score                → 1 point   (0.0 / 1.0)
+        grammar_score               → 1 point  (0.0 / 0.5 / 1.0)
+        length_score                → 1 point  (0.0 / 1.0)
         ────────────────────────────────────────
-        Total                       → 10 points
+        Total                       → 10 points → divided by 10 → 0.0–1.0
 
     Returns:
-        float score between 0.0 and 10.0
+        float score between 0.0 and 1.0
     """
     score = 0.0
 
@@ -90,50 +89,55 @@ def calc_language_clarity_score(
     score += text_metrics["grammar_score"] * 1.0
     score += text_metrics["length_score"]  * 1.0
 
-    return round(score, 2)
+    return round(score / 10.0, 2)  # normalize to 0.0–1.0
 
 
-def build_language_clarity_reasons(
+def build_reasons(
     llm_eval    : LanguageClarityEvalSchema,
-    text_metrics: dict
+    text_metrics: dict,
+    accepted    : bool
 ) -> list[str]:
     """
-    Build a list of specific, actionable rejection reasons from flags and metrics.
-    Each reason maps directly to one failed check.
-    This list is what the SuperAgent will consume to generate recommendations.
+    Build a list of specific, actionable reasons from flags and metrics.
+    Returns acceptance reasons if accepted, rejection reasons if not.
+    Each reason maps directly to one check — consumed by the SuperAgent.
 
     Args:
-        llm_eval     : Output of LanguageClarityEvaluator.
-        text_metrics : Output of calc_text_metrics.
+        llm_eval    : Output of LanguageClarityEvaluator.
+        text_metrics: Output of calc_text_metrics.
+        accepted    : Whether the proposal passed the threshold.
 
     Returns:
-        List of specific rejection reason strings. Empty if everything passed.
+        List of reason strings (10–100 chars each to satisfy FinalSubagentResult).
     """
     reasons = []
 
-    if not llm_eval.is_clear:
-        reasons.append(
-            "Your proposal is hard to follow. Use shorter, clearer sentences."
-        )
-    if not llm_eval.is_professional:
-        reasons.append(
-            "Your tone doesn't sound professional to the client."
-        )
-    if llm_eval.has_misleading_phrasing:
-        reasons.append(
-            "Your proposal contains vague or misleading statements. "
-            "Avoid empty promises and back up your claims with specifics."
-        )
-    if text_metrics["grammar_error_count"] > MAX_GRAMMAR_ERRORS_MINOR:
-        reasons.append(
-            f"Your proposal has {text_metrics['grammar_error_count']} grammar/spelling errors. "
-            "Proofread before submitting."
-        )
-    if text_metrics["word_count"] < MIN_WORD_COUNT:
-        reasons.append(
-            f"Your proposal is too short ({text_metrics['word_count']} words). "
-            "Add more detail to be convincing."
-        )
+    if accepted:
+        if llm_eval.is_clear:
+            reasons.append("The proposal is clear and easy to follow.")
+        if llm_eval.is_professional:
+            reasons.append("The tone is professional and appropriate for a client.")
+        if not llm_eval.has_misleading_phrasing:
+            reasons.append("No vague or misleading statements were found.")
+        if text_metrics["grammar_score"] == 1.0:
+            reasons.append("No grammar or spelling errors were detected.")
+        if text_metrics["length_score"] == 1.0:
+            reasons.append("The proposal length is sufficient and detailed.")
+    else:
+        if not llm_eval.is_clear:
+            reasons.append("Proposal is hard to follow. Use clearer sentences.")
+        if not llm_eval.is_professional:
+            reasons.append("Tone doesn't sound professional to the client.")
+        if llm_eval.has_misleading_phrasing:
+            reasons.append("Proposal has vague claims. Back them up with specifics.")
+        if text_metrics["grammar_error_count"] > MAX_GRAMMAR_ERRORS_MINOR:
+            reasons.append(
+                f"Found {text_metrics['grammar_error_count']} grammar errors. Proofread first."
+            )
+        if text_metrics["word_count"] < MIN_WORD_COUNT:
+            reasons.append(
+                f"Proposal is too short ({text_metrics['word_count']} words). Add more detail."
+            )
 
     return reasons
 
@@ -142,57 +146,47 @@ def calc_language_clarity_result(
     llm_eval     : LanguageClarityEvalSchema,
     proposal_text: str,
     threshold    : float = LANGUAGE_CLARITY_THRESHOLD
-) -> dict:
+) -> FinalSubagentResult:
     """
     Full processing pipeline:
         1. Compute text metrics via pure code (word count, sentence length, grammar)
-        2. Compute final score from LLM flags + text metrics
-        3. Build specific rejection reasons from flags
-        4. Apply rule-based acceptance decision
+        2. Compute final normalized score (0.0–1.0)
+        3. Apply rule-based acceptance decision
+        4. Build specific reasons from flags
+        5. Return FinalSubagentResult
 
     Args:
         llm_eval      : Output of LanguageClarityEvaluator.
         proposal_text : The freelancer's proposal (needed for text metrics).
-        threshold     : Minimum passing score (default: 5.0).
+        threshold     : Minimum passing score (default: 0.5).
 
     Returns:
-        dict with all fields needed for the SuperAgent or rejection report.
+        FinalSubagentResult consumed by the SuperAgent.
     """
     # Step 1 — text metrics (pure code, no LLM)
     text_metrics = calc_text_metrics(proposal_text=proposal_text)
 
-    # Step 2 — final score
+    # Step 2 — final normalized score
     score = calc_language_clarity_score(
-        llm_eval=llm_eval,
-        text_metrics=text_metrics
+        llm_eval     = llm_eval,
+        text_metrics = text_metrics
     )
 
-    # Step 3 — specific reasons from flags (used by SuperAgent)
-    reasons = build_language_clarity_reasons(
-        llm_eval=llm_eval,
-        text_metrics=text_metrics
-    )
-
-    # Step 4 — rule-based acceptance decision
+    # Step 3 — rule-based acceptance decision
     accepted = score >= threshold
 
-    rejection_reason = None
-    if not accepted:
-        rejection_reason = " ".join(reasons) if reasons else llm_eval.summary
+    # Step 4 — specific reasons from flags
+    reasons = build_reasons(
+        llm_eval     = llm_eval,
+        text_metrics = text_metrics,
+        accepted     = accepted
+    )
 
-    return {
-        "score"                   : score,
-        "confidence"              : llm_eval.confidence_score,
-        "accepted"                : accepted,
-        "is_clear"                : llm_eval.is_clear,
-        "is_professional"         : llm_eval.is_professional,
-        "has_misleading_phrasing" : llm_eval.has_misleading_phrasing,
-        "word_count"              : text_metrics["word_count"],
-        "avg_sentence_length"     : text_metrics["avg_sentence_length"],
-        "grammar_error_count"     : text_metrics["grammar_error_count"],
-        "grammar_score"           : text_metrics["grammar_score"],
-        "reasons"                 : reasons,           # per-flag reasons → SuperAgent
-        "rejection_reason"        : rejection_reason,  # combined string → rejection report
-        "summary"                 : llm_eval.summary,  # LLM explanation → human readability
-    }
-
+    # Step 5 — build final result
+    return FinalSubagentResult(
+        score              = score,
+        accepted           = accepted,
+        summary            = llm_eval.summary,
+        acceptance_reasons = reasons if accepted     else None,
+        rejection_reasons  = reasons if not accepted else None,
+    )
