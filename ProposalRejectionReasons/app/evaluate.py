@@ -29,7 +29,7 @@ import helpers.functional as F
 from dotenv import load_dotenv
 
 # evaluation
-from evaluation.evaluate_agents import evaluate_agents_on_task
+from evaluation.evaluate_agents import evaluate_agents_on_task, calc_avg_for_multiple_metrics
 
 
 load_dotenv()
@@ -39,6 +39,8 @@ DATA_PATH = os.path.join(
     "data_examples"
 )
 
+
+
 if __name__ == "__main__":
     args = F.parse_terminal_arguments()
     avg_scores = evaluate_agents_on_task(
@@ -47,9 +49,8 @@ if __name__ == "__main__":
         system_prompts = [JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT],
         structured_responses = [JobToolResponse, ProposalToolsResponse],
         eval_data_file_name = "eval_data.json",
-        # rounds = args["rounds"],
-        rounds = 1,
         kwargs = args["model_kwargs"]
     )
+
 
     print(avg_scores)

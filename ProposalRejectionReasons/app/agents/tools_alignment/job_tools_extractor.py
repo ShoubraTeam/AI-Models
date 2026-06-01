@@ -97,8 +97,9 @@ class JobToolsExtractor(BaseAgent):
         
         return (correct / total) if total else 0
         
+        
     
-    def evaluate(self, job_data: list[dict]):
+    def evaluate(self, job_data: list[dict]) -> dict[str, list]:
         """
         Evaluating the agent on the given list of data
 
@@ -113,7 +114,7 @@ class JobToolsExtractor(BaseAgent):
             "agent_response"          : []
         }
 
-        for idx, sample in enumerate(job_data, start = 1):
+        for idx, sample in enumerate(job_data[:1], start = 1):
             print(f">> Evaluating on sample #{idx}")
             print()
             # get data
@@ -122,8 +123,7 @@ class JobToolsExtractor(BaseAgent):
 
             # extract tools using agents
             pred_tools = self.invoke(input = job_desc).tools           
-            print(type(pred_tools))
-
+   
             # measure tool names metrics
             true_tool_names = set([tool["tool_name"] for tool in true_tools])
             pred_tool_names = set([tool.tool_name for tool in pred_tools])

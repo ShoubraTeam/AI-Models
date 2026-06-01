@@ -132,34 +132,38 @@ def get_agents(
 
 # -------------------------------------------- Evaluation --------------------------------------------------
 
-def calc_avg_for_multiple_metrics(scores: list[dict[str, float]]) -> defaultdict[str, float]:
+def calc_avg_for_multiple_metrics(scores: dict[str, float]) -> defaultdict[str, float]:
     """
     Calculating the average for multiple metrics
 
     Args:
-        scores: the list of given metrics
+        scores: the dict of given metrics
 
     Returns:
         averages: a dict contains mapping each metric to its corresponding average
     """
-    if not isinstance(scores[0], dict):
-        print(type(scores[0]))
+    if not isinstance(scores, dict):
+        print(type(scores))
         raise TypeError("The metrics should be a dict object")
     
     totals = defaultdict(float)
 
-    for score_dict in scores:
-        
-        # calc total for each metric
-        for key, val in score_dict.items():
+    # calc total for each metric
+    num_of_samples = None
+    for key, values in scores.items():
+        for val in values:
             totals[key] += val
+
+            if num_of_samples is None:
+                num_of_samples = len(values)
     
     averages = {
-        key : total / len(scores)
+        key : total / num_of_samples
         for key, total in totals.items()
     }
 
     return averages
+
 
 
 def evaluate_agent(agent: tuple[str, Agent_Type], data: list[dict]):
@@ -176,8 +180,10 @@ def evaluate_agent(agent: tuple[str, Agent_Type], data: list[dict]):
     if agent_name == CFG.AGENT_JOB_TOOLS_EXTRACTOR:
         return agent_obj.evaluate([d["job"] for d in data])
     
+    if agent_name == CFG.AGENT_PROPOSAL_TOOL_ANALYZER:
+        return agent_obj.evaluate(data)
     
-
+    
 
 
 def evaluate_agents_on_task(
@@ -186,7 +192,6 @@ def evaluate_agents_on_task(
     system_prompts      : list[str],
     structured_responses: list,
     eval_data_file_name : str,
-    rounds              : int = 5,
     **kwargs
 ) -> dict:
     """
@@ -206,7 +211,6 @@ def evaluate_agents_on_task(
         system_prompts       (list): the system prompts for model_1, model_2, ...
         structured_responses (list): the structured responses for model_1, model_2, ...
         eval_data_file_name  (str) : the eval data
-        rounds               (int) : how many times to run the evaluation function (to average scores)
         kwargs               (dict): Kwargs should control the model behavior
     
     Returns:
@@ -221,8 +225,12 @@ def evaluate_agents_on_task(
     if task_name not in CFG.ALLOWED_EVALUATION_TASKS:
         raise ValueError("Task is not allowed")
     
+    assert len(models) == len(system_prompts) == len(structured_responses), (
+        "Lengths of models, prompts, and responses should be equal."
+    )
+    
 
-    # get agents to evaluate
+    # get agents & eval data
     agents = get_agents(
         task_name = task_name,
         models = models,
@@ -230,37 +238,29 @@ def evaluate_agents_on_task(
         structured_responses = structured_responses,
         **kwargs
     )
-
-    # eval data
+    
     eval_data = get_eval_data(data_file_name = eval_data_file_name, task_name = task_name)
-    # F.print_eval_data(eval_data)
 
-    # scoring
+
     average_scores = []
+    idx = 0
     for agent in agents:
-        # get agent data
+        if idx == 0:
+            idx = 1
+            continue
+
         agent_name = agent[0]
         F.print_subtitle(f"Evaluating: {agent_name}")
 
         # evaluate
-        agent_metrics = []
-        for round in range(rounds):
-            print(f">> Round {round + 1}")
-
-            agent_metrics.append(evaluate_agent(agent = agent, data = eval_data))
-            
-
+        agent_results = evaluate_agent(agent = agent, data = eval_data)
+        return
+           
         # calc avg
-        if isinstance(agent_metrics[0], dict):  # if multiple metrics
-            agent_metrics = [
-                round_metrics.pop("agent_response") for round_metrics in agent_metrics
-            ]        
-
-            agent_avg_scores = calc_avg_for_multiple_metrics(agent_metrics)
+        agent_scores = agent_results.copy()
+        agent_scores.pop("agent_response")
+        agent_avg_scores = calc_avg_for_multiple_metrics(agent_scores)
         
-        else: # single metric
-            agent_avg_scores = sum(agent_metrics) / len(agent_metrics)
-
         average_scores.append({
             agent_name : agent_avg_scores
         })
