@@ -2,8 +2,8 @@
 ============================================== Run #1 ==============================================
 Run Configurations:
 	>> run_id --> 1
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.95}
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
 
 
 => Sample #1:
@@ -13,10 +13,10 @@ Run Configurations:
 		>> classification_precision --> 1.0
 		>> classification_recall --> 1.0
 		>> classification_f1_score --> 1.0
-		>> project_extraction_precision --> 0.0
-		>> project_extraction_recall --> 0.0
-		>> project_score_mae --> 0.0
-		>> agent_invokation_time --> 1.5285799503326416
+		>> project_extraction_precision --> 1.0
+		>> project_extraction_recall --> 1.0
+		>> project_score_mae --> 0.04999999999999993
+		>> agent_invokation_time --> 0.6966612339019775
 
 
 => Sample #2:
@@ -29,7 +29,7 @@ Run Configurations:
 		>> project_extraction_precision --> 1.0
 		>> project_extraction_recall --> 1.0
 		>> project_score_mae --> 0.10000000000000005
-		>> agent_invokation_time --> 3.5292587280273438
+		>> agent_invokation_time --> 48.90810751914978
 
 
 => Sample #3:
@@ -41,59 +41,59 @@ Run Configurations:
 		>> classification_f1_score --> 1.0
 		>> project_extraction_precision --> 1.0
 		>> project_extraction_recall --> 1.0
-		>> project_score_mae --> 0.15000000000000002
-		>> agent_invokation_time --> 1.5842840671539307
+		>> project_score_mae --> 0.09999999999999998
+		>> agent_invokation_time --> 0.3860485553741455
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> classification_accuracy --> 1.0
-		>> classification_precision --> 1.0
-		>> classification_recall --> 1.0
-		>> classification_f1_score --> 1.0
-		>> project_extraction_precision --> 1.0
-		>> project_extraction_recall --> 1.0
-		>> project_score_mae --> 0.04999999999999993
-		>> agent_invokation_time --> 1.2971880435943604
+		>> classification_accuracy --> 0.0
+		>> classification_precision --> 0.0
+		>> classification_recall --> 0.0
+		>> classification_f1_score --> 0.0
+		>> project_extraction_precision --> 0.0
+		>> project_extraction_recall --> 0.0
+		>> project_score_mae --> 0.0
+		>> agent_invokation_time --> 0.28711557388305664
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> classification_accuracy --> 1.0
-		>> classification_precision --> 0.0
-		>> classification_recall --> 0.0
-		>> classification_f1_score --> 0.0
-		>> project_extraction_precision --> 1.0
-		>> project_extraction_recall --> 1.0
+		>> classification_accuracy --> 0.6666666666666666
+		>> classification_precision --> 1.0
+		>> classification_recall --> 0.6666666666666666
+		>> classification_f1_score --> 0.8
+		>> project_extraction_precision --> 0.5
+		>> project_extraction_recall --> 0.6666666666666666
 		>> project_score_mae --> 0.0
-		>> agent_invokation_time --> 0.5845987796783447
+		>> agent_invokation_time --> 43.81984519958496
 
 
 => Sample #6:
 	- Passed
 	- Results:
-		>> classification_accuracy --> 1.0
-		>> classification_precision --> 0.0
-		>> classification_recall --> 0.0
-		>> classification_f1_score --> 0.0
-		>> project_extraction_precision --> 1.0
-		>> project_extraction_recall --> 1.0
+		>> classification_accuracy --> 0.6666666666666666
+		>> classification_precision --> 1.0
+		>> classification_recall --> 0.6666666666666666
+		>> classification_f1_score --> 0.8
+		>> project_extraction_precision --> 0.4
+		>> project_extraction_recall --> 0.6666666666666666
 		>> project_score_mae --> 0.0
-		>> agent_invokation_time --> 0.556265115737915
+		>> agent_invokation_time --> 49.232818365097046
 
 
 => Sample #7:
 	- Passed
 	- Results:
-		>> classification_accuracy --> 1.0
+		>> classification_accuracy --> 0.0
 		>> classification_precision --> 0.0
 		>> classification_recall --> 0.0
 		>> classification_f1_score --> 0.0
-		>> project_extraction_precision --> 1.0
-		>> project_extraction_recall --> 1.0
+		>> project_extraction_precision --> 0.0
+		>> project_extraction_recall --> 0.0
 		>> project_score_mae --> 0.0
-		>> agent_invokation_time --> 0.8460266590118408
+		>> agent_invokation_time --> 14.798637866973877
 
 ====================================================================================================

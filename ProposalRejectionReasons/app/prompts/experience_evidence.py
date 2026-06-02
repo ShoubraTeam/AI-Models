@@ -11,8 +11,8 @@ Strict Classification Rules for 'has_experience_evidence':
 
 Extraction Rules (Only applicable if 'has_experience_evidence' is True):
 1. For each project inside the 'extracted_projects' list, provide:
-   - 'project_overview': A concise summary of the past project, its core functionality, and any key tools or technologies explicitly mentioned within its context. If the project is mentioned as a specific portfolio reference, summarize it based on the niche described (e.g., "Wix healthcare website design from portfolio").
-   - 'relevance_analysis': A rigorous analysis explaining scientifically how the architecture, features, or tools of this past project align with or map to the needs of the current Job Description.
+   - 'project_overview': A highly concise, 1-sentence summary of the past project and its core tech framework. Keep it strictly brief and direct.
+   - 'relevance_analysis': A very short, direct sentence explaining how this past project maps to the current JD. Do NOT write long paragraphs or deep technical deep-dives. Keep it concise.
    - 'relevance_score': A float strictly between 0.0 and 1.0, evaluating how closely the technical nature of this past project matches the current Job Description context (where 1.0 represents a perfect architectural/functional match and 0.0 means completely irrelevant).
 
 Global Summary Rule (Applicable to the root 'summary' field):

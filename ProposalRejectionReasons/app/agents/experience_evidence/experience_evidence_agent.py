@@ -3,6 +3,8 @@ from time import time
 from agents.BaseAgent import BaseAgent
 from schemas.experience_evidence import ExperienceEvidenceSchema
 from helpers.config import DEFAULT_MODELS_CFG
+from langchain_groq import ChatGroq
+from langchain_core.messages import HumanMessage
 
 class ExperienceEvidenceAgent(BaseAgent):
     def __init__(
@@ -26,32 +28,49 @@ class ExperienceEvidenceAgent(BaseAgent):
         return super().validate_agent_output(agent_output)
 
     def invoke(self, job_desc: str, proposal_text: str) -> ExperienceEvidenceSchema:
-        formatted_input = f"Job Description:\n{job_desc}\n\nFreelancer Proposal Text:\n{proposal_text}"
+        formatted_input = (
+          f"<job_description>\n{job_desc}\n</job_description>\n\n"
+          f"<freelancer_proposal>\n{proposal_text}\n</freelancer_proposal>"
+        )
         return super().invoke(input=formatted_input)
 
-    def _calc_text_similarity(self, str1: str, str2: str) -> float:
+    def _get_semantic_project_match(self, true_texts: list[str], pred_texts: list[str]) -> set[tuple[int, int]]:
+        if not true_texts or not pred_texts:
+            return set()
+
+        judge_model = ChatGroq(model_name="llama-3.1-8b-instant", temperature=0.0)
         
+        true_list = "\n".join([f"TRUE_{i}: {t}" for i, t in enumerate(true_texts)])
+        pred_list = "\n".join([f"PRED_{j}: {p}" for j, p in enumerate(pred_texts)])
         
-        tokens1 = set(re.findall(r'[a-z0-9]+', str1.lower()))
-        tokens2 = set(re.findall(r'[a-z0-9]+', str2.lower()))
+        prompt = f"""
+        You are an expert technical judge. Your task is to match identical or semantically equivalent past projects between List True (Ground Truth) and List Pred (Agent Output).
         
-        stopwords = {
-            'the', 'a', 'an', 'and', 'or', 'for', 'with', 'on', 'in', 'at', 'by', 'from', 'to',
-            'built', 'developed', 'designed', 'store', 'website', 'platform', 'freelancer', 'project', 
-            'similar', 'custom', 'responsive', 'ecommerce', 'e', 'commerce', 'co', 'uk', 'com', 'https', 
-            'http', 'implementation', 'development', 'redesign', 'customization', 'storefront', 'app',
-            'pages', 'site', 'another', 'features', 'templated', 'focusing', 'subagent'
-        }
+        List True (Ground Truth):
+        {true_list}
         
-        unique_pred = tokens1 - stopwords
-        unique_true = tokens2 - stopwords
+        List Pred (Agent Predicted):
+        {pred_list}
         
-        if not unique_true:
-            return 0.0
+        Instructions:
+        1. Compare items and find pairs that refer to the same past project or experience, even if described with different words.
+        2. Output the matching pairs in this exact format: index_True-index_Pred (e.g., 0-0 or 1-2), one per line.
+        3. If there is only one item in List True and one item in List Pred and they refer to the same project context, output "0-0" immediately.
+        4. Do NOT write any markdown blocks, introductions, or explanations. Output ONLY the raw pairs.
+        """
+        matches = set()
+        try:
+            response = judge_model.invoke([HumanMessage(content=prompt)])
+            found_pairs = re.findall(r'(\d+)\s*-\s*(\d+)', response.content)
             
-        intersection = unique_pred.intersection(unique_true)
-        
-        return float(len(intersection) / len(unique_true))
+            for t_idx_str, p_idx_str in found_pairs:
+                t_idx = int(t_idx_str)
+                p_idx = int(p_idx_str)
+                if t_idx < len(true_texts) and p_idx < len(pred_texts):
+                    matches.add((t_idx, p_idx))
+        except Exception as e:
+            print(f" -> [JUDGE ERROR] {e}")
+        return matches
 
     def get_metric_names(self) -> tuple[str, str, str, str, str, str, str, str]:
         return (
@@ -69,7 +88,7 @@ class ExperienceEvidenceAgent(BaseAgent):
         self.case_counter += 1 
         print(f"\n" + "="*50 + f" [DEBUG EXPERIENCE CASE #{self.case_counter}] " + "="*50)
 
-        job_desc = sample["job_desc"]
+        job_desc = sample.get("job_desc", "")
         proposals = sample.get("proposals", [])
 
         tp = 0
@@ -84,8 +103,8 @@ class ExperienceEvidenceAgent(BaseAgent):
         total_invocation_time = 0.0
 
         for prop_sample in proposals:
-            proposal_text = prop_sample["proposal"]
-            true_has_evidence = prop_sample["has_evidence"]
+            proposal_text = prop_sample.get("proposal", "")
+            true_has_evidence = prop_sample.get("has_evidence", False)
             true_projects = prop_sample.get("true_projects", [])
 
             start_time = time()
@@ -102,7 +121,6 @@ class ExperienceEvidenceAgent(BaseAgent):
             print(f"[CLASSIFICATION] True Has Evidence: {true_has_evidence} | Agent Predicted: {pred_has_evidence}")
             print(f"[PROJECTS]       True Projects: {true_texts}")
             print(f"[PROJECTS]       Agent Extracted: {pred_texts}")
-            print("-" * 114)
 
             if true_has_evidence and pred_has_evidence:
                 tp += 1
@@ -116,33 +134,24 @@ class ExperienceEvidenceAgent(BaseAgent):
             total_pred_projects += len(pred_projects)
             total_true_projects += len(true_projects)
 
-            all_possible_pairs = []
-            for p_idx, pred_proj in enumerate(pred_projects):
-                for t_idx, true_text in enumerate(true_texts):
-                    sim = self._calc_text_similarity(pred_proj.project_overview, true_text)
-                    all_possible_pairs.append((sim, p_idx, t_idx))
+            matched_pairs = self._get_semantic_project_match(true_texts, pred_texts)
 
-            all_possible_pairs.sort(key=lambda x: x[0], reverse=True)
-
-            matched_pred_indices = set()
-            matched_true_indices = set()
-
-            for sim, p_idx, t_idx in all_possible_pairs:
-                if p_idx in matched_pred_indices or t_idx in matched_true_indices:
-                    continue
+            for t_idx, p_idx in matched_pairs:
+                total_tp_projects += 1
                 
-                if sim >= 0.35:
-                    matched_pred_indices.add(p_idx)
-                    matched_true_indices.add(t_idx)
-                    total_tp_projects += 1
-                    
-                    true_proj_data = true_projects[t_idx]
-                    true_score = true_proj_data.get("relevance_score", 0.0) if isinstance(true_proj_data, dict) else 0.0
-                    
+                true_proj_data = true_projects[t_idx]
+                if isinstance(true_proj_data, dict) and "relevance_score" in true_proj_data:
+                    true_score = true_proj_data.get("relevance_score", 0.0)
                     all_score_errors.append(abs(pred_projects[p_idx].relevance_score - true_score))
-                    print(f"    [MATCH FOUND] Pred Project Index {p_idx} matched with True Project Index {t_idx} (Sim={round(sim, 2)})")
-                else:
-                    print(f"    [NO MATCH] Best remaining similarity was {round(sim, 2)} (Below 0.35 Threshold)")
+                
+                print(f"    [MATCH FOUND] True Project #{t_idx} matched with Pred Project #{p_idx} via LLM Judge")
+
+            matched_pred_set = {p_idx for _, p_idx in matched_pairs}
+            for p_idx in range(len(pred_texts)):
+                if p_idx not in matched_pred_set:
+                    print(f"    [NO MATCH] Pred Project Index {p_idx} had no semantic equivalence in ground truth")
+            
+            print("-" * 114)
 
         total_samples = tp + fp + fn + tn
         class_acc = (tp + tn) / total_samples if total_samples > 0 else 0.0

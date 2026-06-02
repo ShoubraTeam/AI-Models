@@ -2,77 +2,77 @@
 ============================================== Run #1 ==============================================
 Run Configurations:
 	>> run_id --> 1
-	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_name --> groq:llama-3.1-8b-instant
 	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
+		>> requirements_extraction_accuracy --> 0.8333333333333334
+		>> requirements_extraction_precision --> 0.8333333333333334
 		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6612687110900879
+		>> requirements_necessity_accuracy --> 0.4
+		>> agent_invokation_time --> 0.6233503818511963
 
 
 => Sample #2:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.8
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6286089420318604
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #3:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.3333333333333333
-		>> requirements_extraction_precision --> 0.3333333333333333
+		>> requirements_extraction_accuracy --> 0.1875
+		>> requirements_extraction_precision --> 0.1875
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.986243724822998
+		>> agent_invokation_time --> 48.45602083206177
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.15384615384615385
-		>> requirements_extraction_precision --> 0.15384615384615385
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 25.562860012054443
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4666666666666667
-		>> requirements_extraction_precision --> 0.4666666666666667
+		>> requirements_extraction_accuracy --> 0.4375
+		>> requirements_extraction_precision --> 0.4375
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2123184204101562
+		>> agent_invokation_time --> 1.2300236225128174
 
 
 => Sample #6:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.3333333333333333
-		>> requirements_extraction_precision --> 0.3333333333333333
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4257619380950928
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #7:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.9285714285714286
-		>> requirements_extraction_precision --> 0.9285714285714286
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.46153846153846156
-		>> agent_invokation_time --> 1.1027851104736328
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 ====================================================================================================

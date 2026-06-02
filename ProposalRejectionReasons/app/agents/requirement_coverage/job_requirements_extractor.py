@@ -79,7 +79,6 @@ class JobRequirementsExtractor(BaseAgent):
 
         import traceback
         try:
-            # التعديل الهيكلي: قراءة الـ Keys الجديدة بأمان متناهي لمنع الـ KeyError
             job_desc = sample.get("job_desc", "")
             job_data = sample.get("job_data", {})
             true_requirements = job_data.get("requirements", [])
@@ -90,7 +89,6 @@ class JobRequirementsExtractor(BaseAgent):
             
             pred_requirements = extracted_output.requirements           
 
-            # دعم استخراج الوصف سواء الـ id كان نص أو رقم انتجر بناءً على الحالات المدمجة
             true_texts = [req.get("description", "") for req in true_requirements] 
             pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
             
@@ -119,7 +117,7 @@ class JobRequirementsExtractor(BaseAgent):
             correct_necessity = 0
             total_necessity = 0
             for t_idx, p_idx in matched_pairs:
-                true_level = true_requirements[t_idx].get("necessity_level", "mandatory") # default قيمة افتراضية لو مش مكتوبة
+                true_level = true_requirements[t_idx].get("necessity_level", "mandatory") 
                 pred_level = getattr(pred_requirements[p_idx], "necessity_level", "")
                 total_necessity += 1
                 if true_level == pred_level:
