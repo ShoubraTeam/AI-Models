@@ -2,9 +2,15 @@
     {
         "job_desc": "We need an experienced developer to build a mobile app for our physical therapy clinic to manage patient visits.",
         "job_data": {
+            "tools": [],
             "requirements": [
                 { "id": "pt_req_1", "description": "Build a mobile app for physical therapy clinic to manage patient visits.", "necessity_level": "mandatory" }
-            ]
+            ],
+            "core_problem": "Managing patient visits for a physical therapy clinic via a mobile application.",
+            "required_deliverables": [
+                "Mobile app for physical therapy clinic with patient visit management"
+            ],
+            "key_keywords": ["mobile app", "patient visits", "physical therapy", "clinic"]
         },
         "proposals": [
             {
@@ -18,12 +24,20 @@
                         "project_overview": "Mobile healthcare application featuring appointment scheduling and electronic medical charts.",
                         "relevance_score": 0.85
                     }
-                ]
+                ],
+                "problem_identified": true,
+                "solution_proposed": true,
+                "practical_steps_mentioned": false,
+                "matched_keywords": ["mobile app", "patient visits", "physical therapy", "clinic"],
+                "missing_keywords": [],
+                "is_clear": true,
+                "is_professional": true,
+                "has_misleading_phrasing": false
             }
         ]
     },
     {
-        "job_desc": "I need a complete Shopify store built from the ground up to sell a line of physical products. The project starts with crafting a fully custom theme that reflects my brand’s personality and delivers a smooth shopping experience on desktop and mobile.\n\nBeyond the visual design, I also want the store configured with:\n• Customer reviews displayed on each product page and summarized site-wide\n• A secure payment gateway set up and tested (Shopify Payments plus one additional method, phonepay , Razorpay etc)\n• Inventory management configured so stock levels sync automatically and low-stock alerts fire without fail\n\nI will supply product photos, copy, and brand guidelines. You’ll handle theme design, layout, app selection or custom code (if needed) for the three features above, and launch-ready testing. Please outline your approach, timeline, and any past Shopify builds that show similar custom work.",
+        "job_desc": "I need a complete Shopify store built from the ground up to sell a line of physical products. The project starts with crafting a fully custom theme that reflects my brand's personality and delivers a smooth shopping experience on desktop and mobile.\n\nBeyond the visual design, I also want the store configured with:\n• Customer reviews displayed on each product page and summarized site-wide\n• A secure payment gateway set up and tested (Shopify Payments plus one additional method, phonepay , Razorpay etc)\n• Inventory management configured so stock levels sync automatically and low-stock alerts fire without fail\n\nI will supply product photos, copy, and brand guidelines. You'll handle theme design, layout, app selection or custom code (if needed) for the three features above, and launch-ready testing. Please outline your approach, timeline, and any past Shopify builds that show similar custom work.",
         "job_data": {
             "tools": [
                 { "tool_name": "shopify", "necessity_level": "mandatory" },
@@ -37,12 +51,13 @@
                 { "id": "sh_req_4", "description": "Configure inventory management with automatic sync and low-stock alerts.", "necessity_level": "mandatory" }
             ],
             "core_problem": "Launching a complete custom Shopify store with automated inventory sync, reviews, and secure multi-gateway payments.",
-            "deliverables": [
+            "required_deliverables": [
                 "Custom Shopify Theme",
                 "Review System Integration",
                 "Payment Gateway Setup",
                 "Automated Inventory Management System"
-            ]
+            ],
+            "key_keywords": ["shopify", "custom theme", "payment gateway", "inventory management", "customer reviews", "razorpay", "phonepay"]
         },
         "proposals": [
             {
@@ -55,48 +70,89 @@
                     { "project_overview": "Solawave e-commerce Shopify storefront customization.", "relevance_score": 0.8 },
                     { "project_overview": "Based Bodyworks Shopify store with inventory management.", "relevance_score": 0.8 },
                     { "project_overview": "Coreve custom Shopify store implementation.", "relevance_score": 0.8 }
-                ]
+                ],
+                "problem_identified": true,
+                "solution_proposed": true,
+                "practical_steps_mentioned": true,
+                "matched_keywords": ["shopify", "custom theme"],
+                "missing_keywords": ["payment gateway", "inventory management", "customer reviews"],
+                "is_clear": true,
+                "is_professional": true,
+                "has_misleading_phrasing": true
             }
         ]
     },
     {
         "job_desc": "I want to launch a clean, fast-loading blog and pair it with a native Android companion app.",
         "job_data": {
+            "tools": [],
             "requirements": [
                 { "id": "bl_req_1", "description": "Flexible CMS setup for managing articles, categories, and analytics.", "necessity_level": "mandatory" },
                 { "id": "bl_req_2", "description": "Modern mobile-responsive web theme with built-in SEO foundations.", "necessity_level": "mandatory" },
                 { "id": "bl_req_3", "description": "Android app implementation supporting offline reading of cached articles.", "necessity_level": "mandatory" }
-            ]
+            ],
+            "core_problem": "Building a fast blog with CMS and a native Android app for offline article reading.",
+            "required_deliverables": [
+                "Blog with CMS",
+                "Mobile-responsive web theme with SEO",
+                "Native Android app with offline reading support"
+            ],
+            "key_keywords": ["blog", "CMS", "Android", "native app", "offline reading", "SEO", "responsive"]
         },
         "proposals": [
             {
                 "proposal": "Hello! I can build a clean, fast blog utilizing a highly flexible CMS framework for easy article management. I will also develop the native Android companion app with offline caching mechanisms for reading articles without network dependency. I have built a native Android app for blog reading with offline cache in my previous contract.",
+                "tools": [],
                 "true_covered_ids": ["bl_req_1", "bl_req_2", "bl_req_3"],
                 "true_missing_ids": [],
                 "has_evidence": true,
                 "true_projects": [
                     { "project_overview": "Native Android app for blog reading with offline cache.", "relevance_score": 0.9 }
-                ]
+                ],
+                "problem_identified": true,
+                "solution_proposed": true,
+                "practical_steps_mentioned": true,
+                "matched_keywords": ["blog", "CMS", "Android", "native app", "offline reading"],
+                "missing_keywords": ["SEO", "responsive"],
+                "is_clear": true,
+                "is_professional": true,
+                "has_misleading_phrasing": false
             }
         ]
     },
     {
         "job_desc": "I need a clean, professional Wix website that presents my spinal surgery practice clearly.",
         "job_data": {
+            "tools": [],
             "requirements": [
                 { "id": "wx_req_1", "description": "Build a responsive Wix site incorporating the full sitemap layout.", "necessity_level": "mandatory" },
                 { "id": "wx_req_2", "description": "Perform on-page SEO optimization including meta tags, titles, and descriptions.", "necessity_level": "mandatory" }
-            ]
+            ],
+            "core_problem": "Creating a professional and responsive Wix website for a spinal surgery practice with full SEO optimization.",
+            "required_deliverables": [
+                "Responsive Wix website with sitemap",
+                "On-page SEO optimization (meta tags, titles, descriptions)"
+            ],
+            "key_keywords": ["Wix", "responsive", "SEO", "meta tags", "spinal surgery", "medical website"]
         },
         "proposals": [
             {
                 "proposal": "Hi there, I am a certified Wix designer. I can definitely build your medical practice website on Wix ensuring it is fully responsive on mobile. I will also handle the complete on-page SEO including titles and meta tags setup. You can view my past Wix healthcare designs in my portfolio.",
+                "tools": [],
                 "true_covered_ids": ["wx_req_1", "wx_req_2"],
                 "true_missing_ids": [],
                 "has_evidence": true,
                 "true_projects": [
                     { "project_overview": "Responsive Wix website design and on-page SEO optimization.", "relevance_score": 0.85 }
-                ]
+                ],
+                "problem_identified": true,
+                "solution_proposed": true,
+                "practical_steps_mentioned": true,
+                "matched_keywords": ["Wix", "responsive", "SEO", "meta tags"],
+                "missing_keywords": ["spinal surgery", "medical website"],
+                "is_clear": true,
+                "is_professional": true,
+                "has_misleading_phrasing": false
             }
         ]
     }
