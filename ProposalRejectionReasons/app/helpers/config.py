@@ -1,6 +1,9 @@
 # ----------------------------------------------------------------
 # General Configurations
 # ----------------------------------------------------------------
+
+import os
+
 # Models
 PROVIDER_GROQ         = "groq"
 GROQ_LLAMA_8b         = "groq:llama-3.1-8b-instant"
@@ -86,38 +89,46 @@ RESET = "\033[0m"
 
 
 
-# Evaluation CFG
+# ------------------------------------------------------ Evaluation CFG -------------------------------------------
+# model_name --> provider model_name mapping
 EVALUATION_MODELS_MAPPING = {
     "LLAMA_8B"         : GROQ_LLAMA_8b, 
-    "GEMINI_FLASH_LITE": GROQ_LLAMA_70b,
+    "GEMINI_FLASH_LITE": GEMINI_FLASH_LITE,
     "GPT_OSS_20B"      : GROQ_GPT_20b,
     "QWEN_32B"         : GROQ_QWEN_32b,
-    "GEMINI_FLASH"     : GROQ_GPT_120b,
-    "LLAMA_70B"        : GEMINI_FLASH_LITE,
-    "GPT_OSS_120B"     : GEMINI_FLASH,
+    "GEMINI_FLASH"     : GEMINI_FLASH,
+    "LLAMA_70B"        : GROQ_LLAMA_70b,
+    "GPT_OSS_120B"     : GROQ_GPT_120b,
 }
 
 
-TOOLS_ALIGNMENT_TASK        = "tools_alignment"
-REQUIREMENT_COVERAGE_TASK   = "requirement_coverage"
-JOB_UNDERSTANDING_TASK      = "job_understanding"
-LANGUAGE_CLARITY_TASK       = "language_clarity"
-EVIDENCE_OF_EXPERIENCE_TASK = "evidence_of_experience"
-SUPER_AGENT_TASK            = "super_agent"
+# allowed tasks
+TASK_JOB_TOOLS_EXTRACTOR         ="job_tools_extractor"
+TASK_PROPOSAL_TOOLS_ANALYZER     = "proposal_tools_analyzer"
+
+TASK_JOB_REQUIREMENTS_EXTRACTOR  = "job_requirements_extractor"
+TASK_JOB_REQUIREMENTS_MATCHER    = "job_requirements_matcher"
+
+TASK_JOB_KEY_POINTS_EXTRACTOR    = "job_key_points_extractor"
+TASK_JOB_UNDERSTANDING_EVALUATOR = "job_understanding_evaluator"
+
+TASK_EXPERIENCE_EVIDENCE_FINDER  = "experience_evidence_finder"
+TASK_LANGUAGE_CLARITY_EVALUATOR  ="language_clarity_evaluator"
 
 ALLOWED_EVALUATION_TASKS = [
-    TOOLS_ALIGNMENT_TASK,
-    REQUIREMENT_COVERAGE_TASK,
-    JOB_UNDERSTANDING_TASK,
-    LANGUAGE_CLARITY_TASK,
-    EVIDENCE_OF_EXPERIENCE_TASK,
-    SUPER_AGENT_TASK
+    TASK_JOB_TOOLS_EXTRACTOR,
+    TASK_PROPOSAL_TOOLS_ANALYZER,
+    TASK_JOB_REQUIREMENTS_EXTRACTOR,
+    TASK_JOB_REQUIREMENTS_MATCHER,
+    TASK_JOB_KEY_POINTS_EXTRACTOR,
+    TASK_JOB_UNDERSTANDING_EVALUATOR,
+    TASK_EXPERIENCE_EVIDENCE_FINDER,
+    TASK_LANGUAGE_CLARITY_EVALUATOR,
 ]
 
+# ------------------------------------------------------ Paths -------------------------------------------
 
-AGENT_JOB_TOOLS_EXTRACTOR = "job_tools_extractor"
-AGENT_PROPOSAL_TOOL_ANALYZER = "proposal_tools_analyzer"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-
-EVAL_DATA_PATH = "/mnt/d/Education/College/______GraduationProject/AI-Models/ProposalRejectionReasons/eval_data"
+EVAL_DATA_PATH = os.path.join(BASE_DIR, "assets", "eval_data", "eval_data.json")
+EVAL_RESULTS_PATH = os.path.join(BASE_DIR, "assets", "evaluation_results")

@@ -88,7 +88,7 @@ if __name__ == "__main__":
         )
 
         requirement_matcher = JobRequirementsMatcher(
-            model_name          = CFG.GROQ_LLAMA_70b,
+            model_name          = CFG.GROQ_GPT_120b,
             system_prompt       = REQUIREMENT_MATCHER_PROMPT,
             structured_response = RequirementCoverageSchema,
         )
@@ -295,77 +295,4 @@ if __name__ == "__main__":
     #     print()
 
 
-    # ==================================================================
-    # 3.0 Batch Evaluation Testing
-    # ==================================================================
     
-    F.print_title("3.0 Batch Evaluation Testing")
-    requirement_data_samples = F.load_json(
-        file_path = os.path.join(DATA_PATH, "eval_data.json")
-    )
-
-    F.print_subtitle("Evaluating: Job Requirements Extractor")
-    req_extractor_eval_data = []
-    for sample in requirement_data_samples:
-         job_data = sample.get("job_data", {}) if isinstance(sample.get("job_data"), dict) else {}
-         requirements = job_data.get("requirements", []) if job_data else sample.get("requirements", [])
-         
-         req_extractor_eval_data.append({
-             "desc": sample.get("job_desc", ""),
-             "requirements": requirements
-         })
-     
-    extractor_metrics = requirement_extractor.evaluate(eval_data=req_extractor_eval_data)
-    print(">> Requirements Extractor Global Metrics:")
-    for metric_name, values in extractor_metrics.items():
-         if metric_name != "agent_response":
-              avg_val = sum(values) / len(values) if values else 0.0
-              print(f"   Average {metric_name} => {round(avg_val, 4)}")
-    print()
-
-    F.print_subtitle("Evaluating: Job Requirements Matcher")
-    
-    matcher_metrics = requirement_matcher.evaluate(eval_data=requirement_data_samples)
-    
-    print(">> Requirements Matcher Global Metrics:")
-    for metric_name, value in matcher_metrics.items():
-         print(f"   {metric_name} => {value}")
-    print()
-    
-
-    experience_data_samples = F.load_json(
-            file_path = os.path.join(DATA_PATH, "eval_data.json")
-        )
-    F.print_subtitle("Evaluating: Experience Evidence Agent")
-    experience_eval_data = []
-    
-    for sample in experience_data_samples:
-        cleaned_proposals = []
-        
-        for p in sample.get("proposals", []):
-            if isinstance(p, dict):
-                proposal_text = p.get("proposal", "")
-                true_has_evidence = p.get("has_evidence", False)
-                true_projects = p.get("true_projects", [])
-            else:
-                proposal_text = str(p)
-                true_has_evidence = False
-                true_projects = []
-
-            cleaned_proposals.append({
-                "proposal": proposal_text,
-                "has_evidence": true_has_evidence,
-                "true_projects": true_projects
-            })
-
-        experience_eval_data.append({
-            "job_desc": sample.get("job_desc", ""),
-            "proposals": cleaned_proposals
-        })
-
-    if experience_eval_data:
-        experience_metrics = experience_evidence_agent.evaluate(eval_data=experience_eval_data)
-        print(">> Experience Evidence Agent Global Metrics:")
-        for metric_name, value in experience_metrics.items():
-            print(f"  {metric_name} => {value}")
-    print()

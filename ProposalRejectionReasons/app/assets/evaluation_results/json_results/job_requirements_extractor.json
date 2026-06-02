@@ -1,0 +1,19 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 2048,
+            "top_p": 0.95
+        },
+        "results": {
+            "requirements_extraction_accuracy": 0.6805555555555556,
+            "requirements_extraction_precision": 0.6805555555555556,
+            "requirements_extraction_recall": 1.0,
+            "requirements_necessity_accuracy": 1.0,
+            "agent_invokation_time": 1.1782156229019165,
+            "error_rate": 0.0
+        }
+    }
+]

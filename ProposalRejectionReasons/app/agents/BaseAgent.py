@@ -38,9 +38,18 @@ class BaseAgent:
         self.agent = self.get_agent()
     # -------------------------- Creating Agent ------------------------------
     def get_agent(self):
+        model_config = dict(self.kwargs)
+        extra_model_kwargs = dict(model_config.pop("model_kwargs", {}) or {})
+
+        if "top_p" in model_config:
+            extra_model_kwargs["top_p"] = model_config.pop("top_p")
+
+        if extra_model_kwargs:
+            model_config["model_kwargs"] = extra_model_kwargs
+
         model = init_chat_model(
             model = self.model_name,
-            **self.kwargs
+            **model_config
         )
 
         if self.tools:

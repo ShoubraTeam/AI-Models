@@ -1,0 +1,48 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.95}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.5
+		>> requirements_extraction_precision --> 0.5
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.3535640239715576
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.5555555555555556
+		>> requirements_extraction_precision --> 0.5555555555555556
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.5688152313232422
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.9538452625274658
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.6666666666666666
+		>> requirements_extraction_precision --> 0.6666666666666666
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.8366379737854004
+
+====================================================================================================

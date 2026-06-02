@@ -5,7 +5,7 @@
 
 from ..BaseAgent import BaseAgent
 from schemas import JobTool, JobToolResponse
-# from typing import get_args
+from time import time
 from helpers.config import DEFAULT_MODELS_CFG
 
 class JobToolsExtractor(BaseAgent):
@@ -97,49 +97,46 @@ class JobToolsExtractor(BaseAgent):
         
         return (correct / total) if total else 0
         
-        
     
-    def evaluate(self, job_data: list[dict]) -> dict[str, list]:
-        """
-        Evaluating the agent on the given list of data
+    def get_metric_names(self) -> tuple[str, str, str, str, str]:
+        return (
+            "tools_alignment_accuracy",
+            "tools_alignment_precision",
+            "tools_alignment_recall",
+            "tools_necessity_accuracy",
+            "agent_invokation_time"
+        )
 
-        Args:
-            job_data: list of job data samples. Each sample contains ["desc" & "tools"] (job desc & job tools)
+    def evaluate_sample(self, sample: dict):
         """
-        metrics = {
-            "accuracy"                : [],
-            "precision"               : [],
-            "recall"                  : [],
-            "necessity_level_accuracy": [],
-            "agent_response"          : []
+        Evaluating the agent on a single sample
+        """
+        # get data
+        job_desc = sample["job_desc"]
+        true_tools = sample["job_tools"]
+
+        # invoke agent
+        start_time = time()
+        pred_tools = self.invoke(input = job_desc).tools
+        end_time = time() 
+
+
+        # measure metrics
+        true_tool_names = set([tool["tool_name"] for tool in true_tools])
+        pred_tool_names = set([tool.tool_name for tool in pred_tools])
+
+        tools_metrics = self.calc_tool_names_metrics(true_tool_names, pred_tool_names)
+        necessity_accuracy = self.calc_tool_necessity_metrics(true_tools, pred_tools)
+
+        return {
+            "tools_alignment_accuracy"  : tools_metrics["accuracy"],
+            "tools_alignment_precision" : tools_metrics["precision"],
+            "tools_alignment_recall"    : tools_metrics["recall"],
+            "tools_necessity_accuracy"  : necessity_accuracy,
+            "agent_invokation_time"     : end_time - start_time
         }
-
-        for idx, sample in enumerate(job_data[:1], start = 1):
-            print(f">> Evaluating on sample #{idx}")
-            print()
-            # get data
-            job_desc = sample["desc"]
-            true_tools = sample["tools"]
-
-            # extract tools using agents
-            pred_tools = self.invoke(input = job_desc).tools           
-   
-            # measure tool names metrics
-            true_tool_names = set([tool["tool_name"] for tool in true_tools])
-            pred_tool_names = set([tool.tool_name for tool in pred_tools])
-            names_metrics = self.calc_tool_names_metrics(true_tool_names, pred_tool_names)
-
-            metrics["accuracy"].append(names_metrics["accuracy"])
-            metrics["precision"].append(names_metrics["precision"])
-            metrics["recall"].append(names_metrics["recall"])
-
-            # measure tool necessity metrics
-            metrics['necessity_level_accuracy'].append(self.calc_tool_necessity_metrics(true_tools, pred_tools))
-        
-            # append agent response
-            metrics["agent_response"].append(pred_tools)
-        
-        return metrics
+    
+    
 
             
 

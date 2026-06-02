@@ -1,4 +1,5 @@
 import re
+from time import time
 from agents.BaseAgent import BaseAgent
 from helpers.config import DEFAULT_MODELS_CFG
 from langchain_groq import ChatGroq
@@ -16,7 +17,9 @@ class JobRequirementsExtractor(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_requirements_extractor"]
 
+
         super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        self.case_counter = 0
 
     def get_agent(self):
         return super().get_agent()
@@ -61,68 +64,73 @@ class JobRequirementsExtractor(BaseAgent):
         except Exception as e:
             print(f" -> [BATCH JUDGE ERROR] {e}")
         return matches
-    
-    def evaluate(self, eval_data: list[dict]) -> dict:
-        metrics = {
-            "accuracy"                : [],
-            "precision"               : [],
-            "recall"                  : [],
-            "necessity_level_accuracy": [],
-        }
 
-        for idx, sample in enumerate(eval_data, start = 1):
-            print(f"\n" + "="*50 + f" [DEBUG CASE #{idx}] " + "="*50)
-            
-            job_desc = sample["desc"]
-            true_requirements = sample["requirements"]
+    def get_metric_names(self) -> tuple[str, str, str, str, str]:
+        return (
+            "requirements_extraction_accuracy",
+            "requirements_extraction_precision",
+            "requirements_extraction_recall",
+            "requirements_necessity_accuracy",
+            "agent_invokation_time"
+        )
 
-            extracted_output = self.invoke(input = job_desc)
-            pred_requirements = extracted_output.requirements           
+    def evaluate_sample(self, sample: dict) -> dict:
+        self.case_counter += 1 
+        print(f"\n" + "="*50 + f" [DEBUG CASE #{self.case_counter}] " + "="*50)
 
-            true_texts = [req.get("description", "") for req in true_requirements] 
-            pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
-            
-            print(f"True Requirements Count: {len(true_texts)} | Agent Extracted Count: {len(pred_texts)}")
-            print(f"True Descriptions: {true_texts}")
-            print(f"Pred Descriptions: {pred_texts}")
-            print("-" * 115)
+        job_desc = sample["desc"]
+        true_requirements = sample["requirements"]
 
-            matched_pairs = self._get_batch_semantic_matches(true_texts, pred_texts)
-
-            matched_true = set()
-            matched_pred = set()
-            for t_idx, p_idx in matched_pairs:
-                matched_true.add(t_idx)
-                matched_pred.add(p_idx)
-                print(f" -> [SEMANTIC MATCH] True #{t_idx} matched with Pred #{p_idx}")
-
-            TP = len(matched_pred)                                    
-            FP = len(pred_texts) - len(matched_pred)
-            FN = len(true_texts) - len(matched_true)
-
-            accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0.0
-            precision = TP / (TP + FP)      if (TP + FP)      else 0.0
-            recall    = TP / (TP + FN)      if (TP + FN)      else 0.0
-
-            correct_necessity = 0
-            total_necessity = 0
-            for t_idx, p_idx in matched_pairs:
-                true_level = true_requirements[t_idx].get("necessity_level")
-                pred_level = getattr(pred_requirements[p_idx], "necessity_level", "")
-                total_necessity += 1
-                if true_level == pred_level:
-                    correct_necessity += 1
-                else:
-                    print(f" -> [NECESSITY MISMATCH] True #{t_idx} ({true_level}) VS Pred #{p_idx} ({pred_level})")
-
-            necessity_acc = (correct_necessity / total_necessity) if total_necessity else 0.0
-
-            metrics["accuracy"].append(accuracy)
-            metrics["precision"].append(precision)
-            metrics["recall"].append(recall)
-            metrics['necessity_level_accuracy'].append(necessity_acc)
-            
-            print(f"[SAMPLE METRICS] Accuracy: {round(accuracy, 2)} | Precision: {round(precision, 2)} | Recall: {round(recall, 2)} | Necessity Accuracy: {round(necessity_acc, 2)}")
+        start_time = time()
+        extracted_output = self.invoke(input = job_desc)
+        end_time = time()
         
-        print("\n" + "="*45 + " Evaluation Completed " + "="*45)
-        return metrics
+        pred_requirements = extracted_output.requirements           
+
+        true_texts = [req.get("description", "") for req in true_requirements] 
+        pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
+        
+        print(f"True Requirements Count: {len(true_texts)} | Agent Extracted Count: {len(pred_texts)}")
+        print(f"True Descriptions: {true_texts}")
+        print(f"Pred Descriptions: {pred_texts}")
+        print("-" * 115)
+
+        matched_pairs = self._get_batch_semantic_matches(true_texts, pred_texts)
+
+        matched_true = set()
+        matched_pred = set()
+        for t_idx, p_idx in matched_pairs:
+            matched_true.add(t_idx)
+            matched_pred.add(p_idx)
+            print(f" -> [SEMANTIC MATCH] True #{t_idx} matched with Pred #{p_idx}")
+
+        TP = len(matched_pred)                                    
+        FP = len(pred_texts) - len(matched_pred)
+        FN = len(true_texts) - len(matched_true)
+
+        accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0.0
+        precision = TP / (TP + FP)      if (TP + FP)      else 0.0
+        recall    = TP / (TP + FN)      if (TP + FN)      else 0.0
+
+        correct_necessity = 0
+        total_necessity = 0
+        for t_idx, p_idx in matched_pairs:
+            true_level = true_requirements[t_idx].get("necessity_level")
+            pred_level = getattr(pred_requirements[p_idx], "necessity_level", "")
+            total_necessity += 1
+            if true_level == pred_level:
+                correct_necessity += 1
+            else:
+                print(f" -> [NECESSITY MISMATCH] True #{t_idx} ({true_level}) VS Pred #{p_idx} ({pred_level})")
+
+        necessity_acc = (correct_necessity / total_necessity) if total_necessity else 0.0
+
+        print(f"[SAMPLE METRICS] Accuracy: {round(accuracy, 2)} | Precision: {round(precision, 2)} | Recall: {round(recall, 2)} | Necessity Accuracy: {round(necessity_acc, 2)}")
+
+        return {
+            "requirements_extraction_accuracy" : accuracy,
+            "requirements_extraction_precision" : precision,
+            "requirements_extraction_recall"    : recall,
+            "requirements_necessity_accuracy"   : necessity_acc,
+            "agent_invokation_time"            : end_time - start_time
+        }
