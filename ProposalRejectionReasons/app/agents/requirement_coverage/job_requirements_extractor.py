@@ -45,10 +45,10 @@ class JobRequirementsExtractor(BaseAgent):
         {pred_list}
         
         Instructions:
-        1. Compare items and find pairs that have the exact same functional meaning or technical scope.
-        2. Output the matching pairs in this exact format: index_A-index_B (e.g., 0-0 or 1-2), one per line.
-        3. CRITICAL: If there is only one item in List A and one item in List B and they match, output "0-0" immediately.
-        4. Do NOT wrap the output in markdown code blocks. Do not write any explanations, intro, or outro text.
+        1. Compare items and find pairs that have the same functional meaning or technical scope.
+        2. CRITICAL: Multiple items from List A can map to a single item in List B. If one comprehensive requirement in List B covers several specific requirements in List A, map all of those List A indices to that same List B index.
+        3. Output the matching pairs in this exact format: index_A-index_B (e.g., 0-0, 1-0, 2-0), one per line.
+        4. Do NOT wrap the output in markdown code blocks. Do not write any explanations.
         """
         matches = set()
         try:
@@ -87,7 +87,7 @@ class JobRequirementsExtractor(BaseAgent):
             extracted_output = self.invoke(input = job_desc)
             end_time = time()
             
-            pred_requirements = extracted_output.requirements           
+            pred_requirements = extracted_output.requirements[:10]           
 
             true_texts = [req.get("description", "") for req in true_requirements] 
             pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
@@ -106,13 +106,11 @@ class JobRequirementsExtractor(BaseAgent):
                 matched_pred.add(p_idx)
                 print(f" -> [SEMANTIC MATCH] True #{t_idx} matched with Pred #{p_idx}")
 
-            TP = len(matched_pred)                                    
-            FP = len(pred_texts) - len(matched_pred)
-            FN = len(true_texts) - len(matched_true)
-
-            accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0.0
-            precision = TP / (TP + FP)      if (TP + FP)      else 0.0
-            recall    = TP / (TP + FN)      if (TP + FN)      else 0.0
+            precision = len(matched_pred) / len(pred_texts) if pred_texts else 0.0
+            recall = len(matched_true) / len(true_texts) if true_texts else 0.0
+            
+            union_size = len(true_texts) + len(pred_texts) - len(matched_pred)
+            accuracy = len(matched_true) / union_size if union_size > 0 else 0.0
 
             correct_necessity = 0
             total_necessity = 0

@@ -8,6 +8,7 @@ Strict Rules for Necessity Level Classification:
 4. "forbidden": Assign to explicit negative constraints where the client strictly prohibits an action, tool, or feature (e.g., "Do NOT build online payments", "Exclude user tracking", "No external APIs").
 
 Extraction Rules:
+- Extract a MAXIMUM of 10 requirements. If there are more, prioritize the most critical core features and constraints.
 - For each requirement, generate a unique sequential ID starting from "REQ_1", "REQ_2", etc.
 - Focus strictly on functional capabilities and constraints. Do not extract specific developer frameworks or languages.
 
@@ -28,6 +29,7 @@ Evaluation Logic:
 2. Allow reasonable logical and semantic inference. If the freelancer mentions a core deliverable or a process that inherently covers a sub-requirement (e.g., providing a "QR code for door validation" logically encompasses making it "scannable at the door"), count it as covered. Do not penalize for missing specific keywords as long as the functional intent is fully addressed.
 3. For "forbidden" requirements (Negative Constraints): If the freelancer proposed to build or use what was prohibited, mark the requirement ID as missing/violated in 'missing_requirements_ids'. If they respected the prohibition (by omitting it or confirming exclusion), mark it as covered in 'requirements_covered_ids'.
 4. CRITICAL ID RULE: You MUST strictly preserve and return the exact original input IDs passed to you (e.g., 'sh_req_1', 'bl_req_1'). Do NOT invent, re-index, or modify the IDs.
+5. Many-to-One Matching: Multiple distinct requirements from the input list can be covered by a single comprehensive capability or statement in the freelancer's proposal. If a single part of the proposal satisfies more than one requirement, you MUST include ALL of those matching requirement IDs in 'requirements_covered_ids'.
 
 Output Rules:
 1. In 'requirements_covered_ids', list ONLY the exact original input IDs of the requirements that were satisfied/respected.

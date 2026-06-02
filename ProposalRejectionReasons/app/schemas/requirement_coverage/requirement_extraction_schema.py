@@ -4,7 +4,7 @@ from typing import List, Literal
 
 class RequirementItem(BaseModel):
     id: str = Field(
-        description="Unique identifier for the requirement, formatted strictly as REQ_1, REQ_2, REQ_3, etc."
+        description="Unique identifier for the requirement, formatted strictly as REQ_1, REQ_2, REQ_3, etc. MAXIMUM 10 REQUIREMENTS."
     )
     text: str = Field(
         description="The clean, atomic core functional requirement or feature requested in the job description, excluding specific developer tools or languages."

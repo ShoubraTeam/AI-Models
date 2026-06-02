@@ -2,18 +2,18 @@
 ============================================== Run #1 ==============================================
 Run Configurations:
 	>> run_id --> 1
-	>> model_name --> groq:llama-3.1-8b-instant
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
+	>> model_name --> groq:openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.95}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.8333333333333334
-		>> requirements_extraction_precision --> 0.8333333333333334
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.4
-		>> agent_invokation_time --> 0.6233503818511963
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.2269060611724854
 
 
 => Sample #2:
@@ -29,11 +29,11 @@ Run Configurations:
 => Sample #3:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.1875
-		>> requirements_extraction_precision --> 0.1875
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 48.45602083206177
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #4:
@@ -49,11 +49,11 @@ Run Configurations:
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4375
-		>> requirements_extraction_precision --> 0.4375
+		>> requirements_extraction_accuracy --> 0.6
+		>> requirements_extraction_precision --> 0.6
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2300236225128174
+		>> agent_invokation_time --> 2.161156415939331
 
 
 => Sample #6:
@@ -69,10 +69,10 @@ Run Configurations:
 => Sample #7:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
+		>> requirements_extraction_accuracy --> 0.6666666666666666
+		>> requirements_extraction_precision --> 0.6666666666666666
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 11.107711553573608
 
 ====================================================================================================

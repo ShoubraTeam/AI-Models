@@ -88,10 +88,25 @@ class JobRequirementsMatcher(BaseAgent):
                     print("-" * 114)
                     continue
 
-                tp = len(pred_covered.intersection(true_covered))
-                fp = len(pred_covered.intersection(true_missing))
-                fn = len(pred_missing.intersection(true_covered))
-                tn = len(pred_missing.intersection(true_missing))
+                tp = 0
+                fp = 0
+                fn = 0
+                tn = 0
+
+                for cid in all_ids:
+                    is_true_covered = cid in true_covered
+                    is_pred_covered = cid in pred_covered
+
+                    if is_true_covered:
+                        if is_pred_covered:
+                            tp += 1
+                        else:
+                            fn += 1
+                    else:  
+                        if is_pred_covered:
+                            fp += 1
+                        else:
+                            tn += 1
 
                 print(f"[COUNTS]      TP: {tp} | FP: {fp} | FN: {fn} | TN: {tn}")
 

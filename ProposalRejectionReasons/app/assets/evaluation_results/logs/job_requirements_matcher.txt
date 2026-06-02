@@ -3,7 +3,7 @@
 Run Configurations:
 	>> run_id --> 1
 	>> model_name --> groq:llama-3.1-8b-instant
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.95}
 
 
 => Sample #1:
@@ -13,7 +13,7 @@ Run Configurations:
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 1.0
 		>> matcher_f1_score --> 1.0
-		>> agent_invokation_time --> 0.6319780349731445
+		>> agent_invokation_time --> 1.45536208152771
 
 
 => Sample #2:
@@ -23,7 +23,7 @@ Run Configurations:
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 1.0
 		>> matcher_f1_score --> 1.0
-		>> agent_invokation_time --> 0.4828369617462158
+		>> agent_invokation_time --> 0.7006754875183105
 
 
 => Sample #3:
@@ -33,46 +33,46 @@ Run Configurations:
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 1.0
 		>> matcher_f1_score --> 1.0
-		>> agent_invokation_time --> 0.42348194122314453
+		>> agent_invokation_time --> 0.8670461177825928
 
 
 => Sample #4:
-	- Passed
-	- Results:
-		>> matcher_accuracy --> 0.0
-		>> matcher_precision --> 0.0
-		>> matcher_recall --> 0.0
-		>> matcher_f1_score --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> matcher_accuracy --> 0.8333333333333334
-		>> matcher_precision --> 0.9333333333333332
-		>> matcher_recall --> 0.8777777777777778
-		>> matcher_f1_score --> 0.903030303030303
-		>> agent_invokation_time --> 48.43126964569092
-
-
-=> Sample #6:
-	- Passed
-	- Results:
-		>> matcher_accuracy --> 0.0
-		>> matcher_precision --> 0.0
-		>> matcher_recall --> 0.0
-		>> matcher_f1_score --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #7:
 	- Passed
 	- Results:
 		>> matcher_accuracy --> 1.0
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 1.0
 		>> matcher_f1_score --> 1.0
-		>> agent_invokation_time --> 45.92721343040466
+		>> agent_invokation_time --> 0.4365060329437256
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.888888888888889
+		>> matcher_precision --> 0.7777777777777778
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 0.8585858585858586
+		>> agent_invokation_time --> 61.18321776390076
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.7333333333333334
+		>> matcher_precision --> 0.8888888888888888
+		>> matcher_recall --> 0.7666666666666666
+		>> matcher_f1_score --> 0.8201058201058201
+		>> agent_invokation_time --> 55.08341026306152
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.5
+		>> matcher_precision --> 0.6666666666666666
+		>> matcher_recall --> 0.6666666666666666
+		>> matcher_f1_score --> 0.6666666666666666
+		>> agent_invokation_time --> 12.211041688919067
 
 ====================================================================================================
