@@ -30,7 +30,7 @@ class ExperienceEvidenceAgent(BaseAgent):
         return super().invoke(input=formatted_input)
 
     def _calc_text_similarity(self, str1: str, str2: str) -> float:
-        import re
+        
         
         tokens1 = set(re.findall(r'[a-z0-9]+', str1.lower()))
         tokens2 = set(re.findall(r'[a-z0-9]+', str2.lower()))
@@ -96,9 +96,12 @@ class ExperienceEvidenceAgent(BaseAgent):
             pred_has_evidence = agent_output.has_experience_evidence
             pred_projects = agent_output.extracted_projects if agent_output.extracted_projects else []
 
+            true_texts = [p.get("project_overview", "") if isinstance(p, dict) else str(p) for p in true_projects]
+            pred_texts = [p.project_overview for p in pred_projects]
+
             print(f"[CLASSIFICATION] True Has Evidence: {true_has_evidence} | Agent Predicted: {pred_has_evidence}")
-            print(f"[PROJECTS]       True Projects: {[p.get('project_overview') for p in true_projects]}")
-            print(f"[PROJECTS]       Agent Extracted: {[p.project_overview for p in pred_projects]}")
+            print(f"[PROJECTS]       True Projects: {true_texts}")
+            print(f"[PROJECTS]       Agent Extracted: {pred_texts}")
             print("-" * 114)
 
             if true_has_evidence and pred_has_evidence:
@@ -115,8 +118,8 @@ class ExperienceEvidenceAgent(BaseAgent):
 
             all_possible_pairs = []
             for p_idx, pred_proj in enumerate(pred_projects):
-                for t_idx, true_proj in enumerate(true_projects):
-                    sim = self._calc_text_similarity(pred_proj.project_overview, true_proj.get("project_overview", ""))
+                for t_idx, true_text in enumerate(true_texts):
+                    sim = self._calc_text_similarity(pred_proj.project_overview, true_text)
                     all_possible_pairs.append((sim, p_idx, t_idx))
 
             all_possible_pairs.sort(key=lambda x: x[0], reverse=True)
@@ -132,7 +135,10 @@ class ExperienceEvidenceAgent(BaseAgent):
                     matched_pred_indices.add(p_idx)
                     matched_true_indices.add(t_idx)
                     total_tp_projects += 1
-                    true_score = true_projects[t_idx].get("relevance_score", 0.0)
+                    
+                    true_proj_data = true_projects[t_idx]
+                    true_score = true_proj_data.get("relevance_score", 0.0) if isinstance(true_proj_data, dict) else 0.0
+                    
                     all_score_errors.append(abs(pred_projects[p_idx].relevance_score - true_score))
                     print(f"    [MATCH FOUND] Pred Project Index {p_idx} matched with True Project Index {t_idx} (Sim={round(sim, 2)})")
                 else:

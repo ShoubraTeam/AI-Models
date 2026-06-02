@@ -78,8 +78,8 @@ class JobRequirementsExtractor(BaseAgent):
         self.case_counter += 1 
         print(f"\n" + "="*50 + f" [DEBUG CASE #{self.case_counter}] " + "="*50)
 
-        job_desc = sample["desc"]
-        true_requirements = sample["requirements"]
+        job_desc = sample["job_desc"]
+        true_requirements = sample["job_data"].get("requirements", [])
 
         start_time = time()
         extracted_output = self.invoke(input = job_desc)

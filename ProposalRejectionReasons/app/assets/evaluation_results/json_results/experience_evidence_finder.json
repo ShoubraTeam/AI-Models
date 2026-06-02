@@ -4,18 +4,18 @@
         "model_name": "groq:openai/gpt-oss-120b",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 2048,
+            "max_tokens": 1024,
             "top_p": 0.95
         },
         "results": {
             "classification_accuracy": 1.0,
-            "classification_precision": 1.0,
-            "classification_recall": 1.0,
-            "classification_f1_score": 1.0,
-            "project_extraction_precision": 0.75,
-            "project_extraction_recall": 0.75,
-            "project_score_mae": 0.025000000000000015,
-            "agent_invokation_time": 10.512295424938202,
+            "classification_precision": 0.5714285714285714,
+            "classification_recall": 0.5714285714285714,
+            "classification_f1_score": 0.5714285714285714,
+            "project_extraction_precision": 0.8571428571428571,
+            "project_extraction_recall": 0.8571428571428571,
+            "project_score_mae": 0.04285714285714286,
+            "agent_invokation_time": 1.4180287633623396,
             "error_rate": 0.0
         }
     }
