@@ -72,8 +72,6 @@ class EvaluationDataParser:
             ]
         }
 
-    # BUG FIX: get_language_clarity_evaluator_data and get_job_key_points_extractor_data
-    # and get_job_understanding_evaluator_data were incorrectly indented outside the class body.
     @staticmethod
     def get_language_clarity_evaluator_data(sample):
         return {
