@@ -40,12 +40,12 @@ DEFAULT_MODELS_CFG = {
 
     "job_requirements_extractor" : {
         "temperature": 0.0,
-        "max_tokens" : 512
+        "max_tokens" : 2048
     },
 
     "job_requirements_matcher" : {
         "temperature": 0.0,
-        "max_tokens" : 1024
+        "max_tokens" : 512
     },
     "experience_evidence_agent" : {
         "temperature": 0.0,

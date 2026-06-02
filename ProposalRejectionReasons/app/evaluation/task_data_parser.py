@@ -54,7 +54,17 @@ class EvaluationDataParser:
     
     @staticmethod
     def get_evidence_of_experience_data(sample):
-        pass
+        return {
+            "job": {
+                "desc": sample["job_desc"]
+            },
+            "proposals": [
+                {
+                    "proposal": p["proposal"]
+                }
+                for p in sample["proposals"]
+            ]
+        }
 
     @staticmethod
     def get_language_clarity_data(sample):

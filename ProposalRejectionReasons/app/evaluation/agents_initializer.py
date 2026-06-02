@@ -1,6 +1,7 @@
 # ---------------------------------------------------------------------
 # A utility class used to init the agents required for a specific task
 # ---------------------------------------------------------------------
+from agents import ExperienceEvidenceAgent
 from agents import JobToolsExtractor, ProposalToolsAnalyzer
 from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
 from agents import JobRequirementsExtractor, JobRequirementsMatcher
@@ -89,7 +90,17 @@ class AgentsInitializer:
 
     @staticmethod
     def get_evidence_of_experience_agents(models, system_prompts, structured_responses, **kwargs):
-        pass
+        experience_evidence_agent = ExperienceEvidenceAgent(
+            model_name = models[0],
+            system_prompt = system_prompts[0],
+            structured_response = structured_responses[0],
+            **kwargs
+        )
+
+        agents = [
+            ("experience_evidence_agent", experience_evidence_agent)
+        ]
+        return agents
 
     @staticmethod
     def get_language_clarity_agents(models, system_prompts, structured_responses, **kwargs):

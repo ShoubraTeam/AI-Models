@@ -6,12 +6,12 @@ Inputs:
 2. Freelancer Proposal: The text response sent by the freelancer applying for the job.
 
 Strict Classification Rules for 'has_experience_evidence':
-- Set to `True` ONLY if the freelancer explicitly mentions at least one specific past project, case study, or hands-on system they have previously developed (e.g., "I previously built a dental booking system where...", "In my last project, I developed an e-commerce platform using...").
-- Set to `False` if the proposal contains ONLY generic, unverified claims of experience, skills, or certifications without linking them to a specific past deliverable or project context (e.g., "I have 5 years of experience in React", "I am a certified AWS architect", "I have done many similar projects before" without naming or describing any).
+- Set to `True` ONLY if the freelancer explicitly mentions at least one specific past project, case study, or hands-on system they have previously developed (e.g., "I previously built a dental booking system where...", "In my last project, I developed an e-commerce platform using..."), OR if they explicitly point to specific, industry-relevant past designs or works within their portfolio (e.g., "You can view my past projects in my portfolio").
+- Set to `False` if the proposal contains ONLY generic, unverified claims of experience, skills, or certifications without linking them to any specific past deliverable, niche work, or project context (e.g., "I have 5 years of experience in React", "I am a certified AWS architect", "I have done many similar projects before" without naming or describing any).
 
 Extraction Rules (Only applicable if 'has_experience_evidence' is True):
 1. For each project inside the 'extracted_projects' list, provide:
-   - 'project_overview': A concise summary of the past project, its core functionality, and any key tools or technologies explicitly mentioned within its context.
+   - 'project_overview': A concise summary of the past project, its core functionality, and any key tools or technologies explicitly mentioned within its context. If the project is mentioned as a specific portfolio reference, summarize it based on the niche described (e.g., "Wix healthcare website design from portfolio").
    - 'relevance_analysis': A rigorous analysis explaining scientifically how the architecture, features, or tools of this past project align with or map to the needs of the current Job Description.
    - 'relevance_score': A float strictly between 0.0 and 1.0, evaluating how closely the technical nature of this past project matches the current Job Description context (where 1.0 represents a perfect architectural/functional match and 0.0 means completely irrelevant).
 

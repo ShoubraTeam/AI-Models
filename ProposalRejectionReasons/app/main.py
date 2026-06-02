@@ -41,8 +41,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATA_PATH = os.path.join(
-    Path(__file__).parent,
-    "data_examples"
+    Path(__file__).parent.parent,
+    "eval_data"
 )
 
 if __name__ == "__main__":
@@ -54,35 +54,35 @@ if __name__ == "__main__":
     F.print_subtitle("Wake up Agents")
 
     try:
-        print("\t>> Tools Alignment Agents")
-        job_tool_extractor = JobToolsExtractor(
-            model_name          = CFG.GROQ_LLAMA_8b,
-            system_prompt       = JOB_TOOLS_EXTRACTION_PROMPT,
-            structured_response = JobToolResponse,
-        )
+        # print("\t>> Tools Alignment Agents")
+        # job_tool_extractor = JobToolsExtractor(
+        #     model_name          = CFG.GROQ_LLAMA_8b,
+        #     system_prompt       = JOB_TOOLS_EXTRACTION_PROMPT,
+        #     structured_response = JobToolResponse,
+        # )
 
-        proposal_tools_analyzer = ProposalToolsAnalyzer(
-            model_name          = CFG.GROQ_LLAMA_70b,
-            system_prompt       = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
-            structured_response = ProposalToolsResponse,
-        )
+        # proposal_tools_analyzer = ProposalToolsAnalyzer(
+        #     model_name          = CFG.GROQ_LLAMA_70b,
+        #     system_prompt       = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
+        #     structured_response = ProposalToolsResponse,
+        # )
 
-        print("\t>> Job Understanding Agents")
-        job_key_points_extractor = JobKeyPointsExtractor(
-            model_name          = CFG.GROQ_LLAMA_70b,
-            system_prompt       = JOB_KEY_POINTS_EXTRACTION_PROMPT,
-            structured_response = JobKeyPointsSchema,
-        )
+        # print("\t>> Job Understanding Agents")
+        # job_key_points_extractor = JobKeyPointsExtractor(
+        #     model_name          = CFG.GROQ_LLAMA_70b,
+        #     system_prompt       = JOB_KEY_POINTS_EXTRACTION_PROMPT,
+        #     structured_response = JobKeyPointsSchema,
+        # )
 
-        job_understanding_evaluator = JobUnderstandingEvaluator(
-            model_name          = CFG.GROQ_LLAMA_70b,
-            system_prompt       = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
-            structured_response = JobUnderstandingEvalSchema,
-        )
+        # job_understanding_evaluator = JobUnderstandingEvaluator(
+        #     model_name          = CFG.GROQ_LLAMA_70b,
+        #     system_prompt       = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
+        #     structured_response = JobUnderstandingEvalSchema,
+        # )
 
         print("\t>> Requirement Coverage Agents")
         requirement_extractor = JobRequirementsExtractor(
-            model_name          = CFG.GROQ_LLAMA_8b,
+            model_name          = CFG.GROQ_GPT_120b,
             system_prompt       = REQUIREMENT_EXTRACTOR_PROMPT,
             structured_response = ExtractedRequirementsSchema,
         )
@@ -95,19 +95,19 @@ if __name__ == "__main__":
 
         print("\t>> Evidence of Experience Agent")
         experience_evidence_agent = ExperienceEvidenceAgent(
-            model_name          = CFG.GROQ_LLAMA_70b,
+            model_name          = CFG.GROQ_GPT_120b,
             system_prompt       = EXPERIENCE_EVIDENCE_PROMPT,
             structured_response = ExperienceEvidenceSchema,
         )
 
-        print("\t>> Language Clarity Agent")
-        language_clarity_evaluator = LanguageClarityEvaluator(
-            model_name          = CFG.GROQ_LLAMA_70b,
-            system_prompt       = LANGUAGE_CLARITY_EVALUATOR_PROMPT,
-            structured_response = LanguageClarityEvalSchema,
-        )
+        # print("\t>> Language Clarity Agent")
+        # language_clarity_evaluator = LanguageClarityEvaluator(
+        #     model_name          = CFG.GROQ_LLAMA_70b,
+        #     system_prompt       = LANGUAGE_CLARITY_EVALUATOR_PROMPT,
+        #     structured_response = LanguageClarityEvalSchema,
+        # )
 
-        F.print_success_message("Agents Loaded Successfully")
+        # F.print_success_message("Agents Loaded Successfully")
 
     except Exception as e:
         F.print_error_message("Error While Loading Agents")
@@ -115,40 +115,40 @@ if __name__ == "__main__":
         exit()
 
 
-    F.print_subtitle("Loading Data")
+    # F.print_subtitle("Loading Data")
 
-    try:
-        print("\t>> Tools Alignment Data")
-        tools_alignment_data_samples = F.load_json(
-            file_path = os.path.join(DATA_PATH, "tools_alignment_tools.json")
-        )
+    # try:
+    #     print("\t>> Tools Alignment Data")
+    #     tools_alignment_data_samples = F.load_json(
+    #         file_path = os.path.join(DATA_PATH, "tools_alignment_tools.json")
+    #     )
 
-        print("\t>> Job Understanding Data")
-        job_understanding_data_samples = F.load_json(
-            file_path = os.path.join(DATA_PATH, "job_understanding_samples.json")
-        )
+    #     print("\t>> Job Understanding Data")
+    #     job_understanding_data_samples = F.load_json(
+    #         file_path = os.path.join(DATA_PATH, "job_understanding_samples.json")
+    #     )
 
-        print("\t>> Requirement Coverage Data")
-        requirement_data_samples = F.load_json(
-            file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
-        )
+    #     print("\t>> Requirement Coverage Data")
+    #     requirement_data_samples = F.load_json(
+    #         file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
+    #     )
 
-        print("\t>> Evidence of Experience Data")
-        experience_data_samples = F.load_json(
-            file_path = os.path.join(DATA_PATH, "experience_samples.json")
-        )
+    #     print("\t>> Evidence of Experience Data")
+    #     experience_data_samples = F.load_json(
+    #         file_path = os.path.join(DATA_PATH, "eval_data.json")
+    #     )
 
-        print("\t>> Language Clarity Data")
-        language_clarity_data_samples = F.load_json(
-            file_path = os.path.join(DATA_PATH, "language_clarity_samples.json")
-        )
+    #     print("\t>> Language Clarity Data")
+    #     language_clarity_data_samples = F.load_json(
+    #         file_path = os.path.join(DATA_PATH, "language_clarity_samples.json")
+    #     )
 
-        F.print_success_message("Data Loaded Successfully")
+    #     F.print_success_message("Data Loaded Successfully")
 
-    except Exception as e:
-        F.print_error_message("Error While Loading Data")
-        F.print_error_message(e)
-        exit()
+    # except Exception as e:
+    #     F.print_error_message("Error While Loading Data")
+    #     F.print_error_message(e)
+    #     exit()
 
 
     # ==================================================================
@@ -184,37 +184,37 @@ if __name__ == "__main__":
     #     print()
 
     # --------------------------------------------
-    F.print_subtitle("Requirement Coverage")
+    # F.print_subtitle("Requirement Coverage")
 
-    job_desc  = requirement_data_samples[0]["job_desc"]
-    proposals = requirement_data_samples[0]["proposals"]
+    # job_desc  = requirement_data_samples[0]["job_desc"]
+    # proposals = requirement_data_samples[0]["proposals"]
 
-    print("\t>> Extracting Job Requirements")
-    extracted_data = requirement_extractor.invoke(input=job_desc)
-    F.print_structured_response(extracted_data)
+    # print("\t>> Extracting Job Requirements")
+    # extracted_data = requirement_extractor.invoke(input=job_desc)
+    # F.print_structured_response(extracted_data)
 
-    print("\t>> Evaluating Requirements in Proposal")
-    for idx, proposal in enumerate(proposals, start=1):
-        print(f"--- Analyzing Proposal {idx} ---")
-        requirements_matching = requirement_matcher.invoke(
-            job_requirements = extracted_data.requirements,
-            proposal_text    = proposal
-        )
-        print("\t>> LLM Raw Matcher Response:")
-        F.print_structured_response(requirements_matching)
+    # print("\t>> Evaluating Requirements in Proposal")
+    # for idx, proposal in enumerate(proposals, start=1):
+    #     print(f"--- Analyzing Proposal {idx} ---")
+    #     requirements_matching = requirement_matcher.invoke(
+    #         job_requirements = extracted_data.requirements,
+    #         proposal_text    = proposal
+    #     )
+    #     print("\t>> LLM Raw Matcher Response:")
+    #     F.print_structured_response(requirements_matching)
         
-        final_result = calc_requirement_coverage_score(
-            extracted_requirements = extracted_data.requirements,
-            final_coverage         = requirements_matching
-        )
+    #     final_result = calc_requirement_coverage_score(
+    #         extracted_requirements = extracted_data.requirements,
+    #         final_coverage         = requirements_matching
+    #     )
         
-        print("\t>> Final Standardized Subagent Result:")
-        print(f"  score              => {final_result.score}")
-        print(f"  accepted           => {final_result.accepted}")
-        print(f"  summary            => {final_result.summary}")
-        print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
-        print(f"  rejection_reasons  => {final_result.rejection_reasons}")
-        print()
+    #     print("\t>> Final Standardized Subagent Result:")
+    #     print(f"  score              => {final_result.score}")
+    #     print(f"  accepted           => {final_result.accepted}")
+    #     print(f"  summary            => {final_result.summary}")
+    #     print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
+    #     print(f"  rejection_reasons  => {final_result.rejection_reasons}")
+    #     print()
     # # --------------------------------------------
     # F.print_subtitle("Job Understanding")
 
@@ -293,3 +293,79 @@ if __name__ == "__main__":
     #     print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
     #     print(f"  rejection_reasons  => {final_result.rejection_reasons}")
     #     print()
+
+
+    # ==================================================================
+    # 3.0 Batch Evaluation Testing
+    # ==================================================================
+    
+    F.print_title("3.0 Batch Evaluation Testing")
+    requirement_data_samples = F.load_json(
+        file_path = os.path.join(DATA_PATH, "eval_data.json")
+    )
+
+    F.print_subtitle("Evaluating: Job Requirements Extractor")
+    req_extractor_eval_data = []
+    for sample in requirement_data_samples:
+         job_data = sample.get("job_data", {}) if isinstance(sample.get("job_data"), dict) else {}
+         requirements = job_data.get("requirements", []) if job_data else sample.get("requirements", [])
+         
+         req_extractor_eval_data.append({
+             "desc": sample.get("job_desc", ""),
+             "requirements": requirements
+         })
+     
+    extractor_metrics = requirement_extractor.evaluate(eval_data=req_extractor_eval_data)
+    print(">> Requirements Extractor Global Metrics:")
+    for metric_name, values in extractor_metrics.items():
+         if metric_name != "agent_response":
+              avg_val = sum(values) / len(values) if values else 0.0
+              print(f"   Average {metric_name} => {round(avg_val, 4)}")
+    print()
+
+    F.print_subtitle("Evaluating: Job Requirements Matcher")
+    
+    matcher_metrics = requirement_matcher.evaluate(eval_data=requirement_data_samples)
+    
+    print(">> Requirements Matcher Global Metrics:")
+    for metric_name, value in matcher_metrics.items():
+         print(f"   {metric_name} => {value}")
+    print()
+    
+
+    experience_data_samples = F.load_json(
+            file_path = os.path.join(DATA_PATH, "eval_data.json")
+        )
+    F.print_subtitle("Evaluating: Experience Evidence Agent")
+    experience_eval_data = []
+    
+    for sample in experience_data_samples:
+        cleaned_proposals = []
+        
+        for p in sample.get("proposals", []):
+            if isinstance(p, dict):
+                proposal_text = p.get("proposal", "")
+                true_has_evidence = p.get("has_evidence", False)
+                true_projects = p.get("true_projects", [])
+            else:
+                proposal_text = str(p)
+                true_has_evidence = False
+                true_projects = []
+
+            cleaned_proposals.append({
+                "proposal": proposal_text,
+                "has_evidence": true_has_evidence,
+                "true_projects": true_projects
+            })
+
+        experience_eval_data.append({
+            "job_desc": sample.get("job_desc", ""),
+            "proposals": cleaned_proposals
+        })
+
+    if experience_eval_data:
+        experience_metrics = experience_evidence_agent.evaluate(eval_data=experience_eval_data)
+        print(">> Experience Evidence Agent Global Metrics:")
+        for metric_name, value in experience_metrics.items():
+            print(f"  {metric_name} => {value}")
+    print()
