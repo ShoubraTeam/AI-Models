@@ -36,14 +36,14 @@ def calc_requirement_coverage_score(
         necessity = req_necessity_map.get(req_id)
         if necessity:
             if necessity == "forbidden":
-                proposal_score += 1.0  
+                proposal_score += NECESSITY_LEVEL_WEIGHTS["forbidden"]
             else:
                 proposal_score += NECESSITY_LEVEL_WEIGHTS[necessity]
 
     for req_id in final_coverage.missing_requirements_ids:
         necessity = req_necessity_map.get(req_id)
         if necessity == "forbidden":
-            proposal_score += NECESSITY_LEVEL_WEIGHTS["forbidden"]
+            proposal_score += 1.0
 
     if grd_truth == 0:
         score = 0.0

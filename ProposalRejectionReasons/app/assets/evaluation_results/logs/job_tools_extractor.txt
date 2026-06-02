@@ -1,0 +1,97 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 256, 'top_p': 0.7}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.3
+		>> tools_alignment_precision --> 0.3
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 0.584935188293457
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 0.8571428571428571
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 1.3737843036651611
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 256, 'top_p': 0.8}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.3
+		>> tools_alignment_precision --> 0.3
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 3.7017180919647217
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 0.8571428571428571
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 8.620065450668335
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 256, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.23076923076923078
+		>> tools_alignment_precision --> 0.23076923076923078
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 2.754342794418335
+
+
+=> Sample #2:

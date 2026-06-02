@@ -66,7 +66,7 @@ class JobUnderstandingEvaluator(BaseAgent):
         formatted_input = (
             f"Core Problem:\n{core_problem}\n\n"
             f"Required Deliverables:\n{required_deliverables}\n\n"
-            f"Key Keywords:\n{key_keywords}\n\n"   
+            # f"Key Keywords:\n{key_keywords}\n\n"   
             f"Freelancer Proposal:\n{proposal_text}"
         )
         return super().invoke(input=formatted_input)

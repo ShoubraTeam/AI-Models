@@ -1,6 +1,6 @@
 from schemas.job_understanding.job_key_points_schema import JobKeyPointsSchema
 from schemas.job_understanding.job_understanding_eval_schema import JobUnderstandingEvalSchema
-from schemas.final_result_schema import FinalSubagentResult
+from schemas import FinalSubagentResult
 
 JOB_UNDERSTANDING_THRESHOLD = 0.5  # normalized 0.0–1.0
 

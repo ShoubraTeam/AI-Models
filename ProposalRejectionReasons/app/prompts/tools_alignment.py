@@ -17,6 +17,13 @@ Instructions
 - Do not invent tools by yourself. Just use the tools mentioned in the description.
 - Do not invent a necessity level either.
 - At the end of the job description, you may find a section called `tags`. If you find it, some tags may represent tools that you should include them in your response. 
+
+
+Response Format
+As discussed, for each tool you should return only:
+- tool_name
+- necessity_level: mandatory, recommended, optional, or forbidden
+
 """
 
 

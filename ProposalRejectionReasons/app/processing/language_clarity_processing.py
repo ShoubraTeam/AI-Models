@@ -1,5 +1,5 @@
 from schemas.language_clarity.language_clarity_eval_schema import LanguageClarityEvalSchema
-from schemas.final_result_schema import FinalSubagentResult
+from schemas import FinalSubagentResult
 import language_tool_python
 
 LANGUAGE_CLARITY_THRESHOLD = 0.5  # normalized 0.0–1.0

@@ -1,0 +1,36 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 256,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4833333333333333,
+            "tools_alignment_precision": 0.5785714285714285,
+            "tools_alignment_recall": 0.875,
+            "tools_necessity_accuracy": 0.41666666666666663,
+            "agent_invokation_time": 0.9793597459793091,
+            "error_rate": 0.3333333333333333
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 256,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4833333333333333,
+            "tools_alignment_precision": 0.5785714285714285,
+            "tools_alignment_recall": 0.875,
+            "tools_necessity_accuracy": 0.41666666666666663,
+            "agent_invokation_time": 6.160891771316528,
+            "error_rate": 0.3333333333333333
+        }
+    }
+]

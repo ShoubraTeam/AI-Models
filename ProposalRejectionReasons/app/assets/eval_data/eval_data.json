@@ -174,9 +174,8 @@
               "proposal": "Hi — Elias here from Miami.\n\nI understand you’re looking to create a professional Wix website for your spinal surgery practice. The goal is to present your services clearly while guiding potential patients through the booking process.\n\nWhat usually matters most here is ensuring the site is visually appealing and easy to navigate. A common issue in projects like this is integrating the booking system seamlessly. The tricky part is balancing aesthetics with functionality, especially as you may want to expand your services in the future.\n\nMy approach would involve creating a clean layout that highlights your expertise while ensuring the booking process is straightforward. I’d focus on structuring the site for performance and maintainability, allowing for easy updates as your practice grows.\n\nI’ve worked on similar healthcare projects where clarity and ease of use were key. This experience helps me foresee potential pitfalls and streamline development.\n\nA few questions to better understand the scope:\n\nQ1 – What specific features do you envision for the booking system?\nQ2 – Are there particular design elements or styles you want to incorporate?\nQ3 – Do you have existing content, or will I need to assist with content creation?\n\nHappy to go through the details and suggest the best technical approach.\n\nLooking forward to hearing from you.",
               "tools": [
                   {
-                      "tool" : "Wix",
-                      "with_confidence": true,
-                      "is_explicit": true
+                      "tool_name" : "Wix",
+                      "with_confidence": true
                   }
               ],
 
