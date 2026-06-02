@@ -3,11 +3,8 @@ from typing import List
 
 class BioAnalyzerSchema(BaseModel):
     score: float = Field(
-        description="Strict copywriting score from 0.0 to 1.0 evaluating marketing impact, role alignment, and engagement."
+        description="Strict copywriting score from 0.0 to 1.0 evaluating market impact and role alignment."
     )
-    strengths: List[str] = Field(
-        description="Key positive aspects found in the bio (e.g., strong hook, clear niche definition)."
-    )
-    improvements: List[str] = Field( 
-        description="Action-oriented bullet points detailing specific issues like weak value proposition, grammatical errors, or fluff."
+    analysis: List[str] = Field(
+        description="A single flat array of strings containing both pros and cons combined. Do NOT create nested dictionaries or keys like strengths or improvements."
     )

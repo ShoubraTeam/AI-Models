@@ -1,0 +1,42 @@
+[
+    {
+        "freelancer_name": "Maged Sameh (The Red Flag Case)",
+        "job_role": "AI Engineer",
+        "image_name": "graphic_designer.webp",
+        "bio_text": "I am a hardworking person who loves coding artificial intelligence things. I am a ninja code guru and software master. Hire me because I need money and I am very fast. Also I can do social media design, data entry, and photoshop work if you want.",
+        "declared_skills": ["Python", "HTML", "Data Entry", "MS Excel", "SQL", "Git"],
+        "hourly_rate": 95.0,
+        "rating": 5.0,
+        "total_completed_jobs": 2
+    },
+    {
+        "freelancer_name": "Tarek Fadel (The Underpriced Expert Case)",
+        "job_role": "Backend Developer",
+        "image_name": "developer.jpg",
+        "bio_text": "Senior Backend Architect with 6+ years of enterprise experience. I specialize in designing high-throughput microservices, database sharding strategies, and secure RESTful/GraphQL APIs. Proven track record of reducing server costs by 35% through optimized caching tiers.",
+        "declared_skills": ["Node.js", "Express", "MongoDB", "Redis", "Docker", "REST APIs", "Git", "AWS", "Kubernetes"],
+        "hourly_rate": 22.0,
+        "rating": 4.9,
+        "total_completed_jobs": 48
+    },
+    {
+        "freelancer_name": "Youssef Ali (The Perfect Match Case)",
+        "job_role": "Graphic Designer",
+        "image_name": "graphic_designer.webp",
+        "bio_text": "Transforming complex corporate ideas into high-converting visual identities. Specializing in premium brand guidelines, digital product UI frameworks, and high-end typography assets with over 5 years of industry agency experience.",
+        "declared_skills": ["Adobe Photoshop", "Adobe Illustrator", "Figma", "Typography", "Branding", "Layout Design", "Vector Illustration"],
+        "hourly_rate": 45.0,
+        "rating": 5.0,
+        "total_completed_jobs": 18
+    },
+    {
+        "freelancer_name": "Salma Reyad (The Rating Crisis Case)",
+        "job_role": "Mobile Developer",
+        "image_name": "developer.jpg",
+        "bio_text": "Professional Flutter Developer. I love creating beautiful responsive web and mobile applications for Android and iOS. I work fast and promise to deliver on time. Message me for high-quality products.",
+        "declared_skills": ["Flutter", "Dart", "Firebase", "REST APIs", "Git", "Mobile UI/UX Principles", "iOS Deployment"],
+        "hourly_rate": 55.0,
+        "rating": 4.1,
+        "total_completed_jobs": 14
+    }
+]
