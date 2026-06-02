@@ -155,5 +155,256 @@
                 "has_misleading_phrasing": false
             }
         ]
+    },
+    {
+  "job_desc": "I’m working on my graduate-level capstone and have chosen to build a full-fledged recommendation system using a publicly available dataset (e.g., MovieLens, Amazon Reviews, Goodreads—whichever fits best once we outline the approach). The end goal is to demonstrate solid grasp of modern recommender techniques, from data preprocessing through model training, evaluation, and an easy-to-showcase demo.\n\nScope of work\nThe project has three pillars:\n1. Data pipeline – ingest, clean, and transform the chosen public dataset so it’s ready for modelling while remaining fully reproducible (Python, pandas, SQL or Spark if scale requires).\n2. Modelling – experiment with at least two algorithms that illustrate contrasting paradigms, for example matrix factorization (Surprise, implicit, LightFM) versus a neural approach (TensorFlow/PyTorch). Hyperparameter tuning and offline metrics such as precision@k, recall@k, MAP, or NDCG should be clearly reported.\n3. Demo & report – a lightweight web or notebook-based interface that lets a reviewer type or click an item and instantly see the top-N recommendations, plus a concise technical report summarising methodology, results, and next steps.\n\nAcceptance criteria\n• Code runs end-to-end on my machine with a single command or notebook run.\n• Evaluation metrics and comparison table included.\n• Read-me explains how to reproduce results and launch the demo.\n• Final write-up (≈10 pages) meets academic standards and is citation-ready.\n\nTimeline is flexible enough for thoughtful experimentation yet tight enough to keep momentum; we can break delivery into milestones (data prep, initial model, final model & demo, report).\n\nIf you are comfortable with recommender libraries, Python, and clear scientific communication, let’s discuss details and lock the dataset choice so we can start right away.\nSkills Required\nSQL\nMachine Learning (ML)\nData Mining\nSAS\nBig Data Sales\nHadoop\nData Science\nData Analysis",
+  "job_data": {
+    "tools": [
+      { "tool_name": "Python", "necessity_level": "REQUIRED" },
+      { "tool_name": "pandas", "necessity_level": "REQUIRED" },
+      { "tool_name": "SQL", "necessity_level": "REQUIRED" },
+      { "tool_name": "Spark", "necessity_level": "OPTIONAL" },
+      { "tool_name": "Surprise", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "implicit", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "LightFM", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "TensorFlow", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "PyTorch", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "SAS", "necessity_level": "OPTIONAL" },
+      { "tool_name": "Hadoop", "necessity_level": "OPTIONAL" }
+    ],
+    "requirements": [
+      { "id": 1, "description": "Ingest, clean, and transform public dataset into a reproducible data pipeline" },
+      { "id": 2, "description": "Experiment with at least two contrasting paradigms (Matrix Factorization vs Neural Approach)" },
+      { "id": 3, "description": "Perform hyperparameter tuning and report offline metrics (precision@k, recall@k, MAP, NDCG)" },
+      { "id": 4, "description": "Build a lightweight web or notebook-based interactive demo interface" },
+      { "id": 5, "description": "Write a concise technical report/write-up (≈10 pages) meeting academic standards" },
+      { "id": 6, "description": "Provide a README explaining how to reproduce results and launch the demo" }
+    ],
+    "core_problem": "Developing a fully reproducible graduate-level capstone recommendation system that demonstrates both classical and neural modeling paradigms alongside a functional demo and an academic-grade technical report.",
+    "required_deliverables": [
+      "Reproducible data pipeline script/notebook",
+      "Model training scripts comparing matrix factorization and neural networks",
+      "Evaluation metrics comparison table (Precision@K, Recall@K, MAP, NDCG)",
+      "Interactive top-N recommendation demo web app or notebook",
+      "Academic write-up/technical report (≈10 pages) with citations"
+    ],
+    "key_keywords": ["recommendation system", "matrix factorization", "neural approach", "precision@k", "NDCG", "reproducible", "capstone", "academic standards"]
+  },
+  "proposals": [
+    {
+      "proposal": "Hey there Glane here, I can help you build a complete graduate-level recommendation system using datasets like MovieLens, Amazon Reviews, or Goodreads with a fully reproducible Python pipeline. The project will cover data preprocessing, multiple recommendation approaches (e.g., matrix factorization and neural models), evaluation using metrics like Precision@K, Recall@K, MAP, and NDCG, along with a lightweight demo app or notebook for showcasing recommendations. Technologies used can include Python, pandas, scikit-learn, Surprise, LightFM, TensorFlow/PyTorch, SQL, and Streamlit/Flask. I’ll also provide a clean README, comparison tables, and an academic-style final report with milestone-based delivery.\nAs an expert in AI and ML, I've tackled numerous projects involving data analysis and mining, machine learning, and SQL—making me the perfect fit for your capstone on building an AI recommendation system. Having successfully delivered end-to-end projects that include every aspect, from data preprocessing to model training, evaluation and deployment, my specialization aligns directly with your requirements.\nLet’s connect",
+      "tools": [
+        { "tool_name": "Python", "with_confidence": true },
+        { "tool_name": "pandas", "with_confidence": true },
+        { "tool_name": "scikit-learn", "with_confidence": true },
+        { "tool_name": "Surprise", "with_confidence": true },
+        { "tool_name": "LightFM", "with_confidence": true },
+        { "tool_name": "TensorFlow", "with_confidence": true },
+        { "tool_name": "PyTorch", "with_confidence": true },
+        { "tool_name": "SQL", "with_confidence": true },
+        { "tool_name": "Streamlit", "with_confidence": true },
+        { "tool_name": "Flask", "with_confidence": true }
+      ],
+      "true_covered_ids": [1, 2, 3, 4, 5, 6],
+      "true_missing_ids": [],
+      "has_evidence": true,
+      "true_projects": ["Tackled numerous projects involving data analysis, mining, machine learning, and end-to-end recommendation workflows from preprocessing to deployment."],
+      "problem_identified": true,
+      "solution_proposed": true,
+      "practical_steps_mentioned": true,
+      "matched_keywords": ["recommendation system", "matrix factorization", "neural approach", "precision@k", "NDCG", "reproducible", "capstone"],
+      "missing_keywords": ["academic standards"],
+      "is_clear": true,
+      "is_professional": true,
+      "has_misleading_phrasing": false
+    },
+    {
+      "proposal": "Hey,\n\nThis is a project I’d be happy to help with. I have experience building recommendation systems, machine learning pipelines, model evaluation frameworks, and research-oriented projects where reproducibility and clear documentation are just as important as model performance.\n\nFor a capstone project, I’d recommend selecting a dataset that provides enough complexity to demonstrate meaningful experimentation while remaining practical to train and evaluate. My usual approach is to build a fully reproducible pipeline, compare a classical collaborative filtering model against a modern neural-based approach, analyze performance using ranking metrics, and then package everything with a simple interactive demo that makes the results easy to present and defend.\n\nBeyond the implementation, I can help structure the technical report with methodology, experiments, evaluation results, limitations, and future work sections so it reads like a professional academic project rather than just a coding exercise.\n\nHappy to discuss dataset selection, project milestones, and the level of technical depth expected by your program before we get started.",
+      "tools": [],
+      "true_covered_ids": [1, 2, 3, 4, 5],
+      "true_missing_ids": [6],
+      "has_evidence": true,
+      "true_projects": ["Built recommendation systems, machine learning pipelines, model evaluation frameworks, and research-oriented projects."],
+      "problem_identified": true,
+      "solution_proposed": true,
+      "practical_steps_mentioned": true,
+      "matched_keywords": ["recommendation system", "neural approach", "reproducible", "capstone"],
+      "missing_keywords": ["matrix factorization", "precision@k", "NDCG", "academic standards"],
+      "is_clear": true,
+      "is_professional": true,
+      "has_misleading_phrasing": false
+    },
+    {
+      "proposal": "IF YOU'RE NOT HAPPY, DON'T PAY. I recently completed a project similar to this, achieving reduced load times by optimizing data pipelines and implementing efficient algorithms.\n\nI bring real experience from large-scale projects, maintaining a clean, scalable workflow. With a background in projects akin to those linked with Microsoft and Amazon, I ensure seamless execution.\n\nYour need for a clean, reproducible data pipeline aligns with my approach of simplifying structures, delivering reliably, and focusing on long-term results.\n\nI am ready to start. If this aligns with your project, feel free to reach out to discuss scope and pricing.\n\nRegards,\nPatrick",
+      "tools": [],
+      "true_covered_ids": [1],
+      "true_missing_ids": [2, 3, 4, 5, 6],
+      "has_evidence": true,
+      "true_projects": ["Optimized data pipelines and implemented efficient algorithms for large-scale projects linked with Microsoft and Amazon."],
+      "problem_identified": false,
+      "solution_proposed": false,
+      "practical_steps_mentioned": false,
+      "matched_keywords": ["reproducible"],
+      "missing_keywords": ["recommendation system", "matrix factorization", "neural approach", "precision@k", "NDCG", "capstone", "academic standards"],
+      "is_clear": true,
+      "is_professional": false,
+      "has_misleading_phrasing": true
     }
+  ]
+},
+    {
+  "job_desc": "I’m looking to have a cloud-hosted, multi-tenant SaaS platform built that combines warehouse management intelligence with a radio-frequency–based fraud-detection engine. The environment you’ll be serving is a busy distribution center where every misplaced pallet or spoofed tag has a real financial impact, so speed and accuracy are critical.\n\nCore capability requirements\n• Inventory tracking that ingests live RF/RFID reads to keep stock positions up to the second.\n• Real-time alerts that fire whenever the data stream shows anomalies—unauthorized tag movement, duplicate IDs, signal loss, or any pattern we jointly define. Workers should receive push, SMS, or email notifications instantly.\n• Data analytics and reporting dashboards that help managers drill down by SKU, bay location, shift, or operator to uncover fraud trends and verify process improvements.\n\nTechnical expectations\nThe platform must be web-based, responsive, and scalable, written in a mainstream stack you’re comfortable maintaining. Think along the lines of Node.js or Python back-end services, PostgreSQL (or similar) databases, and a modern front-end framework such as React or Vue. Low-latency socket or MQTT channels will be needed to stream RF reader events. All code should be containerised (Docker/K8s ready) for easy deployment.\n\nDesign direction\nI need a fully custom look and feel that reflects our brand palette and the fast-paced, high-trust atmosphere of a distribution hub. You’ll collaborate with our designer on colour, typography, and UX wireframes, then translate those into production-ready components.\n\nSecurity & compliance\nSingle-sign-on, role-based access, audit logs, and GDPR-friendly data policies are mandatory. If you have prior experience meeting SOC 2 or ISO 27001 guidelines, note it.\n\nAcceptance criteria\n1. A working SaaS instance deployed to our cloud account with multi-tenant onboarding.\n2. Live RF data integration validated against our test readers.\n3. Alert rules configurable via the UI and demonstrably triggering.\n4. At least three interactive analytics views (overview, location heatmap, operator drill-down).\n5. Source code, build scripts, and basic DevOps documentation handed over.\n\nIf you’ve built IoT dashboards, RFID or BLE tracking tools, or anti-fraud systems before, that background will be invaluable. Let me know your proposed tech stack, timeline, and any clarifying questions so we can get started.\nSkills Required\nPython\nCloud Computing\nMachine Learning (ML)\nNode.js\nPostgreSQL\nDocker\nWeb Development\nData Analytics\nVue.js\nAnomaly Detection",
+  "job_data": {
+    "tools": [
+      { "tool_name": "Python", "necessity_level": "REQUIRED" },
+      { "tool_name": "Node.js", "necessity_level": "REQUIRED" },
+      { "tool_name": "PostgreSQL", "necessity_level": "REQUIRED" },
+      { "tool_name": "Docker", "necessity_level": "REQUIRED" },
+      { "tool_name": "Vue.js", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "React", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "MQTT", "necessity_level": "REQUIRED" },
+      { "tool_name": "Kubernetes", "necessity_level": "RECOMMENDED" }
+    ],
+    "requirements": [
+      { "id": 1, "description": "Inventory tracking ingesting live RF/RFID reads to keep stock positions up to the second" },
+      { "id": 2, "description": "Real-time alert rules engine triggering instant push/SMS/email notifications upon stream anomalies" },
+      { "id": 3, "description": "Interactive analytics dashboards with 3 views (overview, location heatmap, operator drill-down)" },
+      { "id": 4, "description": "Web-based, multi-tenant cloud SaaS deployment with SSO, RBAC, and audit logs" },
+      { "id": 5, "description": "Low-latency streaming channels (Sockets/MQTT) and fully containerized code architecture" }
+    ],
+    "core_problem": "Building a high-throughput, low-latency multi-tenant SaaS for warehouse tracking that integrates live RF/RFID streams with a real-time fraud and anomaly detection engine.",
+    "required_deliverables": [
+      "Multi-tenant cloud-deployed SaaS platform with onboarding workflows",
+      "Live RF data ingestion pipeline integrated and validated with test readers",
+      "Configurable alert system in UI with real-time push/SMS/email components",
+      "Three functional interactive data analytics dashboard views",
+      "Containerized codebase with build scripts and DevOps documentation"
+    ],
+    "key_keywords": ["RFID", "anomaly detection", "multi-tenant SaaS", "real-time alerts", "MQTT", "low-latency", "warehouse management", "fraud detection"]
+  },
+  "proposals": [
+    {
+      "proposal": "Having dedicated 8+ years to Data Analytics & Science, I understand the criticality of data in making effective business decisions. Combining this knowledge with my expertise in **Python, Node.js, Docker, PostgreSQL**, and web development, I believe I could be a perfect fit for your RF Fraud-Detect Warehouse SaaS project.\n\nDuring my career, I have successfully developed interactive **dashboards and analytics systems** that have proven instrumental in a wide range of industries including finance, eCommerce and healthcare. Building on this experience, I am confident in my ability to deliver an inventory tracking system capable of live RF/RFID reads that keeps stock positions updated second by second while sending you real-time alerts when detecting anomalies.\n\nFurther, my skills align perfectly with your tech stack and design direction. I'm well-versed in integrating **low-latency socket or MQTT channels** to stream RF reader events while ensuring all code is containerized (Docker/K8s ready) for smooth deployment. My expertise with platforms like Power BI, Looker, and Python which you mentioned is another plus. Additionally, my experience meeting **SOC 2 and ISO 27001 guidelines** showcases my commitment to security and compliance; a trait essential for building SaaS platforms incorporating sensitive data like yours.",
+      "tools": [
+        { "tool_name": "Python", "with_confidence": true },
+        { "tool_name": "Node.js", "with_confidence": true },
+        { "tool_name": "Docker", "with_confidence": true },
+        { "tool_name": "PostgreSQL", "with_confidence": true },
+        { "tool_name": "MQTT", "with_confidence": true },
+        { "tool_name": "Kubernetes", "with_confidence": true },
+        { "tool_name": "Power BI", "with_confidence": true },
+        { "tool_name": "Looker", "with_confidence": true }
+      ],
+      "true_covered_ids": [1, 2, 3, 4, 5],
+      "true_missing_ids": [],
+      "has_evidence": true,
+      "true_projects": ["Successfully developed interactive dashboards and analytics systems across finance, eCommerce, and healthcare industries."],
+      "problem_identified": true,
+      "solution_proposed": true,
+      "practical_steps_mentioned": false,
+      "matched_keywords": ["RFID", "real-time alerts", "MQTT", "low-latency", "SaaS"],
+      "missing_keywords": ["anomaly detection", "warehouse management", "fraud detection"],
+      "is_clear": true,
+      "is_professional": true,
+      "has_misleading_phrasing": false
+    },
+    {
+      "proposal": "Your RF fraud-detection layer will fail under load if you're processing thousands of RFID reads per second without a message queue to buffer spikes. Distribution centers generate 10K+ tag events per minute during peak shifts, and without proper stream processing, you'll drop critical fraud signals.\n\nBefore architecting the solution, I need clarity on two points: What's your expected concurrent tag read volume during peak operations, and are your RF readers pushing data via MQTT, REST webhooks, or a proprietary protocol? Also, do you need sub-second alert delivery or is 2-3 second latency acceptable for fraud notifications?\n\nHere's the architectural approach:\n\n- PYTHON + MACHINE LEARNING: Build anomaly detection models using isolation forests and LSTM networks to flag duplicate tag IDs, geofencing violations, and velocity anomalies that indicate spoofing or theft patterns.\n\n- NODE.JS + MQTT: Implement a real-time event ingestion pipeline using MQTT brokers and WebSocket streams to handle 50K+ RFID reads per minute with sub-500ms processing latency.\n\n- POSTGRESQL + TIMESCALEDB: Design a time-series optimized schema with hypertables for RF event storage, enabling sub-second queries across 100M+ historical tag reads for trend analysis.\n\n- VUE.JS + D3.JS: Build interactive heatmaps showing real-time pallet movement across warehouse zones, with drill-down views by operator, shift, and SKU to surface fraud patterns instantly.\n\n- DOCKER + KUBERNETES: Containerize all microservices with auto-scaling policies that spin up fraud-detection workers during peak hours without manual intervention.\n\nI've built 3 IoT platforms for logistics clients that process sensor data at scale, including a cold-chain monitoring system handling 200K temperature readings per hour. I don't take on projects where the RF integration protocol is unclear - let's schedule a 20-minute technical call to align on data flow and failure scenarios before starting development.",
+      "tools": [
+        { "tool_name": "Python", "with_confidence": true },
+        { "tool_name": "Node.js", "with_confidence": true },
+        { "tool_name": "MQTT", "with_confidence": true },
+        { "tool_name": "PostgreSQL", "with_confidence": true },
+        { "tool_name": "TimescaleDB", "with_confidence": true },
+        { "tool_name": "Vue.js", "with_confidence": true },
+        { "tool_name": "D3.js", "with_confidence": true },
+        { "tool_name": "Docker", "with_confidence": true },
+        { "tool_name": "Kubernetes", "with_confidence": true }
+      ],
+      "true_covered_ids": [1, 2, 3, 5],
+      "true_missing_ids": [4],
+      "has_evidence": true,
+      "true_projects": ["Built 3 IoT platforms for logistics clients processing sensor data at scale, including a cold-chain monitoring system handling 200K temperature readings per hour."],
+      "problem_identified": true,
+      "solution_proposed": true,
+      "practical_steps_mentioned": true,
+      "matched_keywords": ["RFID", "anomaly detection", "real-time alerts", "MQTT", "low-latency", "warehouse management", "fraud detection"],
+      "missing_keywords": ["multi-tenant SaaS"],
+      "is_clear": true,
+      "is_professional": true,
+      "has_misleading_phrasing": false
+    },
+    {
+      "proposal": "As a seasoned Full-Stack Developer with over 7 years of experience, I've had extensive exposure to a wide range of technical environments that you will find highly advantageous for your RF Fraud-Detect Warehouse SaaS project. Throughout my career, I've consistently delivered web applications and SaaS products utilizing technologies such as Node.js, PostgreSQL, and the containerization Docker tool in a way that ensures easy deployment, scalability, security, and optimal performance – essential features for a multi-tenant SaaS platform of this nature.\n\nAdditionally, my background in AI & Machine Learning will be invaluable in building the warehouse management intelligence aspect of your SaaS platform. Over the years, I've implemented artificial intelligence models for natural language processing, computer vision, recommendation engines, and intelligent automation – skills that align well with your fraud detection engine requirement.\n\nbelieve in clear communication throughout the project duration; providing realistic timelines and daily updates while ensuring zero ghosting. Collaborating with clients consciously to make smarter technical decisions regarding their projects has been one of my key differentiators. If you entrust me with your RF Fraud-Detect Warehouse SaaS project not only will I bring extensive professional experiences suited to its needs but also aim for a solution that reaps long-term benefits for your enterprise.",
+      "tools": [
+        { "tool_name": "Node.js", "with_confidence": true },
+        { "tool_name": "PostgreSQL", "with_confidence": true },
+        { "tool_name": "Docker", "with_confidence": true }
+      ],
+      "true_covered_ids": [4],
+      "true_missing_ids": [1, 2, 3, 5],
+      "has_evidence": true,
+      "true_projects": ["Implemented AI models for natural language processing, computer vision, recommendation engines, and intelligent automation."],
+      "problem_identified": false,
+      "solution_proposed": false,
+      "practical_steps_mentioned": false,
+      "matched_keywords": ["multi-tenant SaaS", "warehouse management", "fraud detection"],
+      "missing_keywords": ["RFID", "anomaly detection", "real-time alerts", "MQTT", "low-latency"],
+      "is_clear": true,
+      "is_professional": true,
+      "has_misleading_phrasing": false
+    }
+  ]
+},
+    {
+  "job_desc": "I’m looking to streamline our data-processing workflow end-to-end by introducing a well-designed layer of AI-powered automation. My primary objective is to boost efficiency—manual hand-offs and repetitive tasks are slowing us down, and I want machine learning models or rule-based bots to take over those routines so the team can focus on higher-value analysis.\n\nHere’s what I need from you:\n\n• Assess the current data flow (sources, formats, volume, and existing tools).\n• Propose an automation architecture that fits: Python scripts, low-code RPA, or a custom ML model—whichever shortens turnaround time without sacrificing accuracy.\n• Implement, test, and document the solution, ensuring it plugs neatly into our existing stack via API or scheduled jobs.\n• Provide a clear hand-over: code repository, configuration notes, and a quick video or live walkthrough so we can maintain or extend the system in-house.\n\nExperience with pandas, SQL, GPT-powered extraction or validation, and cloud functions (AWS Lambda, GCP, or Azure Functions) will be ideal. I value clean, readable code and transparent communication throughout the project. If you have examples of similar automations you’ve built, please share a brief summary or link.\n\nI’m ready to get started as soon as we agree on an approach and timeline. Let’s make our data workflow run itself.\nSkills Required\nJava\nPython\nData Processing\nSoftware Architecture\nProlog\nData Analysis\nAutomation\nAPI Integration\nAI Development\nRPA Development",
+  "job_data": {
+    "tools": [
+      { "tool_name": "Python", "necessity_level": "REQUIRED" },
+      { "tool_name": "pandas", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "SQL", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "GPT", "necessity_level": "RECOMMENDED" },
+      { "tool_name": "AWS Lambda", "necessity_level": "OPTIONAL" },
+      { "tool_name": "GCP", "necessity_level": "OPTIONAL" },
+      { "tool_name": "Azure Functions", "necessity_level": "OPTIONAL" },
+      { "tool_name": "Java", "necessity_level": "OPTIONAL" },
+      { "tool_name": "Prolog", "necessity_level": "OPTIONAL" }
+    ],
+    "requirements": [
+      { "id": 1, "description": "Assess the current data flow including sources, formats, volume, and existing tools" },
+      { "id": 2, "description": "Propose an automation architecture (Python scripts, low-code RPA, or custom ML models)" },
+      { "id": 3, "description": "Implement, test, and document the solution plugging into stack via API or scheduled jobs" },
+      { "id": 4, "description": "Provide a clean hand-over with code repository, configuration notes, and a video walkthrough" }
+    ],
+    "core_problem": "Streamlining an end-to-end data-processing workflow by replacing manual hand-offs and repetitive routines with a modular, AI-powered automation architecture integrated cleanly via APIs or scheduled cloud functions.",
+    "required_deliverables": [
+      "Current workflow data flow assessment",
+      "Proposed hybrid automation architecture plan",
+      "Documented production-ready codebase integrated via APIs or cron jobs",
+      "Hand-over package containing the code repository, config notes, and walkthrough video"
+    ],
+    "key_keywords": ["data-processing workflow", "AI-powered automation", "Python pipelines", "RPA", "cloud functions", "API integration", "clean code"]
+  },
+  "proposals": [
+    {
+      "proposal": "Hello,\n\nYour requirement is exactly the kind of problem where well-structured automation can significantly reduce manual workload and improve consistency across data operations.\n\nInstead of focusing only on AI models, my approach is to first understand your current workflow end-to-end and identify which parts are best suited for rule-based automation, Python pipelines, or AI-assisted processing. In most real-world systems, the best results come from combining all three in a practical way rather than relying solely on machine learning.\n\nI focus heavily on clean, readable code and modular design so the system can be extended easily without rework.\n\nBefore starting, I would like to understand:\n\n1. What are the current tools in your data pipeline (SQL, Excel, APIs, SaaS tools, etc.)?\n2. Where do you see the most time-consuming manual steps today?\n3. What is the expected data volume and frequency of processing?\n\nIf you have existing workflows or sample datasets, I can quickly propose an optimized architecture and implementation plan.\n\nI’m available to start immediately and can deliver a working automation pipeline in a short, structured milestone-based approach.\n\nBest Regards,\nMayuri\nPython Developer | Data Automation | AI Integration | Cloud Workflows",
+      "tools": [
+        { "tool_name": "Python", "with_confidence": true },
+        { "tool_name": "SQL", "with_confidence": true }
+      ],
+      "true_covered_ids": [1, 2, 3],
+      "true_missing_ids": [4],
+      "has_evidence": false,
+      "true_projects": [],
+      "problem_identified": true,
+      "solution_proposed": true,
+      "practical_steps_mentioned": true,
+      "matched_keywords": ["AI integration", "Python pipelines", "automation", "clean code", "architecture"],
+      "missing_keywords": ["cloud functions", "RPA", "data-processing workflow"],
+      "is_clear": true,
+      "is_professional": true,
+      "has_misleading_phrasing": false
+    }
+  ]
+}
 ]
