@@ -69,18 +69,52 @@ class EvaluationDataParser:
             ]
         }
     
-    @staticmethod
-    def get_language_clarity_evaluator_data(sample):
-        pass
+   @staticmethod
+def get_language_clarity_evaluator_data(sample):
+    return {
+        "proposals": [
+            {
+                "proposal"       : p.get("proposal", ""),
+                "is_clear"       : p.get("is_clear", None),
+                "is_professional": p.get("is_professional", None),
+                "has_misleading" : p.get("has_misleading_phrasing", None),
+            }
+            for p in sample.get("proposals", [])
+        ]
+    }
 
-    @staticmethod
-    def get_job_key_points_extractor_data(sample):
-        pass
+@staticmethod
+def get_job_key_points_extractor_data(sample):
+    return {
+        "job_desc"  : sample.get("job_desc", ""),
+        "key_points": {
+            "core_problem"         : sample.get("job_data", {}).get("core_problem", ""),
+            "required_deliverables": sample.get("job_data", {}).get("required_deliverables", []),
+            "key_keywords"         : sample.get("job_data", {}).get("key_keywords", []),
+        }
+    }
 
-    @staticmethod
-    def get_job_understanding_evaluator_data(sample):
-        pass
-
+@staticmethod
+def get_job_understanding_evaluator_data(sample):
+    return {
+        "job_desc": sample.get("job_desc", ""),
+        "job_data": {
+            "core_problem"         : sample.get("job_data", {}).get("core_problem", ""),
+            "required_deliverables": sample.get("job_data", {}).get("required_deliverables", []),
+            "key_keywords"         : sample.get("job_data", {}).get("key_keywords", []),
+        },
+        "proposals": [
+            {
+                "proposal"                 : p.get("proposal", ""),
+                "true_problem_identified"  : p.get("problem_identified", None),
+                "true_solution_proposed"   : p.get("solution_proposed", None),
+                "true_practical_steps"     : p.get("practical_steps_mentioned", None),
+                "true_matched_keywords"    : p.get("matched_keywords", []),
+                "true_missing_keywords"    : p.get("missing_keywords", []),
+            }
+            for p in sample.get("proposals", [])
+        ]
+    }
     @staticmethod
     def get_experience_evidence_finder_data(sample):
         return {
