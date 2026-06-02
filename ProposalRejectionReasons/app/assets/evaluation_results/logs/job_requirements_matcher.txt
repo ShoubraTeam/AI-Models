@@ -3,7 +3,7 @@
 Run Configurations:
 	>> run_id --> 1
 	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.95}
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
 
 
 => Sample #1:
@@ -13,7 +13,7 @@ Run Configurations:
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 1.0
 		>> matcher_f1_score --> 1.0
-		>> agent_invokation_time --> 1.0059962272644043
+		>> agent_invokation_time --> 1.336552381515503
 
 
 => Sample #2:
@@ -23,17 +23,17 @@ Run Configurations:
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 1.0
 		>> matcher_f1_score --> 1.0
-		>> agent_invokation_time --> 1.1142432689666748
+		>> agent_invokation_time --> 16.36274790763855
 
 
 => Sample #3:
 	- Passed
 	- Results:
-		>> matcher_accuracy --> 0.6666666666666666
+		>> matcher_accuracy --> 0.3333333333333333
 		>> matcher_precision --> 1.0
-		>> matcher_recall --> 0.6666666666666666
-		>> matcher_f1_score --> 0.8
-		>> agent_invokation_time --> 1.5050971508026123
+		>> matcher_recall --> 0.3333333333333333
+		>> matcher_f1_score --> 0.5
+		>> agent_invokation_time --> 8.307410717010498
 
 
 => Sample #4:
@@ -43,6 +43,36 @@ Run Configurations:
 		>> matcher_precision --> 1.0
 		>> matcher_recall --> 0.5
 		>> matcher_f1_score --> 0.6666666666666666
-		>> agent_invokation_time --> 1.3832168579101562
+		>> agent_invokation_time --> 37.680729150772095
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 2.1571035385131836
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.6
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 0.6
+		>> matcher_f1_score --> 0.7499999999999999
+		>> agent_invokation_time --> 1.7800257205963135
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.75
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 0.6666666666666666
+		>> matcher_f1_score --> 0.8
+		>> agent_invokation_time --> 3.547142267227173
 
 ====================================================================================================

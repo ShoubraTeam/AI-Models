@@ -47,9 +47,13 @@ class EvaluationDataParser:
 
     @staticmethod
     def get_job_requirements_extractor_data(sample):
+        job_data = sample.get("job_data", {})
+        
         return {
-            "desc": sample.get("job_desc", ""),
-            "requirements": sample.get("job_data", {}).get("requirements", [])
+            "job_desc": sample.get("job_desc", ""),
+            "job_data": {
+                "requirements": job_data.get("requirements", [])
+            }
         }
     
 

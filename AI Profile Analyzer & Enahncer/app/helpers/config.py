@@ -30,7 +30,7 @@ DEFAULT_MODELS_CFG = {
         "max_tokens"  : 1024
     },
     "super_agent" : {
-        "temperature" : 0.2, # محتاجين كرييتفتي وسياق بشري أعلى هنا في الكتابة والملخص
+        "temperature" : 0.2, 
         "max_tokens"  : 1024
     }
 }

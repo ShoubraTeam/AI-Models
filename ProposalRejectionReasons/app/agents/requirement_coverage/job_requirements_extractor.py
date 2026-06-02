@@ -17,9 +17,8 @@ class JobRequirementsExtractor(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_requirements_extractor"]
 
-
         super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
-        self.case_counter = 0
+        self.case_counter = 0 
 
     def get_agent(self):
         return super().get_agent()
@@ -78,59 +77,69 @@ class JobRequirementsExtractor(BaseAgent):
         self.case_counter += 1 
         print(f"\n" + "="*50 + f" [DEBUG CASE #{self.case_counter}] " + "="*50)
 
-        job_desc = sample["job_desc"]
-        true_requirements = sample["job_data"].get("requirements", [])
+        import traceback
+        try:
+            # التعديل الهيكلي: قراءة الـ Keys الجديدة بأمان متناهي لمنع الـ KeyError
+            job_desc = sample.get("job_desc", "")
+            job_data = sample.get("job_data", {})
+            true_requirements = job_data.get("requirements", [])
 
-        start_time = time()
-        extracted_output = self.invoke(input = job_desc)
-        end_time = time()
-        
-        pred_requirements = extracted_output.requirements           
+            start_time = time()
+            extracted_output = self.invoke(input = job_desc)
+            end_time = time()
+            
+            pred_requirements = extracted_output.requirements           
 
-        true_texts = [req.get("description", "") for req in true_requirements] 
-        pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
-        
-        print(f"True Requirements Count: {len(true_texts)} | Agent Extracted Count: {len(pred_texts)}")
-        print(f"True Descriptions: {true_texts}")
-        print(f"Pred Descriptions: {pred_texts}")
-        print("-" * 115)
+            # دعم استخراج الوصف سواء الـ id كان نص أو رقم انتجر بناءً على الحالات المدمجة
+            true_texts = [req.get("description", "") for req in true_requirements] 
+            pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
+            
+            print(f"True Requirements Count: {len(true_texts)} | Agent Extracted Count: {len(pred_texts)}")
+            print(f"True Descriptions: {true_texts}")
+            print(f"Pred Descriptions: {pred_texts}")
+            print("-" * 115)
 
-        matched_pairs = self._get_batch_semantic_matches(true_texts, pred_texts)
+            matched_pairs = self._get_batch_semantic_matches(true_texts, pred_texts)
 
-        matched_true = set()
-        matched_pred = set()
-        for t_idx, p_idx in matched_pairs:
-            matched_true.add(t_idx)
-            matched_pred.add(p_idx)
-            print(f" -> [SEMANTIC MATCH] True #{t_idx} matched with Pred #{p_idx}")
+            matched_true = set()
+            matched_pred = set()
+            for t_idx, p_idx in matched_pairs:
+                matched_true.add(t_idx)
+                matched_pred.add(p_idx)
+                print(f" -> [SEMANTIC MATCH] True #{t_idx} matched with Pred #{p_idx}")
 
-        TP = len(matched_pred)                                    
-        FP = len(pred_texts) - len(matched_pred)
-        FN = len(true_texts) - len(matched_true)
+            TP = len(matched_pred)                                    
+            FP = len(pred_texts) - len(matched_pred)
+            FN = len(true_texts) - len(matched_true)
 
-        accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0.0
-        precision = TP / (TP + FP)      if (TP + FP)      else 0.0
-        recall    = TP / (TP + FN)      if (TP + FN)      else 0.0
+            accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0.0
+            precision = TP / (TP + FP)      if (TP + FP)      else 0.0
+            recall    = TP / (TP + FN)      if (TP + FN)      else 0.0
 
-        correct_necessity = 0
-        total_necessity = 0
-        for t_idx, p_idx in matched_pairs:
-            true_level = true_requirements[t_idx].get("necessity_level")
-            pred_level = getattr(pred_requirements[p_idx], "necessity_level", "")
-            total_necessity += 1
-            if true_level == pred_level:
-                correct_necessity += 1
-            else:
-                print(f" -> [NECESSITY MISMATCH] True #{t_idx} ({true_level}) VS Pred #{p_idx} ({pred_level})")
+            correct_necessity = 0
+            total_necessity = 0
+            for t_idx, p_idx in matched_pairs:
+                true_level = true_requirements[t_idx].get("necessity_level", "mandatory") # default قيمة افتراضية لو مش مكتوبة
+                pred_level = getattr(pred_requirements[p_idx], "necessity_level", "")
+                total_necessity += 1
+                if true_level == pred_level:
+                    correct_necessity += 1
+                else:
+                    print(f" -> [NECESSITY MISMATCH] True #{t_idx} ({true_level}) VS Pred #{p_idx} ({pred_level})")
 
-        necessity_acc = (correct_necessity / total_necessity) if total_necessity else 0.0
+            necessity_acc = (correct_necessity / total_necessity) if total_necessity else 0.0
 
-        print(f"[SAMPLE METRICS] Accuracy: {round(accuracy, 2)} | Precision: {round(precision, 2)} | Recall: {round(recall, 2)} | Necessity Accuracy: {round(necessity_acc, 2)}")
+            print(f"[SAMPLE METRICS] Accuracy: {round(accuracy, 2)} | Precision: {round(precision, 2)} | Recall: {round(recall, 2)} | Necessity Accuracy: {round(necessity_acc, 2)}")
 
-        return {
-            "requirements_extraction_accuracy" : accuracy,
-            "requirements_extraction_precision" : precision,
-            "requirements_extraction_recall"    : recall,
-            "requirements_necessity_accuracy"   : necessity_acc,
-            "agent_invokation_time"            : end_time - start_time
-        }
+            return {
+                "requirements_extraction_accuracy" : accuracy,
+                "requirements_extraction_precision" : precision,
+                "requirements_extraction_recall"    : recall,
+                "requirements_necessity_accuracy"   : necessity_acc,
+                "agent_invokation_time"            : end_time - start_time
+            }
+            
+        except Exception as e:
+            print(f"\n[EXTRACTOR CRASH DETECTED INSIDE CASE #{self.case_counter} !!!]")
+            traceback.print_exc()
+            return {k: 0.0 for k in self.get_metric_names()}

@@ -1,18 +1,18 @@
 [
     {
         "run_id": 1,
-        "model_name": "groq:openai/gpt-oss-120b",
+        "model_name": "groq:llama-3.3-70b-versatile",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 2048,
+            "max_tokens": 4096,
             "top_p": 0.95
         },
         "results": {
-            "requirements_extraction_accuracy": 0.6805555555555556,
-            "requirements_extraction_precision": 0.6805555555555556,
+            "requirements_extraction_accuracy": 0.5022501308215593,
+            "requirements_extraction_precision": 0.5022501308215593,
             "requirements_extraction_recall": 1.0,
-            "requirements_necessity_accuracy": 1.0,
-            "agent_invokation_time": 1.1782156229019165,
+            "requirements_necessity_accuracy": 0.9230769230769231,
+            "agent_invokation_time": 5.939978122711182,
             "error_rate": 0.0
         }
     }
