@@ -8,12 +8,12 @@
             "top_p": 0.7
         },
         "results": {
-            "tools_alignment_accuracy": 0.4833333333333333,
-            "tools_alignment_precision": 0.5785714285714285,
-            "tools_alignment_recall": 0.875,
-            "tools_necessity_accuracy": 0.41666666666666663,
-            "agent_invokation_time": 0.9793597459793091,
-            "error_rate": 0.3333333333333333
+            "tools_alignment_accuracy": 0.4147435897435897,
+            "tools_alignment_precision": 0.46236263736263733,
+            "tools_alignment_recall": 0.6875,
+            "tools_necessity_accuracy": 0.20833333333333331,
+            "agent_invokation_time": 3.0765159130096436,
+            "error_rate": 0.42857142857142855
         }
     },
     {
@@ -25,12 +25,726 @@
             "top_p": 0.8
         },
         "results": {
-            "tools_alignment_accuracy": 0.4833333333333333,
-            "tools_alignment_precision": 0.5785714285714285,
-            "tools_alignment_recall": 0.875,
-            "tools_necessity_accuracy": 0.41666666666666663,
-            "agent_invokation_time": 6.160891771316528,
-            "error_rate": 0.3333333333333333
+            "tools_alignment_accuracy": 0.4147435897435897,
+            "tools_alignment_precision": 0.46236263736263733,
+            "tools_alignment_recall": 0.6875,
+            "tools_necessity_accuracy": 0.20833333333333331,
+            "agent_invokation_time": 7.029860317707062,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 256,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4147435897435897,
+            "tools_alignment_precision": 0.46236263736263733,
+            "tools_alignment_recall": 0.6875,
+            "tools_necessity_accuracy": 0.20833333333333331,
+            "agent_invokation_time": 7.263400971889496,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 4,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 256,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4147435897435897,
+            "tools_alignment_precision": 0.46236263736263733,
+            "tools_alignment_recall": 0.6875,
+            "tools_necessity_accuracy": 0.20833333333333331,
+            "agent_invokation_time": 5.714827299118042,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 5,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.40683760683760684,
+            "tools_alignment_precision": 0.4627106227106227,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 8.220543003082275,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 6,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 7.810621118545532,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 7,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 8.13132939338684,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 8,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 7.668950510025025,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 9,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 768,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 8.315452098846436,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 10,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 768,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.40683760683760684,
+            "tools_alignment_precision": 0.4627106227106227,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 8.067813110351562,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 11,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 768,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 7.17833104133606,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 12,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 768,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 8.129717254638672,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 13,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 6.8171576976776125,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 14,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 7.973845529556274,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 15,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 7.890212440490723,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 16,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 8.978522205352784,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 17,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 256,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.36036630036630035,
+            "tools_alignment_precision": 0.4032234432234432,
+            "tools_alignment_recall": 0.65,
+            "tools_necessity_accuracy": 0.36666666666666664,
+            "agent_invokation_time": 6.702333593368531,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 18,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 256,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.3222222222222222,
+            "tools_alignment_precision": 0.3857142857142857,
+            "tools_alignment_recall": 0.5833333333333334,
+            "tools_necessity_accuracy": 0.27777777777777773,
+            "agent_invokation_time": 6.061845858891805,
+            "error_rate": 0.5714285714285714
+        }
+    },
+    {
+        "run_id": 19,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 256,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4599358974358974,
+            "tools_alignment_precision": 0.507554945054945,
+            "tools_alignment_recall": 0.9375,
+            "tools_necessity_accuracy": 0.3333333333333333,
+            "agent_invokation_time": 8.464399933815002,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 20,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 256,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.5147435897435897,
+            "tools_alignment_precision": 0.5623626373626374,
+            "tools_alignment_recall": 0.9375,
+            "tools_necessity_accuracy": 0.3333333333333333,
+            "agent_invokation_time": 14.854158222675323,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 21,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.5683760683760684,
+            "tools_alignment_precision": 0.6128205128205129,
+            "tools_alignment_recall": 0.8636363636363636,
+            "tools_necessity_accuracy": 0.0,
+            "agent_invokation_time": 2.953389286994934,
+            "error_rate": 0.7142857142857143
+        }
+    },
+    {
+        "run_id": 22,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 3.0031596660614013,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 23,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.3866503866503866,
+            "tools_alignment_precision": 0.4332112332112332,
+            "tools_alignment_recall": 0.7462121212121212,
+            "tools_necessity_accuracy": 0.2222222222222222,
+            "agent_invokation_time": 7.708105047543843,
+            "error_rate": 0.14285714285714285
+        }
+    },
+    {
+        "run_id": 24,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.502045177045177,
+            "tools_alignment_precision": 0.5242673992673993,
+            "tools_alignment_recall": 0.9318181818181819,
+            "tools_necessity_accuracy": 0.14583333333333331,
+            "agent_invokation_time": 9.494576871395111,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 25,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 768,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4206837606837607,
+            "tools_alignment_precision": 0.47655677655677653,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 12.542353296279908,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 26,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 768,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.38179487179487176,
+            "tools_alignment_precision": 0.4198901098901099,
+            "tools_alignment_recall": 0.75,
+            "tools_necessity_accuracy": 0.26666666666666666,
+            "agent_invokation_time": 5.848290491104126,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 27,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 768,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.29914529914529914,
+            "tools_alignment_precision": 0.29914529914529914,
+            "tools_alignment_recall": 0.6666666666666666,
+            "tools_necessity_accuracy": 0.19444444444444442,
+            "agent_invokation_time": 5.446239312489827,
+            "error_rate": 0.5714285714285714
+        }
+    },
+    {
+        "run_id": 28,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 768,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4435042735042735,
+            "tools_alignment_precision": 0.4912820512820513,
+            "tools_alignment_recall": 0.8954545454545455,
+            "tools_necessity_accuracy": 0.26666666666666666,
+            "agent_invokation_time": 2.165971040725708,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 29,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.38069800569800566,
+            "tools_alignment_precision": 0.42725885225885224,
+            "tools_alignment_recall": 0.7462121212121212,
+            "tools_necessity_accuracy": 0.2222222222222222,
+            "agent_invokation_time": 9.968777934710184,
+            "error_rate": 0.14285714285714285
+        }
+    },
+    {
+        "run_id": 30,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.5133547008547008,
+            "tools_alignment_precision": 0.5831959706959706,
+            "tools_alignment_recall": 0.8693181818181819,
+            "tools_necessity_accuracy": 0.25,
+            "agent_invokation_time": 6.3994675278663635,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 31,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.39166666666666666,
+            "tools_alignment_precision": 0.4392857142857143,
+            "tools_alignment_recall": 0.6875,
+            "tools_necessity_accuracy": 0.20833333333333331,
+            "agent_invokation_time": 5.613811552524567,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 32,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.41898148148148145,
+            "tools_alignment_precision": 0.44861111111111107,
+            "tools_alignment_recall": 0.9090909090909092,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 19.23695929845174,
+            "error_rate": 0.5714285714285714
+        }
+    },
+    {
+        "run_id": 33,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 256,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.3546153846153846,
+            "tools_alignment_precision": 0.38461538461538464,
+            "tools_alignment_recall": 0.75,
+            "tools_necessity_accuracy": 0.26666666666666666,
+            "agent_invokation_time": 3.9713956832885744,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 34,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 256,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.41461538461538466,
+            "tools_alignment_precision": 0.46461538461538465,
+            "tools_alignment_recall": 0.75,
+            "tools_necessity_accuracy": 0.26666666666666666,
+            "agent_invokation_time": 8.069146966934204,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 35,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 256,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.40576923076923077,
+            "tools_alignment_precision": 0.4252136752136752,
+            "tools_alignment_recall": 0.71875,
+            "tools_necessity_accuracy": 0.22619047619047616,
+            "agent_invokation_time": 7.622456192970276,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 36,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 256,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.3005952380952381,
+            "tools_alignment_precision": 0.3482142857142857,
+            "tools_alignment_recall": 0.6875,
+            "tools_necessity_accuracy": 0.3333333333333333,
+            "agent_invokation_time": 7.160527229309082,
+            "error_rate": 0.42857142857142855
+        }
+    },
+    {
+        "run_id": 37,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.34169958581723286,
+            "tools_alignment_precision": 0.36048265460030166,
+            "tools_alignment_recall": 0.7045454545454546,
+            "tools_necessity_accuracy": 0.3263888888888889,
+            "agent_invokation_time": 8.583700935045878,
+            "error_rate": 0.14285714285714285
+        }
+    },
+    {
+        "run_id": 38,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.47509157509157507,
+            "tools_alignment_precision": 0.5256868131868131,
+            "tools_alignment_recall": 0.9136363636363637,
+            "tools_necessity_accuracy": 0.26666666666666666,
+            "agent_invokation_time": 9.74335436820984,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 39,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4238782051282051,
+            "tools_alignment_precision": 0.4759615384615385,
+            "tools_alignment_recall": 0.7613636363636364,
+            "tools_necessity_accuracy": 0.2222222222222222,
+            "agent_invokation_time": 8.305458585421244,
+            "error_rate": 0.14285714285714285
+        }
+    },
+    {
+        "run_id": 40,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.37472222222222223,
+            "tools_alignment_precision": 0.43059523809523814,
+            "tools_alignment_recall": 0.6954545454545455,
+            "tools_necessity_accuracy": 0.16666666666666666,
+            "agent_invokation_time": 9.001522731781005,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 41,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 768,
+            "top_p": 0.7
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.4279202279202279,
+            "tools_alignment_precision": 0.4744810744810745,
+            "tools_alignment_recall": 0.7462121212121212,
+            "tools_necessity_accuracy": 0.13888888888888887,
+            "agent_invokation_time": 9.401230374972025,
+            "error_rate": 0.14285714285714285
+        }
+    },
+    {
+        "run_id": 42,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 768,
+            "top_p": 0.8
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.5529914529914529,
+            "tools_alignment_precision": 0.5529914529914529,
+            "tools_alignment_recall": 1.0,
+            "tools_necessity_accuracy": 0.19444444444444442,
+            "agent_invokation_time": 9.912139336268107,
+            "error_rate": 0.5714285714285714
+        }
+    },
+    {
+        "run_id": 43,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 768,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.38449074074074074,
+            "tools_alignment_precision": 0.42430555555555555,
+            "tools_alignment_recall": 0.7462121212121212,
+            "tools_necessity_accuracy": 0.2222222222222222,
+            "agent_invokation_time": 8.494275689125061,
+            "error_rate": 0.14285714285714285
+        }
+    },
+    {
+        "run_id": 44,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 768,
+            "top_p": 1.0
+        },
+        "results": {
+            "tools_alignment_accuracy": 0.3704545454545454,
+            "tools_alignment_precision": 0.4058712121212121,
+            "tools_alignment_recall": 0.7613636363636364,
+            "tools_necessity_accuracy": 0.2222222222222222,
+            "agent_invokation_time": 8.549306035041809,
+            "error_rate": 0.14285714285714285
         }
     }
 ]
