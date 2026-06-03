@@ -3,7 +3,7 @@ from typing import List
 
 class ExtractedProject(BaseModel):
     project_overview: str = Field(
-        description="A concise summary or overview of the past project, including its core functionality and any key tools used within its context."
+        description="A concise summary of the past project, including its core functionality and any key tools used within its context."
     )
     relevance_analysis: str = Field(
         description="A direct technical analysis explaining how this past project relates to the current Job Description."
