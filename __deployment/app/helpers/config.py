@@ -18,13 +18,35 @@ class Settings(BaseSettings):
     )
 
     # app info
-    APP_NAME: str
+    APP_NAME   : str
+    APP_VERSION: str
 
     
 
     # app config
-    RESULTS_PATH: str
+    RESULTS_PATH       : str
+    TRAINED_MODELS_PATH: str
     
 
 def get_settings() -> Settings:
     return Settings()
+
+
+
+# routes
+ROUTE_MAIN_ROUTE = "/ai/api"
+
+
+
+# ------------------------ Agents CFG -------------------------
+ARCFACE_CFG = {
+    "n_classes"    : 786,
+    "embedding_dim": 512,
+    "margin"       : 0.5,
+    "device"       : "cpu"
+}
+
+RETINA_DETECTOR_CFG = {
+    "max_size": 512,
+    "device"  : "cpu"
+}
