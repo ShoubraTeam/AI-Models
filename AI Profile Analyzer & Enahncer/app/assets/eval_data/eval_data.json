@@ -1,0 +1,111 @@
+[
+    {
+        "freelancer_id": "prof_eval_01",
+        "freelancer_name": "Maged Sameh (The Red Flag Case)",
+        "job_role": "AI Engineer",
+        "image_name": "graphic_designer.webp",
+        "bio_text": "I am a hardworking person who loves coding artificial intelligence things. I am a ninja code guru and software master. Hire me because I need money and I am very fast. Also I can do social media design, data entry, and photoshop work if you want.",
+        "declared_skills": ["Python", "HTML", "Data Entry", "MS Excel", "SQL", "Git"],
+        "hourly_rate": 95.0,
+        "rating": 5.0,
+        "total_completed_jobs": 2,
+        "ground_truth_sub_audits": {
+            "visual_brand": {
+                "true_score_range": {"min": 0.1, "max": 0.4},
+                "expected_flaws": ["mismatched role context", "unprofessional asset name"]
+            },
+            "bio_analysis": {
+                "true_score_range": {"min": 0.1, "max": 0.3},
+                "expected_cliches": ["ninja code guru", "software master"],
+                "expected_dilutions": ["data entry", "social media design"]
+            },
+            "skills_alignment": {
+                "true_score_range": {"min": 0.2, "max": 0.4},
+                "true_missing_essential": ["PyTorch", "TensorFlow", "Scikit-Learn"],
+                "true_irrelevant_skills": ["Data Entry", "MS Excel", "HTML"]
+            },
+            "numerical_metrics": {
+                "true_score": 0.6,
+                "true_pricing_status": "Overpriced",
+                "target_max_rate": 60.0
+            }
+        },
+        "ground_truth_orchestrator": {
+            "true_overall_score_range": {"min": 0.2, "max": 0.35},
+            "required_weaknesses_mentions": ["Overpriced at $95/hr", "Lacks core AI skills", "Profile dilution with low-value tasks"],
+            "required_action_items": ["Drop rate below $60/hr", "Add PyTorch or TensorFlow", "Eradicate bio buzzwords"]
+        }
+    },
+    {
+        "freelancer_id": "prof_eval_02",
+        "freelancer_name": "Tarek Fadel (The Underpriced Expert Case)",
+        "job_role": "Backend Developer",
+        "image_name": "developer.jpg",
+        "bio_text": "Senior Backend Architect with 6+ years of enterprise experience. I specialize in designing high-throughput microservices, database sharding strategies, and secure RESTful/GraphQL APIs. Proven track record of reducing server costs by 35% through optimized caching tiers.",
+        "declared_skills": ["Node.js", "Express", "MongoDB", "Redis", "Docker", "REST APIs", "Git", "AWS", "Kubernetes"],
+        "hourly_rate": 22.0,
+        "rating": 4.9,
+        "total_completed_jobs": 48,
+        "ground_truth_sub_audits": {
+            "visual_brand": {
+                "true_score_range": {"min": 0.8, "max": 1.0},
+                "expected_flaws": []
+            },
+            "bio_analysis": {
+                "true_score_range": {"min": 0.85, "max": 1.0},
+                "expected_strengths": ["metrics driven results", "clear architecture niche"]
+            },
+            "skills_alignment": {
+                "true_score_range": {"min": 0.9, "max": 1.0},
+                "true_missing_essential": [],
+                "true_irrelevant_skills": []
+            },
+            "numerical_metrics": {
+                "true_score": 0.8,
+                "true_pricing_status": "Underpriced",
+                "target_min_rate": 80.0
+            }
+        },
+        "ground_truth_orchestrator": {
+            "true_overall_score_range": {"min": 0.75, "max": 0.85},
+            "required_weaknesses_mentions": ["Severely underpriced at $22/hr"],
+            "required_action_items": ["Increase rate to at least $80/hr to reflect expert experience"]
+        }
+    },
+    {
+        "freelancer_id": "prof_eval_03",
+        "freelancer_name": "Salma Reyad (The Rating Crisis Case)",
+        "job_role": "Mobile Developer",
+        "image_name": "developer.jpg",
+        "bio_text": "Professional Flutter Developer. I love creating beautiful responsive web and mobile applications for Android and iOS. I work fast and promise to deliver on time. Message me for high-quality products.",
+        "declared_skills": ["Flutter", "Dart", "Firebase", "REST APIs", "Git", "Mobile UI/UX Principles", "iOS Deployment"],
+        "hourly_rate": 55.0,
+        "rating": 4.1,
+        "total_completed_jobs": 14,
+        "ground_truth_sub_audits": {
+            "visual_brand": {
+                "true_score_range": {"min": 0.7, "max": 0.9},
+                "expected_flaws": []
+            },
+            "bio_analysis": {
+                "true_score_range": {"min": 0.4, "max": 0.6},
+                "expected_dilutions": ["generic friendly text"]
+            },
+            "skills_alignment": {
+                "true_score_range": {"min": 0.85, "max": 1.0},
+                "true_missing_essential": [],
+                "true_irrelevant_skills": []
+            },
+            "numerical_metrics": {
+                "true_score": 0.7,
+                "true_pricing_status": "Fair Market Value",
+                "has_rating_penalty": true
+            }
+        },
+        "ground_truth_orchestrator": {
+            "true_overall_score_range": {"min": 0.5, "max": 0.65},
+            "required_weaknesses_mentions": ["Critical platform rating penalty of 4.1"],
+            "required_action_items": ["Urgently address client satisfaction issues to lift 4.1 rating"]
+        }
+    }
+]

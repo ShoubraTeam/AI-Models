@@ -1,0 +1,116 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.155
+		>> orchestrator_score_in_range_accuracy --> 0.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 2.5414
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.05
+		>> orchestrator_score_in_range_accuracy --> 1.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 8.7247
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.0875
+		>> orchestrator_score_in_range_accuracy --> 0.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.7942
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.005
+		>> orchestrator_score_in_range_accuracy --> 1.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.2744
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.075
+		>> orchestrator_score_in_range_accuracy --> 1.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 0.6667
+		>> agent_invocation_time --> 0.7832
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.05
+		>> orchestrator_score_in_range_accuracy --> 1.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.6643
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> orchestrator_score_mae --> 0.125
+		>> orchestrator_score_in_range_accuracy --> 0.0
+		>> weaknesses_coverage_ratio --> 1.0
+		>> action_plan_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.0183
+
+====================================================================================================

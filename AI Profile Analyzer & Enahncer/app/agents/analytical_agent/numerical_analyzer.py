@@ -1,12 +1,14 @@
+from time import time
 from schemas import NumericalAnalyzerSchema
 
 class NumericalAnalyzer:
     """
     Granular Rule-Based version of the Numerical Analyzer.
     Evaluates pricing bounds specifically for each of the 9 individual roles.
+    Includes built-in pure Python deterministic evaluation execution.
     """
     def __init__(self, *args, **kwargs):
-        pass
+        self.case_counter = 0
 
     def invoke(
         self,
@@ -94,7 +96,7 @@ class NumericalAnalyzer:
         if rating < 4.7:
             base_score -= 0.3
             improvements.append("Improve client satisfaction to push your star rating above 4.7.")
-            
+        
         if total_completed_jobs < 5:
             improvements.append("Complete more projects to safely transition into higher pricing tiers.")
             
@@ -109,3 +111,55 @@ class NumericalAnalyzer:
             improvements=improvements,
             confidence_score=1.0
         )
+
+    def get_metric_names(self) -> tuple[str, str, str]:
+        return (
+            "numerical_score_mae",
+            "pricing_status_accuracy",
+            "agent_invocation_time"
+        )
+
+    def evaluate_sample(self, sample: dict) -> dict:
+        """
+        Evaluates the pure Python rule-based engine output against Ground Truth.
+        Compares numeric metrics instantly with 100% determinism.
+        """
+        self.case_counter += 1 
+        print(f"\n" + "="*40 + f" [EVALUATING NUMERICAL CASE #{self.case_counter}] " + "="*40)
+
+        job_role = sample.get("job_role", "")
+        hourly_rate = sample.get("hourly_rate", 0.0)
+        rating = sample.get("rating", 0.0)
+        total_completed_jobs = sample.get("total_completed_jobs", 0)
+
+        gt_numerical = sample.get("ground_truth_sub_audits", {}).get("numerical_metrics", {})
+        true_score = gt_numerical.get("true_score", 1.0)
+        true_status = gt_numerical.get("true_pricing_status", "Fair Market Value")
+
+        start_time = time()
+        agent_output = self.invoke(
+            job_role=job_role,
+            hourly_rate=hourly_rate,
+            rating=rating,
+            total_completed_jobs=total_completed_jobs
+        )
+        end_time = time()
+        invocation_time = end_time - start_time
+
+        pred_score = agent_output.score
+        pred_status = agent_output.pricing_status
+
+        print(f"[METRICS] True Score: {true_score} | Agent Output Score: {pred_score}")
+        print(f"[STATUS]  True Status: '{true_status}' | Agent Output Status: '{pred_status}'")
+
+        score_mae = abs(pred_score - true_score)
+        status_accuracy = 1.0 if pred_status.strip().lower() == true_status.strip().lower() else 0.0
+
+        print(f"[EVAL RESULT] Status Accuracy: {status_accuracy} | Invocation Time: {round(invocation_time, 6)}s")
+        print("-" * 100)
+
+        return {
+            "numerical_score_mae": round(score_mae, 4),
+            "pricing_status_accuracy": status_accuracy,
+            "agent_invocation_time": round(invocation_time, 6)
+        }

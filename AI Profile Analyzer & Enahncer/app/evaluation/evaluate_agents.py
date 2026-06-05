@@ -1,206 +1,214 @@
-# ------------------------------------------------------
-# Agents Evaluation
-# ------------------------------------------------------
+import os
+import re
+import json
+from time import time
+from pathlib import Path
+from pprint import pprint
+import logging
+import traceback
 
-
-from agents import JobToolsExtractor, ProposalToolsAnalyzer
-from agents import JobRequirementsExtractor, JobRequirementsMatcher
-from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
 import helpers.config as CFG
 import helpers.functional as F 
-from collections import defaultdict
-import os
+
+from .evaluation_classes import EvaluationDataParser, AgentsInitializer, AgentsEvaluator
+from agents import NumericalAnalyzer, BioAnalyzer, SkillsAnalyzer, VisualBrandEvaluator, SuperAgent
+from .handle_errors import get_short_error_info
+
+Agent_Type = NumericalAnalyzer | \
+    BioAnalyzer      | \
+    SkillsAnalyzer      | \
+    VisualBrandEvaluator  | \
+    SuperAgent   
+
+# -------------------------------------------- SuperAgent Evaluation Wrapper --------------------------------------------
+
+class SuperAgentEvaluationWrapper:
+    """
+    A Proxy/Adapter Wrapper that conforms strictly to the single-argument execution loop
+    required by AgentsEvaluator, while transparently orchestrating the 4 sub-agents dependencies.
+    """
+    def __init__(self, super_agent, model_name: str, **kwargs):
+        self.super_agent = super_agent
+        
+        visual_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("GEMINI_FLASH")
+        skills_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("LLAMA_8B")
+        numerical_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("LLAMA_8B")
+        
+        self.visual_agent = get_agent(CFG.TASK_VISUAL_BRAND_ANALYSIS, visual_model_resolved, **kwargs)
+        self.bio_agent = get_agent(CFG.TASK_BIO_ANALYSIS, model_name, **kwargs)
+        self.skills_agent = get_agent(CFG.TASK_SKILLS_ANALYSIS, skills_model_resolved, **kwargs)
+        self.numerical_agent = get_agent(CFG.TASK_NUMERICAL_ANALYSIS, numerical_model_resolved, **kwargs)
+
+    def evaluate_sample(self, sample: dict) -> dict:
+        """Intercepts the flat sample loop, computes sub-audits, and feeds the Master Orchestrator."""
+        base_dir = Path(__file__).resolve().parents[2]
+        img_path = os.path.join(base_dir, sample.get("image_name", ""))
+        if not os.path.exists(img_path):
+            img_path = os.path.join(base_dir, "app", sample.get("image_name", ""))
+        if not os.path.exists(img_path):
+            img_path = os.path.join(os.getcwd(), sample.get("image_name", ""))
+            
+        visual_res = self.visual_agent.invoke(image_path=img_path, job_role=sample.get("job_role", ""))
+        bio_res = self.bio_agent.invoke(bio_text=sample.get("bio_text", ""), job_role=sample.get("job_role", ""))
+        skills_res = self.skills_agent.invoke(declared_skills=sample.get("declared_skills", []), job_role=sample.get("job_role", ""))
+        numerical_res = self.numerical_agent.invoke(
+            job_role=sample.get("job_role", ""),
+            hourly_rate=sample.get("hourly_rate", 0.0),
+            rating=sample.get("rating", 0.0),
+            total_completed_jobs=sample.get("total_completed_jobs", 0)
+        )
+        
+        return self.super_agent.evaluate_sample(
+            sample=sample,
+            visual_res=visual_res,
+            bio_res=bio_res,
+            skills_res=skills_res,
+            numerical_res=numerical_res
+        )
+
+    def __getattr__(self, name):
+        """Delegates all standard attributes and metadata methods (like get_metric_names) to the inner agent."""
+        return getattr(self.super_agent, name)
 
 
-def get_eval_data(data_file_name: str):
-    file_path = os.path.join(CFG.EVAL_DATA_PATH, data_file_name)
-    data = F.load_json(file_path)
-    return data
+# -------------------------------------------- Acquiring Agents & Data --------------------------------------------------
+
+def get_task_eval_data(all_data: list[dict], task_name: str) -> list[dict]:
+    """
+    Parse the given whole data and returns the task specific evaluation data,
+    while explicitly merging back the ground-truth logs and metrics context.
+    """
+    task_data = []
+
+    for sample in all_data:
+        if task_name == CFG.TASK_NUMERICAL_ANALYSIS:
+            parsed = EvaluationDataParser.get_numerical_data(sample = sample)
+        elif task_name == CFG.TASK_BIO_ANALYSIS:
+            parsed = EvaluationDataParser.get_bio_data(sample = sample)
+        elif task_name == CFG.TASK_SKILLS_ANALYSIS:
+            parsed = EvaluationDataParser.get_skills_data(sample = sample)
+        elif task_name == CFG.TASK_VISUAL_BRAND_ANALYSIS:
+            parsed = EvaluationDataParser.get_visual_data(sample = sample)
+        else:
+            parsed = EvaluationDataParser.get_super_agent_data(sample = sample)
+
+        if isinstance(parsed, dict):
+            base_dir = Path(__file__).resolve().parents[2]
+            abs_img_path = os.path.join(base_dir, sample.get("image_name", ""))
+            if not os.path.exists(abs_img_path):
+                abs_img_path = os.path.join(base_dir, "app", sample.get("image_name", ""))
+            if not os.path.exists(abs_img_path):
+                abs_img_path = os.path.join(os.getcwd(), sample.get("image_name", ""))
+                
+            parsed["image_path"] = abs_img_path
+            parsed["ground_truth_sub_audits"] = sample.get("ground_truth_sub_audits", {})
+            parsed["ground_truth_orchestrator"] = sample.get("ground_truth_orchestrator", {})
+            parsed["freelancer_name"] = sample.get("freelancer_name", "")
+            parsed["bio_text"] = sample.get("bio_text", "")
+            parsed["image_name"] = sample.get("image_name", "")
+            parsed["declared_skills"] = sample.get("declared_skills", [])
+            parsed["hourly_rate"] = sample.get("hourly_rate", 0.0)
+            parsed["rating"] = sample.get("rating", 0.0)
+            parsed["total_completed_jobs"] = sample.get("total_completed_jobs", 0)
+            parsed["job_role"] = sample.get("job_role", parsed.get("job_role", ""))
+
+        task_data.append(parsed)
+
+    return task_data
 
 
-def get_agents(
-    task_name: str,
-    models: list[str],
-    system_prompts: list[str],
-    structured_responses: list,
+def get_eval_data(task_name: str) -> list[dict]:
+    """Load the data & parse the task specific data from it."""
+    data = F.load_json(CFG.EVAL_DATA_PATH)
+    task_data = get_task_eval_data(all_data = data, task_name = task_name)
+    return task_data
+
+
+def get_agent(
+    task_name : str,
+    model_name: str,
     **kwargs
 ):
-    """Acquiring the agents with thier functionality names"""
-    if task_name == CFG.TOOLS_ALIGNMENT_TASK:
-        job_tools_extractor = JobToolsExtractor(
-            model_name = models[0],
-            system_prompt = system_prompts[0],
-            structured_response = structured_responses[0],
-            **kwargs
-        )
-
-        proposal_tools_analyzer = ProposalToolsAnalyzer(
-            model_name = models[1],
-            system_prompt = system_prompts[1],
-            structured_response = structured_responses[1],
-            **kwargs
-        )
-
-        agents = [
-            ("job_tools_extractor"     , job_tools_extractor),
-            ("proposal_tools_analyzer" , proposal_tools_analyzer)
-        ]
-
-        return agents
-
-
-    if task_name == CFG.JOB_UNDERSTANDING_TASK:
-        job_key_points_extractor = JobKeyPointsExtractor(
-            model_name = models[0],
-            system_prompt = system_prompts[0],
-            structured_response = structured_responses[0],
-            **kwargs
-        )
-
-        job_understanding_evaluator = JobUnderstandingEvaluator(
-            model_name = models[1],
-            system_prompt = system_prompts[1],
-            structured_response = structured_responses[1],
-            **kwargs
-        )
-
-        agents = [
-            ("job_key_points_extractor"    , job_key_points_extractor),
-            ("job_understanding_evaluator" , job_understanding_evaluator)
-        ]
-
-        return agents
-
-    if task_name == CFG.REQUIREMENT_COVERAGE_TASK:
-        job_requirements_extractor = JobRequirementsExtractor(
-            model_name = models[0],
-            system_prompt = system_prompts[0],
-            structured_response = structured_responses[0],
-            **kwargs
-        )
-
-        job_requirements_matcher = JobRequirementsMatcher(
-            model_name = models[1],
-            system_prompt = system_prompts[1],
-            structured_response = structured_responses[1],
-            **kwargs
-        )
-
-        agents = [
-            ("job_requirements_extractor", job_requirements_extractor),
-            ("job_requirements_matcher"  , job_requirements_matcher)
-        ]
-
-        return agents
-
-    if task_name == CFG.EVIDENCE_OF_EXPERIENCE_TASK:
-        pass
-
-    if task_name == CFG.LANGUAGE_CLARITY_TASK:
-        pass
-
-    if task_name == CFG.SUPER_AGENT_TASK:
-        pass
-
-
-def calc_avg_for_multiple_metrics(scores: list[dict]):
-    if not isinstance(scores[0], dict):
-        raise TypeError("The metrics should be a dict object")
+    """Acquiring the agent for the given task"""
+    if task_name == CFG.TASK_NUMERICAL_ANALYSIS:
+        return AgentsInitializer.get_numerical_analyzer_agent(model_name = model_name, **kwargs)
+   
+    if task_name == CFG.TASK_BIO_ANALYSIS:
+        return AgentsInitializer.get_bio_analyzer_agent(model_name = model_name, **kwargs)
+   
+    if task_name == CFG.TASK_SKILLS_ANALYSIS:
+        return AgentsInitializer.get_skills_analyzer_agent(model_name = model_name, **kwargs)
+   
+    if task_name == CFG.TASK_VISUAL_BRAND_ANALYSIS:
+        return AgentsInitializer.get_visual_brand_evaluator_agent(model_name = model_name, **kwargs)
+   
+    if task_name == CFG.TASK_SUPER_AGENT:
+        return AgentsInitializer.get_super_agent(model_name = model_name, **kwargs)
     
-    totals = defaultdict(float)
-
-    for score_dict in scores:
-        
-        # calc total for each metric
-        for key, val in score_dict.items():
-            totals[key] += val
-    
-    averages = {
-        key : total / len(scores)
-        for key, total in totals.items()
-    }
-
-    return averages
+    raise ValueError("Task is not allowed")
 
 
-def evaluate_agents_on_task(
-    task_name: str,
-    models: list[str],
-    system_prompts: list[str],
-    structured_responses: list,
-    eval_data_file_name: str,
-    rounds: int = 5,
-    **kwargs
-) -> dict:
-    """
-    General Function for evaluating agents
+# -------------------------------------------- Evaluation --------------------------------------------------
 
-    Args:
-        task_name (str): string determines the agents to evaluate:
-            - tools_alignment
-            - job_understanding
-            - requirement_coverage
-            - evidence_of_experience
-            - language_clarity
-            - super_agent
-        
-            
-        models               (list): list of models names to evaluate    
-        system_prompts       (list): the system prompts for model_1, model_2, ...
-        structured_responses (list): the structured responses for model_1, model_2, ...
-        eval_data_file_name  (str) : the eval data
-        rounds               (int) : how many times to run the evaluation function (to average scores)
-        kwargs               (dict): Kwargs should control the model behavior
-    
-    Returns:
-        average_scores: the average of scores returned by the agents
-            {
-                "agent1" : scores,
-                "agent2" : scores,
-                ...
-            }
-    """
+def evaluate_agent_on_task(
+    run_id              : int,
+    task_name           : str,
+    model_name          : str,
+    **kwargs            
+) -> None:
+    """General Function for evaluating agents"""
 
     if task_name not in CFG.ALLOWED_EVALUATION_TASKS:
         raise ValueError("Task is not allowed")
     
+    try:
+        agent = get_agent(
+            task_name  = task_name,
+            model_name = model_name,
+            **kwargs
+        )
+        
+        if task_name == CFG.TASK_SUPER_AGENT:
+            agent = SuperAgentEvaluationWrapper(super_agent=agent, model_name=model_name, **kwargs)
+            
+        F.print_success_message(f">> Agent Loaded Successfully: [Task: {task_name} | Model: {model_name}].")
+    
+    except Exception as e:
+        F.print_error_message(f">> Error While Loading Agent: [Task: {task_name} | Model: {model_name}].")
+        F.print_error_message(">> Error Info:")
+        for key, val in get_short_error_info(e).items():
+            print(f"\t- {key} --> {val}")
+        raise
+    
+    try:
+        eval_data = get_eval_data(task_name = task_name)
+        F.print_success_message(f">> Data Loaded Successfully: [Task: {task_name} | Model: {model_name}].")
+    except Exception as e:
+        F.print_error_message(f">> Error While Loading Data: [Task: {task_name} | Model: {model_name}].")
+        F.print_error_message(">> Error Info:")
+        for key, val in get_short_error_info(e).items():
+            print(f"\t- {key} --> {val}")
+        raise
 
-    # get agents to evaluate
-    agents = get_agents(
-        task_name = task_name,
-        models = models,
-        system_prompts = system_prompts,
-        structured_responses = structured_responses,
-        **kwargs
+    run_configurations = {
+        "run_id"      : run_id,
+        "model_name"  : model_name,
+        "model_kwargs": kwargs
+    }
+
+    evaluator = AgentsEvaluator(
+        task_name          = task_name,
+        agent              = agent,
+        data               = eval_data,
+        run_configurations = run_configurations,
+        reset_results      = run_id == 1
     )
 
-    # eval data
-    eval_data = get_eval_data(data_file_name = eval_data_file_name)
-
-
-    # scoring
-    average_scores = []
-    for agent in agents:
-        # get agent data
-        agent_name = agent[0]
-        agent_obj  = agent[1]
-        F.print_subtitle(f"Evaluating: {agent_name}")
-
-        # evaluate
-        agent_scores = []
-        for round in range(rounds):
-            print(f">> Round {round + 1}")
-            agent_scores.append(agent_obj.evaluate(eval_data))
-
-        # calc avg
-        if isinstance(agent_scores[0], dict):  # if multiple metrics
-            agent_avg_scores = calc_avg_for_multiple_metrics(agent_scores)
-        
-        else: # single metric
-            agent_avg_scores = sum(agent_scores) / len(agent_scores)
-
-        average_scores.append({
-            agent_name : agent_avg_scores
-        })
-    
-    return average_scores
+    try:
+        evaluator.evaluate()
+        F.print_success_message(f">> Agent Evaluated Successfully: [Task: {task_name} | Model: {model_name}].")
+    except Exception as e:
+        F.print_error_message(f">> Error while Evaluating: [Task: {task_name} | Model: {model_name}].")
+        F.print_error_message(">> FULL CRASH TRACEBACK INFO:")
+        traceback.print_exc()
+        raise e

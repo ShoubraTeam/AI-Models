@@ -1,0 +1,18 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> visual_brand_score_mae --> 0.05
+		>> visual_brand_score_in_range_accuracy --> 1.0
+		>> visual_brand_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 4.0011
+
+
+=> Sample #2:

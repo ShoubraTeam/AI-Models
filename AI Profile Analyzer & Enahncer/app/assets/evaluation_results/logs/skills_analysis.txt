@@ -1,0 +1,130 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.1
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.6667
+		>> missing_skills_recall --> 0.6667
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 0.6667
+		>> agent_invocation_time --> 0.548
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.05
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 1.0
+		>> missing_skills_recall --> 1.0
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 0.5064
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.325
+		>> skills_score_in_range_accuracy --> 0.0
+		>> missing_skills_precision --> 0.0
+		>> missing_skills_recall --> 1.0
+		>> irrelevant_skills_precision --> 0.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 0.3146
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.0
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.4
+		>> missing_skills_recall --> 0.6667
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 1.0553
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.05
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.0
+		>> missing_skills_recall --> 1.0
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 0.7985
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.075
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.0
+		>> missing_skills_recall --> 1.0
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 0.8743
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.1
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.5
+		>> missing_skills_recall --> 0.6667
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 1.488
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.05
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.0
+		>> missing_skills_recall --> 1.0
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 2.2093
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> skills_score_mae --> 0.075
+		>> skills_score_in_range_accuracy --> 1.0
+		>> missing_skills_precision --> 0.0
+		>> missing_skills_recall --> 1.0
+		>> irrelevant_skills_precision --> 1.0
+		>> irrelevant_skills_recall --> 1.0
+		>> agent_invocation_time --> 2.4029
+
+====================================================================================================

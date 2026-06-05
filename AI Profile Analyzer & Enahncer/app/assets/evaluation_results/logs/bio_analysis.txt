@@ -1,0 +1,1090 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.3489
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4324
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 4.0242
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.27
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.2
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.7343
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.75
+		>> agent_invocation_time --> 0.6164
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 6.8003
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 6.6405
+
+====================================================================================================
+============================================== Run #4 ==============================================
+Run Configurations:
+	>> run_id --> 4
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 0.6592
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 6.5643
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.2
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.4858
+
+====================================================================================================
+============================================== Run #5 ==============================================
+Run Configurations:
+	>> run_id --> 5
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 0.7716
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.075
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.7783
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 6.6647
+
+====================================================================================================
+============================================== Run #6 ==============================================
+Run Configurations:
+	>> run_id --> 6
+	>> model_name --> groq:llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.75
+		>> agent_invocation_time --> 0.6582
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 7.6217
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 6.6749
+
+====================================================================================================
+============================================== Run #7 ==============================================
+Run Configurations:
+	>> run_id --> 7
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 1.3781
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.2762
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.5793
+
+====================================================================================================
+============================================== Run #8 ==============================================
+Run Configurations:
+	>> run_id --> 8
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 1.136
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.1538
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.2965
+
+====================================================================================================
+============================================== Run #9 ==============================================
+Run Configurations:
+	>> run_id --> 9
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.75
+		>> agent_invocation_time --> 1.5273
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.2643
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.3242
+
+====================================================================================================
+============================================= Run #10 ==============================================
+Run Configurations:
+	>> run_id --> 10
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.75
+		>> agent_invocation_time --> 1.5503
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.213
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 5.9507
+
+====================================================================================================
+============================================= Run #11 ==============================================
+Run Configurations:
+	>> run_id --> 11
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 1.5329
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.3101
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.3596
+
+====================================================================================================
+============================================= Run #12 ==============================================
+Run Configurations:
+	>> run_id --> 12
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 1.5024
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.025
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.3201
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.8833
+
+====================================================================================================
+============================================= Run #13 ==============================================
+Run Configurations:
+	>> run_id --> 13
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 2.1595
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #14 ==============================================
+Run Configurations:
+	>> run_id --> 14
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #15 ==============================================
+Run Configurations:
+	>> run_id --> 15
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #16 ==============================================
+Run Configurations:
+	>> run_id --> 16
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #17 ==============================================
+Run Configurations:
+	>> run_id --> 17
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #18 ==============================================
+Run Configurations:
+	>> run_id --> 18
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.75
+		>> agent_invocation_time --> 3.5354
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #19 ==============================================
+Run Configurations:
+	>> run_id --> 19
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 40.935010502s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 4.824194686s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '4s'}]}}
+
+
+=> Sample #3:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 28.783149189s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '28s'}]}}
+
+====================================================================================================
+============================================= Run #20 ==============================================
+Run Configurations:
+	>> run_id --> 20
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 44.023376346s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '44s'}]}}
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 7.569904221s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '7s'}]}}
+
+
+=> Sample #3:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.38106759s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '32s'}]}}
+
+====================================================================================================
+============================================= Run #21 ==============================================
+Run Configurations:
+	>> run_id --> 21
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 48.908085861s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '48s'}]}}
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 10.713078744s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '10s'}]}}
+
+
+=> Sample #3:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 35.089390047s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}
+
+====================================================================================================
+============================================= Run #22 ==============================================
+Run Configurations:
+	>> run_id --> 22
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 51.52497798s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 16.115338774s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}
+
+
+=> Sample #3:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 40.603117888s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}
+
+====================================================================================================
+============================================= Run #23 ==============================================
+Run Configurations:
+	>> run_id --> 23
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 57.083509734s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 22.316922774s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '22s'}]}}
+
+
+=> Sample #3:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 47.155495262s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '47s'}]}}
+
+====================================================================================================
+============================================= Run #24 ==============================================
+Run Configurations:
+	>> run_id --> 24
+	>> model_name --> google_genai:gemini-2.5-flash
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 2.536731822s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '2s'}]}}
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 26.314812284s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '26s'}]}}
+
+
+=> Sample #3:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> ChatGoogleGenerativeAIError
+		>> file --> chat_models.py
+		>> line --> 169
+		>> function --> _handle_client_error
+		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 51.330177518s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}
+
+====================================================================================================
+============================================= Run #25 ==============================================
+Run Configurations:
+	>> run_id --> 25
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 0.8037
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4159
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4661
+
+====================================================================================================
+============================================= Run #26 ==============================================
+Run Configurations:
+	>> run_id --> 26
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 0.9727
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4553
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.3861
+
+====================================================================================================
+============================================= Run #27 ==============================================
+Run Configurations:
+	>> run_id --> 27
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 0.6074
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.415
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.3979
+
+====================================================================================================
+============================================= Run #28 ==============================================
+Run Configurations:
+	>> run_id --> 28
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.0
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.5
+		>> agent_invocation_time --> 0.6811
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.5002
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4484
+
+====================================================================================================
+============================================= Run #29 ==============================================
+Run Configurations:
+	>> run_id --> 29
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 0.8956
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.479
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4126
+
+====================================================================================================
+============================================= Run #30 ==============================================
+Run Configurations:
+	>> run_id --> 30
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 0.25
+		>> agent_invocation_time --> 0.7163
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.125
+		>> bio_score_in_range_accuracy --> 0.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.4858
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> bio_score_mae --> 0.1
+		>> bio_score_in_range_accuracy --> 1.0
+		>> bio_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 0.3964
+
+====================================================================================================

@@ -12,8 +12,9 @@ GROQ_GPT_20b          = "groq:openai/gpt-oss-20b"
 PROVIDER_GOOGLE_GENAI = "google_genai"
 GEMINI_FLASH_LITE     = "google_genai:gemini-2.5-flash-lite"
 GEMINI_FLASH          = "google_genai:gemini-2.5-flash"
+PYTHON_DETERMINISTIC = "deterministic_python"
 
-
+import os
 
 # Models CFG
 DEFAULT_MODELS_CFG = {
@@ -45,30 +46,35 @@ RESET = "\033[0m"
 
 # Evaluation CFG
 EVALUATION_MODELS_MAPPING = {
-    "LLAMA_8B"         : GROQ_LLAMA_8b, 
-    "GEMINI_FLASH_LITE": GROQ_LLAMA_70b,
-    "GPT_OSS_20B"      : GROQ_GPT_20b,
-    "QWEN_32B"         : GROQ_QWEN_32b,
-    "GEMINI_FLASH"     : GROQ_GPT_120b,
-    "LLAMA_70B"        : GEMINI_FLASH_LITE,
-    "GPT_OSS_120B"     : GEMINI_FLASH,
+    "LLAMA_8B": GROQ_LLAMA_8b, 
+    "GEMINI_FLASH_LITE": GEMINI_FLASH_LITE,
+    "GPT_OSS_20B": GROQ_GPT_20b,
+    "QWEN_32B": GROQ_QWEN_32b,
+    "GEMINI_FLASH": GEMINI_FLASH,      
+    "LLAMA_70B": GROQ_LLAMA_70b,      
+    "GPT_OSS_120B": GROQ_GPT_120b, 
+    "deterministic_python": PYTHON_DETERMINISTIC  
 }
 
 
-# TOOLS_ALIGNMENT_TASK        = "tools_alignment"
-# REQUIREMENT_COVERAGE_TASK   = "requirement_coverage"
-# JOB_UNDERSTANDING_TASK      = "job_understanding"
-# LANGUAGE_CLARITY_TASK       = "language_clarity"
-# EVIDENCE_OF_EXPERIENCE_TASK = "evidence_of_experience"
-# SUPER_AGENT_TASK            = "super_agent"
+# allowed tasks
+TASK_NUMERICAL_ANALYSIS  = "numerical_analysis"
+TASK_BIO_ANALYSIS       = "bio_analysis"
+TASK_SKILLS_ANALYSIS     = "skills_analysis"
+TASK_VISUAL_BRAND_ANALYSIS = "visual_brand_analysis"
+TASK_SUPER_AGENT         = "super_agent"
 
-# ALLOWED_EVALUATION_TASKS = [
-#     TOOLS_ALIGNMENT_TASK,
-#     REQUIREMENT_COVERAGE_TASK,
-#     JOB_UNDERSTANDING_TASK,
-#     LANGUAGE_CLARITY_TASK,
-#     EVIDENCE_OF_EXPERIENCE_TASK,
-#     SUPER_AGENT_TASK
-# ]
+ALLOWED_EVALUATION_TASKS = [
+    TASK_NUMERICAL_ANALYSIS,
+    TASK_BIO_ANALYSIS,
+    TASK_SKILLS_ANALYSIS,
+    TASK_VISUAL_BRAND_ANALYSIS,
+    TASK_SUPER_AGENT
+]
 
-# EVAL_DATA_PATH = "/mnt/d/Education/College/______GraduationProject/AI-Models/ProposalRejectionReasons/eval_data"
+# ------------------------------------------------------ Paths -------------------------------------------
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+EVAL_DATA_PATH = os.path.join(BASE_DIR, "assets", "eval_data", "eval_data.json")
+EVAL_RESULTS_PATH = os.path.join(BASE_DIR, "assets", "evaluation_results")

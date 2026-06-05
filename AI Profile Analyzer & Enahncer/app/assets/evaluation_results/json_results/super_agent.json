@@ -1,0 +1,53 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "orchestrator_score_mae": 0.155,
+            "orchestrator_score_in_range_accuracy": 0.0,
+            "weaknesses_coverage_ratio": 1.0,
+            "action_plan_coverage_ratio": 1.0,
+            "agent_invocation_time": 2.5414,
+            "error_rate": 0.6666666666666666
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "orchestrator_score_mae": 0.047499999999999994,
+            "orchestrator_score_in_range_accuracy": 0.6666666666666666,
+            "weaknesses_coverage_ratio": 1.0,
+            "action_plan_coverage_ratio": 1.0,
+            "agent_invocation_time": 7.931100000000001,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "orchestrator_score_mae": 0.08333333333333333,
+            "orchestrator_score_in_range_accuracy": 0.6666666666666666,
+            "weaknesses_coverage_ratio": 1.0,
+            "action_plan_coverage_ratio": 0.8889,
+            "agent_invocation_time": 1.1552666666666667,
+            "error_rate": 0.0
+        }
+    }
+]

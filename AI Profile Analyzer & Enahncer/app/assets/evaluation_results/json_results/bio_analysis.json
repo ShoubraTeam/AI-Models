@@ -1,0 +1,482 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0625,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 1.0,
+            "agent_invocation_time": 0.39065,
+            "error_rate": 0.3333333333333333
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.10833333333333334,
+            "bio_score_in_range_accuracy": 0.3333333333333333,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 6.342833333333334,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.041666666666666664,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.9166666666666666,
+            "agent_invocation_time": 4.685733333333333,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 4,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.8333333333333334,
+            "agent_invocation_time": 4.9031,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 5,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.05833333333333333,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 5.071533333333333,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 6,
+        "model_name": "groq:llama-3.1-8b-instant",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.041666666666666664,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.9166666666666666,
+            "agent_invocation_time": 4.984933333333333,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 7,
+        "model_name": "google_genai:gemini-2.5-flash-lite",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.8333333333333334,
+            "agent_invocation_time": 1.4112,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 8,
+        "model_name": "google_genai:gemini-2.5-flash-lite",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 1.1954333333333331,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 9,
+        "model_name": "google_genai:gemini-2.5-flash-lite",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.9166666666666666,
+            "agent_invocation_time": 1.3719333333333334,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 10,
+        "model_name": "google_genai:gemini-2.5-flash-lite",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.9166666666666666,
+            "agent_invocation_time": 2.904666666666667,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 11,
+        "model_name": "google_genai:gemini-2.5-flash-lite",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 1.4008666666666667,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 12,
+        "model_name": "google_genai:gemini-2.5-flash-lite",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 1.2352666666666667,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 13,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.1,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.5,
+            "agent_invocation_time": 2.1595,
+            "error_rate": 0.6666666666666666
+        }
+    },
+    {
+        "run_id": 14,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 15,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 16,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 17,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 18,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.1,
+            "bio_score_in_range_accuracy": 1.0,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 3.5354,
+            "error_rate": 0.6666666666666666
+        }
+    },
+    {
+        "run_id": 19,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 20,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 21,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 22,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 23,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 24,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.0,
+            "bio_score_in_range_accuracy": 0.0,
+            "bio_content_coverage_ratio": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 25,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.10833333333333334,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.8333333333333334,
+            "agent_invocation_time": 0.5619,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 26,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.8333333333333334,
+            "agent_invocation_time": 0.6047,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 27,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.10833333333333334,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.8333333333333334,
+            "agent_invocation_time": 0.4734333333333334,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 28,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.1,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.075,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.8333333333333334,
+            "agent_invocation_time": 0.5432333333333333,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 29,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.10833333333333334,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 0.5957333333333333,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 30,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "bio_score_mae": 0.10833333333333334,
+            "bio_score_in_range_accuracy": 0.6666666666666666,
+            "bio_content_coverage_ratio": 0.75,
+            "agent_invocation_time": 0.5328333333333334,
+            "error_rate": 0.0
+        }
+    }
+]
