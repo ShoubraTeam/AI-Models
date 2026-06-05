@@ -6,8 +6,8 @@ VENV_PATH="/mnt/d/Focus/_____Active_______/AI/venvs/GP/PRR/bin/activate"
 TASKS=(
     # "job_tools_extractor"
     # "proposal_tools_analyzer"
-    "job_requirements_extractor"
-    "job_requirements_matcher"
+    #"job_requirements_extractor"
+    #"job_requirements_matcher"
     # "job_key_points_extractor"
     # "job_understanding_evaluator"
     "experience_evidence_finder"
@@ -66,7 +66,6 @@ MODELS_REQUIREMENT_COVERAGE_MATCHER=(
 
 MODELS_EVIDENCE_EXPERIENCE_FINDER=(
     "QWEN_32B"
-    "GEMINI_FLASH"
     "LLAMA_70B"
     "GPT_OSS_120B"
 )
@@ -80,20 +79,15 @@ MODELS_LANGUAGE_CLARITY=(
 
 TEMPERATUREs=(
     0.0
-    0.1
-    0.2
 )
 
 MAX_TOKENSs=(
     512
     1024
-    2048
 )
 
 TOP_Ps=(
     0.9
-    0.95
-    1.0
 )
 
 run_id=1
@@ -101,13 +95,13 @@ run_id=1
 echo "======================================= Starting Evaluation ======================================="
 
 
-echo "======================================= Activating Venv ======================================="
-if [ -f "$VENV_PATH" ]; then
-    source "$VENV_PATH"
-else
-    echo ">> VENV Path does not exist"
-    exit 1
-fi
+# echo "======================================= Activating Venv ======================================="
+# if [ -f "$VENV_PATH" ]; then
+#     source "$VENV_PATH"
+# else
+#     echo ">> VENV Path does not exist"
+#     exit 1
+# fi
 
 
 for task in "${TASKS[@]}"

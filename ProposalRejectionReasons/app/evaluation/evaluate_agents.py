@@ -166,6 +166,7 @@ def evaluate_agent_on_task(
         raise
     
     
+  
     try:
         eval_data = get_eval_data(task_name = task_name)
         F.print_success_message(f">> Data Loaded Successfuly: [Task: {task_name} | Model: {model_name}].")
@@ -176,8 +177,16 @@ def evaluate_agent_on_task(
             print(f"\t- {key} --> {val}")
         raise
 
+    # import random
+    # random.seed(42)
+    # num_samples_to_evaluate = 5
+    
+    # if eval_data:
+    #     num_samples_to_evaluate = min(num_samples_to_evaluate, len(eval_data))
+    #     eval_data = random.sample(eval_data, num_samples_to_evaluate)
+    #     print(f" -> [RANDOM SAMPLING ACTIVATED] Evaluating on {num_samples_to_evaluate} random samples for this run.")
+    # # ------------------------------------------------------------------------------------------------------
 
-    # evaluate
     run_configurations = {
         "run_id"      : run_id,
         "model_name"  : model_name,
@@ -187,7 +196,7 @@ def evaluate_agent_on_task(
     evaluator = AgentsEvaluator(
         task_name          = task_name,
         agent              = agent,
-        data               = eval_data,
+        data               = eval_data,  
         run_configurations = run_configurations,
         reset_results      = run_id == 1
     )
@@ -200,5 +209,3 @@ def evaluate_agent_on_task(
         F.print_error_message(">> Error Info:")
         for key, val in get_short_error_info(e).items():
             print(f"\t- {key} --> {val}")
-
-    

@@ -1,18 +1,103 @@
 [
     {
         "run_id": 1,
-        "model_name": "groq:llama-3.1-8b-instant",
+        "model_name": "groq:openai/gpt-oss-20b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "matcher_accuracy": 0.711111111111111,
+            "matcher_precision": 0.6666666666666667,
+            "matcher_recall": 0.62,
+            "matcher_f1_score": 0.6398653198653198,
+            "agent_invokation_time": 18.761123371124267,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "groq:openai/gpt-oss-20b",
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 1024,
-            "top_p": 0.95
+            "top_p": 0.9
         },
         "results": {
-            "matcher_accuracy": 0.8746031746031747,
-            "matcher_precision": 0.9047619047619048,
-            "matcher_recall": 0.9190476190476191,
-            "matcher_f1_score": 0.9064797636226208,
-            "agent_invokation_time": 18.8481799193791,
+            "matcher_accuracy": 0.8333333333333334,
+            "matcher_precision": 0.7533333333333333,
+            "matcher_recall": 0.6852777777777778,
+            "matcher_f1_score": 0.7067965367965368,
+            "agent_invokation_time": 20.579856204986573,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "matcher_accuracy": 0.7291666666666667,
+            "matcher_precision": 0.6583333333333333,
+            "matcher_recall": 0.6138888888888889,
+            "matcher_f1_score": 0.625,
+            "agent_invokation_time": 37.46559886932373,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 4,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "matcher_accuracy": 0.9027777777777779,
+            "matcher_precision": 0.845,
+            "matcher_recall": 0.7783333333333333,
+            "matcher_f1_score": 0.7983333333333333,
+            "agent_invokation_time": 45.97021751403808,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 5,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "matcher_accuracy": 0.8458333333333334,
+            "matcher_precision": 0.7533333333333333,
+            "matcher_recall": 0.6852777777777778,
+            "matcher_f1_score": 0.7067965367965368,
+            "agent_invokation_time": 29.798682355880736,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 6,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "matcher_accuracy": 0.8972222222222221,
+            "matcher_precision": 0.8666666666666666,
+            "matcher_recall": 0.7686111111111111,
+            "matcher_f1_score": 0.7921164021164021,
+            "agent_invokation_time": 17.88024296760559,
             "error_rate": 0.0
         }
     }
