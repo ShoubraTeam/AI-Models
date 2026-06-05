@@ -1,1 +1,2 @@
-from .logging_schemas import AgentInferenceResult
+from .logging_schemas import AgentInferenceResult, ImageLog
+from .job_description_enhancement_schemas import ToolsDetectionIP, JobEnhancementIP

@@ -14,6 +14,8 @@ from .agents_pipelines.proposal_rejection_reasons  import ProposalRejectionReaso
 
 from typing import Any
 
+from groq import Groq
+
 class AgentController:
     """
     Orchestrate the logic of agents [LLM agents - trained models]. In paricular:
@@ -31,13 +33,13 @@ class AgentController:
             - job_description_enhancement
             - proposal_rejection_reasons 
     """
-    def __init__(self, feature_id: str, agents: Any) -> None:
+    def __init__(self, feature_id: str, agents: Any, client: None | Groq) -> None:
         # setup
         self.feature_id = feature_id
-        self.agent_pipeline = self.get_feature_pipeline(agents)
+        self.agent_pipeline = self.get_feature_pipeline(agents, client = client)
 
 
-    def get_feature_pipeline(self, agents: Any) -> None:
+    def get_feature_pipeline(self, agents: Any, client: None | Groq) -> None:
         """Get the required feature pipeline"""
         if self.feature_id == FEATURE_IDENITY_RECOGNITION:
             return IdentityRecognitionPipeline(agents)
@@ -49,14 +51,14 @@ class AgentController:
             return ProfileAnalysisPipeline(agents) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
-            return JobDescriptionEnhancementPipeline(agents) 
+            return JobDescriptionEnhancementPipeline(agents, client = client) 
             
         else: 
             return ProposalRejectionReasonsPipeline(agents)
     
 
-    def preprocess_input(self, input: Any):
-        return self.agent_pipeline.preprocess(input = input)
+    def preprocess_input(self, input: Any, **kwargs):
+        return self.agent_pipeline.preprocess(input = input, **kwargs)
     
     def call_agent(self, input: Any):
         return self.agent_pipeline.call(input = input)

@@ -20,7 +20,6 @@ class IdentityRecognitionPipeline(Pipeline):
         preprocess(input)        : pre-process the input before calling the agent. If not pre-processing required -> return the input
         call(input)              : invoke/call the agent on the given input
         postprocess(agent_output): post-process the agent output. If no post-processing required -> return the agent_output.
-        
     """
     # ----------------------------------------- Setup ----------------------------------------------
     def __init__(self, 
@@ -30,7 +29,7 @@ class IdentityRecognitionPipeline(Pipeline):
     ) -> None:
         """
         Args:
-            model               : the identity recognizer object
+            agents              : the identity recognizer object
             similarity_threshold: the threshold to identify bettwen same / different persons
             margin_factor       : a factor used to expand the bbox of the extracted face
         """
