@@ -1,5 +1,4 @@
 
-import os
 from models.data_config import (
     FEATURE_IDENITY_RECOGNITION,
     FEATURE_JOB_RECOMMENDATION_SYSTEM,
@@ -12,6 +11,8 @@ from .agents_pipelines.job_description_enhancement import JobDescriptionEnhancem
 from .agents_pipelines.job_recommendation_system   import JobRecommendationSystemPipeline
 from .agents_pipelines.profile_analysis            import ProfileAnalysisPipeline
 from .agents_pipelines.proposal_rejection_reasons  import ProposalRejectionReasonsPipeline
+
+from typing import Any
 
 class AgentController:
     """
@@ -30,28 +31,38 @@ class AgentController:
             - job_description_enhancement
             - proposal_rejection_reasons 
     """
-    def __init__(self, feature_id: str) -> None:
+    def __init__(self, feature_id: str, agents: Any) -> None:
         # setup
         self.feature_id = feature_id
-        self.agent_pipeline = self.get_feature_pipeline()
+        self.agent_pipeline = self.get_feature_pipeline(agents)
 
 
-    def get_feature_pipeline(self) -> None:
+    def get_feature_pipeline(self, agents: Any) -> None:
         """Get the required feature pipeline"""
         if self.feature_id == FEATURE_IDENITY_RECOGNITION:
-            return IdentityRecognitionPipeline
+            return IdentityRecognitionPipeline(agents)
             
         elif self.feature_id == FEATURE_JOB_RECOMMENDATION_SYSTEM:
-            return JobRecommendationSystemPipeline 
+            return JobRecommendationSystemPipeline(agents) 
             
         elif self.feature_id == FEATURE_PROFILE_ANALYSIS:
-            return ProfileAnalysisPipeline 
+            return ProfileAnalysisPipeline(agents) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
-            return JobDescriptionEnhancementPipeline 
+            return JobDescriptionEnhancementPipeline(agents) 
             
         else: 
-            return ProposalRejectionReasonsPipeline 
+            return ProposalRejectionReasonsPipeline(agents)
+    
+
+    def preprocess_input(self, input: Any):
+        return self.agent_pipeline.preprocess(input = input)
+    
+    def call_agent(self, input: Any):
+        return self.agent_pipeline.call(input = input)
+    
+    def postprocess_agent_output(self, agent_output: Any):
+        return self.agent_pipeline.postprocess(agent_output = agent_output)
             
         
         

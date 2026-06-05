@@ -1,11 +1,13 @@
 
 
 import os
+from pathlib import Path
 import json
 from typing import Any
 from helpers.config import get_settings
 
 from models.error_enums import LoggingErrors
+from models.pydantic_schemas import AgentInferenceResult
 
 class FeatureController:
     """
@@ -38,39 +40,67 @@ class FeatureController:
 
     # ------------------------------------ Json Logging Utils -------------------------------------------
     def load_json(self) -> list[dict[str, Any]]:
-        with open(self.json_path, mode = "r", encoding = "utf-8") as f:
+        path = Path(self.json_path)
+
+        if not path.exists() or path.stat().st_size == 0:
+            return []
+
+        with open(path, mode = "r", encoding = "utf-8") as f:
             return json.load(f)
         
-    def save_json(self, results: list[dict[str, Any]]):
-        with open(self.json_path, encoding = 'utf-8') as f:
+        
+    def save_json(self, results: list[dict[str, Any]]) -> None:
+        path = Path(self.json_path)
+        path.parent.mkdir(parents = True, exist_ok = True)
+
+        with open(path, mode = "w", encoding = "utf-8") as f:
             json.dump(results, f, indent = 4, ensure_ascii = False)
         
-    def log_result(self, result) -> bool:
+
+    def log_result(self, result: AgentInferenceResult) -> dict[str, bool | str | None]:
         """
         Logging the given result.
 
         Returns:
-            success (bool): indicating if it was a successful log operation or not.
+            dict contains {
+                success (bool)     : indicating if it was a successful log operation or not.
+                error (str | None) : error returned if success = False
+            }
         """
         # load file
         try:
-            results = self.load_json()
+            json_file = self.load_json()
         except Exception as e:
-            print("error")
-            raise 
+            return {
+                "success": False,
+                "error"  : f"{LoggingErrors.JSON_FILE_LOADING_ERROR.value} - {e}"
+            }
 
-            
         # parse data
+        try:
+            result_dict = result.model_dump()
+            json_file.append(result_dict)
+        except Exception as e:
+            return {
+                "success": False,
+                "error"  : f"{LoggingErrors.JSON_FILE_PROCESSING_ERROR.value} - {e}"
+            }
 
         # save
         try:
-            self.save_json(results)
-        except:
-            print("error")
-            raise
-
+            self.save_json(json_file)
+        except Exception as e:
+            return {
+                "success": False,
+                "error"  : f"{LoggingErrors.JSON_FILE_SAVING_ERROR.value} - {e}"
+            }
+        
+        return {
+            "success": True,
+            "error"  : None
+        }
         # ------------------------------------ Json Logging Utils -------------------------------------------
-
+        
 
 
 
