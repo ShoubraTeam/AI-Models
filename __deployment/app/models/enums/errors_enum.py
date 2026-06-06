@@ -1,6 +1,8 @@
 from enum import Enum
 
 class ErrorsEnum(Enum):
+    JD_ENH_ERROR_TASK = "Job Description Task is invalid"
+
     # log results
     LOG_JSON_FILE_LOADING_ERROR    = "Json file loading error"
     LOG_JSON_FILE_SAVING_ERROR     = "Json file saving error"

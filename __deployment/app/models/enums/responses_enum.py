@@ -14,5 +14,5 @@ class ResponsesEnum(Enum):
     JD_ENH_SUCCESS_TOOLS_DETECTION             = "Tools Detection Process Completed"
     JD_ENH_SUCCESS_TOOLS_RECOMMENDATION        = "Tools Recommendation Process Completed"
     JD_ENH_SUCCESS_JOB_DESCRIPTION_ENHANCEMENT = "Tools Recommendation Process Completed"
-
+    
     

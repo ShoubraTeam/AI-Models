@@ -6,9 +6,17 @@ from .pipeline import Pipeline
 from groq import Groq
 from agents.job_description_enhancement import detect_tools, extract_tools, enhance_job
 from typing import Callable
-from helpers.config import JOB_DESCRIPTION_N_JOBS_TO_RETREIVE, JOB_DESCRIPTION_RETREIVAL_ALPHA
+from helpers.config import JOB_DESCRIPTION_N_JOBS_TO_RETRIEVE, JOB_DESCRIPTION_RETRIEVAL_ALPHA
 import ast
 from weaviate.collections import Collection
+
+from models.data_config import (
+    JOB_DESC_TOOLS_DETECTION,
+    JOB_DESC_TOOLS_RECOMMENDATION,
+    JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT
+)
+
+
 class JobDescriptionEnhancementPipeline(Pipeline):
     """
     Job Description Enhancement Pipeline
@@ -22,7 +30,7 @@ class JobDescriptionEnhancementPipeline(Pipeline):
         agents,
         client: Groq,
         task  : str,
-        tools_retreiver: Callable[[Collection, str, str, int, float], list] = None,
+        tools_retriever: Callable[[Collection, str, str, int, float], list] = None,
         collection: Collection = None
     ) -> None:
         """
@@ -30,9 +38,9 @@ class JobDescriptionEnhancementPipeline(Pipeline):
             agents         : the models used in tools-detection, tools-recommendation, and job-enhancement
             client         : Groq Client
             task           : str determines whether the required task is [tools_detection - tools_recommendation - job_desc_enhancement]
-            tools_retreiver: function used to retreive relevant tools
+            tools_retriever: function used to retrieve relevant tools
         """
-        self.tools_retreiver   = tools_retreiver
+        self.tools_retriever   = tools_retriever
         self.tools_detector    = agents["tools_detector"]
         self.tools_recommender = agents["tools_recommender"]
         self.job_desc_enhancer = agents["job_desc_enhancer"]
@@ -42,13 +50,13 @@ class JobDescriptionEnhancementPipeline(Pipeline):
     
     # ------------------------------- driver functions -----------------------------------
     def preprocess(self, input: str | tuple[str, str]):
-        if self.task == "tools_detection":
+        if self.task == JOB_DESC_TOOLS_DETECTION:
             return self.detect_tools_preprocess(input = input)
 
-        elif self.task == "tools_recommendation":
+        elif self.task == JOB_DESC_TOOLS_RECOMMENDATION:
             return self.recommend_tools_preprocess(input = input)
         
-        elif self.task == "job_description_enhancement":
+        elif self.task == JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT:
             return self.enhance_job_preprocess(input = input)
 
         else:
@@ -56,26 +64,26 @@ class JobDescriptionEnhancementPipeline(Pipeline):
 
     
     def call(self, input: str):
-        if self.task == "tools_detection":
+        if self.task == JOB_DESC_TOOLS_DETECTION:
             return self.detect_tools_call(input = input)
 
-        elif self.task == "tools_recommendation":
+        elif self.task == JOB_DESC_TOOLS_RECOMMENDATION:
             return self.recommend_tools_call(input = input)
         
-        elif self.task == "job_description_enhancement":
+        elif self.task == JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT:
             return self.enhance_job_call(input = input)
 
         else:
             pass
 
     def postprocess(self, agent_output):
-        if self.task == "tools_detection":
+        if self.task == JOB_DESC_TOOLS_DETECTION:
             return self.detect_tools_postprocess(agent_output = agent_output)
 
-        elif self.task == "tools_recommendation":
+        elif self.task == JOB_DESC_TOOLS_RECOMMENDATION:
             return self.recommend_tools_postprocess(agent_output = agent_output)
         
-        elif self.task == "job_description_enhancement":
+        elif self.task == JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT:
             return self.enhance_job_postprocess(agent_output = agent_output)
 
         else:
@@ -195,7 +203,7 @@ Your response MUST strictly follow the structure below:
     # ------------------------------- tools recommendation -----------------------------------
     def recommend_tools_preprocess(self, input: tuple[str, str]) -> str:
         """
-        Retreive Relevant Jobs& format them for extracting tools
+        Retrieve Relevant Jobs& format them for extracting tools
         
         Args:
             (job_title, job_desc)
@@ -206,12 +214,12 @@ Your response MUST strictly follow the structure below:
         ## Job Description:
         {job_desc}
         """
-        retrieved = self.tools_retreiver(
+        retrieved = self.tools_retriever(
             self.collection,
             formatted_job, 
             None, 
-            JOB_DESCRIPTION_N_JOBS_TO_RETREIVE,
-            JOB_DESCRIPTION_RETREIVAL_ALPHA
+            JOB_DESCRIPTION_N_JOBS_TO_RETRIEVE,
+            JOB_DESCRIPTION_RETRIEVAL_ALPHA
         )
 
 

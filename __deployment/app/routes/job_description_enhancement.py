@@ -11,7 +11,11 @@ from time import perf_counter
 from models.enums            import ResponsesEnum, ErrorsEnum
 from models.pydantic_schemas import AgentInferenceResult
 from models.pydantic_schemas import JobEnhancementIP, ToolsDetectionIP, ToolsRecommendationIP
-
+from models.data_config import (
+    JOB_DESC_TOOLS_DETECTION,
+    JOB_DESC_TOOLS_RECOMMENDATION,
+    JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT
+)
 
 # controllers
 from controllers import FeatureController
@@ -20,12 +24,13 @@ from controllers import WeaviateController
 
 # fast api
 from fastapi import APIRouter, Request
-from fastapi import UploadFile, File
 from fastapi.responses import JSONResponse
 from fastapi import status
 
 
+
 # -------------------------- Helper Functions ---------------------------
+# tools detection
 def get_bad_request_tools_detection(message: str) -> JSONResponse:
     """Return a bad request error specific for job_desc_enhancement api"""
     return JSONResponse(
@@ -34,7 +39,6 @@ def get_bad_request_tools_detection(message: str) -> JSONResponse:
             "success"        : False,
             "message"        : message,
             "has_tools"      : None,
-            "suggested_tools": None,
         }
     )
 
@@ -50,6 +54,8 @@ def get_good_request_tools_detection(message: str, has_tools: bool) -> JSONRespo
         }
     )
 
+
+# tools recommendation
 def get_bad_request_tools_recommendation(message: str) -> JSONResponse:
     """Return a bad request error specific for job_desc_enhancement api"""
     return JSONResponse(
@@ -73,7 +79,7 @@ def get_good_request_tools_recommendation(message: str, tools: list[str]) -> JSO
         }
     )
 
-
+# job desc enhancement
 def get_bad_request_job_desc_enhancement(message: str) -> JSONResponse:
     """Return a bad request error specific for job_desc_enhancement api"""
     return JSONResponse(
@@ -98,9 +104,7 @@ def get_good_request_job_desc_enhancement(message: str, enhanced_job_description
     )
 
 # -------------------------------- Routing ---------------------------------
-job_description_enhancement_router = APIRouter(
-    prefix = ROUTE_MAIN_ROUTE 
-)
+job_description_enhancement_router = APIRouter(prefix = ROUTE_MAIN_ROUTE )
 
 
 # Tools Detection
@@ -124,21 +128,20 @@ async def detect_tools(
             "has_tools"      : if the job desc contain tools or not,
         }
     """
-    task = "tools_detection"
-
-    # setup
     start_time = perf_counter()
 
+    # setup
+    task = JOB_DESC_TOOLS_DETECTION
     if not F.validate_feature_id(feature_id = feature_id):
         return get_bad_request_tools_detection(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+    if not F.validate_job_description_enhancement_task(task = task):
+        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_ERROR_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
 
-    agent_controller_kwargs = {
-        "task": task
-    }
-    agent_controller   = AgentController(
+    agent_controller_kwargs = {"task": task}
+    agent_controller = AgentController(
         feature_id = feature_id,
         agents     = request.app.state.agents[feature_id],
         client     = request.app.state.groq_client,
@@ -185,6 +188,7 @@ async def detect_tools(
     )
 
 
+
 # Tools Recommendation
 @job_description_enhancement_router.post("/{feature_id}/tools_recommendation")
 async def recommend_tools(
@@ -195,7 +199,7 @@ async def recommend_tools(
     """
     This endpoint does the following:
         - validate the given job data
-        - Retreiving jobs relevant to the given job desc
+        - Retrieving jobs relevant to the given job desc
         - Recommend common tools among those jobs
 
     Returns:
@@ -205,16 +209,15 @@ async def recommend_tools(
             "tools"  : if the job desc contain tools or not,
         }
     """
-    task = "tools_recommendation"
+    start_time = perf_counter()
+
 
     # setup
-    start_time = perf_counter()
-    print(100*'=')
-    print("here")
-    print(100*'=')
-
+    task = JOB_DESC_TOOLS_RECOMMENDATION
     if not F.validate_feature_id(feature_id = feature_id):
         return get_bad_request_tools_recommendation(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+    if not F.validate_job_description_enhancement_task(task = task):
+        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_ERROR_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
@@ -224,10 +227,9 @@ async def recommend_tools(
         client = request.app.state.weaviate_client
     ) 
 
-    
     agent_controller_kwargs = {
         "task": task,
-        "tools_retreiver": weaviate_controller.retreive,
+        "tools_retriever": weaviate_controller.retrieve,
         "collection"     : request.app.state.collection
     }
 
@@ -300,7 +302,6 @@ async def recommend_tools(
 
 
 
-
 # Job Description Enhancement
 @job_description_enhancement_router.post("/{feature_id}/job_description_enhancement")
 async def enhance_job_desc(
@@ -320,21 +321,19 @@ async def enhance_job_desc(
             "enhanced_job_description" : if the job desc contain tools or not,
         }
     """
-    task = "job_description_enhancement"
-
-    # setup
     start_time = perf_counter()
 
+    # setup
+    task = JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT
     if not F.validate_feature_id(feature_id = feature_id):
         return get_bad_request_job_desc_enhancement(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+    if not F.validate_job_description_enhancement_task(task = task):
+        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_ERROR_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
 
-
-    agent_controller_kwargs = {
-        "task": task
-    }
+    agent_controller_kwargs = {"task": task}
 
     agent_controller   = AgentController(
         feature_id      = feature_id,

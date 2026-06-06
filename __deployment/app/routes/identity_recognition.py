@@ -155,7 +155,7 @@ async def verify_person_images(
 
     try:
         result_to_log = AgentInferenceResult(
-            images       = [img1_log, img2_log],
+            images       = (img1_log, img2_log),
             agent_output = verification_results['verified'],
             duration_s   = duration_s,
             task         = feature_id

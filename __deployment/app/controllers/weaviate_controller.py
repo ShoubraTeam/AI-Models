@@ -16,16 +16,21 @@ class WeaviateController:
     """
     Controlling the logic of:-
         - Build Collection
-        - Retreiving & Reranking
+        - Retrieving & Reranking
     
     Args:
-        agents: embedding model to retreive relevant documents - documents reranker model
+        agents: embedding model to retrieve relevant documents - documents reranker model
         client: Weaviate Client
     """
     # ---------------------------------------- Setup -------------------------------------------
     def __init__(self, agents, client: WeaviateClient) -> None:
-        self.embedder = agents["RAG_embedder"]
-        self.reranker = agents["RAG_reranker"]
+        if agents is not None:
+            self.embedder = agents["RAG_embedder"]
+            self.reranker = agents["RAG_reranker"]
+        
+        else:
+            self.embedder = None
+            self.reranker = None
         self.client = client
         self.documents_path = get_settings().JOB_DESCRIPTION_ENHANCEMENT_DATA_PATH
     
@@ -73,22 +78,22 @@ class WeaviateController:
 
         return collection
     
-    # ---------------------------------------- Retreive & Rerank -------------------------------------------
-    def retreive_documents(self, query: str, collection, n_to_return: int = 50, alpha: float = 0.7) -> list:
+    # ---------------------------------------- Retrieve & Rerank -------------------------------------------
+    def retrieve_documents(self, query: str, collection, n_to_return: int = 50, alpha: float = 0.7) -> list:
         """
-        retreives the most relevant documents to the input query
+        retrieves the most relevant documents to the input query
 
         Args:
             query (str)      : the input query
-            collection       : the database to retreive from
+            collection       : the database to retrieve from
             n_to_return (int): number of documents to return
             alpha (float)    : how much do we attend to the semantic search results
 
         Returns:
-            retreived_documents (list) sorted by year
+            retrieved_documents (list) sorted by year
         """
         query_embedded = self.embedder.embed_query(query)
-        retreived = collection.query.hybrid(
+        retrieved = collection.query.hybrid(
             query = query,
             vector = query_embedded,
             limit = n_to_return,
@@ -97,21 +102,21 @@ class WeaviateController:
 
 
         # sort by year
-        retreived_sorted = sorted(
-            retreived,
+        retrieved_sorted = sorted(
+            retrieved,
             key = lambda x : x.properties.get('year', 0),
             reverse = True
         )
 
-        return retreived_sorted # obj (document_job, year)
+        return retrieved_sorted # obj (document_job, year)
 
     def rerank_documents(self, query: str, documents_objects: list, n_to_return: 10):
         """
-        Reranking the retreived documents using a cross_encoder to guarantee that the LLM receives the most relevant context possible.
+        Reranking the retrieved documents using a cross_encoder to guarantee that the LLM receives the most relevant context possible.
 
         Args:
             query (str)                                : the rerank query
-            documents_objects (list)                   : retreived documents objs to rerank
+            documents_objects (list)                   : retrieved documents objs to rerank
             n_to_return (int)                          : number of documents to return after reranking
 
         Returns:
@@ -128,28 +133,28 @@ class WeaviateController:
         return reranked_documents[:n_to_return]  # (obj, score), --> obj (job_doc, year)
 
 
-    def retreive(
+    def retrieve(
         self,
         collection,
-        retreiver_query: str,
+        retriever_query: str,
         reranker_query: str = None,
         n_to_return: int = 10,
         alpha: float = 0.7,
     ):
         """
-        retreive the most (n_to_return) relevant documents from the collection of documents given
+        retrieve the most (n_to_return) relevant documents from the collection of documents given
 
         Args:
-            retreiver_query (str)      : the retreiver query (original input query)
-            reranker_query (str): query used in reranking. If None -> use retreiver_query
+            retriever_query (str)      : the retriever query (original input query)
+            reranker_query (str): query used in reranking. If None -> use retriever_query
             n_to_return (int): number of documents to return
             alpha (float)    : how much do we attend to the semantic search results
 
         Retunrs:
-            documents (list of retreived documents_text)
+            documents (list of retrieved documents_text)
         """
-        retreived_documents = self.retreive_documents(
-            query = retreiver_query,
+        retrieved_documents = self.retrieve_documents(
+            query = retriever_query,
             collection = collection,
             n_to_return = 50,
             alpha = alpha
@@ -157,11 +162,11 @@ class WeaviateController:
 
 
         if reranker_query is None:
-            reranker_query = retreiver_query
+            reranker_query = retriever_query
 
         reranked_documents = self.rerank_documents(
             query = reranker_query,
-            documents_objects = retreived_documents,
+            documents_objects = retrieved_documents,
             n_to_return = n_to_return
         ) 
 

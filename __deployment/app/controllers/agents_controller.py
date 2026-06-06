@@ -35,7 +35,7 @@ class AgentController:
         agents: agents used in features
         kwargs: key word arguments specific to each feature if required
     """
-    def __init__(self, feature_id: str, agents: Any, client: None | Groq, **kwargs) -> None:
+    def __init__(self, feature_id: str, agents: Any, client: None | Groq = None, **kwargs) -> None:
         # setup
         self.feature_id = feature_id
         self.agent_pipeline = self.get_feature_pipeline(agents, client = client, **kwargs)
