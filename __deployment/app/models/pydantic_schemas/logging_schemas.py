@@ -32,12 +32,21 @@ class AgentInferenceResult(BaseModel):
 
     images: list[ImageLog] | None = None
 
-    user_input: str | None = Field(
+    task: Literal[
+        "identity_recognition",
+        "tools_detection",
+        "tools_recommendation",
+        "job_description_enhancement"
+        
+        # other feature tasks
+    ]
+
+    user_input: str | None | tuple[str, str] | tuple[str, str, list[str] | None]= Field(
         None,
         description = "Input may be str (for LLM-based features) or Image for Identity Recognition & Profile analysis"
     )
 
-    agent_output: str | bool = Field(
+    agent_output: str | bool | list[str] = Field(
         description = "Output may be str, verified or not for Identity Recognition, or .. for Proposal Rejection Reasons"
     )
 

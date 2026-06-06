@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 from .pipeline import Pipeline
 
-from models.message_enums import IdentityRecognitionMessages
+from models.enums import ResponsesEnum
 import torchvision.transforms as T
 from PIL.Image import fromarray
 import torch.nn.functional as torch_funcs
@@ -75,7 +75,7 @@ class IdentityRecognitionPipeline(Pipeline):
         if n_detections1 != 1 or n_detections2 != 1:
             return {
                 "success": False,
-                "message": IdentityRecognitionMessages.ERROR_REQUIRED_HIGH_QUALITY_IMAGE.value,
+                "message": ResponsesEnum.ID_RECO_ERROR_REQUIRED_HIGH_QUALITY_IMAGE.value,
                 "faces"  : None
             }
         

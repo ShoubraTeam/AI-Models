@@ -21,3 +21,4 @@ app = FastAPI(lifespan = lifespan)
 app.include_router(router = base_router)
 # app.include_router(router = identity_recognition_router)
 app.include_router(router = job_description_enhancement_router)
+

@@ -24,7 +24,6 @@ class AgentController:
         - Post-process agent response 
 
     Args:
-        Args:
         feature_id (str): feature identifier. Must be one of the following:
             - identity_recognition
             - job_recommendation_system
@@ -32,15 +31,19 @@ class AgentController:
             - profile_analyzer
             - job_description_enhancement
             - proposal_rejection_reasons 
+        
+        agents: agents used in features
+        kwargs: key word arguments specific to each feature if required
     """
-    def __init__(self, feature_id: str, agents: Any, client: None | Groq) -> None:
+    def __init__(self, feature_id: str, agents: Any, client: None | Groq, **kwargs) -> None:
         # setup
         self.feature_id = feature_id
-        self.agent_pipeline = self.get_feature_pipeline(agents, client = client)
+        self.agent_pipeline = self.get_feature_pipeline(agents, client = client, **kwargs)
 
 
-    def get_feature_pipeline(self, agents: Any, client: None | Groq) -> None:
+    def get_feature_pipeline(self, agents: Any, client: None | Groq, **kwargs) -> None:
         """Get the required feature pipeline"""
+        
         if self.feature_id == FEATURE_IDENITY_RECOGNITION:
             return IdentityRecognitionPipeline(agents)
             
@@ -51,14 +54,14 @@ class AgentController:
             return ProfileAnalysisPipeline(agents) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
-            return JobDescriptionEnhancementPipeline(agents, client = client) 
+            return JobDescriptionEnhancementPipeline(agents, client = client, **kwargs) 
             
         else: 
             return ProposalRejectionReasonsPipeline(agents)
     
 
-    def preprocess_input(self, input: Any, **kwargs):
-        return self.agent_pipeline.preprocess(input = input, **kwargs)
+    def preprocess_input(self, input: Any):
+        return self.agent_pipeline.preprocess(input = input)
     
     def call_agent(self, input: Any):
         return self.agent_pipeline.call(input = input)

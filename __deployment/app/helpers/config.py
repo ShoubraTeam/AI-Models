@@ -23,11 +23,15 @@ class Settings(BaseSettings):
     APP_VERSION: str
 
     # app config
-    RESULTS_PATH       : str
-    TRAINED_MODELS_PATH: str
+    RESULTS_PATH                         : str
+    TRAINED_MODELS_PATH                  : str
+    JOB_DESCRIPTION_ENHANCEMENT_DATA_PATH: str
 
     # secrets
-    GROQ_API_KEY: str    
+    GROQ_API_KEY    : str
+    WEAVIATE_URL    : str
+    WEAVIATE_API_KEY: str
+   
 
 def get_settings() -> Settings:
     return Settings()
@@ -39,7 +43,7 @@ ROUTE_MAIN_ROUTE = "/ai/api"
 
 
 
-# ------------------------ Agents CFG -------------------------
+# ------------------------ Agents / Clients CFG -------------------------
 # identity recognition
 ARCFACE_CFG = {
     "n_classes"    : 786,
@@ -59,3 +63,14 @@ JOB_DESCRIPTION_ENHANCEMENT_MODELS = {
     "tools_recommender": "llama-3.3-70b-versatile",
     "job_desc_enhancer": "llama-3.1-8b-instant"
 }
+
+JOB_DESCRIPTION_ENHANCEMENT_COLLECTION_V1 = "job_desc_enhancement_collection_v1"
+JOB_DESCRIPTION_N_JOBS_TO_RETREIVE = 10
+JOB_DESCRIPTION_RETREIVAL_ALPHA    = 0.7
+JOB_DESCRIPTION_RAG_EMBEDDER = {
+    "model_name"    : "BAAI/bge-base-en-v1.5",
+    "model_kwargs"  : {"device" : "cuda"},
+    "encode_kwargs" : {"batch_size" : 128}
+}
+
+JOB_DESCRIPTION_RAG_RERANKER = 'cross-encoder/ms-marco-MiniLM-L-6-v2'
