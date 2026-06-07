@@ -12,7 +12,58 @@ Run Configurations:
 		>> visual_brand_score_mae --> 0.05
 		>> visual_brand_score_in_range_accuracy --> 1.0
 		>> visual_brand_content_coverage_ratio --> 1.0
-		>> agent_invocation_time --> 4.0011
+		>> agent_invocation_time --> 8.0537
 
 
 => Sample #2:
+	- Passed
+	- Results:
+		>> visual_brand_score_mae --> 0.05
+		>> visual_brand_score_in_range_accuracy --> 1.0
+		>> visual_brand_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 6.253
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> visual_brand_score_mae --> 0.1
+		>> visual_brand_score_in_range_accuracy --> 1.0
+		>> visual_brand_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 3.8456
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> google_genai:gemini-2.5-flash-lite
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> visual_brand_score_mae --> 0.05
+		>> visual_brand_score_in_range_accuracy --> 1.0
+		>> visual_brand_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.5747
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> visual_brand_score_mae --> 0.0
+		>> visual_brand_score_in_range_accuracy --> 1.0
+		>> visual_brand_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.2654
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> visual_brand_score_mae --> 0.1
+		>> visual_brand_score_in_range_accuracy --> 1.0
+		>> visual_brand_content_coverage_ratio --> 1.0
+		>> agent_invocation_time --> 1.0306
+
+====================================================================================================

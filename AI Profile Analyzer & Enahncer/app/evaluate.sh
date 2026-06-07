@@ -1,10 +1,15 @@
 #!/bin/bash
 
+cd "$(dirname "$0")"
+
+if [ -f .env ]; then
+    export $(cat .env | grep -v '#' | xargs)
+fi
 TASKS=(
     # "bio_analysis"
     #"skills_analysis"
-    "visual_brand_analysis"
-    #"super_agent"
+    #"visual_brand_analysis"
+    "super_agent"
 )
 
 
@@ -27,8 +32,7 @@ MODELS_VISUAL_BRAND_ANALYSIS=(
 )
 
 MODELS_SUPER_AGENT=(
-    "QWEN_32B"
-    "GEMINI_FLASH"
+    "GPT_OSS_120B"
     "LLAMA_70B"
 )
 

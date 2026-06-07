@@ -31,8 +31,8 @@ class SuperAgentEvaluationWrapper:
         self.super_agent = super_agent
         
         visual_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("GEMINI_FLASH")
-        skills_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("LLAMA_8B")
-        numerical_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("LLAMA_8B")
+        skills_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("QWEN_32B")
+        numerical_model_resolved = CFG.EVALUATION_MODELS_MAPPING.get("deterministic_python")
         
         self.visual_agent = get_agent(CFG.TASK_VISUAL_BRAND_ANALYSIS, visual_model_resolved, **kwargs)
         self.bio_agent = get_agent(CFG.TASK_BIO_ANALYSIS, model_name, **kwargs)
@@ -41,36 +41,47 @@ class SuperAgentEvaluationWrapper:
 
     def evaluate_sample(self, sample: dict) -> dict:
         """Intercepts the flat sample loop, computes sub-audits, and feeds the Master Orchestrator."""
-        base_dir = Path(__file__).resolve().parents[2]
-        img_path = os.path.join(base_dir, sample.get("image_name", ""))
-        if not os.path.exists(img_path):
-            img_path = os.path.join(base_dir, "app", sample.get("image_name", ""))
-        if not os.path.exists(img_path):
-            img_path = os.path.join(os.getcwd(), sample.get("image_name", ""))
+        try:
+            raw_image_name = sample.get("image_name", "")
+            pure_filename = os.path.basename(raw_image_name) if raw_image_name else ""
             
-        visual_res = self.visual_agent.invoke(image_path=img_path, job_role=sample.get("job_role", ""))
-        bio_res = self.bio_agent.invoke(bio_text=sample.get("bio_text", ""), job_role=sample.get("job_role", ""))
-        skills_res = self.skills_agent.invoke(declared_skills=sample.get("declared_skills", []), job_role=sample.get("job_role", ""))
-        numerical_res = self.numerical_agent.invoke(
-            job_role=sample.get("job_role", ""),
-            hourly_rate=sample.get("hourly_rate", 0.0),
-            rating=sample.get("rating", 0.0),
-            total_completed_jobs=sample.get("total_completed_jobs", 0)
-        )
-        
-        return self.super_agent.evaluate_sample(
-            sample=sample,
-            visual_res=visual_res,
-            bio_res=bio_res,
-            skills_res=skills_res,
-            numerical_res=numerical_res
-        )
+            img_path = sample.get("image_path")
+            if not img_path:
+                base_dir = Path(__file__).resolve().parents[2]
+                img_path = os.path.join(base_dir, "app", "assets", "eval_data", pure_filename)
+
+            print(f"   [Step 1/5] Executing Visual Brand Audit on resolved path: {img_path}")
+            visual_res = self.visual_agent.invoke(image_path=img_path, job_role=sample.get("job_role", ""))
+            
+            print(f"   [Step 2/5] Executing Bio Copywriting Audit...")
+            bio_res = self.bio_agent.invoke(bio_text=sample.get("bio_text", ""), job_role=sample.get("job_role", ""))
+            
+            print(f"   [Step 3/5] Executing Technical Skills Audit...")
+            skills_res = self.skills_agent.invoke(declared_skills=sample.get("declared_skills", []), job_role=sample.get("job_role", ""))
+            
+            print(f"   [Step 4/5] Executing Deterministic Numerical Engine...")
+            numerical_res = self.numerical_agent.invoke(
+                job_role=sample.get("job_role", ""),
+                hourly_rate=sample.get("hourly_rate", 0.0),
+                rating=sample.get("rating", 0.0),
+                total_completed_jobs=sample.get("total_completed_jobs", 0)
+            )
+            
+            print(f"   [Step 5/5] Synthesizing Final Report via Master SuperAgent Orchestrator...")
+            return self.super_agent.evaluate_sample(
+                sample=sample,
+                visual_res=visual_res,
+                bio_res=bio_res,
+                skills_res=skills_res,
+                numerical_res=numerical_res
+            )
+        except Exception as wrapper_error:
+            print(f"\n[CRITICAL CRASH IN WRAPPER] الخطأ ظهر هنا:")
+            traceback.print_exc()
+            raise wrapper_error
 
     def __getattr__(self, name):
-        """Delegates all standard attributes and metadata methods (like get_metric_names) to the inner agent."""
         return getattr(self.super_agent, name)
-
-
 # -------------------------------------------- Acquiring Agents & Data --------------------------------------------------
 
 def get_task_eval_data(all_data: list[dict], task_name: str) -> list[dict]:
@@ -93,12 +104,30 @@ def get_task_eval_data(all_data: list[dict], task_name: str) -> list[dict]:
             parsed = EvaluationDataParser.get_super_agent_data(sample = sample)
 
         if isinstance(parsed, dict):
+            raw_image_name = sample.get("image_name", "")
+            pure_filename = os.path.basename(raw_image_name)
             base_dir = Path(__file__).resolve().parents[2]
-            abs_img_path = os.path.join(base_dir, sample.get("image_name", ""))
-            if not os.path.exists(abs_img_path):
-                abs_img_path = os.path.join(base_dir, "app", sample.get("image_name", ""))
-            if not os.path.exists(abs_img_path):
-                abs_img_path = os.path.join(os.getcwd(), sample.get("image_name", ""))
+            
+            possible_paths = [
+                os.path.join(base_dir, "app", "assets", "eval_data", pure_filename),
+                os.path.join(base_dir, "app", "assests", "eval_data", pure_filename),
+                os.path.join(base_dir, "assets", "eval_data", pure_filename),
+                os.path.join(base_dir, "assests", "eval_data", pure_filename),
+                os.path.join(os.getcwd(), "app", "assets", "eval_data", pure_filename),
+                os.path.join(os.getcwd(), "app", "assests", "eval_data", pure_filename),
+                os.path.join(os.getcwd(), "assets", "eval_data", pure_filename),
+                os.path.join(os.getcwd(), "assests", "eval_data", pure_filename),
+                os.path.join(base_dir, raw_image_name),
+                os.path.join(os.getcwd(), raw_image_name)
+            ]
+            
+            abs_img_path = None
+            for path in possible_paths:
+                if os.path.exists(path):
+                    abs_img_path = path
+                    break
+            if not abs_img_path:
+                abs_img_path = os.path.join(base_dir, "app", "assets", "eval_data", pure_filename)
                 
             parsed["image_path"] = abs_img_path
             parsed["ground_truth_sub_audits"] = sample.get("ground_truth_sub_audits", {})
