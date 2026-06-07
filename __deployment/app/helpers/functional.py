@@ -2,18 +2,18 @@
 # Import general utility functions
 # ---------------------------------------------
 
-import os
-from models.data_config import FEATURE_ALLOWED_FEATURES, FEATURE_IDENITY_RECOGNITION
-from helpers.config import get_settings
 from typing import Any
+import json
+from pathlib import Path
 
-import torch
-from agents import FaceRecognizerArcFace
-from helpers.config import ARCFACE_CFG, RETINA_DETECTOR_CFG
+import traceback
+
+from models.data_config import FEATURE_ALLOWED_FEATURES, JOB_DESCRIPTION_ALLOWED_TASKS
+from helpers.config import get_settings
 
 
-from agents import FaceRecognizerArcFace
-from retinaface.pre_trained_models import get_model as get_retina_model
+
+settings = get_settings()
 
 
 
@@ -32,14 +32,43 @@ def validate_feature_id(feature_id: str) -> bool:
     
     return True
 
-
-
+def validate_job_description_enhancement_task(task: str) -> bool:
+    """
+    Validate the given task
+        
+    Args:
+        task (str)
+    
+    Returns:
+        is_ok (bool)
+    """
+    if task not in JOB_DESCRIPTION_ALLOWED_TASKS:
+        return False
+    
+    return True
+    
 
 # -------------------- Printing Utils --------------------------
 RED = "\033[91m"
 GREEN = "\033[92m"
 BLUE = "\033[94m"
 RESET = "\033[0m"
+
+
+
+def format_error(error: Exception) -> dict:
+    tb = traceback.extract_tb(error.__traceback__)
+
+    last_frame = tb[-1] if tb else None
+
+    return {
+        "error_type"    : type(error).__name__,
+        "error_message" : str(error),
+        "error_file"    : str(Path(last_frame.filename).resolve()) if last_frame else None,
+        "error_line"    : last_frame.lineno if last_frame else None,
+        "error_function": last_frame.name if last_frame else None,
+    }
+
 
 
 def print_subtitle(subtitle: str):
@@ -52,8 +81,18 @@ def print_subtitle(subtitle: str):
 def print_success_message(message: str):
     print(f"{GREEN}>> {message} <<{RESET}")
 
-def print_error_message(message: str):
-    print(f"{RED}>> {message} <<{RESET}")
+
+def print_error(error: Exception, message: str):
+    sep = 50 * '='
+    print(f"{RED}{sep}{RESET}")
+
+    print(f"{RED}>> {message} <<{RESET}: ")
+    
+    err_json = format_error(error)
+    print(json.dumps(err_json, indent = 2))
+    
+    print(f"{RED}{sep}{RESET}")
+
 
 def print_title(title: str, n_sep: int =  100, sep: str = "="):
     """Printing a title in a well-formatted manner"""
@@ -89,7 +128,8 @@ def print_dict(dic: dict):
     print()
     for k, v in dic.items():
         print(f"{k} => {v}")
-    
+
+
 def print_semi_dict(semi_dict: Any):
     print()
     items = semi_dict.__dict__.items()
@@ -97,7 +137,6 @@ def print_semi_dict(semi_dict: Any):
         print(f"{k} => {v}")
 
     
-
 def print_data(data: Any):
     if isinstance(data, list):
         if isinstance(data[0], dict):
@@ -123,7 +162,6 @@ def print_data(data: Any):
         print(data)
     
 
-
 def print_eval_data(eval_data: list[dict]):
     print_subtitle("Extracted Eval Data:")
     
@@ -142,48 +180,3 @@ def print_eval_data(eval_data: list[dict]):
                 print(f">> {k}:\n{v}\n\n")
             
         print("------")
-
-
-# ------------------- Loading Agents --------------------------
-
-# ---------------------------------------------------
-# Provide a simple abstraction for loading any agent
-# ---------------------------------------------------
-
-
-
-def get_identity_recognizer() -> FaceRecognizerArcFace:
-    settings = get_settings()
-    weights_path = os.path.join(
-        settings.TRAINED_MODELS_PATH,
-        FEATURE_IDENITY_RECOGNITION,
-        "arcface_model.pth"
-    )
-
-    model = FaceRecognizerArcFace(
-        num_classes = ARCFACE_CFG["n_classes"],
-        embedding_dim = ARCFACE_CFG["embedding_dim"],
-        margin = ARCFACE_CFG["margin"]
-    )
-
-
-    # load weights
-    loaded = torch.load(weights_path, map_location = ARCFACE_CFG["device"])
-    model.load_state_dict(loaded['model_state_dict'])
-
-    model.eval()
-
-    return model
-
-
-def get_retina_face_detector():
-    backbone_model = "resnet50_2020-07-20"
-    retina_face_detector = get_retina_model(
-        model_name = backbone_model,
-        max_size = RETINA_DETECTOR_CFG["max_size"],
-        device = RETINA_DETECTOR_CFG["device"]
-    )   
-
-    retina_face_detector.eval()
-
-    return retina_face_detector

@@ -14,6 +14,8 @@ from .agents_pipelines.proposal_rejection_reasons  import ProposalRejectionReaso
 
 from typing import Any
 
+from groq import Groq
+
 class AgentController:
     """
     Orchestrate the logic of agents [LLM agents - trained models]. In paricular:
@@ -22,7 +24,6 @@ class AgentController:
         - Post-process agent response 
 
     Args:
-        Args:
         feature_id (str): feature identifier. Must be one of the following:
             - identity_recognition
             - job_recommendation_system
@@ -30,15 +31,19 @@ class AgentController:
             - profile_analyzer
             - job_description_enhancement
             - proposal_rejection_reasons 
+        
+        agents: agents used in features
+        kwargs: key word arguments specific to each feature if required
     """
-    def __init__(self, feature_id: str, agents: Any) -> None:
+    def __init__(self, feature_id: str, agents: Any, client: None | Groq = None, **kwargs) -> None:
         # setup
         self.feature_id = feature_id
-        self.agent_pipeline = self.get_feature_pipeline(agents)
+        self.agent_pipeline = self.get_feature_pipeline(agents, client = client, **kwargs)
 
 
-    def get_feature_pipeline(self, agents: Any) -> None:
+    def get_feature_pipeline(self, agents: Any, client: None | Groq, **kwargs) -> None:
         """Get the required feature pipeline"""
+        
         if self.feature_id == FEATURE_IDENITY_RECOGNITION:
             return IdentityRecognitionPipeline(agents)
             
@@ -49,7 +54,7 @@ class AgentController:
             return ProfileAnalysisPipeline(agents) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
-            return JobDescriptionEnhancementPipeline(agents) 
+            return JobDescriptionEnhancementPipeline(agents, client = client, **kwargs) 
             
         else: 
             return ProposalRejectionReasonsPipeline(agents)

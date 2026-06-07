@@ -5,7 +5,7 @@ import numpy as np
 import cv2
 from .pipeline import Pipeline
 
-from models.message_enums import IdentityRecognitionMessages
+from models.enums import ResponsesEnum
 import torchvision.transforms as T
 from PIL.Image import fromarray
 import torch.nn.functional as torch_funcs
@@ -20,7 +20,6 @@ class IdentityRecognitionPipeline(Pipeline):
         preprocess(input)        : pre-process the input before calling the agent. If not pre-processing required -> return the input
         call(input)              : invoke/call the agent on the given input
         postprocess(agent_output): post-process the agent output. If no post-processing required -> return the agent_output.
-        
     """
     # ----------------------------------------- Setup ----------------------------------------------
     def __init__(self, 
@@ -30,7 +29,7 @@ class IdentityRecognitionPipeline(Pipeline):
     ) -> None:
         """
         Args:
-            model               : the identity recognizer object
+            agents              : the identity recognizer object
             similarity_threshold: the threshold to identify bettwen same / different persons
             margin_factor       : a factor used to expand the bbox of the extracted face
         """
@@ -76,7 +75,7 @@ class IdentityRecognitionPipeline(Pipeline):
         if n_detections1 != 1 or n_detections2 != 1:
             return {
                 "success": False,
-                "message": IdentityRecognitionMessages.ERROR_REQUIRED_HIGH_QUALITY_IMAGE.value,
+                "message": ResponsesEnum.ID_RECO_ERROR_REQUIRED_HIGH_QUALITY_IMAGE.value,
                 "faces"  : None
             }
         

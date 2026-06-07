@@ -6,7 +6,7 @@ import json
 from typing import Any
 from helpers.config import get_settings
 
-from models.error_enums import LoggingErrors
+from models.enums import ErrorsEnum
 from models.pydantic_schemas import AgentInferenceResult
 
 class FeatureController:
@@ -73,7 +73,7 @@ class FeatureController:
         except Exception as e:
             return {
                 "success": False,
-                "error"  : f"{LoggingErrors.JSON_FILE_LOADING_ERROR.value} - {e}"
+                "error"  : f"{ErrorsEnum.LOG_JSON_FILE_LOADING_ERROR.value} - {e}"
             }
 
         # parse data
@@ -83,7 +83,7 @@ class FeatureController:
         except Exception as e:
             return {
                 "success": False,
-                "error"  : f"{LoggingErrors.JSON_FILE_PROCESSING_ERROR.value} - {e}"
+                "error"  : f"{ErrorsEnum.LOG_JSON_FILE_PROCESSING_ERROR.value} - {e}"
             }
 
         # save
@@ -92,7 +92,7 @@ class FeatureController:
         except Exception as e:
             return {
                 "success": False,
-                "error"  : f"{LoggingErrors.JSON_FILE_SAVING_ERROR.value} - {e}"
+                "error"  : f"{ErrorsEnum.LOG_JSON_FILE_SAVING_ERROR.value} - {e}"
             }
         
         return {
