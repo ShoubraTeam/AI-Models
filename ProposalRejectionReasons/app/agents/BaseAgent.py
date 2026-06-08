@@ -99,6 +99,31 @@ class BaseAgent:
             return response["structured_response"]
         
         return response
+
+
+    async def ainvoke(self, input: str, return_structured_op_only: bool = True):
+        """
+        Async version of invoke. Use this when multiple independent model calls
+        should be awaited concurrently without wrapping sync calls in threads.
+        """
+        if self.tools:
+            response = await self.agent.ainvoke({
+                "messages" : [
+                    {"role" : "user", "content" : input}
+                ]
+            })
+        else:
+            messages = [
+                {"role" : "system", "content" : self.system_prompt},
+                {"role" : "user", "content" : input},
+            ]
+
+            return await self.agent.ainvoke(messages)
+
+        if return_structured_op_only:
+            return response["structured_response"]
+
+        return response
     
     
     def validate_agent_output(self, agent_output: Any):

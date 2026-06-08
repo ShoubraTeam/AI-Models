@@ -11,7 +11,7 @@ from agents.experience_evidence  import ExperienceEvidenceAgent
 from agents.language_clarity     import LanguageClarityEvaluator
 from agents.job_understanding    import JobUnderstandingEvaluator, JobKeyPointsExtractor
 from agents.requirement_coverage import JobRequirementsExtractor, JobRequirementsMatcher
-from .super_agent import ProposalRejectionSuperAgent
+from .super_agent import ProposalRejectionSuperAgent, SuperAgentResponse
 
 
 # final results
@@ -47,8 +47,8 @@ from .pipeline_config import (
 
 # preprocessing
 from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
-
 from schemas import FinalSubagentResult
+
 
 
 # errors 
@@ -62,8 +62,10 @@ from .pipeline_errors import (
     RequirmentCoverageEvaluatorError,
     ExperienceEvidenceEvaluatorError,
     LanguageClarityEvaluatorError,
-
 )
+
+
+
 
 class ProposalsRejectionReasonsPipeline:
     """
@@ -78,6 +80,8 @@ class ProposalsRejectionReasonsPipeline:
     def __init__(self):
         self.init_subagents()
         self.feature_results = []
+        self.extracted_job_desc = None
+        self.extracted_job_features = None
 
 
     def init_subagents(self) -> None:
@@ -89,157 +93,231 @@ class ProposalsRejectionReasonsPipeline:
         self.job_understanding_evaluator    = JobUnderstandingEvaluator(**JD_JOB_UNDERSTANDING_EVALUATOR_CFG)
         self.experience_evidence_evaluator  = ExperienceEvidenceAgent(**EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG)
         self.language_clarity_evaluator     = LanguageClarityEvaluator(**LANGUAGE_CLARITY_EVALUATOR_CFG)
-        self.super_agent                    = ProposalRejectionSuperAgent(**SUPER_AGENT_CFG)
 
+        self.super_agent                    = ProposalRejectionSuperAgent(
+            **SUPER_AGENT_CFG
+        )
+
+
+    # ------------------------ Utils ---------------------------
     def _raise_pipeline_error(self, error_type, error: Exception):
         if isinstance(error, error_type):
             raise error
 
         raise error_type(str(error)) from error
 
-    # ---------------------- Workflows --------------------------
-    def get_tools_alignment_results(self, job_desc: str, proposal: str) -> FinalSubagentResult:
+
+    def _get_job_feature(self, job_features: dict, feature_name: str, error_type):
+        feature = job_features.get(feature_name)
+
+        if isinstance(feature, Exception):
+            self._raise_pipeline_error(error_type, feature)
+
+        if feature is None:
+            raise error_type(f"Missing extracted job feature: {feature_name}")
+
+        return feature
+
+
+    # ---------------------- Job Features Extraction ----------------------
+    async def _extract_job_tools(self, job_desc: str):
         try:
-            job_tools_response = self.job_tools_extractor.invoke(input = job_desc)
+            return await self.job_tools_extractor.ainvoke(input = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobToolsExtractorError, e)
 
+
+    async def _extract_job_key_points(self, job_desc: str):
         try:
+            return await self.job_key_points_extractor.ainvoke(input = job_desc)
+        except Exception as e:
+            self._raise_pipeline_error(JobKeyPointsExtractorError, e)
+
+
+    async def _extract_job_requirements(self, job_desc: str):
+        try:
+            return await self.requirement_extractor.ainvoke(input = job_desc)
+        except Exception as e:
+            self._raise_pipeline_error(JobRequirementExtractorError, e)
+
+    
+    async def extract_job_features(self, job_desc: str) -> dict:
+        """
+        Run all job-features-extractors agents & save job features
+        """
+        if self.extracted_job_desc == job_desc and self.extracted_job_features is not None:
+            return self.extracted_job_features
+
+        tasks = {
+            "job_tools"       : self._extract_job_tools(job_desc = job_desc),
+            "job_key_points"  : self._extract_job_key_points(job_desc = job_desc),
+            "job_requirements": self._extract_job_requirements(job_desc = job_desc),
+        }
+
+        results = await asyncio.gather(
+            *tasks.values(),
+            return_exceptions = True,
+        )
+
+        job_features = dict(zip(tasks.keys(), results))
+
+        if not any(isinstance(feature, Exception) for feature in job_features.values()):
+            self.extracted_job_desc = job_desc
+            self.extracted_job_features = job_features
+
+        return job_features
+
+
+    async def get_tools_alignment_results_from_features(
+        self,
+        job_features: dict,
+        proposal    : str
+    ) -> FinalSubagentResult:
+        try:
+            job_tools_response = self._get_job_feature(
+                job_features = job_features,
+                feature_name = "job_tools",
+                error_type   = JobToolsExtractorError,
+            )
+
             formatted_proposal_analyzer_input = format_ip_for_proposal_tools_analyzer(
                 job_tools = job_tools_response.tools,
                 proposal  = proposal
             )
 
-
-            proposal_analysis = self.proposal_tools_analyzer.invoke(formatted_proposal_analyzer_input)
-        except Exception as e:
-            self._raise_pipeline_error(ProposalToolsAnalyzerError, e)
-
-        try:
-            tool_alignment_result = get_final_tool_alignment_result(
-                proposal_tools_response = proposal_analysis,
-                threshold               = TA_TOOL_ALIGNMENT_THRESHOLD
+            proposal_analysis = await self.proposal_tools_analyzer.ainvoke(
+                input = formatted_proposal_analyzer_input
             )
-            return tool_alignment_result
+
+            return get_final_tool_alignment_result(
+                proposal_tools_response = proposal_analysis,
+                threshold = TA_TOOL_ALIGNMENT_THRESHOLD
+            )
+        
         except Exception as e:
             self._raise_pipeline_error(ProposalToolsAnalyzerError, e)
-    
 
 
-    def get_job_understanding_results(self, job_desc: str, proposal: str) -> FinalSubagentResult:
+    async def get_job_understanding_results_from_features(
+        self,
+        job_features: dict,
+        proposal    : str
+    ) -> FinalSubagentResult:
         try:
-            job_key_points = self.job_key_points_extractor.invoke(input = job_desc)
-        except Exception as e:
-            self._raise_pipeline_error(JobKeyPointsExtractorError, e)
+            job_key_points = self._get_job_feature(
+                job_features = job_features,
+                feature_name = "job_key_points",
+                error_type   = JobKeyPointsExtractorError,
+            )
 
-        try:
-            understanding_evaluation = self.job_understanding_evaluator.invoke(
+            understanding_evaluation = await self.job_understanding_evaluator.ainvoke(
                 core_problem          = job_key_points.core_problem,
                 required_deliverables = job_key_points.required_deliverables,
                 proposal_text         = proposal
             )
-        except Exception as e:
-            self._raise_pipeline_error(JobUnderstandingEvaluatorError, e)
 
-        try:
-            job_understanding_result = calc_job_understanding_result(
+            return calc_job_understanding_result(
                 understanding_evaluation,
                 threshold = JD_JOB_UNDERSTANDING_THRESHOLD
             )
-            return job_understanding_result
+        
         except Exception as e:
             self._raise_pipeline_error(JobUnderstandingEvaluatorError, e)
-    
 
-    def get_requirement_coverage_results(self, job_desc: str, proposal: str) -> FinalSubagentResult:
-        try:
-            job_requirements_response = self.requirement_extractor.invoke(input = job_desc)
-        except Exception as e:
-            self._raise_pipeline_error(JobRequirementExtractorError, e)
 
+    async def get_requirement_coverage_results_from_features(
+        self,
+        job_features: dict,
+        proposal    : str
+    ) -> FinalSubagentResult:
         try:
-            requirement_matching = self.requirement_matcher.invoke(
+            job_requirements_response = self._get_job_feature(
+                job_features = job_features,
+                feature_name = "job_requirements",
+                error_type   = JobRequirementExtractorError,
+            )
+
+            requirement_matching = await self.requirement_matcher.ainvoke(
                 job_requirements = job_requirements_response.requirements,
-                proposal_text = proposal 
+                proposal_text    = proposal
             )
-        except Exception as e:
-            self._raise_pipeline_error(RequirmentCoverageEvaluatorError, e)
 
-        try:
-            requirement_coverage_result = calc_requirement_coverage_score(
+            return calc_requirement_coverage_score(
                 extracted_requirements = job_requirements_response.requirements,
-                final_coverage         = requirement_matching,
-                threshold              = RQ_REQUIREMENT_COVERAGE_THRESHOLD
+                final_coverage = requirement_matching,
+                threshold = RQ_REQUIREMENT_COVERAGE_THRESHOLD
             )
-            return requirement_coverage_result
         except Exception as e:
             self._raise_pipeline_error(RequirmentCoverageEvaluatorError, e)
 
 
-    def get_experience_evidence_results(self, job_desc: str, proposal: str) -> FinalSubagentResult:
+    async def get_experience_evidence_results_async(self, job_desc: str, proposal: str) -> FinalSubagentResult:
         try:
-            experience_evidence_evaluation = self.experience_evidence_evaluator.invoke(
+            experience_evidence_evaluation = await self.experience_evidence_evaluator.ainvoke(
                 job_desc      = job_desc,
                 proposal_text = proposal
             )
-        except Exception as e:
-            self._raise_pipeline_error(ExperienceEvidenceEvaluatorError, e)
 
-        try:
-            experience_evidence_results = calc_experience_evidence_result(
+            return calc_experience_evidence_result(
                 llm_audit = experience_evidence_evaluation,
                 threshold = EXPERIENCE_EVIDENCE_THRESHOLD
             )
-            return experience_evidence_results
         except Exception as e:
             self._raise_pipeline_error(ExperienceEvidenceEvaluatorError, e)
-    
-    def get_language_clarity_results(self, proposal: str) -> FinalSubagentResult:
-        try:
-            language_clarity_evaluation = self.language_clarity_evaluator.invoke(proposal_text = proposal)
-        except Exception as e:
-            self._raise_pipeline_error(LanguageClarityEvaluatorError, e)
 
+
+    async def get_language_clarity_results_async(self, proposal: str) -> FinalSubagentResult:
         try:
-            language_clarity_results = calc_language_clarity_result(
-                llm_eval       = language_clarity_evaluation,
+            language_clarity_evaluation = await self.language_clarity_evaluator.ainvoke(
+                input = proposal
+            )
+
+            return calc_language_clarity_result(
+                llm_eval      = language_clarity_evaluation,
                 proposal_text = proposal,
                 threshold     = LANGUAGE_CLARITY_THRESHOLD
             )
-            return language_clarity_results
+        
         except Exception as e:
             self._raise_pipeline_error(LanguageClarityEvaluatorError, e)
-    
 
-    async def get_all_results(self, job_desc: str, proposal: str) -> dict[str, FinalSubagentResult | Exception]:
+
+    async def analyze_proposal(
+        self,
+        job_desc    : str,
+        proposal    : str,
+        job_features: dict | None = None
+    ) -> dict[str, FinalSubagentResult | Exception]:
+        """
+        Website phase 2:
+        Analyze one proposal using previously extracted job features.
+        """
+        if job_features is None:
+            job_features = await self.extract_job_features(job_desc = job_desc)
+
         tasks = {
-            "tools_alignment": asyncio.to_thread(
-                self.get_tools_alignment_results,
-                job_desc,
-                proposal,
-            ),
-            
-            "job_understanding": asyncio.to_thread(
-                self.get_job_understanding_results,
-                job_desc,
-                proposal,
+            "tools_alignment": self.get_tools_alignment_results_from_features(
+                job_features = job_features,
+                proposal = proposal,
             ),
 
-            "requirement_coverage": asyncio.to_thread(
-                self.get_requirement_coverage_results,
-                job_desc,
-                proposal,
+            "job_understanding": self.get_job_understanding_results_from_features(
+                job_features = job_features,
+                proposal = proposal,
             ),
 
-            "experience_evidence": asyncio.to_thread(
-                self.get_experience_evidence_results,
-                job_desc,
-                proposal,
+            "requirement_coverage": self.get_requirement_coverage_results_from_features(
+                job_features = job_features,
+                proposal = proposal,
             ),
 
-            "language_clarity": asyncio.to_thread(
-                self.get_language_clarity_results,
-                proposal,
+            "experience_evidence": self.get_experience_evidence_results_async(
+                job_desc = job_desc,
+                proposal = proposal,
+            ),
+
+            "language_clarity": self.get_language_clarity_results_async(
+                proposal = proposal,
             ),
         }
 
@@ -249,9 +327,20 @@ class ProposalsRejectionReasonsPipeline:
         )
 
         return dict(zip(tasks.keys(), results))
-    
 
-         
+    
+    
+    async def get_all_results(self, job_desc: str, proposal: str) -> dict[str, FinalSubagentResult | Exception]:
+        job_features = await self.extract_job_features(
+            job_desc = job_desc
+        )
+
+        return await self.analyze_proposal(
+            job_desc     = job_desc,
+            proposal     = proposal,
+            job_features = job_features
+        )
+    
 
     def _trim_text(self, text: str, max_length: int = 350) -> str:
         if len(text) <= max_length:
@@ -265,19 +354,19 @@ class ProposalsRejectionReasonsPipeline:
         error_message = self._trim_text(str(error) or "No error message provided.")
 
         lines = [
-            "Status: unavailable",
-            "Decision: not evaluated",
-            "Error Indicator: yes",
-            f"Error Type: {error_type}",
-            f"Error Message: {error_message}",
-            "Evidence Note: Ignore this section as rejection evidence.",
+            "> Status: unavailable",
+            "> Decision: not evaluated",
+            "> Error Indicator: yes",
+            f"> Error Type: {error_type}",
+            f"> Error Message: {error_message}",
+            "> Evidence Note: Ignore this section as rejection evidence.",
         ]
 
         root_error = error.__cause__ or error.__context__
         if root_error is not None:
             lines.extend([
-                f"Root Error Type: {type(root_error).__name__}",
-                f"Root Error Message: {self._trim_text(str(root_error))}",
+                f"> Root Error Type: {type(root_error).__name__}",
+                f"> Root Error Message: {self._trim_text(str(root_error))}",
             ])
 
         return "\n".join(lines)
@@ -334,33 +423,33 @@ class ProposalsRejectionReasonsPipeline:
 
             if feature_result is None:
                 formatted_feature.extend([
-                    "Status: unavailable",
-                    "Decision: not evaluated",
-                    "Error Indicator: yes",
-                    "Error Type: MissingResult",
-                    "Error Message: Sub-agent returned no result.",
-                    "Evidence Note: Ignore this section as rejection evidence.",
+                    "- Status: unavailable",
+                    "- Decision: not evaluated",
+                    "- Error Indicator: yes",
+                    "- Error Type: MissingResult",
+                    "- Error Message: Sub-agent returned no result.",
+                    "- Evidence Note: Ignore this section as rejection evidence.",
                 ])
                 formatted_sections.append("\n".join(formatted_feature))
                 continue
 
             if not isinstance(feature_result, FinalSubagentResult):
                 formatted_feature.extend([
-                    "Status: unavailable",
-                    "Decision: not evaluated",
-                    "Error Indicator: yes",
-                    "Error Type: InvalidResultType",
-                    f"Error Message: Expected FinalSubagentResult, got {type(feature_result).__name__}.",
-                    "Evidence Note: Ignore this section as rejection evidence.",
+                    "- Status: unavailable",
+                    "- Decision: not evaluated",
+                    "- Error Indicator: yes",
+                    "- Error Type: InvalidResultType",
+                    f"- Error Message: Expected FinalSubagentResult, got {type(feature_result).__name__}.",
+                    "- Evidence Note: Ignore this section as rejection evidence.",
                 ])
                 formatted_sections.append("\n".join(formatted_feature))
                 continue
 
             decision = "accepted" if feature_result.accepted else "rejected"
             formatted_feature.extend([
-                "Status: completed",
-                f"Decision: {decision}",
-                f"Score: {feature_result.score}",
+                "- Status: completed",
+                f"- Decision: {decision}",
+                f"- Score: {feature_result.score}",
             ])
 
             if feature_result.accepted:
@@ -384,7 +473,7 @@ class ProposalsRejectionReasonsPipeline:
         return "\n\n".join(formatted_sections)
 
 
-    async def get_super_agent_report(self, job_desc: str, proposal: str) -> str:
+    async def get_super_agent_report(self, job_desc: str, proposal: str) -> SuperAgentResponse:
         subagent_results = await self.get_all_results(
             job_desc = job_desc,
             proposal = proposal
@@ -393,10 +482,63 @@ class ProposalsRejectionReasonsPipeline:
             results = subagent_results
         )
 
-        return self.super_agent.invoke(
+        return await self.super_agent.ainvoke(
             job_desc = job_desc,
             proposal = proposal,
             subagents_results = parsed_subagent_results
         )
     
+
+    def format_final_result(self, super_agent_response: SuperAgentResponse) -> str:
+        """
+        Convert the structured super-agent response into a readable final report.
+        """
+        def format_list_section(title: str, items: list[str] | None) -> str:
+            valid_items = [
+                str(item).strip()
+                for item in (items or [])
+                if str(item).strip()
+            ]
+
+            if not valid_items:
+                return f"## {title}\nNone"
+
+            formatted_items = "\n".join(f"- {item}" for item in valid_items)
+            return f"## {title}\n{formatted_items}"
+
+        verdict_labels = {
+            "accepted": "Accepted",
+            "at_risk": "At Risk",
+            "rejected": "Rejected",
+        }
+
+        verdict = verdict_labels.get(
+            super_agent_response.verdict,
+            super_agent_response.verdict.replace("_", " ").title()
+        )
+
+        report_sections = [
+            "# Proposal Rejection Reasons Report",
+            f"## Overall Verdict\n{verdict}",
+            f"## Summary\n{super_agent_response.summary_report}",
+            format_list_section(
+                title = "Strengths",
+                items = super_agent_response.strengths_points,
+            ),
+            format_list_section(
+                title = "Rejection Risks",
+                items = super_agent_response.weakness_points,
+            ),
+            format_list_section(
+                title = "Recommendations",
+                items = super_agent_response.recommendations,
+            ),
+            format_list_section(
+                title = "Evaluation Limitations",
+                items = super_agent_response.evaluation_limitations,
+            ),
+        ]
+
+        return "\n\n".join(report_sections)
+
     

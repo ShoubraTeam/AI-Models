@@ -34,6 +34,14 @@ class ExperienceEvidenceAgent(BaseAgent):
         )
         return super().invoke(input=formatted_input)
 
+
+    async def ainvoke(self, job_desc: str, proposal_text: str) -> ExperienceEvidenceSchema:
+        formatted_input = (
+          f"<job_description>\n{job_desc}\n</job_description>\n\n"
+          f"<freelancer_proposal>\n{proposal_text}\n</freelancer_proposal>"
+        )
+        return await super().ainvoke(input=formatted_input)
+
     def _get_semantic_project_match(self, true_texts: list[str], pred_texts: list[str]) -> set[tuple[int, int]]:
         if not true_texts or not pred_texts:
             return set()

@@ -6,10 +6,9 @@
 from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
 from prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT, JOB_UNDERSTANDING_EVALUATOR_PROMPT
 from prompts import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
-from prompts import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
 from prompts import EXPERIENCE_EVIDENCE_PROMPT
 from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
-from .super_agent import SUPER_AGENT_SYSTEM_PROMPT
+from prompts import SUPER_AGENT_SYSTEM_PROMPT
 
 
 
@@ -18,6 +17,9 @@ from schemas import JobKeyPointsSchema, JobUnderstandingEvalSchema
 from schemas import ExtractedRequirementsSchema, RequirementCoverageSchema
 from schemas import ExperienceEvidenceSchema
 from schemas import LanguageClarityEvalSchema
+from schemas import SuperAgentResponse
+
+
 
 # Tools Alignment (TA)
 TA_TOOL_ALIGNMENT_THRESHOLD = 0.5
@@ -88,7 +90,6 @@ LANGUAGE_CLARITY_EVALUATOR_CFG = {
     "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : LANGUAGE_CLARITY_EVALUATOR_PROMPT,
     "structured_response": LanguageClarityEvalSchema,
-    "structured_output_method": "json_schema",
     "temperature"        : 0.0,
     "max_tokens"         : 512,
     "top_p"              : 0.9
@@ -100,7 +101,6 @@ EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
     "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : EXPERIENCE_EVIDENCE_PROMPT,
     "structured_response": ExperienceEvidenceSchema,
-    "structured_output_method": "json_schema",
     "temperature"        : 0.0,
     "max_tokens"         : 512,
     "top_p"              : 0.9
@@ -109,10 +109,11 @@ EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
 
 # Super Agent
 SUPER_AGENT_CFG = {
-    "model_name"   : "groq:llama-3.3-70b-versatile",
-    "system_prompt": SUPER_AGENT_SYSTEM_PROMPT,
-    "temperature"  : 0.1,
-    "max_tokens"   : 1024,
-    "top_p"        : 0.9
+    "model_name"               : "groq:llama-3.3-70b-versatile",
+    "system_prompt"            : SUPER_AGENT_SYSTEM_PROMPT,
+    "structured_response"      : SuperAgentResponse,
+    "temperature"              : 0.1,
+    "max_tokens"               : 1024,
+    "top_p"                    : 0.9
 }
 
