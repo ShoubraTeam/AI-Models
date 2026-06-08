@@ -6,7 +6,7 @@ Start RAG Evaluation Process
 - Number of Relevant Documents --> 40
 
 ----------------------------- Embedding & Constructing Vector Database -----------------------------
------------------------------------ Evaluating Retreival Process -----------------------------------
+----------------------------------- Evaluating Retrieval Process -----------------------------------
 >> Embedder: bge
 >> Rerakner: minilm
 
@@ -24,7 +24,7 @@ Start RAG Evaluation Process
 - Number of Relevant Documents --> 40
 
 ----------------------------- Embedding & Constructing Vector Database -----------------------------
------------------------------------ Evaluating Retreival Process -----------------------------------
+----------------------------------- Evaluating Retrieval Process -----------------------------------
 >> Embedder: bge
 >> Rerakner: mixedbread
 
@@ -42,7 +42,7 @@ Start RAG Evaluation Process
 - Number of Relevant Documents --> 40
 
 ----------------------------- Embedding & Constructing Vector Database -----------------------------
------------------------------------ Evaluating Retreival Process -----------------------------------
+----------------------------------- Evaluating Retrieval Process -----------------------------------
 >> Embedder: nomic
 >> Rerakner: minilm
 
@@ -60,7 +60,7 @@ Start RAG Evaluation Process
 - Number of Relevant Documents --> 40
 
 ----------------------------- Embedding & Constructing Vector Database -----------------------------
------------------------------------ Evaluating Retreival Process -----------------------------------
+----------------------------------- Evaluating Retrieval Process -----------------------------------
 >> Embedder: nomic
 >> Rerakner: mixedbread
 

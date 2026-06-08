@@ -71,6 +71,20 @@ class JobUnderstandingEvaluator(BaseAgent):
         )
         return super().invoke(input=formatted_input)
 
+
+    async def ainvoke(
+        self,
+        core_problem: str,
+        required_deliverables: List[str],
+        proposal_text: str
+    ) -> JobUnderstandingEvalSchema:
+        formatted_input = (
+            f"Core Problem:\n{core_problem}\n\n"
+            f"Required Deliverables:\n{required_deliverables}\n\n"
+            f"Freelancer Proposal:\n{proposal_text}"
+        )
+        return await super().ainvoke(input=formatted_input)
+
     # ---------------------------- Evaluation ----------------------------
 
     def get_metric_names(self) -> tuple:

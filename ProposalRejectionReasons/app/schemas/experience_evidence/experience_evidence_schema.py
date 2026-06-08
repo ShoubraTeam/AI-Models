@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import List
 
+from ..schema_config import Summary
 class ExtractedProject(BaseModel):
     project_overview: str = Field(
         description="A concise summary of the past project, including its core functionality and any key tools used within its context."
@@ -21,6 +22,4 @@ class ExperienceEvidenceSchema(BaseModel):
     extracted_projects: List[ExtractedProject] = Field(
         description="List of all validated past projects extracted from the proposal text. Must be empty if has_experience_evidence is False."
     )
-    summary: str = Field(
-        description="A concise 2-3 lines summary synthesizing all extracted past projects and their overall technical relevance to the Job Description. If no projects are found, explain that briefly."
-    )
+    summary: Summary

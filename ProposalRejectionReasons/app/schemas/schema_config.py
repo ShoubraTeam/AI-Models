@@ -7,7 +7,7 @@
 from typing import Annotated
 from pydantic import Field
 
-SUMMARY_MIN_CHAR_LENGTH = 100
+SUMMARY_MIN_CHAR_LENGTH = 20
 SUMMARY_MAX_CHAR_LENGTH = 700
 
 Summary = Annotated[

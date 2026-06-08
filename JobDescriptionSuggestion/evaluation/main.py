@@ -81,12 +81,12 @@ if __name__ == "__main__":
 
     
 
-        log_event(file = log_file, message = "Evaluating Retreival Process", title = True)
+        log_event(file = log_file, message = "Evaluating Retrieval Process", title = True)
 
         print("- Embedder : " + args["embedding_model"])
         print("- Reranker: " + args["reranker"])
 
-        retreival_results = evaluate_retreival_operation(
+        retrieval_results = evaluate_retrieval_operation(
             eval_data = eval_data,
             embedding_model = embedding_model,
             reranker = reranker,
@@ -103,16 +103,16 @@ if __name__ == "__main__":
         log_event(file = log_file, message = {"Embedding Time" : round(avg_emb_time, 3), "Number of Embedded Documents" : len(relevant_doc)}, dic = True)
         log_event(file = log_file,
             message = {
-                "Average Recall@k": round(retreival_results['recall@k'], 3),
-                "Average Precision@k": round(retreival_results['precision@k'], 3),
-                "Average MRR": round(retreival_results['mrr'], 3),
+                "Average Recall@k": round(retrieval_results['recall@k'], 3),
+                "Average Precision@k": round(retrieval_results['precision@k'], 3),
+                "Average MRR": round(retrieval_results['mrr'], 3),
             },
             dic = True
         )
 
         save_result(values = [args["embedding_model"], args["reranker"], "embedding_time", avg_emb_time])
 
-        for metric, value in retreival_results.items():
+        for metric, value in retrieval_results.items():
             save_result([args["embedding_model"], args["reranker"], metric, round(value, 4)])   
 
     # ----------------------------------------------------------------------------------------------------

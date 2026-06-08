@@ -6,6 +6,19 @@ from schemas import JobTool, ProposalToolsResponse, FinalSubagentResult, Proposa
 from helpers.config import NECESSITY_LEVEL_WEIGHTS, WITH_CONFIDENCE_TOOL_WEIGHT, GENERIC_TOOL_WEIGHT
 from helpers.config import TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
 from typing import Any
+
+MAX_REASON_LENGTH = 100
+
+
+def clamp_score(score: float) -> float:
+    return max(0.0, min(1.0, round(score, 4)))
+
+
+def fit_reason(reason: str) -> str:
+    if len(reason) <= MAX_REASON_LENGTH:
+        return reason
+
+    return reason[:MAX_REASON_LENGTH - 3].rstrip() + "..."
 # ------------------------------------- Pre-Processing ---------------------------------------------
 
 def format_ip_for_proposal_tools_analyzer(
@@ -52,23 +65,29 @@ def calc_tools_alignment_score(
     """
 
     proposal_score = 0.0
-    ground_truth_score = 0.0
+    max_possible_score = 0.0
 
     for tool_review in tool_reviews:
-        necessity_level_weight = NECESSITY_LEVEL_WEIGHTS[tool_review.necessity_level]
+        if tool_review.necessity_level == "forbidden":
+            necessity_level_weight = 1.0
+            max_possible_score += necessity_level_weight
 
-        ground_truth_score += necessity_level_weight
+            if not tool_review.found_in_proposal:
+                proposal_score += necessity_level_weight
 
-        if not tool_review.found_in_proposal:
             continue
 
-        confidence_weight = WITH_CONFIDENCE_TOOL_WEIGHT if tool_review.with_confidence else GENERIC_TOOL_WEIGHT
-        proposal_score += necessity_level_weight * confidence_weight
+        necessity_level_weight = NECESSITY_LEVEL_WEIGHTS[tool_review.necessity_level]
+        max_possible_score += necessity_level_weight
 
-    if ground_truth_score == 0:
+        if tool_review.found_in_proposal:
+            confidence_weight = WITH_CONFIDENCE_TOOL_WEIGHT if tool_review.with_confidence else GENERIC_TOOL_WEIGHT
+            proposal_score += necessity_level_weight * confidence_weight
+
+    if max_possible_score == 0:
         return None
 
-    return proposal_score / ground_truth_score
+    return clamp_score(proposal_score / max_possible_score)
 
 
 
@@ -86,6 +105,9 @@ def get_mentioned_tools(
     mentioned_tools_with_confidence = []
     mentioned_tools_generally = []
     for tool_review in tool_reviews:
+        if not tool_review.found_in_proposal:
+            continue
+
         if tool_review.with_confidence == True:
             mentioned_tools_with_confidence.append(tool_review.tool_name)
         else:
@@ -103,7 +125,8 @@ def get_mentioned_tools(
 
 def get_acceptance_reasons(
     tool_reviews: list[ProposalToolReview],
-    score       : float
+    score       : float,
+    threshold   : float = TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
 ) -> list[str]:
     """
     Return acceptance reasons based on sub-agent results
@@ -111,23 +134,24 @@ def get_acceptance_reasons(
     reasons = ["Acceptance Reasons:"]
 
     # score
-    reasons.append(f"- Score ({score}) is bigger than the acceptance threshold ({TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD})")
+    reasons.append(f"- Score ({score}) is bigger than the acceptance threshold ({threshold})")
 
     # tools
     total_tools, num_of_mentioned_tools, mentioned_tools_with_confidence, mentioned_tools_generally = get_mentioned_tools(
         tool_reviews = tool_reviews
     ) 
 
-    reasons.append(f"- The proposal mentioned majority of job tools: ({num_of_mentioned_tools}) tools out of ({total_tools}) tools that client required.")
-    reasons.append(f"- Tools mentioned with confidence: {mentioned_tools_with_confidence}")
-    reasons.append(f"- Tools mentioned without confidence: {mentioned_tools_generally}")
+    reasons.append(f"- Proposal mentioned {num_of_mentioned_tools} of {total_tools} required tools.")
+    reasons.append(f"- Confident tool mentions: {mentioned_tools_with_confidence or 'None'}")
+    reasons.append(f"- Generic tool mentions: {mentioned_tools_generally or 'None'}")
     
-    return reasons
+    return [fit_reason(reason) for reason in reasons]
     
 
 def get_rejection_reasons(
     tool_reviews: list[ProposalToolReview],
-    score       : float
+    score       : float,
+    threshold   : float = TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
 ) -> list[str]:
     """
     Return rejections reasons based on sub-agent results
@@ -135,23 +159,23 @@ def get_rejection_reasons(
     reasons = ["Rejection Reasons:"]
 
     # score
-    reasons.append(f"- Score ({score}) is less than the acceptance threshold ({TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD})")
+    reasons.append(f"- Score ({score}) is less than the acceptance threshold ({threshold})")
 
     # tools
     total_tools, num_of_mentioned_tools, mentioned_tools_with_confidence, mentioned_tools_generally = get_mentioned_tools(
         tool_reviews = tool_reviews
     ) 
 
-    reasons.append(f"- The proposal mentioned only: ({num_of_mentioned_tools}) tools out of ({total_tools}) tools that client required.")
-    reasons.append(f"- Tools mentioned with confidence: {mentioned_tools_with_confidence}")
-    reasons.append(f"- Tools mentioned without confidence: {mentioned_tools_generally}")
+    reasons.append(f"- Proposal mentioned only {num_of_mentioned_tools} of {total_tools} required tools.")
+    reasons.append(f"- Confident tool mentions: {mentioned_tools_with_confidence or 'None'}")
+    reasons.append(f"- Generic tool mentions: {mentioned_tools_generally or 'None'}")
     
-    return reasons
+    return [fit_reason(reason) for reason in reasons]
 
 
 def get_final_tool_alignment_result(
     proposal_tools_response: ProposalToolsResponse,
-
+    threshold: float = TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
 ) -> FinalSubagentResult:
     """
     Get the final tool alignmnt result. This result will be passed to the Super-Agent.
@@ -164,7 +188,10 @@ def get_final_tool_alignment_result(
     """
     # calc score & acceptance
     tool_alignment_score = calc_tools_alignment_score(proposal_tools_response.tool_reviews)
-    accepted = tool_alignment_score >= TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
+    if tool_alignment_score is None:
+        tool_alignment_score = 0.0
+
+    accepted = tool_alignment_score >= threshold
 
     # summary
     summary = proposal_tools_response.summary
@@ -176,13 +203,15 @@ def get_final_tool_alignment_result(
     if accepted:
         acceptance_reasons = get_acceptance_reasons(
             tool_reviews = proposal_tools_response.tool_reviews,
-            score        = tool_alignment_score
+            score        = tool_alignment_score,
+            threshold    = threshold
         )
 
     else:
         rejection_reasons = get_rejection_reasons(
             tool_reviews = proposal_tools_response.tool_reviews,
-            score        = tool_alignment_score
+            score        = tool_alignment_score,
+            threshold    = threshold
         )
 
 

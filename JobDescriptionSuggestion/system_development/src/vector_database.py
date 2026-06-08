@@ -2,7 +2,7 @@
 # Contains the required functions to
 # - Establish connection with `Weaviate` cloud
 # - Build / Get the Collection (database)
-# - Apply the retreiver operation
+# - Apply the retriever operation
 # -----------------------------------------------------------------
 import weaviate
 import os
@@ -28,7 +28,7 @@ def get_weaviate_client():
 
 def build_collection(client, collection_name: str, data = None):
     """
-    Builds / retreives collection
+    Builds / retrieves collection
 
     Args:
         client               : the weaviate client
@@ -38,7 +38,7 @@ def build_collection(client, collection_name: str, data = None):
     Returns:
         collection: the database
     """
-    # retreive if exists
+    # retrieve if exists
     if client.collections.exists(collection_name):
         collection = client.collections.get(collection_name)
         print(">> Collection Exists")
@@ -74,7 +74,7 @@ def build_collection(client, collection_name: str, data = None):
 
 def load_collection(client, collection_name: str):
     """
-    retreives collection with data
+    retrieves collection with data
     Args:
         client               : the weaviate client
         collection_name (str): the name of the collection
@@ -86,22 +86,22 @@ def load_collection(client, collection_name: str):
     
 
 
-def retreive_documents(query: str, collection, embedding_model, n_to_return: int = 50, alpha: float = 0.7) -> list:
+def retrieve_documents(query: str, collection, embedding_model, n_to_return: int = 50, alpha: float = 0.7) -> list:
     """
-    retreives the most relevant documents to the input query
+    retrieves the most relevant documents to the input query
 
     Args:
         query (str)      : the input query
-        collection       : the database to retreive from
+        collection       : the database to retrieve from
         embedding_model  : model used to embed the query
         n_to_return (int): number of documents to return
         alpha (float)    : how much do we attend to the semantic search results
 
     Returns:
-        retreived_documents (list) sorted by year
+        retrieved_documents (list) sorted by year
     """
     query_embedded = embedding_model.embed_query(query)
-    retreived = collection.query.hybrid(
+    retrieved = collection.query.hybrid(
         query = query,
         vector = query_embedded,
         limit = n_to_return,
@@ -110,23 +110,23 @@ def retreive_documents(query: str, collection, embedding_model, n_to_return: int
 
 
     # sort by year
-    retreived_sorted = sorted(
-        retreived,
+    retrieved_sorted = sorted(
+        retrieved,
         key = lambda x : x.properties.get('year', 0),
         reverse = True
     )
 
-    return retreived_sorted # obj (document_job, year)
+    return retrieved_sorted # obj (document_job, year)
 
 
 def rerank_documents(query: str, cross_encoder, documents_objects: list, n_to_return: 10):
     """
-    Reranking the retreived documents using a cross_encoder to guarantee that the LLM receives the most relevant context possible.
+    Reranking the retrieved documents using a cross_encoder to guarantee that the LLM receives the most relevant context possible.
 
     Args:
         query (str)                                : the rerank query
         cross_encoder (sentence_transformers model): CrossEncoder model used to rerank the documents
-        documents_objects (list)                   : retreived documents objs to rerank
+        documents_objects (list)                   : retrieved documents objs to rerank
         n_to_return (int)                          : number of documents to return after reranking
 
     Returns:
@@ -143,8 +143,8 @@ def rerank_documents(query: str, cross_encoder, documents_objects: list, n_to_re
     return reranked_documents[:n_to_return]  # (obj, score), --> obj (job_doc, year)
 
 
-def retreive(
-    retreiver_query: str,
+def retrieve(
+    retriever_query: str,
     embedding_model,
     cross_encoder,
     collection,
@@ -153,22 +153,22 @@ def retreive(
     alpha: float = 0.7,
 ):
     """
-    retreive the most (n_to_return) relevant documents from the collection of documents given
+    retrieve the most (n_to_return) relevant documents from the collection of documents given
 
     Args:
-        retreiver_query (str)      : the retreiver query (original input query)
+        retriever_query (str)      : the retriever query (original input query)
         embedding_model (HF_model) : model used to embed query in the retrieving process
-        cross_encoder (HF_model)   : model used to rerank the retreived documents
-        collection (weaviate_collection): collection of documents to retreive from
-        reranker_query (str): query used in reranking. If None -> use retreiver_query
+        cross_encoder (HF_model)   : model used to rerank the retrieved documents
+        collection (weaviate_collection): collection of documents to retrieve from
+        reranker_query (str): query used in reranking. If None -> use retriever_query
         n_to_return (int): number of documents to return
         alpha (float)    : how much do we attend to the semantic search results
 
     Retunrs:
-        documents (list of retreived documents_text)
+        documents (list of retrieved documents_text)
     """
-    retreived_documents = retreive_documents(
-        query = retreiver_query,
+    retrieved_documents = retrieve_documents(
+        query = retriever_query,
         collection = collection,
         embedding_model = embedding_model,
         n_to_return = 50,
@@ -177,12 +177,12 @@ def retreive(
 
 
     if reranker_query is None:
-        reranker_query = retreiver_query
+        reranker_query = retriever_query
 
     reranked_documents = rerank_documents(
         query = reranker_query,
         cross_encoder = cross_encoder,
-        documents_objects = retreived_documents,
+        documents_objects = retrieved_documents,
         n_to_return = n_to_return
     ) 
 

@@ -4,7 +4,7 @@
 
 
 from ..BaseAgent import BaseAgent
-from schemas import JobTool, JobToolResponse
+from schemas import JobToolResponse
 from time import time
 from helpers.config import DEFAULT_MODELS_CFG
 
@@ -26,7 +26,7 @@ class JobToolsExtractor(BaseAgent):
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True):
+    def invoke(self, input, return_structured_op_only = True) -> JobToolResponse:
         return super().invoke(input, return_structured_op_only)
     # -------------------------------------------------------------------------------
     def validate_agent_output(self, agent_output):

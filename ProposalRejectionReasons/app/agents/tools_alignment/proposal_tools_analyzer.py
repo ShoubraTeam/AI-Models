@@ -6,7 +6,7 @@
 from ..BaseAgent import BaseAgent
 from helpers.config import DEFAULT_MODELS_CFG
 from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
-from schemas import ProposalToolReview, JobTool
+from schemas import ProposalToolReview, JobTool, ProposalToolsResponse
 from time import time
 class ProposalToolsAnalyzer(BaseAgent):
     def __init__(
@@ -26,7 +26,7 @@ class ProposalToolsAnalyzer(BaseAgent):
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True):
+    def invoke(self, input, return_structured_op_only = True) -> ProposalToolsResponse:
         return super().invoke(input, return_structured_op_only)
 
     def validate_agent_output(self, agent_output):

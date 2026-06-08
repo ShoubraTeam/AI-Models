@@ -27,18 +27,42 @@ class JobRequirementsMatcher(BaseAgent):
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
 
-    def invoke(self, job_requirements: list[dict], proposal_text: str) -> RequirementCoverageSchema:
+    def _format_input(self, job_requirements: list, proposal_text: str) -> str:
         mapped_requirements = []
         for req in job_requirements:
-            mapped_requirements.append({
-                "id": str(req.get("id", "")), 
-                "text": req.get("description", req.get("text", "")), 
-                "necessity_level": req.get("necessity_level", "mandatory")
-            })
+            if isinstance(req, dict):
+                requirement = {
+                    "id": str(req.get("id", "")),
+                    "text": req.get("description", req.get("text", "")),
+                    "necessity_level": req.get("necessity_level", "mandatory"),
+                }
+            else:
+                requirement = {
+                    "id": str(req.id),
+                    "text": req.text,
+                    "necessity_level": req.necessity_level,
+                }
+
+            mapped_requirements.append(requirement)
         
         requirements_json = json.dumps(mapped_requirements, indent=2)
-        formatted_input = f"Job Requirements List:\n{requirements_json}\n\nFreelancer Proposal Text:\n{proposal_text}"
+        return f"Job Requirements List:\n{requirements_json}\n\nFreelancer Proposal Text:\n{proposal_text}"
+
+
+    def invoke(self, job_requirements: list, proposal_text: str) -> RequirementCoverageSchema:
+        formatted_input = self._format_input(
+            job_requirements = job_requirements,
+            proposal_text = proposal_text
+        )
         return super().invoke(input=formatted_input)
+
+
+    async def ainvoke(self, job_requirements: list, proposal_text: str) -> RequirementCoverageSchema:
+        formatted_input = self._format_input(
+            job_requirements = job_requirements,
+            proposal_text = proposal_text
+        )
+        return await super().ainvoke(input=formatted_input)
     
     def get_metric_names(self) -> tuple[str, str, str, str, str]:
         return (
