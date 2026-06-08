@@ -11,7 +11,7 @@ Your job is to extract these tools/frameworks mentioned in the job description.
 Instructions
 - For each tool, extract its name and its necessity level. The necessity level may be:
     * mandatory: If the tool is a must according to the client.
-    * recommened: If not a must, but very good to have.
+    * recommended: If not a must, but very good to have.
     * optional: If neither mandatory nor recommended.
     * forbidden: If the client prohibit using this tool.
 - Do not invent tools by yourself. Just use the tools mentioned in the description.
@@ -58,4 +58,3 @@ Instructions
 - For each tool given to you, you should return a report.
 - Some tools may have many common un-normalized names. For example: (react = react.js), (node.js = node), (torch = PyTorch), and so on.
 """
-

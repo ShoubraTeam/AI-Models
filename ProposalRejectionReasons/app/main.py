@@ -33,6 +33,8 @@ from processing.requirement_coverage_processing import calc_requirement_coverage
 # others
 import os
 from pathlib import Path
+import logging
+import traceback
 import helpers.config as CFG
 import helpers.functional as F
 from dotenv import load_dotenv
@@ -45,254 +47,253 @@ DATA_PATH = os.path.join(
     "eval_data"
 )
 
-if __name__ == "__main__":
-    # -----------------------------------------------------------------
-    # Agents & Data Initialization
-    # -----------------------------------------------------------------
-    F.print_title("1.0 Starting the APP")
 
-    F.print_subtitle("Wake up Agents")
 
+#     # # --------------------------------------------
+#     # F.print_subtitle("Language Clarity")
+
+#     # lc_sample = language_clarity_data_samples[0]
+#     # proposals = lc_sample["proposals"]
+
+#     # print("\t>> Evaluating Language Clarity")
+#     # for idx, proposal in enumerate(proposals, start=1):
+#     #     print(f"--- Analyzing Proposal {idx} ---")
+#     #     llm_eval = language_clarity_evaluator.invoke(proposal_text=proposal)
+#     #     F.print_structured_response(llm_eval)
+
+#     #     print("Final Result (text metrics + scoring): ")
+#     #     result = calc_language_clarity_result(
+#     #         llm_eval      = llm_eval,
+#     #         proposal_text = proposal
+#     #     )
+#     #     for key, value in result.items():
+#     #         print(f"  {key} => {value}")
+#     #     print()
+
+#     # --------------------------------------------
+#     # --------------------------------------------
+
+
+
+
+import time
+from agent_pipelines.proposal_rejection_reasons_pipeline import ProposalsRejectionReasonsPipeline
+EXAMPLES_DATA_PATH = "/mnt/d/Education/College/______GraduationProject/AI-Models/ProposalRejectionReasons/app/data_examples"
+from schemas import FinalSubagentResult
+from typing import Callable
+
+
+LOGS_PATH = Path(__file__).parent / "logs"
+LOG_FILE_PATH = LOGS_PATH / "pipeline_test.log"
+
+
+def setup_logging() -> logging.Logger:
+    LOGS_PATH.mkdir(
+        parents = True,
+        exist_ok = True
+    )
+
+    logger = logging.getLogger("proposal_rejection_pipeline_test")
+    logger.setLevel(logging.INFO)
+    logger.handlers.clear()
+
+    formatter = logging.Formatter(
+        fmt = "%(asctime)s | %(levelname)s | %(message)s",
+        datefmt = "%Y-%m-%d %H:%M:%S"
+    )
+
+    file_handler = logging.FileHandler(
+        LOG_FILE_PATH,
+        encoding = "utf-8"
+    )
+    file_handler.setFormatter(formatter)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
+
+    return logger
+
+
+def print_and_log(title: str, content, logger: logging.Logger) -> None:
+    F.print_subtitle(title)
+    print(content)
+    logger.info("%s\n%s", title, content)
+
+
+def stringify_result(result) -> str:
+    if isinstance(result, Exception):
+        return format_error_details(result)
+
+    if hasattr(result, "model_dump_json"):
+        return result.model_dump_json(indent = 2)
+
+    return str(result)
+
+
+def format_error_details(error: Exception) -> str:
+    error_lines = []
+    current_error = error
+    depth = 0
+
+    while current_error is not None:
+        prefix = "Root Error" if depth == 0 else f"Caused By #{depth}"
+        error_lines.append(f"{prefix}: {type(current_error).__name__}")
+        error_lines.append(f"Message: {str(current_error)}")
+
+        if current_error.args:
+            error_lines.append(f"Args: {current_error.args}")
+
+        next_error = current_error.__cause__ or current_error.__context__
+        if next_error is not None:
+            error_lines.append("")
+
+        current_error = next_error
+        depth += 1
+
+    traceback_text = "".join(
+        traceback.format_exception(type(error), error, error.__traceback__)
+    )
+    error_lines.extend(["", "Traceback:", traceback_text])
+
+    return "\n".join(error_lines)
+
+
+def test_feature(feature_name: str, data_file_name: str, feature_func: Callable[[str, str], FinalSubagentResult]):
+    F.print_subtitle(feature_name)
+
+    print(">> Loading Data: ")
     try:
-        # print("\t>> Tools Alignment Agents")
-        # job_tool_extractor = JobToolsExtractor(
-        #     model_name          = CFG.GROQ_LLAMA_8b,
-        #     system_prompt       = JOB_TOOLS_EXTRACTION_PROMPT,
-        #     structured_response = JobToolResponse,
-        # )
+        data = F.load_json(os.path.join(EXAMPLES_DATA_PATH, data_file_name))
+    except FileNotFoundError as e:
+        F.print_error_message("Data File Not Found")
+        return
+    else:
+        sample = data[0]
+        F.print_success_message("Data Loaded Successfully")
 
-        # proposal_tools_analyzer = ProposalToolsAnalyzer(
-        #     model_name          = CFG.GROQ_LLAMA_70b,
-        #     system_prompt       = PROPOSAL_TOOLS_EXTRACTION_PROMPT,
-        #     structured_response = ProposalToolsResponse,
-        # )
-
-        # print("\t>> Job Understanding Agents")
-        # job_key_points_extractor = JobKeyPointsExtractor(
-        #     model_name          = CFG.GROQ_LLAMA_70b,
-        #     system_prompt       = JOB_KEY_POINTS_EXTRACTION_PROMPT,
-        #     structured_response = JobKeyPointsSchema,
-        # )
-
-        # job_understanding_evaluator = JobUnderstandingEvaluator(
-        #     model_name          = CFG.GROQ_LLAMA_70b,
-        #     system_prompt       = JOB_UNDERSTANDING_EVALUATOR_PROMPT,
-        #     structured_response = JobUnderstandingEvalSchema,
-        # )
-
-        print("\t>> Requirement Coverage Agents")
-        requirement_extractor = JobRequirementsExtractor(
-            model_name          = CFG.GROQ_GPT_120b,
-            system_prompt       = REQUIREMENT_EXTRACTOR_PROMPT,
-            structured_response = ExtractedRequirementsSchema,
-        )
-
-        requirement_matcher = JobRequirementsMatcher(
-            model_name          = CFG.GROQ_GPT_120b,
-            system_prompt       = REQUIREMENT_MATCHER_PROMPT,
-            structured_response = RequirementCoverageSchema,
-        )
-
-        print("\t>> Evidence of Experience Agent")
-        experience_evidence_agent = ExperienceEvidenceAgent(
-            model_name          = CFG.GROQ_GPT_120b,
-            system_prompt       = EXPERIENCE_EVIDENCE_PROMPT,
-            structured_response = ExperienceEvidenceSchema,
-        )
-
-        # print("\t>> Language Clarity Agent")
-        # language_clarity_evaluator = LanguageClarityEvaluator(
-        #     model_name          = CFG.GROQ_LLAMA_70b,
-        #     system_prompt       = LANGUAGE_CLARITY_EVALUATOR_PROMPT,
-        #     structured_response = LanguageClarityEvalSchema,
-        # )
-
-        # F.print_success_message("Agents Loaded Successfully")
-
-    except Exception as e:
-        F.print_error_message("Error While Loading Agents")
-        F.print_error_message(e)
-        exit()
-
-
-    # F.print_subtitle("Loading Data")
-
-    # try:
-    #     print("\t>> Tools Alignment Data")
-    #     tools_alignment_data_samples = F.load_json(
-    #         file_path = os.path.join(DATA_PATH, "tools_alignment_tools.json")
-    #     )
-
-    #     print("\t>> Job Understanding Data")
-    #     job_understanding_data_samples = F.load_json(
-    #         file_path = os.path.join(DATA_PATH, "job_understanding_samples.json")
-    #     )
-
-    #     print("\t>> Requirement Coverage Data")
-    #     requirement_data_samples = F.load_json(
-    #         file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
-    #     )
-
-    #     print("\t>> Evidence of Experience Data")
-    #     experience_data_samples = F.load_json(
-    #         file_path = os.path.join(DATA_PATH, "eval_data.json")
-    #     )
-
-    #     print("\t>> Language Clarity Data")
-    #     language_clarity_data_samples = F.load_json(
-    #         file_path = os.path.join(DATA_PATH, "language_clarity_samples.json")
-    #     )
-
-    #     F.print_success_message("Data Loaded Successfully")
-
-    # except Exception as e:
-    #     F.print_error_message("Error While Loading Data")
-    #     F.print_error_message(e)
-    #     exit()
-
-
-    # ==================================================================
-    # 2.0 Testing Agents
-    # ==================================================================
-    # F.print_title("2.0 Testing Agents")
-
+        if feature_name == "Language Clarity":
+            proposal = sample["proposal"]
+            job_desc = None
+        
+        else:
+            sample = data[0]
+            job_desc = sample.get("job_desc", None)
+            proposal = sample['proposals'][0]
+            
     
-    # F.print_subtitle("Tools Alignment")
 
-    # tools_sample = tools_alignment_data_samples[0]
-    # job_desc     = tools_sample["job_desc"]
-    # proposals    = tools_sample["proposals"]
+    print(">> Testing: ")
+    try:
+        if job_desc is not None:
+            result = feature_func(job_desc, proposal)
+        else:
+            result = feature_func(proposal)
+    except Exception as e:
+        F.print_error_message("Agent Error Details:")
+        print(format_error_details(e))
+        return 
+    F.print_data(result)
 
-    # print("\t>> Extracting Job Tools")
-    # job_tools_response = job_tool_extractor.invoke(input=job_desc)
-    # F.print_structured_response(job_tools_response)
+    F.print_success_message(f"Feature {feature_name} Worked Successfuly")
+    time.sleep(3)
 
-    # print("\t>> Analyzing Proposal Tools")
-    # for idx, proposal in enumerate(proposals, start=1):
-    #     print(f"--- Analyzing Proposal {idx} ---")
-    #     prepared_analysis_tool_ip = format_ip_for_proposal_tools_analyzer(
-    #         job_tools = job_tools_response.tools,
-    #         proposal  = proposal
-    #     )
-    #     proposal_tools_analysis = proposal_tools_analyzer.invoke(
-    #         input = prepared_analysis_tool_ip
-    #     )
-    #     F.print_structured_response(proposal_tools_analysis)
-    #     print()
-    #     print(">> Tools Alignment Score: ", end="")
-    #     print(calc_tools_alignment_score(proposal_tools_analysis))
-    #     print()
+async def test_full_pipeline_with_logging():
+    logger = setup_logging()
 
-    # --------------------------------------------
-    # F.print_subtitle("Requirement Coverage")
+    F.print_title("1.0 Starting Full Pipeline Test")
+    logger.info("Starting full pipeline test")
 
-    # job_desc  = requirement_data_samples[0]["job_desc"]
-    # proposals = requirement_data_samples[0]["proposals"]
+    F.print_subtitle("Initiating Agents")
+    logger.info("Initiating pipeline and all agents")
+    pipeline = ProposalsRejectionReasonsPipeline()
+    logger.info("Pipeline initiated successfully")
 
-    # print("\t>> Extracting Job Requirements")
-    # extracted_data = requirement_extractor.invoke(input=job_desc)
-    # F.print_structured_response(extracted_data)
+    F.print_subtitle("Loading Test Data")
+    samples = F.load_json(
+        os.path.join(EXAMPLES_DATA_PATH, "requirement_coverage_samples.json")
+    )
+    logger.info("Loaded %s samples", len(samples))
 
-    # print("\t>> Evaluating Requirements in Proposal")
-    # for idx, proposal in enumerate(proposals, start=1):
-    #     print(f"--- Analyzing Proposal {idx} ---")
-    #     requirements_matching = requirement_matcher.invoke(
-    #         job_requirements = extracted_data.requirements,
-    #         proposal_text    = proposal
-    #     )
-    #     print("\t>> LLM Raw Matcher Response:")
-    #     F.print_structured_response(requirements_matching)
-        
-    #     final_result = calc_requirement_coverage_score(
-    #         extracted_requirements = extracted_data.requirements,
-    #         final_coverage         = requirements_matching
-    #     )
-        
-    #     print("\t>> Final Standardized Subagent Result:")
-    #     print(f"  score              => {final_result.score}")
-    #     print(f"  accepted           => {final_result.accepted}")
-    #     print(f"  summary            => {final_result.summary}")
-    #     print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
-    #     print(f"  rejection_reasons  => {final_result.rejection_reasons}")
-    #     print()
-    # # --------------------------------------------
-    # F.print_subtitle("Job Understanding")
+    sample = samples[0]
+    job_desc = sample.get("job_desc", None)
+    proposal = sample['proposals'][0]
 
-    # job_desc  = job_understanding_data_samples[0]["job_desc"]
-    # proposals = job_understanding_data_samples[0]["proposals"]
+    print_and_log(
+        title = "Job Description",
+        content = job_desc,
+        logger = logger
+    )
+    print_and_log(
+        title = "Proposal Under Test",
+        content = proposal,
+        logger = logger
+    )
 
-    # print("\t>> Extracting Job Key Points")
-    # job_key_points = job_key_points_extractor.invoke(input=job_desc)
-    # F.print_structured_response(job_key_points)
+    F.print_subtitle("Running Subagents In Parallel")
+    logger.info("Calling get_all_results")
+    subagent_results = await pipeline.get_all_results(
+        job_desc = job_desc,
+        proposal = proposal
+    )
+    logger.info("Subagents finished")
 
-    # print("\t>> Evaluating Proposal Quality")
-    # for idx, proposal in enumerate(proposals, start=1):
-    #     print(f"--- Analyzing Proposal {idx} ---")
-    #     understanding_evaluation = job_understanding_evaluator.invoke(
-    #         core_problem          = job_key_points.core_problem,
-    #         required_deliverables = job_key_points.required_deliverables,
-    #         proposal_text         = proposal
-    #     )
-    #     F.print_structured_response(understanding_evaluation)
+    F.print_subtitle("Raw Subagent Results")
+    for feature_name, feature_result in subagent_results.items():
+        result_text = stringify_result(feature_result)
+        print_and_log(
+            title = f"Raw Result - {feature_name}",
+            content = result_text,
+            logger = logger
+        )
 
-    #     print("Final Result (keyword metrics + scoring): ")
-    #     result = calc_job_understanding_result(
-    #         extraction    = job_key_points,
-    #         llm_eval      = understanding_evaluation,
-    #         proposal_text = proposal
-    #     )
-    #     for key, value in result.items():
-    #         print(f"  {key} => {value}")
-    #     print()
+    F.print_subtitle("Parsing Subagent Results For Super Agent")
+    logger.info("Calling parse_subagents_results")
+    parsed_subagent_results = pipeline.parse_subagents_results(
+        results = subagent_results
+    )
+    print_and_log(
+        title = "Parsed Super-Agent Input",
+        content = parsed_subagent_results,
+        logger = logger
+    )
 
-    # # --------------------------------------------
-    # F.print_subtitle("Language Clarity")
+    F.print_subtitle("Calling Super Agent")
+    logger.info("Calling super agent")
+    try:
+        super_agent_report = pipeline.super_agent.invoke(
+            job_desc = job_desc,
+            proposal = proposal,
+            subagents_results = parsed_subagent_results
+        )
+    except Exception as e:
+        error_details = format_error_details(e)
+        F.print_error_message("Super Agent Error Details:")
+        print(error_details)
+        logger.error("Super agent failed\n%s", error_details)
+        return
 
-    # lc_sample = language_clarity_data_samples[0]
-    # proposals = lc_sample["proposals"]
+    print_and_log(
+        title = "Final Super-Agent Report",
+        content = super_agent_report,
+        logger = logger
+    )
 
-    # print("\t>> Evaluating Language Clarity")
-    # for idx, proposal in enumerate(proposals, start=1):
-    #     print(f"--- Analyzing Proposal {idx} ---")
-    #     llm_eval = language_clarity_evaluator.invoke(proposal_text=proposal)
-    #     F.print_structured_response(llm_eval)
+    F.print_success_message("Full pipeline test completed")
+    logger.info("Full pipeline test completed")
 
-    #     print("Final Result (text metrics + scoring): ")
-    #     result = calc_language_clarity_result(
-    #         llm_eval      = llm_eval,
-    #         proposal_text = proposal
-    #     )
-    #     for key, value in result.items():
-    #         print(f"  {key} => {value}")
-    #     print()
 
-    # --------------------------------------------
-    # --------------------------------------------
-    # F.print_subtitle("Evidence of Experience")
+async def main():
+    await test_full_pipeline_with_logging()
 
-    # exp_job_desc  = experience_data_samples[1]["job_desc"]
-    # exp_proposals = experience_data_samples[1]["proposals"]
 
-    # print("\t>> Auditing Proposals for Past Experience Evidence")
-    # for idx, proposal in enumerate(exp_proposals, start=1):
-    #     print(f"--- Analyzing Proposal {idx} ---")
-        
-    #     experience_audit = experience_evidence_agent.invoke(
-    #         job_desc      = exp_job_desc,
-    #         proposal_text = proposal
-    #     )
-    #     print("\t>> LLM Raw Audit Response:")
-    #     F.print_structured_response(experience_audit)
+if __name__ == "__main__":
+    import asyncio
 
-    #     print("\t>> Final Standardized Subagent Result:")
-    #     final_result = calc_experience_evidence_result(llm_audit=experience_audit)
-        
-    #     print(f"  score              => {final_result.score}")
-    #     print(f"  accepted           => {final_result.accepted}")
-    #     print(f"  summary            => {final_result.summary}")
-    #     print(f"  acceptance_reasons => {final_result.acceptance_reasons}")
-    #     print(f"  rejection_reasons  => {final_result.rejection_reasons}")
-    #     print()
-
+    asyncio.run(main())
+    
+    
 
     

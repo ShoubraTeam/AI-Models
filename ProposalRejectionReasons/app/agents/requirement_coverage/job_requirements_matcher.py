@@ -27,14 +27,23 @@ class JobRequirementsMatcher(BaseAgent):
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
 
-    def invoke(self, job_requirements: list[dict], proposal_text: str) -> RequirementCoverageSchema:
+    def invoke(self, job_requirements: list, proposal_text: str) -> RequirementCoverageSchema:
         mapped_requirements = []
         for req in job_requirements:
-            mapped_requirements.append({
-                "id": str(req.get("id", "")), 
-                "text": req.get("description", req.get("text", "")), 
-                "necessity_level": req.get("necessity_level", "mandatory")
-            })
+            if isinstance(req, dict):
+                requirement = {
+                    "id": str(req.get("id", "")),
+                    "text": req.get("description", req.get("text", "")),
+                    "necessity_level": req.get("necessity_level", "mandatory"),
+                }
+            else:
+                requirement = {
+                    "id": str(req.id),
+                    "text": req.text,
+                    "necessity_level": req.necessity_level,
+                }
+
+            mapped_requirements.append(requirement)
         
         requirements_json = json.dumps(mapped_requirements, indent=2)
         formatted_input = f"Job Requirements List:\n{requirements_json}\n\nFreelancer Proposal Text:\n{proposal_text}"

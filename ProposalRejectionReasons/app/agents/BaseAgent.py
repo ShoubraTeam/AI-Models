@@ -40,6 +40,7 @@ class BaseAgent:
     def get_agent(self):
         model_config = dict(self.kwargs)
         extra_model_kwargs = dict(model_config.pop("model_kwargs", {}) or {})
+        structured_output_method = model_config.pop("structured_output_method", "function_calling")
 
         if "top_p" in model_config:
             extra_model_kwargs["top_p"] = model_config.pop("top_p")
@@ -62,7 +63,10 @@ class BaseAgent:
         
         else:
             if self.structured_response:
-                return model.with_structured_output(self.structured_response)
+                return model.with_structured_output(
+                    self.structured_response,
+                    method=structured_output_method,
+                )
             else:
                 return model
     # -------------------------- invoking -----------------------------

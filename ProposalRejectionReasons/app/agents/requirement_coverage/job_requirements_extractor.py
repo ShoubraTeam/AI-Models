@@ -4,6 +4,7 @@ from agents.BaseAgent import BaseAgent
 from helpers.config import DEFAULT_MODELS_CFG
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
+from schemas import ExtractedRequirementsSchema
 
 class JobRequirementsExtractor(BaseAgent):
     def __init__(
@@ -23,7 +24,7 @@ class JobRequirementsExtractor(BaseAgent):
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True):
+    def invoke(self, input, return_structured_op_only = True) -> ExtractedRequirementsSchema:
         return super().invoke(input, return_structured_op_only)
     
     def validate_agent_output(self, agent_output):
