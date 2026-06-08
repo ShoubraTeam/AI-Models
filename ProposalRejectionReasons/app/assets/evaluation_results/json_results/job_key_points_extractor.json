@@ -1,0 +1,194 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 1.9475,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 6.166,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 6.5025,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 4,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 6.828,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 5,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.47000000000000003,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 6,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.5860000000000001,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 7,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.488,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 8,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.49799999999999994,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 9,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 10,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 11,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 12,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "keyword_recall": 0.0,
+            "keyword_precision": 0.0,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    }
+]

@@ -1,0 +1,206 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 0.7514415582021078,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 1.8059876958529155,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 4.547390580177307,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 4,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 4.033335268497467,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 5,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 2.537945489088694,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 6,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 4.494938472906749,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 7,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.46296296296296297,
+            "tools_analysis_precision": 0.46296296296296297,
+            "tools_analysis_recall": 0.8888888888888888,
+            "with_confidence_accuracy": 0.8888888888888888,
+            "agent_invokation_time": 4.492420434951782,
+            "error_rate": 0.4
+        }
+    },
+    {
+        "run_id": 8,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 6.29185688495636,
+            "error_rate": 0.2
+        }
+    },
+    {
+        "run_id": 9,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.5277777777777777,
+            "tools_analysis_precision": 0.5277777777777777,
+            "tools_analysis_recall": 0.8333333333333333,
+            "with_confidence_accuracy": 0.6666666666666666,
+            "agent_invokation_time": 7.238560438156128,
+            "error_rate": 0.6
+        }
+    },
+    {
+        "run_id": 10,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.31111111111111106,
+            "tools_analysis_precision": 0.3202020202020202,
+            "tools_analysis_recall": 0.58,
+            "with_confidence_accuracy": 0.5333333333333333,
+            "agent_invokation_time": 15.145519749323526,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 11,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.41666666666666663,
+            "tools_analysis_precision": 0.41666666666666663,
+            "tools_analysis_recall": 1.0,
+            "with_confidence_accuracy": 1.0,
+            "agent_invokation_time": 13.328532814979553,
+            "error_rate": 0.6
+        }
+    },
+    {
+        "run_id": 12,
+        "model_name": "groq:qwen/qwen3-32b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "tools_analysis_accuracy": 0.3472222222222222,
+            "tools_analysis_precision": 0.3472222222222222,
+            "tools_analysis_recall": 0.6666666666666666,
+            "with_confidence_accuracy": 0.5833333333333334,
+            "agent_invokation_time": 12.393165588378906,
+            "error_rate": 0.2
+        }
+    }
+]

@@ -1,0 +1,206 @@
+[
+    {
+        "run_id": 1,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "clarity_accuracy": 1.0,
+            "professionalism_accuracy": 1.0,
+            "misleading_phrasing_accuracy": 1.0,
+            "overall_language_accuracy": 1.0,
+            "agent_invocation_time": 40.0,
+            "error_rate": 0.9166666666666666
+        }
+    },
+    {
+        "run_id": 2,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 3,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 4,
+        "model_name": "google_genai:gemini-2.5-flash",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 5,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "clarity_accuracy": 0.945,
+            "professionalism_accuracy": 0.715,
+            "misleading_phrasing_accuracy": 0.7083333333333334,
+            "overall_language_accuracy": 0.79,
+            "agent_invocation_time": 3.0,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 6,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "clarity_accuracy": 1.0,
+            "professionalism_accuracy": 1.0,
+            "misleading_phrasing_accuracy": 0.75,
+            "overall_language_accuracy": 0.9175,
+            "agent_invocation_time": 2.505,
+            "error_rate": 0.6666666666666666
+        }
+    },
+    {
+        "run_id": 7,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 8,
+        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 9,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 10,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 11,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    },
+    {
+        "run_id": 12,
+        "model_name": "groq:openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 1.0
+        },
+        "results": {
+            "clarity_accuracy": 0.0,
+            "professionalism_accuracy": 0.0,
+            "misleading_phrasing_accuracy": 0.0,
+            "overall_language_accuracy": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
+        }
+    }
+]

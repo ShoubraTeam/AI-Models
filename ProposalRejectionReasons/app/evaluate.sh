@@ -4,36 +4,28 @@ VENV_PATH="/mnt/d/Focus/_____Active_______/AI/venvs/GP/PRR/bin/activate"
 
 
 TASKS=(
-    # "job_tools_extractor"
-    # "proposal_tools_analyzer"
+    #"job_tools_extractor"
+    #"proposal_tools_analyzer"
     #"job_requirements_extractor"
     #"job_requirements_matcher"
-    # "job_key_points_extractor"
-    # "job_understanding_evaluator"
-    "experience_evidence_finder"
+    "job_key_points_extractor"
+    #"job_understanding_evaluator"
+    #"experience_evidence_finder"
     # "language_clarity_evaluator"
 )
 
 # models
 MODELS_TOOLS_ALIGNMENT_JOB_TOOLS_EXTRACTOR=(
     "LLAMA_8B"
-    "GEMINI_FLASH_LITE"
-    "GPT_OSS_20B"
-    "QWEN_32B"
-    "GEMINI_FLASH"
     "LLAMA_70B"
     "GPT_OSS_120B"
 )
 
 
 MODELS_TOOLS_ALIGNMENT_PROPOSAL_ANALYZER=(
-    "LLAMA_8B"
-    "GEMINI_FLASH_LITE"
-    "GPT_OSS_20B"
-    "QWEN_32B"
-    "GEMINI_FLASH"
     "LLAMA_70B"
     "GPT_OSS_120B"
+    "QWEN_32B"
 )
 
 
@@ -45,8 +37,8 @@ MODELS_JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR=(
 
 
 MODELS_JOB_UNDERSTANDING_MATCHER=(
-    "GPT_OSS_20B"
-    "QWEN_32B"
+    "GEMINI_FLASH"
+    "LLAMA_70B"
     "GPT_OSS_120B"
 )
 
@@ -79,6 +71,7 @@ MODELS_LANGUAGE_CLARITY=(
 
 TEMPERATUREs=(
     0.0
+    0.2
 )
 
 MAX_TOKENSs=(
@@ -114,16 +107,16 @@ do
         MODELS_LIST=("${MODELS_TOOLS_ALIGNMENT_PROPOSAL_ANALYZER[@]}")
 
     elif [ "$task" = "job_requirements_extractor" ]; then
-        MODELS_LIST=("${MODELS_JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR[@]}")
-
-    elif [ "$task" = "job_requirements_matcher" ]; then
-        MODELS_LIST=("${MODELS_JOB_UNDERSTANDING_MATCHER[@]}")
-
-    elif [ "$task" = "job_key_points_extractor" ]; then
         MODELS_LIST=("${MODELS_REQUIREMENT_COVERAGE_EXTRACTOR[@]}")
 
-    elif [ "$task" = "job_understanding_evaluator" ]; then
+    elif [ "$task" = "job_requirements_matcher" ]; then
         MODELS_LIST=("${MODELS_REQUIREMENT_COVERAGE_MATCHER[@]}")
+
+    elif [ "$task" = "job_key_points_extractor" ]; then
+        MODELS_LIST=("${MODELS_JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR[@]}")
+
+    elif [ "$task" = "job_understanding_evaluator" ]; then
+        MODELS_LIST=("${MODELS_JOB_UNDERSTANDING_MATCHER[@]}")
 
     elif [ "$task" = "experience_evidence_finder" ]; then
         MODELS_LIST=("${MODELS_EVIDENCE_EXPERIENCE_FINDER[@]}")
@@ -153,6 +146,8 @@ do
                         --temperature "$temp" \
                         --max_tokens  "$max_tokens" \
                         --top_p       "$top_p"
+                    echo ">> Sleeping for 5 seconds to avoid rate limits..."
+                    sleep 5
 
                     ((run_id++))
                     

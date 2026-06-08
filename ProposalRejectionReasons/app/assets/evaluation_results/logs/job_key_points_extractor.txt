@@ -1,0 +1,691 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 3.13
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 2.21
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 1.24
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 1.21
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 1.21
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 1.01
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 4.45
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 10.57
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 13.59
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 1.44
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 4.03
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 7.97
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to call a function. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 12.57
+
+====================================================================================================
+============================================== Run #4 ==============================================
+Run Configurations:
+	>> run_id --> 4
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 1.6
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 2.07
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 7.73
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 9.29
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 13.45
+
+====================================================================================================
+============================================== Run #5 ==============================================
+Run Configurations:
+	>> run_id --> 5
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.66
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.4
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.31
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.48
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.5
+
+====================================================================================================
+============================================== Run #6 ==============================================
+Run Configurations:
+	>> run_id --> 6
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.89
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.44
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.46
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.49
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.65
+
+====================================================================================================
+============================================== Run #7 ==============================================
+Run Configurations:
+	>> run_id --> 7
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.81
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.38
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.3
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.46
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.49
+
+====================================================================================================
+============================================== Run #8 ==============================================
+Run Configurations:
+	>> run_id --> 8
+	>> model_name --> groq:llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.75
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.35
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.36
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.59
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> keyword_recall --> 0.0
+		>> keyword_precision --> 0.0
+		>> deliverable_recall --> 0.0
+		>> agent_invocation_time --> 0.44
+
+====================================================================================================
+============================================== Run #9 ==============================================
+Run Configurations:
+	>> run_id --> 9
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to parse tool call arguments as JSON
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 5
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #10 ==============================================
+Run Configurations:
+	>> run_id --> 10
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 5
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #11 ==============================================
+Run Configurations:
+	>> run_id --> 11
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Failed to parse tool call arguments as JSON
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 5
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
+============================================= Run #12 ==============================================
+Run Configurations:
+	>> run_id --> 12
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 5
+		>> error_type --> BadRequestError
+		>> error_code --> tool_use_failed
+		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobKeyPointsExtractor' which was not in request.tools
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+====================================================================================================
