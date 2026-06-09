@@ -9,11 +9,14 @@ from helpers.config     import JOB_DESCRIPTION_ENHANCEMENT_MODELS
 from helpers.config     import get_settings
 from helpers.functional import print_success_message, print_error, print_title, print_subtitle
 
+
+# Agents
 from helpers.loading_clients_agents import get_identity_recognizer, get_retina_face_detector
 from helpers.loading_clients_agents import get_weaviate_client
+from helpers.loading_clients_agents import load_proposal_rejection_reasons_agents
 from helpers.loading_clients_agents import get_embedding_model, get_raranker, get_weaviate_collection
-
 from agents.job_description_enhancement import get_groq_client
+
 
 
 from models.data_config import (
@@ -23,8 +26,6 @@ from models.data_config import (
     FEATURE_PROFILE_ANALYSIS,
     FEATURE_PROPOSAL_REJECTION_REASONS
 )
-
-
 
 
 
@@ -87,7 +88,7 @@ async def lifespan(app: FastAPI):
 
                 FEATURE_JOB_RECOMMENDATION_SYSTEM: {},
                 FEATURE_PROFILE_ANALYSIS: {},
-                FEATURE_PROPOSAL_REJECTION_REASONS: {},
+                FEATURE_PROPOSAL_REJECTION_REASONS: load_proposal_rejection_reasons_agents(),
             }
 
             print_success_message("Agents Loaded Successfully")

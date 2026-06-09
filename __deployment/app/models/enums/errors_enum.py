@@ -2,6 +2,7 @@ from enum import Enum
 
 class ErrorsEnum(Enum):
     JD_ENH_ERROR_TASK = "Job Description Task is invalid"
+    PRR_ERROR_TASK  = "Proposa Rejection Task is Invalid"
 
     # log results
     LOG_JSON_FILE_LOADING_ERROR    = "Json file loading error"

@@ -30,6 +30,61 @@ from weaviate.classes.init import Auth, AdditionalConfig, Timeout
 from weaviate import WeaviateClient
 
 
+# agents
+from agents.proposal_rejection_reasons import (
+    JobToolsExtractor,
+    ProposalToolsAnalyzer,
+    JobKeyPointsExtractor,
+    JobUnderstandingEvaluator,
+    JobRequirementsMatcher,
+    JobRequirementsExtractor,
+    LanguageClarityEvaluator,
+    ExperienceEvidenceAgent,
+    ProposalRejectionSuperAgent
+)
+
+ProposalRejectionReasons_Type = (
+    JobToolsExtractor           |
+    ProposalToolsAnalyzer       |
+    JobKeyPointsExtractor       |
+    JobUnderstandingEvaluator   |
+    JobRequirementsMatcher      |
+    JobRequirementsExtractor    |
+    LanguageClarityEvaluator    |
+    ExperienceEvidenceAgent     |
+    ProposalRejectionSuperAgent
+)
+
+
+# prompts
+from prompts import (
+    JOB_TOOLS_EXTRACTION_PROMPT,
+    PROPOSAL_TOOLS_EXTRACTION_PROMPT,
+    EXPERIENCE_EVIDENCE_PROMPT,
+    JOB_KEY_POINTS_EXTRACTION_PROMPT,
+    JOB_UNDERSTANDING_EVALUATOR_PROMPT,
+    REQUIREMENT_EXTRACTOR_PROMPT,
+    REQUIREMENT_MATCHER_PROMPT,
+    LANGUAGE_CLARITY_EVALUATOR_PROMPT,
+    SUPER_AGENT_SYSTEM_PROMPT
+)
+
+
+# prompts
+from models.pydantic_schemas import (
+    JobToolResponse,
+    ProposalToolsResponse,
+    JobKeyPointsSchema,
+    JobUnderstandingEvalSchema,
+    ExtractedRequirementsSchema,
+    RequirementCoverageSchema,
+    ExperienceEvidenceSchema,
+    LanguageClarityEvalSchema,
+    SuperAgentResponse
+)
+
+
+
 settings = get_settings()
 
 
@@ -116,3 +171,111 @@ def get_weaviate_collection(client) -> Collection:
             raise
 
     return collection
+
+# ----------- Proposal Rejection Reasons -------------
+# Tools Alignment (TA)
+TA_TOOL_ALIGNMENT_THRESHOLD = 0.5
+TA_JOB_TOOLS_EXTRACTOR_CFG = {
+    "model_name"         : "groq:llama-3.1-8b-instant",
+    "system_prompt"      : JOB_TOOLS_EXTRACTION_PROMPT,
+    "structured_response": JobToolResponse,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+TA_PROPOSAL_TOOLS_ANALYZER_CFG = {
+    "model_name"         : "groq:llama-3.1-8b-instant",
+    "system_prompt"      : PROPOSAL_TOOLS_EXTRACTION_PROMPT,
+    "structured_response": ProposalToolsResponse,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+# Job Understanding (JD)
+JD_JOB_UNDERSTANDING_THRESHOLD = 0.5
+JD_JOB_KEY_POINTS_CFG = {
+    "model_name"         : "groq:openai/gpt-oss-120b",
+    "system_prompt"      : JOB_KEY_POINTS_EXTRACTION_PROMPT,
+    "structured_response": JobKeyPointsSchema,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+JD_JOB_UNDERSTANDING_EVALUATOR_CFG = {
+    "model_name"         : "groq:openai/gpt-oss-120b",
+    "system_prompt"      : JOB_UNDERSTANDING_EVALUATOR_PROMPT,
+    "structured_response": JobUnderstandingEvalSchema,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+# Requirement Coverage (RQ)
+RQ_REQUIREMENT_COVERAGE_THRESHOLD = 0.5
+RQ_REQUIREMENT_EXTRACTOR_CFG = {
+    "model_name"         : "groq:llama-3.1-8b-instant",
+    "system_prompt"      : REQUIREMENT_EXTRACTOR_PROMPT,
+    "structured_response": ExtractedRequirementsSchema,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
+    "model_name"         : "groq:openai/gpt-oss-120b",
+    "system_prompt"      : REQUIREMENT_MATCHER_PROMPT,
+    "structured_response": RequirementCoverageSchema,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+# Language Clarity
+LANGUAGE_CLARITY_THRESHOLD = 0.5 
+LANGUAGE_CLARITY_EVALUATOR_CFG = {
+    "model_name"         : "groq:openai/gpt-oss-120b",
+    "system_prompt"      : LANGUAGE_CLARITY_EVALUATOR_PROMPT,
+    "structured_response": LanguageClarityEvalSchema,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+# Evidence of experience
+EXPERIENCE_EVIDENCE_THRESHOLD = 0.5
+EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
+    "model_name"         : "groq:openai/gpt-oss-120b",
+    "system_prompt"      : EXPERIENCE_EVIDENCE_PROMPT,
+    "structured_response": ExperienceEvidenceSchema,
+    "temperature"        : 0.0,
+    "max_tokens"         : 512,
+    "top_p"              : 0.9
+}
+
+# Super Agent
+SUPER_AGENT_CFG = {
+    "model_name"         : "groq:openai/gpt-oss-120b",
+    "system_prompt"      : SUPER_AGENT_SYSTEM_PROMPT,
+    "structured_response": SuperAgentResponse,
+    "temperature"        : 0.1,
+    "max_tokens"         : 1024,
+    "top_p"              : 0.9
+}
+
+def load_proposal_rejection_reasons_agents() -> dict[str, ProposalRejectionReasons_Type]:
+    agents = {}
+
+    agents["job_tools_extractor"]           = JobToolsExtractor(**TA_JOB_TOOLS_EXTRACTOR_CFG)
+    agents["proposal_tools_analyzer"]       = ProposalToolsAnalyzer(**TA_PROPOSAL_TOOLS_ANALYZER_CFG)
+    agents["requirement_extractor"]         = JobRequirementsExtractor(**RQ_REQUIREMENT_EXTRACTOR_CFG)
+    agents["requirement_matcher"]           = JobRequirementsMatcher(**RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG)
+    agents["job_key_points_extractor"]      = JobKeyPointsExtractor(**JD_JOB_KEY_POINTS_CFG)
+    agents["job_understanding_evaluator"]   = JobUnderstandingEvaluator(**JD_JOB_UNDERSTANDING_EVALUATOR_CFG)
+    agents["experience_evidence_evaluator"] = ExperienceEvidenceAgent(**EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG)
+    agents["language_clarity_evaluator"]    = LanguageClarityEvaluator(**LANGUAGE_CLARITY_EVALUATOR_CFG)
+    agents["super_agent"]                   = ProposalRejectionSuperAgent(**SUPER_AGENT_CFG)
+
+    return agents

@@ -2,9 +2,8 @@
 # Required workflow for recommendation_sys
 # -----------------------------------------------
 
-from .pipeline import Pipeline
 
-class JobRecommendationSystemPipeline(Pipeline):
+class JobRecommendationSystemPipeline:
     """
     Job Description Enhancement Pipeline
 

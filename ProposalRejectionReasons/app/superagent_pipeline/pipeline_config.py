@@ -44,7 +44,7 @@ TA_PROPOSAL_TOOLS_ANALYZER_CFG = {
 # Job Understanding (JD)
 JD_JOB_UNDERSTANDING_THRESHOLD = 0.5
 JD_JOB_KEY_POINTS_CFG = {
-    "model_name"         : "groq:llama-3.3-70b-versatile",
+    "model_name"         : "groq:openai/gpt-oss-120b",
     "system_prompt"      : JOB_KEY_POINTS_EXTRACTION_PROMPT,
     "structured_response": JobKeyPointsSchema,
     "temperature"        : 0.0,
@@ -53,7 +53,7 @@ JD_JOB_KEY_POINTS_CFG = {
 }
 
 JD_JOB_UNDERSTANDING_EVALUATOR_CFG = {
-    "model_name"         : "groq:llama-3.3-70b-versatile",
+    "model_name"         : "groq:openai/gpt-oss-120b",
     "system_prompt"      : JOB_UNDERSTANDING_EVALUATOR_PROMPT,
     "structured_response": JobUnderstandingEvalSchema,
     "temperature"        : 0.0,
@@ -75,7 +75,7 @@ RQ_REQUIREMENT_EXTRACTOR_CFG = {
 }
 
 RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
-    "model_name"         : "groq:llama-3.3-70b-versatile",
+    "model_name"         : "groq:openai/gpt-oss-120b",
     "system_prompt"      : REQUIREMENT_MATCHER_PROMPT,
     "structured_response": RequirementCoverageSchema,
     "temperature"        : 0.0,
@@ -87,7 +87,7 @@ RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
 # Language Clarity
 LANGUAGE_CLARITY_THRESHOLD = 0.5 
 LANGUAGE_CLARITY_EVALUATOR_CFG = {
-    "model_name"         : "groq:llama-3.3-70b-versatile",
+    "model_name"         : "groq:openai/gpt-oss-120b",
     "system_prompt"      : LANGUAGE_CLARITY_EVALUATOR_PROMPT,
     "structured_response": LanguageClarityEvalSchema,
     "temperature"        : 0.0,
@@ -98,7 +98,7 @@ LANGUAGE_CLARITY_EVALUATOR_CFG = {
 # Evidence of experience
 EXPERIENCE_EVIDENCE_THRESHOLD = 0.5
 EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
-    "model_name"         : "groq:llama-3.3-70b-versatile",
+    "model_name"         : "groq:openai/gpt-oss-120b",
     "system_prompt"      : EXPERIENCE_EVIDENCE_PROMPT,
     "structured_response": ExperienceEvidenceSchema,
     "temperature"        : 0.0,
@@ -109,7 +109,7 @@ EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
 
 # Super Agent
 SUPER_AGENT_CFG = {
-    "model_name"               : "groq:llama-3.3-70b-versatile",
+    "model_name"               : "groq:openai/gpt-oss-120b",
     "system_prompt"            : SUPER_AGENT_SYSTEM_PROMPT,
     "structured_response"      : SuperAgentResponse,
     "temperature"              : 0.1,

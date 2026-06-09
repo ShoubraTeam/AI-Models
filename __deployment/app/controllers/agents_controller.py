@@ -10,7 +10,7 @@ from .agents_pipelines.identity_recognition        import IdentityRecognitionPip
 from .agents_pipelines.job_description_enhancement import JobDescriptionEnhancementPipeline
 from .agents_pipelines.job_recommendation_system   import JobRecommendationSystemPipeline
 from .agents_pipelines.profile_analysis            import ProfileAnalysisPipeline
-from .agents_pipelines.proposal_rejection_reasons  import ProposalRejectionReasonsPipeline
+from .agents_pipelines.proposal_rejection_reasons  import ProposalsRejectionReasonsPipeline
 
 from typing import Any
 
@@ -27,7 +27,6 @@ class AgentController:
         feature_id (str): feature identifier. Must be one of the following:
             - identity_recognition
             - job_recommendation_system
-
             - profile_analyzer
             - job_description_enhancement
             - proposal_rejection_reasons 
@@ -57,7 +56,7 @@ class AgentController:
             return JobDescriptionEnhancementPipeline(agents, client = client, **kwargs) 
             
         else: 
-            return ProposalRejectionReasonsPipeline(agents)
+            return ProposalsRejectionReasonsPipeline(agents, **kwargs)
     
 
     def preprocess_input(self, input: Any):

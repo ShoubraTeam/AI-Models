@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------
 
 from pydantic import BaseModel, Field, ConfigDict
-from typing import Literal
+from typing import Any, Literal
 from models.data_config import (
     JOB_DESC_TOOLS_DETECTION,
     JOB_DESC_TOOLS_RECOMMENDATION,
@@ -38,24 +38,25 @@ class AgentInferenceResult(BaseModel):
         "identity_recognition",
         "job_desc_tools_detection",
         "job_desc_tools_recommendation",
-        "job_desc_job_description_enhancement"
+        "job_desc_job_description_enhancement",
+        "PRR_job_features_extraction",
+        "PRR_proposal_analysis",
         
         # other feature tasks
     ]
 
-    user_input: str | None | tuple[str, str] | tuple[str, str, list[str] | None]= Field(
+    user_input: str | None | tuple[str, str] | tuple[str, str, str] | tuple[str, str, list[str] | None] = Field(
         None,
         description = "Input may be str (for LLM-based features) or Image for Identity Recognition & Profile analysis"
     )
 
     images: tuple[ImageLog, ImageLog] | None = None
-    agent_output: str | bool | list[str] | None = Field(
+    agent_output: str | bool | list[str] | dict[str, Any] | None = Field(
         description = "Output may be str, verified or not for Identity Recognition, or .. for Proposal Rejection Reasons"
     )
 
     duration_s: float = Field(description = "the inference time in seconds")
     user_feedback: Literal["Good", "Bad"] | str | None = None
-
 
 
 
