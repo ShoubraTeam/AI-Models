@@ -231,5 +231,5 @@ data/
 trained_models/
 __info/
 .history/
+__deployment/app/assets/data
 __deployment/app/assets/trained_models
-__deployment/app/assets/results

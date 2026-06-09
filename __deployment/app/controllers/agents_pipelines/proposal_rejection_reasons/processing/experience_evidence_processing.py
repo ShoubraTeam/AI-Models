@@ -67,7 +67,7 @@ def calc_experience_evidence_result(
     return FinalSubagentResult(
         score=score,
         accepted=accepted,
-        summary=llm_audit.summary, 
+        summary=llm_audit.summary,
         acceptance_reasons=acceptance_reasons,
         rejection_reasons=rejection_reasons
     )

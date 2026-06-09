@@ -1,4 +1,4 @@
-from ..BaseAgent import BaseAgent
+from ..base_agent import BaseAgent
 from helpers.config import DEFAULT_MODELS_CFG
 from models.pydantic_schemas import JobKeyPointsSchema
 

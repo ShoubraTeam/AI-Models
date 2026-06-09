@@ -7,6 +7,11 @@
 # --------------------------------------------
 
 import os
+
+from core.startup_noise import configure_startup_noise, suppress_model_loader_output
+
+configure_startup_noise()
+
 import torch
 
 from retinaface.pre_trained_models import get_model as get_retina_model
@@ -88,8 +93,16 @@ from models.pydantic_schemas import (
 settings = get_settings()
 
 
+def get_torch_device(device: str = "auto") -> torch.device:
+    if device == "auto":
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    return torch.device(device)
+
+
 # identity recognition
 def get_identity_recognizer() -> FaceRecognizerArcFace:
+    device = get_torch_device(ARCFACE_CFG["device"])
     weights_path = os.path.join(
         settings.TRAINED_MODELS_PATH,
         FEATURE_IDENITY_RECOGNITION,
@@ -104,7 +117,7 @@ def get_identity_recognizer() -> FaceRecognizerArcFace:
 
 
     # load weights
-    loaded = torch.load(weights_path, map_location = ARCFACE_CFG["device"])
+    loaded = torch.load(weights_path, map_location = device)
     model.load_state_dict(loaded['model_state_dict'])
 
     model.eval()
@@ -114,11 +127,14 @@ def get_identity_recognizer() -> FaceRecognizerArcFace:
 
 def get_retina_face_detector():
     backbone_model = "resnet50_2020-07-20"
-    retina_face_detector = get_retina_model(
-        model_name = backbone_model,
-        max_size = RETINA_DETECTOR_CFG["max_size"],
-        device = RETINA_DETECTOR_CFG["device"]
-    )   
+    device = str(get_torch_device(RETINA_DETECTOR_CFG["device"]))
+
+    with suppress_model_loader_output():
+        retina_face_detector = get_retina_model(
+            model_name = backbone_model,
+            max_size = RETINA_DETECTOR_CFG["max_size"],
+            device = device
+        )
 
     retina_face_detector.eval()
 
@@ -143,14 +159,17 @@ def get_weaviate_client() -> WeaviateClient:
 
 
 def get_embedding_model() -> HuggingFaceEmbeddings:
-    return HuggingFaceEmbeddings(
-        model_name    = JOB_DESCRIPTION_RAG_EMBEDDER["model_name"],
-        model_kwargs  = JOB_DESCRIPTION_RAG_EMBEDDER["model_kwargs"],
-        encode_kwargs = JOB_DESCRIPTION_RAG_EMBEDDER["encode_kwargs"]
-    )
+    with suppress_model_loader_output():
+        return HuggingFaceEmbeddings(
+            model_name    = JOB_DESCRIPTION_RAG_EMBEDDER["model_name"],
+            model_kwargs  = JOB_DESCRIPTION_RAG_EMBEDDER["model_kwargs"],
+            encode_kwargs = JOB_DESCRIPTION_RAG_EMBEDDER["encode_kwargs"],
+            show_progress = False
+        )
 
 def get_raranker() -> CrossEncoder:
-    return CrossEncoder(JOB_DESCRIPTION_RAG_RERANKER)
+    with suppress_model_loader_output():
+        return CrossEncoder(JOB_DESCRIPTION_RAG_RERANKER)
 
 
 

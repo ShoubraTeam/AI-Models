@@ -4,7 +4,11 @@
 
 
 # FastAPI utils
-from fastapi       import FastAPI
+from fastapi import FastAPI
+from core.startup_noise import configure_startup_noise
+
+configure_startup_noise()
+
 from core.lifespan import lifespan
 
 # routers

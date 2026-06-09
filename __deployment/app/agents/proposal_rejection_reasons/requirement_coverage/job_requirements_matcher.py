@@ -1,6 +1,6 @@
 import json
 from time import time
-from ..BaseAgent import BaseAgent
+from ..base_agent import BaseAgent
 from models.pydantic_schemas import RequirementCoverageSchema
 from helpers.config import DEFAULT_MODELS_CFG
 

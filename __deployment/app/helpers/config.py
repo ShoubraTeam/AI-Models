@@ -5,7 +5,6 @@
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pathlib import Path
-import torch
 
 
 
@@ -57,12 +56,12 @@ ARCFACE_CFG = {
     "n_classes"    : 786,
     "embedding_dim": 512,
     "margin"       : 0.5,
-    "device"       : torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    "device"       : "auto"
 }
 
 RETINA_DETECTOR_CFG = {
     "max_size": 512,
-    "device"  :torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    "device"  : "auto"
 }
 
 # job desc enhancer

@@ -120,8 +120,8 @@ proposal_rejection_reasons_router = APIRouter(
     prefix = ROUTE_MAIN_ROUTE 
 )
 
-@proposal_rejection_reasons_router.post("/{feature_id}/extract_job_features")
-async def extract_job_features(
+@proposal_rejection_reasons_router.post("/{feature_id}/job_features_extraction")
+async def job_features_extraction(
     feature_id: str,
     request   : Request,
     data      : ExtractionJobFeaturesIP
@@ -207,7 +207,7 @@ async def extract_job_features(
 
 # Proposal Analysis
 @proposal_rejection_reasons_router.post("/{feature_id}/proposal_analysis")
-async def recommend_tools(
+async def proposal_analysis(
     feature_id: str,
     data      : ProposalAnalysisIP,
     request   : Request

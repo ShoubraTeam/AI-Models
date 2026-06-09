@@ -1,4 +1,4 @@
-from ..BaseAgent import BaseAgent
+from ..base_agent import BaseAgent
 from models.pydantic_schemas import LanguageClarityEvalSchema
 from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
 import helpers.config as CFG

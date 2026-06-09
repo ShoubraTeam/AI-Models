@@ -6,15 +6,7 @@ from models.data_config import (
     FEATURE_JOB_DESCRIPTION_ENHANCEMENT,
 )
 
-from .agents_pipelines.identity_recognition        import IdentityRecognitionPipeline
-from .agents_pipelines.job_description_enhancement import JobDescriptionEnhancementPipeline
-from .agents_pipelines.job_recommendation_system   import JobRecommendationSystemPipeline
-from .agents_pipelines.profile_analysis            import ProfileAnalysisPipeline
-from .agents_pipelines.proposal_rejection_reasons  import ProposalsRejectionReasonsPipeline
-
 from typing import Any
-
-from groq import Groq
 
 class AgentController:
     """
@@ -34,28 +26,38 @@ class AgentController:
         agents: agents used in features
         kwargs: key word arguments specific to each feature if required
     """
-    def __init__(self, feature_id: str, agents: Any, client: None | Groq = None, **kwargs) -> None:
+    def __init__(self, feature_id: str, agents: Any, client: Any = None, **kwargs) -> None:
         # setup
         self.feature_id = feature_id
         self.agent_pipeline = self.get_feature_pipeline(agents, client = client, **kwargs)
 
 
-    def get_feature_pipeline(self, agents: Any, client: None | Groq, **kwargs) -> None:
+    def get_feature_pipeline(self, agents: Any, client: Any, **kwargs) -> None:
         """Get the required feature pipeline"""
         
         if self.feature_id == FEATURE_IDENITY_RECOGNITION:
+            from .agents_pipelines.identity_recognition import IdentityRecognitionPipeline
+
             return IdentityRecognitionPipeline(agents)
             
         elif self.feature_id == FEATURE_JOB_RECOMMENDATION_SYSTEM:
+            from .agents_pipelines.job_recommendation_system import JobRecommendationSystemPipeline
+
             return JobRecommendationSystemPipeline(agents) 
             
         elif self.feature_id == FEATURE_PROFILE_ANALYSIS:
+            from .agents_pipelines.profile_analysis import ProfileAnalysisPipeline
+
             return ProfileAnalysisPipeline(agents) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
+            from .agents_pipelines.job_description_enhancement import JobDescriptionEnhancementPipeline
+
             return JobDescriptionEnhancementPipeline(agents, client = client, **kwargs) 
             
         else: 
+            from .agents_pipelines.proposal_rejection_reasons import ProposalsRejectionReasonsPipeline
+
             return ProposalsRejectionReasonsPipeline(agents, **kwargs)
     
 

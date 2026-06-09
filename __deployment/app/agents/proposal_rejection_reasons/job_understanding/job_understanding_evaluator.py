@@ -1,4 +1,4 @@
-from ..BaseAgent import BaseAgent
+from ..base_agent import BaseAgent
 from models.pydantic_schemas import JobUnderstandingEvalSchema
 from helpers.config import DEFAULT_MODELS_CFG
 from typing import List

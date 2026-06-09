@@ -2,7 +2,7 @@
 # Implementing an Agent to extract tools from the job description
 # -----------------------------------------------------------------
 
-from ..BaseAgent import BaseAgent
+from ..base_agent import BaseAgent
 from models.pydantic_schemas import JobToolResponse
 from time import time
 from helpers.config import DEFAULT_MODELS_CFG

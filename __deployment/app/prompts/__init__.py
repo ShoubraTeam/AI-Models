@@ -6,7 +6,7 @@ from .proposal_rejection_reasons.language_clarity_prompts     import LANGUAGE_CL
 from .proposal_rejection_reasons.super_agent_prompts          import SUPER_AGENT_SYSTEM_PROMPT
 
 
-from .job_description_enhancment.tools_detection_prompt             import TOOLS_DETECTION_PROMPT
-from .job_description_enhancment.tools_recommendation_prompt        import TOOLS_RECOMMENDATION_PROMPT
-from .job_description_enhancment.job_description_enhancement_prompt import JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITH_RAG
-from .job_description_enhancment.job_description_enhancement_prompt import JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITHOUT_RAG
+from .job_description_enhancement.tools_detection_prompt             import TOOLS_DETECTION_PROMPT
+from .job_description_enhancement.tools_recommendation_prompt        import TOOLS_RECOMMENDATION_PROMPT
+from .job_description_enhancement.job_description_enhancement_prompt import JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITH_RAG
+from .job_description_enhancement.job_description_enhancement_prompt import JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITHOUT_RAG

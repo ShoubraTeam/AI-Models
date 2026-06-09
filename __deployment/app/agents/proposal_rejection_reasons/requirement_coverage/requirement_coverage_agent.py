@@ -1,4 +1,4 @@
-from ..BaseAgent import BaseAgent
+from ..base_agent import BaseAgent
 from agents.proposal_rejection_reasons.requirement_coverage.job_requirements_extractor import JobRequirementsExtractor
 from agents.proposal_rejection_reasons.requirement_coverage.job_requirements_matcher import JobRequirementsMatcher
 from models.pydantic_schemas import RequirementCoverageSchema
