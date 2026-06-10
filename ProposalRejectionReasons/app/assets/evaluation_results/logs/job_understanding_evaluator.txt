@@ -1,20 +1,19 @@
 
-
 ============================================== Run #1 ==============================================
 Run Configurations:
 	>> run_id --> 1
 	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> problem_identified_accuracy --> 0.33
-		>> solution_proposed_accuracy --> 0.33
-		>> practical_steps_accuracy --> 0.67
-		>> overall_understanding_accuracy --> 0.44
-		>> agent_invocation_time --> 0.75
+		>> problem_identified_accuracy --> 1.0
+		>> solution_proposed_accuracy --> 1.0
+		>> practical_steps_accuracy --> 1.0
+		>> overall_understanding_accuracy --> 1.0
+		>> agent_invocation_time --> 0.72
 
 
 => Sample #2:
@@ -24,7 +23,7 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 0.0
 		>> practical_steps_accuracy --> 0.0
 		>> overall_understanding_accuracy --> 0.0
-		>> agent_invocation_time --> 0.53
+		>> agent_invocation_time --> 0.62
 
 
 => Sample #3:
@@ -32,9 +31,9 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 0.54
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 0.53
 
 
 => Sample #4:
@@ -42,9 +41,9 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 0.68
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 0.53
 
 
 => Sample #5:
@@ -54,24 +53,24 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
 		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 1.6
+		>> agent_invocation_time --> 0.63
 
 ====================================================================================================
 ============================================== Run #2 ==============================================
 Run Configurations:
 	>> run_id --> 2
 	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 1.0}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> problem_identified_accuracy --> 0.67
-		>> solution_proposed_accuracy --> 0.67
+		>> problem_identified_accuracy --> 1.0
+		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 0.78
-		>> agent_invocation_time --> 2.51
+		>> overall_understanding_accuracy --> 1.0
+		>> agent_invocation_time --> 0.72
 
 
 => Sample #2:
@@ -81,7 +80,7 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 0.0
 		>> practical_steps_accuracy --> 0.0
 		>> overall_understanding_accuracy --> 0.0
-		>> agent_invocation_time --> 4.63
+		>> agent_invocation_time --> 2.79
 
 
 => Sample #3:
@@ -89,9 +88,9 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 4.56
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 4.84
 
 
 => Sample #4:
@@ -101,7 +100,7 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
 		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 6.59
+		>> agent_invocation_time --> 6.12
 
 
 => Sample #5:
@@ -111,24 +110,24 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
 		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 4.59
+		>> agent_invocation_time --> 6.64
 
 ====================================================================================================
 ============================================== Run #3 ==============================================
 Run Configurations:
 	>> run_id --> 3
 	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> problem_identified_accuracy --> 0.67
-		>> solution_proposed_accuracy --> 0.67
+		>> problem_identified_accuracy --> 1.0
+		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 0.78
-		>> agent_invocation_time --> 2.81
+		>> overall_understanding_accuracy --> 1.0
+		>> agent_invocation_time --> 0.79
 
 
 => Sample #2:
@@ -138,7 +137,7 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 0.0
 		>> practical_steps_accuracy --> 0.0
 		>> overall_understanding_accuracy --> 0.0
-		>> agent_invocation_time --> 4.62
+		>> agent_invocation_time --> 4.3
 
 
 => Sample #3:
@@ -146,9 +145,9 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 4.67
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 3.73
 
 
 => Sample #4:
@@ -156,9 +155,9 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 6.47
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 4.68
 
 
 => Sample #5:
@@ -168,24 +167,24 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
 		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 5.61
+		>> agent_invocation_time --> 7.07
 
 ====================================================================================================
 ============================================== Run #4 ==============================================
 Run Configurations:
 	>> run_id --> 4
 	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 1.0}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> problem_identified_accuracy --> 0.33
-		>> solution_proposed_accuracy --> 0.33
-		>> practical_steps_accuracy --> 0.67
-		>> overall_understanding_accuracy --> 0.44
-		>> agent_invocation_time --> 2.33
+		>> problem_identified_accuracy --> 1.0
+		>> solution_proposed_accuracy --> 1.0
+		>> practical_steps_accuracy --> 1.0
+		>> overall_understanding_accuracy --> 1.0
+		>> agent_invocation_time --> 0.84
 
 
 => Sample #2:
@@ -195,7 +194,7 @@ Run Configurations:
 		>> solution_proposed_accuracy --> 0.0
 		>> practical_steps_accuracy --> 0.0
 		>> overall_understanding_accuracy --> 0.0
-		>> agent_invocation_time --> 5.62
+		>> agent_invocation_time --> 3.78
 
 
 => Sample #3:
@@ -203,9 +202,9 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 4.56
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 5.08
 
 
 => Sample #4:
@@ -213,646 +212,246 @@ Run Configurations:
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
-		>> practical_steps_accuracy --> 1.0
-		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 6.47
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.67
+		>> agent_invocation_time --> 5.25
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01k30z7hr3ep4ayx237pyhrxv4` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 98899, Requested 1201. Please try again in 1m26.4s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 1.0
+		>> solution_proposed_accuracy --> 1.0
+		>> practical_steps_accuracy --> 1.0
+		>> overall_understanding_accuracy --> 1.0
+		>> agent_invocation_time --> 6.07
 
 ====================================================================================================
 ============================================== Run #5 ==============================================
 Run Configurations:
 	>> run_id --> 5
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {}. Got: 7 validation errors for JobUnderstandingEvalSchema
-problem_identified
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-solution_proposed
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-practical_steps_mentioned
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-matched_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {"problem_identified": false}. Got: 6 validation errors for JobUnderstandingEvalSchema
-solution_proposed
-  Field required [type=missing, input_value={'problem_identified': False}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-practical_steps_mentioned
-  Field required [type=missing, input_value={'problem_identified': False}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-matched_keywords
-  Field required [type=missing, input_value={'problem_identified': False}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={'problem_identified': False}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={'problem_identified': False}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={'problem_identified': False}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {}. Got: 7 validation errors for JobUnderstandingEvalSchema
-problem_identified
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-solution_proposed
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-practical_steps_mentioned
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-matched_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {}. Got: 7 validation errors for JobUnderstandingEvalSchema
-problem_identified
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-solution_proposed
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-practical_steps_mentioned
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-matched_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {}. Got: 7 validation errors for JobUnderstandingEvalSchema
-problem_identified
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-solution_proposed
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-practical_steps_mentioned
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-matched_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 ====================================================================================================
 ============================================== Run #6 ==============================================
 Run Configurations:
 	>> run_id --> 6
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 1.0}
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 989.613673ms.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '0s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {"problem_identified": false, "solution_proposed": false, "practical_steps_mentioned": true}. Got: 4 validation errors for JobUnderstandingEvalSchema
-matched_keywords
-  Field required [type=missing, input_value={'problem_identified': Fa..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={'problem_identified': Fa..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={'problem_identified': Fa..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={'problem_identified': Fa..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #3:
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
+
+
+=> Sample #5:
 	- Passed
 	- Results:
 		>> problem_identified_accuracy --> 1.0
 		>> solution_proposed_accuracy --> 1.0
 		>> practical_steps_accuracy --> 1.0
 		>> overall_understanding_accuracy --> 1.0
-		>> agent_invocation_time --> 3.88
-
-
-=> Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> OutputParserException
-		>> file --> pydantic.py
-		>> line --> 35
-		>> function --> _parse_obj
-		>> message --> Failed to parse JobUnderstandingEvalSchema from completion {"problem_identified": true, "solution_proposed": true, "practical_steps_mentioned": true}. Got: 4 validation errors for JobUnderstandingEvalSchema
-matched_keywords
-  Field required [type=missing, input_value={'problem_identified': Tr..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-missing_keywords
-  Field required [type=missing, input_value={'problem_identified': Tr..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-summary
-  Field required [type=missing, input_value={'problem_identified': Tr..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-confidence_score
-  Field required [type=missing, input_value={'problem_identified': Tr..._steps_mentioned': True}, input_type=dict]
-    For further information visit https://errors.pydantic.dev/2.12/v/missing
-For troubleshooting, visit: https://docs.langchain.com/oss/python/langchain/errors/OUTPUT_PARSING_FAILURE 
-
-
-=> Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 51.823268596s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}
+		>> agent_invocation_time --> 15.7
 
 ====================================================================================================
 ============================================== Run #7 ==============================================
 Run Configurations:
 	>> run_id --> 7
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 2.295869424s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '2s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 27.950432167s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 52.617025928s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 16.861243639s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 33.404442796s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '33s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 ====================================================================================================
 ============================================== Run #8 ==============================================
 Run Configurations:
 	>> run_id --> 8
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 1.0}
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 42.91831501s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 47.385332013s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '47s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 11.825121832s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RemoteProtocolError
-		>> file --> default.py
-		>> line --> 118
-		>> function --> map_httpcore_exceptions
-		>> message --> Server disconnected without sending a response.
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 0.0
+		>> solution_proposed_accuracy --> 0.0
+		>> practical_steps_accuracy --> 0.0
+		>> overall_understanding_accuracy --> 0.0
+		>> agent_invocation_time --> 0.0
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 7.116938775s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '7s'}]}}
+	- Passed
+	- Results:
+		>> problem_identified_accuracy --> 1.0
+		>> solution_proposed_accuracy --> 1.0
+		>> practical_steps_accuracy --> 1.0
+		>> overall_understanding_accuracy --> 1.0
+		>> agent_invocation_time --> 14.36
 
 ====================================================================================================
-============================================== Run #9 ==============================================
-Run Configurations:
-	>> run_id --> 9
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-====================================================================================================
-============================================= Run #10 ==============================================
-Run Configurations:
-	>> run_id --> 10
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-====================================================================================================
-============================================= Run #11 ==============================================
-Run Configurations:
-	>> run_id --> 11
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-====================================================================================================
-============================================= Run #12 ==============================================
-Run Configurations:
-	>> run_id --> 12
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool choice is required, but model did not call a tool
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
-
-=> Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'JobUnderstandingEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
-
