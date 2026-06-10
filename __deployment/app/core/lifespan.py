@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 from helpers.config     import JOB_DESCRIPTION_ENHANCEMENT_MODELS
 from helpers.config     import get_settings
 from helpers.functional import print_success_message, print_error, print_title, print_subtitle
+from helpers.loading_clients_agents import get_rs_embedding_engine
 
 from models.data_config import (
     FEATURE_IDENITY_RECOGNITION,
@@ -86,7 +87,9 @@ async def lifespan(app: FastAPI):
                     "RAG_reranker"     : get_raranker(),
                 },
 
-                FEATURE_JOB_RECOMMENDATION_SYSTEM: {},
+                FEATURE_JOB_RECOMMENDATION_SYSTEM: {
+                    "RS_embedder": get_rs_embedding_engine(),
+                },
                 FEATURE_PROFILE_ANALYSIS: {},
                 FEATURE_PROPOSAL_REJECTION_REASONS: load_proposal_rejection_reasons_agents(),
             }
