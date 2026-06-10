@@ -3,7 +3,6 @@
 # -----------------------------------------------
 import numpy as np
 import cv2
-from .pipeline import Pipeline
 
 from models.enums import ResponsesEnum
 import torchvision.transforms as T
@@ -12,7 +11,7 @@ import torch.nn.functional as torch_funcs
 from torch import Tensor
 import torch
 
-class IdentityRecognitionPipeline(Pipeline):
+class IdentityRecognitionPipeline:
     """
     Idenity Recognition Pipeline Class
 

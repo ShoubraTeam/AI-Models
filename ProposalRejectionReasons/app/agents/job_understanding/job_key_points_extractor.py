@@ -6,17 +6,6 @@ from time import time
 
 
 class JobKeyPointsExtractor(BaseAgent):
-    """
-    Sub-agent 1: Extracts core_problem, required_deliverables, and key_keywords
-    from the job description.
-
-    Designed to be tested and evaluated independently.
-
-    Output: JobKeyPointsSchema
-        - core_problem          : str
-        - required_deliverables : List[str]
-        - key_keywords          : List[str]
-    """
 
     def __init__(
         self,
@@ -28,7 +17,6 @@ class JobKeyPointsExtractor(BaseAgent):
     ):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_key_points_extractor"]
-
         super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
 
     def get_agent(self):
@@ -52,25 +40,22 @@ class JobKeyPointsExtractor(BaseAgent):
 
     def evaluate_sample(self, sample: dict) -> dict[str, float]:
         """
-        Evaluating the JobKeyPointsExtractor on a single sample.
-
-        Sample structure (from EvaluationDataParser.get_job_key_points_extractor_data):
+        Sample structure from EvaluationDataParser.get_job_key_points_extractor_data:
             {
-                "job_desc"    : str,
-                "core_problem": str,       # ground truth (not scored — hard to compare automatically)
-                "deliverables": List[str], # ground truth
-                "key_keywords": List[str], # ground truth
+                "job_desc"  : str,
+                "key_points": {
+                    "core_problem"         : str,
+                    "required_deliverables": List[str],
+                    "key_keywords"         : List[str],
+                }
             }
-
-        Metrics:
-            - keyword_recall    : how many true keywords the agent found
-            - keyword_precision : how many of the agent's keywords are actually correct
-            - deliverable_recall: how many true deliverables the agent found
-            - agent_invocation_time: average invocation time in seconds
         """
-        job_desc          = sample.get("job_desc", "")
-        true_keywords     = [kw.lower() for kw in sample.get("key_keywords", [])]
-        true_deliverables = [d.lower()  for d  in sample.get("deliverables", [])]
+        job_desc = sample.get("job_desc", "")
+
+        # ✅ FIX: read from nested "key_points" dict
+        key_points        = sample.get("key_points", {})
+        true_keywords     = [kw.lower() for kw in key_points.get("key_keywords", [])]
+        true_deliverables = [d.lower()  for d  in key_points.get("required_deliverables", [])]
 
         times = []
 
@@ -81,7 +66,7 @@ class JobKeyPointsExtractor(BaseAgent):
         pred_keywords     = [kw.lower() for kw in agent_response.key_keywords]
         pred_deliverables = [d.lower()  for d  in agent_response.required_deliverables]
 
-        # keyword recall — how many true keywords appeared in predicted keywords
+        # keyword recall
         if true_keywords:
             kw_recalled = sum(
                 1 for true_kw in true_keywords
@@ -91,7 +76,7 @@ class JobKeyPointsExtractor(BaseAgent):
         else:
             keyword_recall = 0.0
 
-        # keyword precision — how many predicted keywords are actually in true keywords
+        # keyword precision
         if pred_keywords:
             kw_correct = sum(
                 1 for pred_kw in pred_keywords
@@ -101,7 +86,7 @@ class JobKeyPointsExtractor(BaseAgent):
         else:
             keyword_precision = 0.0
 
-        # deliverable recall — how many true deliverables appeared in predicted deliverables
+        # deliverable recall
         if true_deliverables:
             del_recalled = sum(
                 1 for true_d in true_deliverables
@@ -112,8 +97,8 @@ class JobKeyPointsExtractor(BaseAgent):
             deliverable_recall = 0.0
 
         return {
-            "keyword_recall"      : round(keyword_recall,     2),
-            "keyword_precision"   : round(keyword_precision,  2),
-            "deliverable_recall"  : round(deliverable_recall, 2),
+            "keyword_recall"       : round(keyword_recall,    2),
+            "keyword_precision"    : round(keyword_precision,  2),
+            "deliverable_recall"   : round(deliverable_recall, 2),
             "agent_invocation_time": round(sum(times) / len(times) if times else 0.0, 2),
         }

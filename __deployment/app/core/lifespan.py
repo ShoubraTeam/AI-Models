@@ -9,13 +9,6 @@ from helpers.config     import JOB_DESCRIPTION_ENHANCEMENT_MODELS
 from helpers.config     import get_settings
 from helpers.functional import print_success_message, print_error, print_title, print_subtitle
 
-from helpers.loading_clients_agents import get_identity_recognizer, get_retina_face_detector
-from helpers.loading_clients_agents import get_weaviate_client
-from helpers.loading_clients_agents import get_embedding_model, get_raranker, get_weaviate_collection
-
-from agents.job_description_enhancement import get_groq_client
-
-
 from models.data_config import (
     FEATURE_IDENITY_RECOGNITION,
     FEATURE_JOB_DESCRIPTION_ENHANCEMENT,
@@ -23,8 +16,6 @@ from models.data_config import (
     FEATURE_PROFILE_ANALYSIS,
     FEATURE_PROPOSAL_REJECTION_REASONS
 )
-
-
 
 
 
@@ -42,10 +33,20 @@ async def lifespan(app: FastAPI):
         print(f">> Version: {app_vers}")
         print()
 
-        print_subtitle("Initiating Clients & Loading Collections")
+        try:
+            print_subtitle("Import Startup Dependencies")
+            from helpers.loading_clients_agents import get_identity_recognizer, get_retina_face_detector
+            from helpers.loading_clients_agents import get_weaviate_client
+            from helpers.loading_clients_agents import load_proposal_rejection_reasons_agents
+            from helpers.loading_clients_agents import get_embedding_model, get_raranker, get_weaviate_collection
+            from agents.job_description_enhancement import get_groq_client
+            print_success_message("Startup Dependencies Imported Successfully")
+        except Exception as e:
+            print_error(message = "Error Importing Startup Dependencies", error = e)
+            raise RuntimeError("Failed to import startup dependencies") from e
 
         try:
-            print(">> Init Weaviate Client")
+            print_subtitle("Init Weaviate Client")
             w_client = get_weaviate_client()
             app.state.weaviate_client = w_client
             print_success_message("Weaviate Client Initiated Successfully")
@@ -54,7 +55,7 @@ async def lifespan(app: FastAPI):
             raise RuntimeError("Failed to initiate Weaviate client") from e
 
         try:
-            print(">> Init Groq Client")
+            print_subtitle("Init Groq Client")
             app.state.groq_client = get_groq_client()
             print_success_message("Groq Client Initiated Successfully")
         except Exception as e:
@@ -62,7 +63,7 @@ async def lifespan(app: FastAPI):
             raise RuntimeError("Failed to initiate Groq client") from e
 
         try:
-            print(">> Load Weaviate Collection")
+            print_subtitle("Load Weaviate Collection")
             app.state.collection = get_weaviate_collection(client = w_client)
             print_success_message("Weaviate Collection Loaded Successfully")
         except Exception as e:
@@ -70,7 +71,7 @@ async def lifespan(app: FastAPI):
             raise RuntimeError("Failed to load Weaviate collection") from e
 
         try:
-            print(">> Load Agents")
+            print_subtitle("Load Agents")
             app.state.agents = {
                 FEATURE_IDENITY_RECOGNITION: {
                     "detector": get_retina_face_detector(),
@@ -87,7 +88,7 @@ async def lifespan(app: FastAPI):
 
                 FEATURE_JOB_RECOMMENDATION_SYSTEM: {},
                 FEATURE_PROFILE_ANALYSIS: {},
-                FEATURE_PROPOSAL_REJECTION_REASONS: {},
+                FEATURE_PROPOSAL_REJECTION_REASONS: load_proposal_rejection_reasons_agents(),
             }
 
             print_success_message("Agents Loaded Successfully")
@@ -97,11 +98,11 @@ async def lifespan(app: FastAPI):
             raise RuntimeError("Failed to load agents") from e
 
         startup_duration_s = perf_counter() - startup_start
-        print(f">> Startup Time: {startup_duration_s:.2f}s")
 
 
         print()
         print_success_message("App Started Successfully")
+        print_success_message(f"Startup Time: {startup_duration_s:.2f}s")
         print_title(100 * "=")
 
         yield

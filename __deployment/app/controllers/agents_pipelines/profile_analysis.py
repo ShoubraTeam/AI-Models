@@ -2,9 +2,8 @@
 # Required workflow for profile_analysis
 # -----------------------------------------------
 
-from .pipeline import Pipeline
 
-class ProfileAnalysisPipeline(Pipeline):
+class ProfileAnalysisPipeline:
     """
     Job Description Enhancement Pipeline
 

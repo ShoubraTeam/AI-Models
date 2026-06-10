@@ -20,7 +20,6 @@ from models.data_config import (
 # controllers
 from controllers import FeatureController
 from controllers import AgentController
-from controllers import WeaviateController
 
 # fast api
 from fastapi import APIRouter, Request
@@ -221,6 +220,7 @@ async def recommend_tools(
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
+    from controllers import WeaviateController
 
     weaviate_controller = WeaviateController(
         agents = request.app.state.agents[feature_id],

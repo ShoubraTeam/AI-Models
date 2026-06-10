@@ -8,7 +8,7 @@ from pathlib import Path
 
 import traceback
 
-from models.data_config import FEATURE_ALLOWED_FEATURES, JOB_DESCRIPTION_ALLOWED_TASKS
+from models.data_config import FEATURE_ALLOWED_FEATURES, JOB_DESCRIPTION_ALLOWED_TASKS, PROPOSAL_REJECTION_REASONS_ALLOWED_TASKS
 from helpers.config import get_settings
 
 
@@ -43,6 +43,21 @@ def validate_job_description_enhancement_task(task: str) -> bool:
         is_ok (bool)
     """
     if task not in JOB_DESCRIPTION_ALLOWED_TASKS:
+        return False
+    
+    return True
+
+def validate_proposal_rejection_reason_task(task: str) -> bool:
+    """
+    Validate the given task
+        
+    Args:
+        task (str)
+    
+    Returns:
+        is_ok (bool)
+    """
+    if task not in PROPOSAL_REJECTION_REASONS_ALLOWED_TASKS:
         return False
     
     return True
