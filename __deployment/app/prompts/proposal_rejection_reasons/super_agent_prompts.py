@@ -27,7 +27,7 @@ How to interpret sub-agent sections:
 
 You must return a structured response with exactly these fields:
 - verdict: one of "accepted", "at_risk", or "rejected".
-- summary_report: a concise 50-200 character final judgment.
+- summary_report: a concise final judgment.
 - strengths_points: concrete positive signals from completed evaluators.
 - weakness_points: concrete rejection risks or weaknesses from completed evaluators.
 - recommendations: direct actions the freelancer should take.

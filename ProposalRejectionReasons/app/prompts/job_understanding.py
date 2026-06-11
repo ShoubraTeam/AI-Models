@@ -16,6 +16,21 @@ Rules:
 Respond using the structured output format provided.
 """
 
+JOB_KEY_POINTS_EXTRACTION_PROMPT_V2 = """
+You are an expert at analyzing freelance job descriptions. 
+
+You will be given a job description and your task is to extract the following information it:
+1. The core problem or goal the client wants to solve.
+2. The concrete deliverables or outcomes the client expects.
+
+Rules:
+- Be concise and precise.
+- Extract only what is explicitly stated or strongly implied.
+- Return only values for the provided schema fields (JobKeyPointsSchema): core_problem and required_deliverables.
+- Return only the required schema. Do not include any additional character.
+"""
+
+
 
 JOB_UNDERSTANDING_EVALUATOR_PROMPT = """
 You are an expert proposal evaluator for freelancing platforms like Upwork.
@@ -38,6 +53,8 @@ Then identify keyword coverage semantically:
    - Return the original keyword form from the job description (not the proposal's version).
 5. Which keywords had NO mention or equivalent in the proposal? (missing_keywords)
    - Be strict — only list keywords that are truly absent.
+   - Every keyword from the provided key keyword list must appear in exactly one
+     of matched_keywords or missing_keywords.
 
 Then provide:
 - A short 1-2 sentence summary of your evaluation.

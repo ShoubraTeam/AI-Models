@@ -1,0 +1,106 @@
+# ---------------------------------------------------------
+# Native Groq response formats for structured model output
+# ---------------------------------------------------------
+
+from copy import deepcopy
+from typing import Any, TypeAlias
+
+from pydantic import BaseModel
+
+from schemas import (
+    ExperienceEvidenceSchema,
+    JobKeyPointsSchema,
+    JobUnderstandingEvalSchema,
+    JobToolResponse,
+    ProposalToolsResponse,
+    ExtractedRequirementsSchema,
+    RequirementCoverageSchema,
+    LanguageClarityEvalSchema,
+    SuperAgentResponse,
+)
+
+SchemaType: TypeAlias = type[BaseModel]
+
+BEST_EFFORT_MODE_MODELS = [
+    "openai/gpt-oss-safeguard-20b",
+    "meta-llama/llama-4-scout-17b-16e-instruct",
+]
+
+STRICT_MODE_MODELS = [
+    "openai/gpt-oss-20b",
+    "openai/gpt-oss-120b",
+]
+
+SUPPORTED_SCHEMAS: tuple[SchemaType, ...] = (
+    ExperienceEvidenceSchema,
+    JobKeyPointsSchema,
+    JobUnderstandingEvalSchema,
+    JobToolResponse,
+    ProposalToolsResponse,
+    ExtractedRequirementsSchema,
+    RequirementCoverageSchema,
+    LanguageClarityEvalSchema,
+    SuperAgentResponse,
+)
+
+
+def normalize_model_name(model_name: str) -> str:
+    """Convert LangChain-style ``groq:<model>`` ids to native Groq ids."""
+    return model_name.removeprefix("groq:")
+
+
+def _make_groq_compatible_schema(json_schema: dict[str, Any]) -> dict[str, Any]:
+    """
+    Groq strict JSON schema requires object schemas to list every property in
+    ``required``. Pydantic omits fields with defaults, so normalize the schema
+    before sending it as response_format.
+    """
+    normalized = deepcopy(json_schema)
+
+    def visit(node: Any) -> None:
+        if isinstance(node, dict):
+            properties = node.get("properties")
+            if isinstance(properties, dict):
+                node["required"] = list(properties.keys())
+                node.setdefault("additionalProperties", False)
+
+            for value in node.values():
+                visit(value)
+
+        elif isinstance(node, list):
+            for item in node:
+                visit(item)
+
+    visit(normalized)
+    return normalized
+
+
+def json_schema_format(
+    strict: bool,
+    schema: SchemaType,
+    schema_name: str,
+) -> dict[str, Any]:
+    return {
+        "type": "json_schema",
+        "json_schema": {
+            "name"  : schema_name,
+            "strict": strict,
+            "schema": _make_groq_compatible_schema(schema.model_json_schema()),
+        },
+    }
+
+
+def get_response_format(
+    model_name: str,
+    schema: SchemaType,
+    schema_name: str,
+) -> dict[str, Any]:
+    native_model_name = normalize_model_name(model_name)
+
+    if native_model_name in STRICT_MODE_MODELS:
+        return json_schema_format(True, schema, schema_name)
+
+    if native_model_name in BEST_EFFORT_MODE_MODELS:
+        return json_schema_format(False, schema, schema_name)
+
+    return {"type": "json_object"}

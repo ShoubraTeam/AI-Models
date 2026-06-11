@@ -52,21 +52,23 @@ class JobUnderstandingEvaluator(BaseAgent):
         self,
         core_problem: str,
         required_deliverables: List[str],
+        key_keywords: List[str],
         proposal_text: str
     ) -> JobUnderstandingEvalSchema:
         """
-        Note: key_keywords are NOT passed here intentionally.
-        Keyword matching is done in the processing layer via set operations,
-        not by the LLM — this keeps the agent focused and reduces token usage.
+        Keyword matching is done by the LLM, so the original keyword list must
+        be included in the input and echoed through matched/missing fields.
 
         Args:
             core_problem          : Extracted core problem from JobKeyPointsExtractor.
             required_deliverables : Extracted deliverables from JobKeyPointsExtractor.
+            key_keywords          : Extracted key terms to classify as matched or missing.
             proposal_text         : The freelancer's proposal text.
         """
         formatted_input = (
             f"Core Problem:\n{core_problem}\n\n"
             f"Required Deliverables:\n{required_deliverables}\n\n"
+            f"Key Keywords:\n{key_keywords}\n\n"
             f"Freelancer Proposal:\n{proposal_text}"
         )
         return super().invoke(input=formatted_input)
@@ -76,11 +78,13 @@ class JobUnderstandingEvaluator(BaseAgent):
         self,
         core_problem: str,
         required_deliverables: List[str],
+        key_keywords: List[str],
         proposal_text: str
     ) -> JobUnderstandingEvalSchema:
         formatted_input = (
             f"Core Problem:\n{core_problem}\n\n"
             f"Required Deliverables:\n{required_deliverables}\n\n"
+            f"Key Keywords:\n{key_keywords}\n\n"
             f"Freelancer Proposal:\n{proposal_text}"
         )
         return await super().ainvoke(input=formatted_input)
@@ -145,6 +149,7 @@ class JobUnderstandingEvaluator(BaseAgent):
             agent_response = self.invoke(
                 core_problem          = core_problem,
                 required_deliverables = required_deliverables,
+                key_keywords          = sample["job_data"].get("key_keywords", []),
                 proposal_text         = proposal_text,
             )
             times.append(time() - start_time)

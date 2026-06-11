@@ -1,13 +1,12 @@
 from agents.BaseAgent import BaseAgent
 from schemas import JobKeyPointsSchema
-from prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT
 from helpers.config import DEFAULT_MODELS_CFG
 from time import time
 
 
 class JobKeyPointsExtractor(BaseAgent):
     """
-    Sub-agent 1: Extracts core_problem, required_deliverables, and key_keywords
+    Sub-agent 1: Extracts core_problem and required_deliverables
     from the job description.
 
     Designed to be tested and evaluated independently.
@@ -15,31 +14,37 @@ class JobKeyPointsExtractor(BaseAgent):
     Output: JobKeyPointsSchema
         - core_problem          : str
         - required_deliverables : List[str]
-        - key_keywords          : List[str]
     """
 
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response=None,
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_key_points_extractor"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
 
     def get_agent(self):
         return super().get_agent()
 
-    def invoke(self, input, return_structured_op_only=True):
-        return super().invoke(input, return_structured_op_only)
+    def invoke(self, job_desc: str = None, input: str = None):
+        job_desc = job_desc if job_desc is not None else input
+        return super().invoke(self.process_agent_input(job_desc))
+    
+    def ainvoke(self, job_desc: str = None, input: str = None):
+        job_desc = job_desc if job_desc is not None else input
+        return super().ainvoke(self.process_agent_input(job_desc))
 
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
 
+
+    def process_agent_input(self, job_desc: str) -> str:
+        return f"# Job Description:\n{job_desc}"
     # ---------------------------- Evaluation ----------------------------
 
     def get_metric_names(self) -> tuple:
@@ -68,9 +73,16 @@ class JobKeyPointsExtractor(BaseAgent):
             - deliverable_recall: how many true deliverables the agent found
             - agent_invocation_time: average invocation time in seconds
         """
-        job_desc          = sample.get("job_desc", "")
-        true_keywords     = [kw.lower() for kw in sample.get("key_keywords", [])]
-        true_deliverables = [d.lower()  for d  in sample.get("deliverables", [])]
+        job_desc   = sample.get("job_desc", "")
+        key_points = sample.get("key_points", {})
+        true_keywords = [
+            kw.lower()
+            for kw in key_points.get("key_keywords", sample.get("key_keywords", []))
+        ]
+        true_deliverables = [
+            d.lower()
+            for d in key_points.get("required_deliverables", sample.get("deliverables", []))
+        ]
 
         times = []
 
@@ -78,7 +90,7 @@ class JobKeyPointsExtractor(BaseAgent):
         agent_response: JobKeyPointsSchema = self.invoke(input=job_desc)
         times.append(time() - start_time)
 
-        pred_keywords     = [kw.lower() for kw in agent_response.key_keywords]
+        pred_keywords     = [kw.lower() for kw in getattr(agent_response, "key_keywords", [])]
         pred_deliverables = [d.lower()  for d  in agent_response.required_deliverables]
 
         # keyword recall — how many true keywords appeared in predicted keywords

@@ -45,6 +45,13 @@ class JobToolsExtractor(BaseAgent):
             true_tools: list of true tool names 
             pred_tools: list of pred tool names
         """
+        if not true_tool_names and not pred_tool_names:
+            return {
+                "accuracy" : 1.0,
+                "precision": 1.0,
+                "recall"   : 1.0,
+            }
+
         # calc matches
         matched_true = set()
         matched_pred = set()
@@ -63,7 +70,7 @@ class JobToolsExtractor(BaseAgent):
 
         accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0
         precision = TP / (TP + FP)      if (TP + FP)      else 0
-        recall    = TP / (TP + FN)      if (TP + FN)      else 0
+        recall    = TP / (TP + FN)      if (TP + FN)      else 1.0
 
         return {
             "accuracy"      : accuracy,
@@ -71,7 +78,11 @@ class JobToolsExtractor(BaseAgent):
             "recall"        : recall,
         }
     
-    def calc_tool_necessity_metrics(self, true_tools: list[dict], pred_tools: JobToolResponse) -> float:
+    
+    def calc_tool_necessity_metrics(self, true_tools: list[dict], pred_tools: list) -> float:
+        if not true_tools and not pred_tools:
+            return 1.0
+
         matched_pairs = []
         true_indices = set()
         for pred_tool in pred_tools:
@@ -95,7 +106,7 @@ class JobToolsExtractor(BaseAgent):
             if true_tool_level == pred_tool_level:
                 correct += 1
         
-        return (correct / total) if total else 0
+        return (correct / total) if total else 0.0
         
     
     def get_metric_names(self) -> tuple[str, str, str, str, str]:

@@ -3,50 +3,50 @@ from time import time
 from agents.BaseAgent import BaseAgent
 from schemas.experience_evidence import ExperienceEvidenceSchema
 from helpers.config import DEFAULT_MODELS_CFG
-from langchain_groq import ChatGroq
-from langchain_core.messages import HumanMessage
+from Groq_Native import GroqModelsAPI
+import os
 
 class ExperienceEvidenceAgent(BaseAgent):
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["experience_evidence_agent"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
-        self.case_counter = 0 
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
+        self.case_counter = 0
 
     def get_agent(self):
         return super().get_agent()
     
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
+    
+    # --------- Using Agent ---------- 
+    def prepare_agent_input(self, job_desc: str, proposal_text: str) -> str:
+        formatted = f"""##Job Description:\n{job_desc}\n\n##Proposal:\n{proposal_text}"""
+        return formatted
 
     def invoke(self, job_desc: str, proposal_text: str) -> ExperienceEvidenceSchema:
-        formatted_input = (
-          f"<job_description>\n{job_desc}\n</job_description>\n\n"
-          f"<freelancer_proposal>\n{proposal_text}\n</freelancer_proposal>"
-        )
-        return super().invoke(input=formatted_input)
+        formatted_input = self.prepare_agent_input(job_desc, proposal_text)
+
+        return super().invoke(input = formatted_input)
 
 
     async def ainvoke(self, job_desc: str, proposal_text: str) -> ExperienceEvidenceSchema:
-        formatted_input = (
-          f"<job_description>\n{job_desc}\n</job_description>\n\n"
-          f"<freelancer_proposal>\n{proposal_text}\n</freelancer_proposal>"
-        )
+        formatted_input = self.prepare_agent_input(job_desc, proposal_text)
         return await super().ainvoke(input=formatted_input)
-
+    
+    # ------------------------------------------- Evaluation ------------------------------------------- #
     def _get_semantic_project_match(self, true_texts: list[str], pred_texts: list[str]) -> set[tuple[int, int]]:
         if not true_texts or not pred_texts:
             return set()
 
-        judge_model = ChatGroq(model_name="llama-3.1-8b-instant", temperature=0.0)
+        judge_model = GroqModelsAPI(api_key=os.getenv("GROQ_API_KEY"))
         
         true_list = "\n".join([f"TRUE_{i}: {t}" for i, t in enumerate(true_texts)])
         pred_list = "\n".join([f"PRED_{j}: {p}" for j, p in enumerate(pred_texts)])
@@ -68,8 +68,13 @@ class ExperienceEvidenceAgent(BaseAgent):
         """
         matches = set()
         try:
-            response = judge_model.invoke([HumanMessage(content=prompt)])
-            found_pairs = re.findall(r'(\d+)\s*-\s*(\d+)', response.content)
+            response = judge_model.generate(
+                model_name="llama-3.1-8b-instant",
+                user_input=prompt,
+                temperature=0.0,
+                timeout=30,
+            )
+            found_pairs = re.findall(r'(\d+)\s*-\s*(\d+)', response)
             
             for t_idx_str, p_idx_str in found_pairs:
                 t_idx = int(t_idx_str)

@@ -2,8 +2,8 @@ import re
 from time import time
 from agents.BaseAgent import BaseAgent
 from helpers.config import DEFAULT_MODELS_CFG
-from langchain_groq import ChatGroq
-from langchain_core.messages import HumanMessage
+from Groq_Native import GroqModelsAPI
+import os
 from schemas import ExtractedRequirementsSchema
 
 class JobRequirementsExtractor(BaseAgent):
@@ -31,7 +31,7 @@ class JobRequirementsExtractor(BaseAgent):
         return super().validate_agent_output(agent_output)
 
     def _get_batch_semantic_matches(self, true_texts: list[str], pred_texts: list[str]) -> set[tuple[int, int]]:
-        judge_model = ChatGroq(model_name="llama-3.1-8b-instant", temperature=0.0)
+        judge_model = GroqModelsAPI(api_key = os.getenv("GROQ_API_KEY"))
         
         true_list = "\n".join([f"LIST_A_{i}: {t}" for i, t in enumerate(true_texts)])
         pred_list = "\n".join([f"LIST_B_{j}: {p}" for j, p in enumerate(pred_texts)])
@@ -53,8 +53,13 @@ class JobRequirementsExtractor(BaseAgent):
         """
         matches = set()
         try:
-            response = judge_model.invoke([HumanMessage(content=prompt)])
-            found_pairs = re.findall(r'(\d+)\s*-\s*(\d+)', response.content)
+            response = judge_model.generate(
+                model_name="llama-3.1-8b-instant",
+                user_input=prompt,
+                temperature=0.0,
+                timeout=30,
+            )
+            found_pairs = re.findall(r'(\d+)\s*-\s*(\d+)', response)
             
             for t_idx_str, p_idx_str in found_pairs:
                 t_idx = int(t_idx_str)

@@ -1,0 +1,2391 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.6666666666666666
+		>> agent_invokation_time --> 0.5419409275054932
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.42857142857142855
+		>> tools_alignment_precision --> 0.42857142857142855
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 0.35053443908691406
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.3659391403198242
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 0.75
+		>> agent_invokation_time --> 0.35102248191833496
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 0.3333333333333333
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.24941587448120117
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2044973373413086
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 6.517024755477905
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.75
+		>> agent_invokation_time --> 6.699667692184448
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 11.799236536026001
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.21052631578947367
+		>> tools_alignment_precision --> 0.23529411764705882
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 0.48755383491516113
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 0.8571428571428571
+		>> agent_invokation_time --> 5.529356241226196
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.25040602684021
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.556746006011963
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.14285714285714285
+		>> tools_alignment_precision --> 0.16666666666666666
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.378549337387085
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.6666666666666666
+		>> agent_invokation_time --> 5.528167009353638
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.42857142857142855
+		>> tools_alignment_precision --> 0.42857142857142855
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 0.3556520938873291
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.32182860374450684
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 0.75
+		>> agent_invokation_time --> 5.621299505233765
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 0.3333333333333333
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.4873998165130615
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.846965551376343
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 3.445561170578003
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.75
+		>> agent_invokation_time --> 6.668326377868652
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 10.547819375991821
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.21052631578947367
+		>> tools_alignment_precision --> 0.23529411764705882
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 0.570615291595459
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 0.8571428571428571
+		>> agent_invokation_time --> 5.551139831542969
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.290081024169922
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 1.458524227142334
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.14285714285714285
+		>> tools_alignment_precision --> 0.16666666666666666
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.614576816558838
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.56856369972229
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.375
+		>> tools_alignment_precision --> 0.375
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 0.39173364639282227
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.476733446121216
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.651780605316162
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 0.3333333333333333
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.5047338008880615
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.375611782073975
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 1.3633019924163818
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.75
+		>> agent_invokation_time --> 9.676973581314087
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 5.550809144973755
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.21052631578947367
+		>> tools_alignment_precision --> 0.23529411764705882
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.25
+		>> agent_invokation_time --> 2.663743734359741
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 0.8571428571428571
+		>> agent_invokation_time --> 7.541663408279419
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 2.2556982040405273
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.2857142857142857
+		>> tools_alignment_precision --> 0.5
+		>> tools_alignment_recall --> 0.4
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.321605920791626
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.14285714285714285
+		>> tools_alignment_precision --> 0.16666666666666666
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 1.380796194076538
+
+====================================================================================================
+============================================== Run #4 ==============================================
+Run Configurations:
+	>> run_id --> 4
+	>> model_name --> llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.5177836418151855
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.42857142857142855
+		>> tools_alignment_precision --> 0.42857142857142855
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 1.544823408126831
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 3.454047441482544
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 12.586883544921875
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.3333333333333333
+		>> tools_alignment_precision --> 0.5
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 3.4208202362060547
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.26614785194397
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 2.3814384937286377
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.75
+		>> agent_invokation_time --> 8.612215757369995
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 5.587615728378296
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.15
+		>> tools_alignment_precision --> 0.17647058823529413
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 3.5728654861450195
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.6666666666666666
+		>> agent_invokation_time --> 13.52564001083374
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.18150091171264648
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 0.4
+		>> tools_alignment_recall --> 0.4
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.39179325103759766
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.14285714285714285
+		>> tools_alignment_precision --> 0.16666666666666666
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.4068892002105713
+
+====================================================================================================
+============================================== Run #5 ==============================================
+Run Configurations:
+	>> run_id --> 5
+	>> model_name --> llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.61940598487854
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.3328721523284912
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.18243908882141113
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.4741489887237549
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2485346794128418
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.279191255569458
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 0.3771026134490967
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.875
+		>> tools_necessity_accuracy --> 0.42857142857142855
+		>> agent_invokation_time --> 0.5042273998260498
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 0.5208268165588379
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.1633317470550537
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 0.5714285714285714
+		>> agent_invokation_time --> 0.4871046543121338
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.26296544075012207
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.15900182723999023
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.15465211868286133
+
+====================================================================================================
+============================================== Run #6 ==============================================
+Run Configurations:
+	>> run_id --> 6
+	>> model_name --> llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.565954208374023
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.29759836196899414
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.14644551277160645
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 0.4805922508239746
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2384636402130127
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.25066494941711426
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 0.3945896625518799
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.875
+		>> tools_necessity_accuracy --> 0.42857142857142855
+		>> agent_invokation_time --> 0.5098135471343994
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 0.5406420230865479
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.16513466835021973
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 0.5714285714285714
+		>> agent_invokation_time --> 0.4286487102508545
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2622652053833008
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.16479110717773438
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.15255045890808105
+
+====================================================================================================
+============================================== Run #7 ==============================================
+Run Configurations:
+	>> run_id --> 7
+	>> model_name --> llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.5860023498535156
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2917640209197998
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.15474438667297363
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.479184627532959
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2286396026611328
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.26421427726745605
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 0.395221471786499
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.875
+		>> tools_necessity_accuracy --> 0.42857142857142855
+		>> agent_invokation_time --> 0.5140817165374756
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 0.5527849197387695
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.17098259925842285
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.41825318336486816
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.26505303382873535
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.2400546073913574
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.2741494178771973
+
+====================================================================================================
+============================================== Run #8 ==============================================
+Run Configurations:
+	>> run_id --> 8
+	>> model_name --> llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.599509954452515
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2900562286376953
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.15696978569030762
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7272727272727273
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.7272727272727273
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.4652705192565918
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2609846591949463
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2380373477935791
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 2.686368942260742
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.875
+		>> tools_necessity_accuracy --> 0.42857142857142855
+		>> agent_invokation_time --> 2.672711133956909
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8
+		>> tools_alignment_precision --> 0.8
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 2.6159048080444336
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.2610371112823486
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.7777777777777778
+		>> tools_necessity_accuracy --> 0.5714285714285714
+		>> agent_invokation_time --> 2.5577588081359863
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 2.3536808490753174
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.243011474609375
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.2621631622314453
+
+====================================================================================================
+============================================== Run #9 ==============================================
+Run Configurations:
+	>> run_id --> 9
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.420150995254517
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.7966513633728027
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.6571455001831055
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.8395254611968994
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.6445105075836182
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 1.9683234691619873
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 12.819011926651001
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.830237627029419
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 0.8333333333333334
+		>> tools_alignment_recall --> 0.5555555555555556
+		>> tools_necessity_accuracy --> 0.6
+		>> agent_invokation_time --> 3.2372329235076904
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.793014287948608
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.6693005561828613
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.456820011138916
+
+====================================================================================================
+============================================= Run #10 ==============================================
+Run Configurations:
+	>> run_id --> 10
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 7.302823066711426
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.6286554336547852
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.1905555725097656
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.8181818181818182
+		>> agent_invokation_time --> 1.879711389541626
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.985543966293335
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.649671792984009
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 0.8571428571428571
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 3.01658034324646
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.25
+		>> agent_invokation_time --> 10.25156545639038
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 11.313698053359985
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 6.0158185958862305
+
+
+=> Sample #11:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> RateLimitError
+		>> file --> _base_client.py
+		>> line --> 1044
+		>> function --> request
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6442, Requested 1569. Please try again in 82.499999ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.335350751876831
+
+
+=> Sample #13:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> RateLimitError
+		>> file --> _base_client.py
+		>> line --> 1044
+		>> function --> request
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6635, Requested 1375. Please try again in 75ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.514855146408081
+
+====================================================================================================
+============================================= Run #11 ==============================================
+Run Configurations:
+	>> run_id --> 11
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.872134447097778
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.065016508102417
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 2.800809860229492
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 6.7475175857543945
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.625
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.625
+		>> tools_necessity_accuracy --> 0.8
+		>> agent_invokation_time --> 8.101454973220825
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 3.536665916442871
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 0.8333333333333334
+		>> tools_alignment_recall --> 0.5555555555555556
+		>> tools_necessity_accuracy --> 0.6
+		>> agent_invokation_time --> 4.828748464584351
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.489223957061768
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.5969350337982178
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 3.1331074237823486
+
+====================================================================================================
+============================================= Run #12 ==============================================
+Run Configurations:
+	>> run_id --> 12
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.7217669486999512
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.3333333333333333
+		>> agent_invokation_time --> 5.9904375076293945
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.0283451080322266
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.45454545454545453
+		>> agent_invokation_time --> 6.506609678268433
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 9.108964920043945
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 2.113145112991333
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 0.8571428571428571
+		>> tools_alignment_recall --> 0.75
+		>> tools_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 2.4141664505004883
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.125
+		>> agent_invokation_time --> 14.711032390594482
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8888888888888888
+		>> tools_alignment_precision --> 0.8888888888888888
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.875
+		>> agent_invokation_time --> 1.2853281497955322
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.657399654388428
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 5.576821327209473
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.639778137207031
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.624204158782959
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 1.618302822113037
+
+====================================================================================================
+============================================= Run #13 ==============================================
+Run Configurations:
+	>> run_id --> 13
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 2
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.8709354400634766
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 5
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.3374767303466797
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.625
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.625
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.5882222652435303
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 9
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.761665105819702
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.3333333333333333
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.3333333333333333
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.305510759353638
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 10.867389917373657
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.9650230407714844
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 8.077502727508545
+
+====================================================================================================
+============================================= Run #14 ==============================================
+Run Configurations:
+	>> run_id --> 14
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #2:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> RateLimitError
+		>> file --> _base_client.py
+		>> line --> 1044
+		>> function --> request
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3-32b` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 5182, Requested 862. Please try again in 440ms. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.8258330821990967
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8181818181818182
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.8181818181818182
+		>> tools_necessity_accuracy --> 0.8888888888888888
+		>> agent_invokation_time --> 7.443774700164795
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.3333333333333333
+		>> tools_alignment_precision --> 0.5
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 11.267521858215332
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 13.343307256698608
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.625
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.625
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 7.640031337738037
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.7777777777777778
+		>> tools_alignment_precision --> 0.875
+		>> tools_alignment_recall --> 0.875
+		>> tools_necessity_accuracy --> 0.8571428571428571
+		>> agent_invokation_time --> 17.250810384750366
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.005577564239502
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 7.290742635726929
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.675938367843628
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.158551931381226
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.925757646560669
+
+====================================================================================================
+============================================= Run #15 ==============================================
+Run Configurations:
+	>> run_id --> 15
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 6.134969472885132
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.9393465518951416
+
+
+=> Sample #3:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 3
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 10.341521978378296
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.0658862590789795
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.625
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.625
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.59940767288208
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.625
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.625
+		>> tools_necessity_accuracy --> 0.8
+		>> agent_invokation_time --> 9.03651213645935
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.997503280639648
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 7.273877859115601
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.037185430526733
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 4.9991559982299805
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 5.007659196853638
+
+====================================================================================================
+============================================= Run #16 ==============================================
+Run Configurations:
+	>> run_id --> 16
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 1.0
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 1.0901672840118408
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.75
+		>> tools_alignment_precision --> 0.75
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 10.00974702835083
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0.0
+		>> tools_alignment_recall --> 1.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 7.536274194717407
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.8181818181818182
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.8181818181818182
+		>> tools_necessity_accuracy --> 0.8888888888888888
+		>> agent_invokation_time --> 12.667295932769775
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 18.426782846450806
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.5
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.5
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.246328115463257
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.625
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.625
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 5.510103464126587
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 9
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 8.96833062171936
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.6666666666666666
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.6666666666666666
+		>> tools_necessity_accuracy --> 0.5
+		>> agent_invokation_time --> 6.087116241455078
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.25
+		>> tools_alignment_precision --> 1.0
+		>> tools_alignment_recall --> 0.25
+		>> tools_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 4.6262547969818115
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 5.024688720703125
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_alignment_accuracy --> 0.0
+		>> tools_alignment_precision --> 0
+		>> tools_alignment_recall --> 0.0
+		>> tools_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 2.912125825881958
+
+====================================================================================================

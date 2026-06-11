@@ -179,10 +179,11 @@ def evaluate_agent_on_task(
 
     import random
     random.seed(42)
-    num_samples_to_evaluate = 5
+    # num_samples_to_evaluate = 5
+    num_samples_to_evaluate = len(eval_data)
     
     if eval_data:
-        num_samples_to_evaluate = min(num_samples_to_evaluate, len(eval_data))
+        # num_samples_to_evaluate = min(num_samples_to_evaluate, len(eval_data))
         eval_data = random.sample(eval_data, num_samples_to_evaluate)
         print(f" -> [RANDOM SAMPLING ACTIVATED] Evaluating on {num_samples_to_evaluate} random samples for this run.")
     # # ------------------------------------------------------------------------------------------------------

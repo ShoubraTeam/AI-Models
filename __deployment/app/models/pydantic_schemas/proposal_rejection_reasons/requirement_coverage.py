@@ -14,7 +14,7 @@ class RequirementCoverageSchema(BaseModel):
         description="List of exact original IDs (e.g., 'sh_req_2', 'bl_req_2') from the input list that are missed or violated by the freelancer proposal."
     )
 
-    summary: Summary
+    summary: Summary = "Requirements coverage evaluation completed."
 
 
 

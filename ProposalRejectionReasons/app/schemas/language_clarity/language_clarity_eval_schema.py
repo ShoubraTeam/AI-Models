@@ -1,33 +1,41 @@
 from pydantic import BaseModel, Field
 
-# ----------------------------- Modifications -------------------------------
-# --> Remove confidence_score
-# ---------------------------------------------------------------------------
-from ..schema_config import Summary
+from ..schema_config import Summary, model_config
+
+
 class LanguageClarityEvalSchema(BaseModel):
     """
-    Output of LanguageClarityEvaluator.
+    Proposal language-quality evaluation.
 
-    ONLY contains decisions that require LLM reasoning.
-    Text metrics (word count, sentence length) are calculated
-    separately in processing using normal code.
+    This schema contains only LLM judgments about clarity, professionalism,
+    vague phrasing, and a concise explanation. Text statistics are handled by
+    the processing layer.
     """
+    model_config = model_config
 
     is_clear: bool = Field(
-        description="Whether the proposal is easy to understand. "
-                    "False if sentences are confusing, overly complex, or hard to follow."
+        description=(
+            "Whether the proposal is easy to understand. False when wording, "
+            "grammar, structure, or sentence flow makes the proposal hard to follow."
+        )
     )
-    
+
     is_professional: bool = Field(
-        description="Whether the tone is professional and appropriate for a client. "
-                    "False if the tone is too casual, rude, or unprofessional."
+        description=(
+            "Whether the tone is appropriate for a client-facing freelance "
+            "proposal. False for careless, rude, overly casual, or unprofessional wording."
+        )
     )
     has_misleading_phrasing: bool = Field(
-        description="Whether the proposal contains vague or misleading statements "
-                    "such as 'I can do everything', 'guaranteed results', or empty promises."
+        description=(
+            "Whether the proposal contains vague, exaggerated, unsupported, or "
+            "misleading claims such as broad guarantees or empty promises."
+        )
     )
     summary: Summary
-    
+
     confidence_score: float = Field(
-        description="How confident the agent is in its evaluation. Between 0.0 and 1.0."
+        ge=0.0,
+        le=1.0,
+        description="Confidence in the language-quality evaluation from 0.0 to 1.0.",
     )

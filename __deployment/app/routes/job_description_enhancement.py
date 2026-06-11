@@ -210,7 +210,6 @@ async def recommend_tools(
     """
     start_time = perf_counter()
 
-
     # setup
     task = JOB_DESC_TOOLS_RECOMMENDATION
     if not F.validate_feature_id(feature_id = feature_id):

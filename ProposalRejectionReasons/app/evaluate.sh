@@ -4,7 +4,7 @@ VENV_PATH="/mnt/d/Focus/_____Active_______/AI/venvs/GP/PRR/bin/activate"
 
 
 TASKS=(
-    #"job_tools_extractor"
+    "job_tools_extractor"
     #"proposal_tools_analyzer"
     #"job_requirements_extractor"
     #"job_requirements_matcher"
@@ -19,6 +19,7 @@ MODELS_TOOLS_ALIGNMENT_JOB_TOOLS_EXTRACTOR=(
     "LLAMA_8B"
     "LLAMA_70B"
     "GPT_OSS_120B"
+    "QWEN_32B"
 )
 
 
@@ -30,6 +31,7 @@ MODELS_TOOLS_ALIGNMENT_PROPOSAL_ANALYZER=(
 
 
 MODELS_JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR=(
+    "LLAMA_8B"
     "QWEN_32B"
     "LLAMA_70B"
     "GPT_OSS_120B"

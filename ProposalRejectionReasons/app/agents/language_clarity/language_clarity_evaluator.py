@@ -1,6 +1,5 @@
 from agents.BaseAgent import BaseAgent
 from schemas.language_clarity.language_clarity_eval_schema import LanguageClarityEvalSchema
-from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
 import helpers.config as CFG
 from time import time
 

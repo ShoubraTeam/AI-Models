@@ -161,7 +161,8 @@ class AgentsEvaluator:
         
 
         # return metrics
-        error_rate = n_errors / len(self.data)
+        total_samples = len(self.data)
+        error_rate = n_errors / total_samples if total_samples else 0.0
         metrics = self.calc_avg_for_multiple_metrics(metrics = metrics)
 
         metrics["error_rate"] = error_rate

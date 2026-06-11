@@ -1,36 +1,35 @@
 # ---------------------------------------------------------------------------------------
-# The final schema shoud be returned by subagents + post-processing after agents calling
+# The final schema returned by subagents + post-processing after agent calls
 # ---------------------------------------------------------------------------------------
 
-
-from pydantic import BaseModel, Field, ConfigDict
+from pydantic import BaseModel, Field
 from typing import Annotated
-from ..schema_config import Summary
+from ..schema_config import Summary, model_config
 
-Score   = Annotated[float, Field(ge = 0.0, le = 1.0)]
-Reason  = Annotated[str, Field(min_length = 10, max_length = 100)]
+Score = Annotated[float, Field(ge=0.0, le=1.0)]
+Reason = Annotated[str, Field(min_length=10, max_length=100)]
 
 
 class FinalSubagentResult(BaseModel):
     """
-    General Result schema for any sub-agent
+    Normalized result produced by a sub-agent processing layer.
 
-    Attbs:
-        - score             : the score at the level of task
-        - accepted          : if the proposal marked as accepted or not by comparing the score to a threshold related to the task
-        - summary           : summary given by the sub-agent highlighting the proposal strenghts & weaknesses.
-        - acceptance_reasons: if accepted --> clear short sentences justifying acceptance
-        - rejection_reasons : if rejected --> clear short sentences justifying rejection 
+    Attributes:
+        score: Task-level score normalized between 0.0 and 1.0.
+        accepted: Whether the score passes the task-specific threshold.
+        summary: Concise explanation of the task result.
+        acceptance_reasons: Short reasons supporting acceptance when accepted is true; null otherwise.
+        rejection_reasons: Short reasons explaining rejection risk when accepted is false; null otherwise.
     """
-    model_config = ConfigDict(
-        strict = True,
-        validate_assignment = True,
-        extra = "forbid"
-    )
+    model_config = model_config
 
     score: Score
     accepted: bool
     summary: Summary
 
-    acceptance_reasons: list[Reason] | None = None
-    rejection_reasons : list[Reason] | None = None
+    acceptance_reasons: list[Reason] | None = Field(
+        description="Acceptance reasons when the sub-agent accepts the proposal; null when it rejects."
+    )
+    rejection_reasons: list[Reason] | None = Field(
+        description="Rejection reasons when the sub-agent rejects the proposal; null when it accepts."
+    )
