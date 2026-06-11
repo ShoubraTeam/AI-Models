@@ -1,10 +1,13 @@
+import os
 import re
 from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+from processing.experience_evidence import prepare_experience_evidence_evaluator_ip
+
+from groq_core import GroqModelsAPI
 from agents.BaseAgent import BaseAgent
 from schemas.experience_evidence import ExperienceEvidenceSchema
-from helpers.config import DEFAULT_MODELS_CFG
-from Groq_Native import GroqModelsAPI
-import os
 
 class ExperienceEvidenceAgent(BaseAgent):
     def __init__(
@@ -26,19 +29,16 @@ class ExperienceEvidenceAgent(BaseAgent):
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
     
-    # --------- Using Agent ---------- 
-    def prepare_agent_input(self, job_desc: str, proposal_text: str) -> str:
-        formatted = f"""##Job Description:\n{job_desc}\n\n##Proposal:\n{proposal_text}"""
-        return formatted
-
+    # ------------------------------ Calling -------------------------- #
+    
     def invoke(self, job_desc: str, proposal_text: str) -> ExperienceEvidenceSchema:
-        formatted_input = self.prepare_agent_input(job_desc, proposal_text)
+        formatted_input = prepare_experience_evidence_evaluator_ip(job_desc, proposal_text)
 
         return super().invoke(input = formatted_input)
 
 
     async def ainvoke(self, job_desc: str, proposal_text: str) -> ExperienceEvidenceSchema:
-        formatted_input = self.prepare_agent_input(job_desc, proposal_text)
+        formatted_input = prepare_experience_evidence_evaluator_ip(job_desc, proposal_text)
         return await super().ainvoke(input=formatted_input)
     
     # ------------------------------------------- Evaluation ------------------------------------------- #

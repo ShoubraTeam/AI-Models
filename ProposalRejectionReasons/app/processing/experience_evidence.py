@@ -4,6 +4,16 @@ from schemas import FinalSubagentResult
 EXPERIENCE_THRESHOLD = 0.5
 
 
+
+
+
+# ---------------------------------------------------- Pre-Processing -------------------------------------------- #
+def prepare_experience_evidence_evaluator_ip(job_desc: str, proposal_text: str) -> str:
+    formatted = f"""##Job Description:\n{job_desc}\n\n##Proposal:\n{proposal_text}"""
+    return formatted
+
+
+# ---------------------------------------------------- Post-Processing -------------------------------------------- #
 def calc_experience_score(
     has_experience_evidence: bool,
     extracted_projects: list

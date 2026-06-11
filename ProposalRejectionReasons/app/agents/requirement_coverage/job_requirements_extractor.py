@@ -1,9 +1,11 @@
+import os
 import re
 from time import time
-from agents.BaseAgent import BaseAgent
+
 from helpers.config import DEFAULT_MODELS_CFG
-from Groq_Native import GroqModelsAPI
-import os
+
+from agents.BaseAgent import BaseAgent
+from groq_core import GroqModelsAPI
 from schemas import ExtractedRequirementsSchema
 
 class JobRequirementsExtractor(BaseAgent):
@@ -11,25 +13,28 @@ class JobRequirementsExtractor(BaseAgent):
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_requirements_extractor"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
         self.case_counter = 0 
 
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True) -> ExtractedRequirementsSchema:
-        return super().invoke(input, return_structured_op_only)
+    def invoke(self, job_desc: str) -> ExtractedRequirementsSchema:
+        return super().invoke(input = job_desc)
+    
+    def ainvoke(self, job_desc: str) -> ExtractedRequirementsSchema:
+        return super().ainvoke(input = job_desc)
     
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
 
+    # ------------------------------------ Evaluation ------------------------------------- #
     def _get_batch_semantic_matches(self, true_texts: list[str], pred_texts: list[str]) -> set[tuple[int, int]]:
         judge_model = GroqModelsAPI(api_key = os.getenv("GROQ_API_KEY"))
         
@@ -90,7 +95,7 @@ class JobRequirementsExtractor(BaseAgent):
             true_requirements = job_data.get("requirements", [])
 
             start_time = time()
-            extracted_output = self.invoke(input = job_desc)
+            extracted_output = self.invoke(job_desc = job_desc)
             end_time = time()
             
             pred_requirements = extracted_output.requirements[:10]           

@@ -1,12 +1,16 @@
+
+from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+from processing.job_understanding_processing import prepare_job_key_points_extractor_ip
+
 from agents.BaseAgent import BaseAgent
 from schemas import JobKeyPointsSchema
-from helpers.config import DEFAULT_MODELS_CFG
-from time import time
 
 
 class JobKeyPointsExtractor(BaseAgent):
     """
-    Sub-agent 1: Extracts core_problem and required_deliverables
+    Extracts core_problem and required_deliverables
     from the job description.
 
     Designed to be tested and evaluated independently.
@@ -28,25 +32,22 @@ class JobKeyPointsExtractor(BaseAgent):
 
         super().__init__(model_name, system_prompt, structured_response, **kwargs)
 
+
+    # -------------------------- Modeling ---------------------- #
     def get_agent(self):
         return super().get_agent()
 
-    def invoke(self, job_desc: str = None, input: str = None):
-        job_desc = job_desc if job_desc is not None else input
-        return super().invoke(self.process_agent_input(job_desc))
+    def invoke(self, job_desc: str):
+        return super().invoke(prepare_job_key_points_extractor_ip(job_desc))
     
-    def ainvoke(self, job_desc: str = None, input: str = None):
-        job_desc = job_desc if job_desc is not None else input
-        return super().ainvoke(self.process_agent_input(job_desc))
+    def ainvoke(self, job_desc: str):
+        return super().ainvoke(prepare_job_key_points_extractor_ip(job_desc))
 
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
 
 
-    def process_agent_input(self, job_desc: str) -> str:
-        return f"# Job Description:\n{job_desc}"
     # ---------------------------- Evaluation ----------------------------
-
     def get_metric_names(self) -> tuple:
         return (
             "keyword_recall",
@@ -87,7 +88,7 @@ class JobKeyPointsExtractor(BaseAgent):
         times = []
 
         start_time = time()
-        agent_response: JobKeyPointsSchema = self.invoke(input=job_desc)
+        agent_response: JobKeyPointsSchema = self.invoke(job_desc = job_desc)
         times.append(time() - start_time)
 
         pred_keywords     = [kw.lower() for kw in getattr(agent_response, "key_keywords", [])]

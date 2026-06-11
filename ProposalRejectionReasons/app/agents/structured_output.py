@@ -1,9 +1,13 @@
+# ----------------------------------------------
+# Controlling agents response formats
+# ----------------------------------------------
+import re
 import ast
 import json
-import re
 from typing import Any
 
 
+# ---------------------------- Errors ----------------------- #
 def find_failed_generation(value: Any) -> str | None:
     if isinstance(value, dict):
         if "failed_generation" in value:
@@ -35,6 +39,7 @@ def extract_failed_generation(error: Exception) -> str | None:
         error_text,
         flags=re.DOTALL,
     )
+
     if not match:
         return None
 
@@ -48,15 +53,16 @@ def _loads_relaxed_json(payload: str) -> Any:
     try:
         return json.loads(payload)
     except json.JSONDecodeError:
-        pythonish_payload = (
+        python_payload = (
             payload
             .replace(": true", ": True")
             .replace(": false", ": False")
             .replace(": null", ": None")
         )
-        return ast.literal_eval(pythonish_payload)
+        return ast.literal_eval(python_payload)
 
 
+# ------------------------- Response Parsing ------------------------ #
 def extract_json_payload(raw_generation: str) -> Any:
     raw_generation = raw_generation.strip()
 

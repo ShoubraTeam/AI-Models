@@ -1,13 +1,15 @@
-from agents.BaseAgent import BaseAgent
-from schemas import JobUnderstandingEvalSchema
-from helpers.config import DEFAULT_MODELS_CFG
-from typing import List
+
 from time import time
 
+from helpers.config import DEFAULT_MODELS_CFG
+from processing.job_understanding_processing import prepare_job_undertanding_evaluator_ip
+
+from schemas import JobUnderstandingEvalSchema
+from agents.BaseAgent import BaseAgent
 
 class JobUnderstandingEvaluator(BaseAgent):
     """
-    Sub-agent 2: Evaluates the proposal against the extracted job key points.
+    Evaluates the proposal against the extracted job key points.
 
     Very task-specific — answers exactly 3 boolean questions:
         - problem_identified
@@ -33,15 +35,16 @@ class JobUnderstandingEvaluator(BaseAgent):
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
-        structured_response=None,
+        structured_response: JobUnderstandingEvalSchema = None,
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_understanding_evaluator"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
 
+    # -------------------------- Modeling ---------------------- #
+    
     def get_agent(self):
         return super().get_agent()
 
@@ -51,8 +54,8 @@ class JobUnderstandingEvaluator(BaseAgent):
     def invoke(
         self,
         core_problem: str,
-        required_deliverables: List[str],
-        key_keywords: List[str],
+        required_deliverables: list[str],
+        key_keywords: list[str],
         proposal_text: str
     ) -> JobUnderstandingEvalSchema:
         """
@@ -65,29 +68,31 @@ class JobUnderstandingEvaluator(BaseAgent):
             key_keywords          : Extracted key terms to classify as matched or missing.
             proposal_text         : The freelancer's proposal text.
         """
-        formatted_input = (
-            f"Core Problem:\n{core_problem}\n\n"
-            f"Required Deliverables:\n{required_deliverables}\n\n"
-            f"Key Keywords:\n{key_keywords}\n\n"
-            f"Freelancer Proposal:\n{proposal_text}"
-        )
-        return super().invoke(input=formatted_input)
+        formatted_input = prepare_job_undertanding_evaluator_ip(
+            core_problem          = core_problem,
+            required_deliverables = required_deliverables,
+            key_keywords          = key_keywords,
+            proposal_text         = proposal_text
+        ) 
+        
+        return super().invoke(input = formatted_input)
 
 
     async def ainvoke(
         self,
-        core_problem: str,
-        required_deliverables: List[str],
-        key_keywords: List[str],
-        proposal_text: str
+        core_problem         : str,
+        required_deliverables: list[str],
+        key_keywords         : list[str],
+        proposal_text        : str
     ) -> JobUnderstandingEvalSchema:
-        formatted_input = (
-            f"Core Problem:\n{core_problem}\n\n"
-            f"Required Deliverables:\n{required_deliverables}\n\n"
-            f"Key Keywords:\n{key_keywords}\n\n"
-            f"Freelancer Proposal:\n{proposal_text}"
-        )
-        return await super().ainvoke(input=formatted_input)
+        formatted_input = prepare_job_undertanding_evaluator_ip(
+            core_problem          = core_problem,
+            required_deliverables = required_deliverables,
+            key_keywords          = key_keywords,
+            proposal_text         = proposal_text
+        ) 
+
+        return await super().ainvoke(input = formatted_input)
 
     # ---------------------------- Evaluation ----------------------------
 

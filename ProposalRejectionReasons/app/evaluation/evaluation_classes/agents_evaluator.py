@@ -1,18 +1,21 @@
 # ----------------------------------------------------------------------------------
 # A utility class used as an abstract class to evluate any underlying given model
 # ----------------------------------------------------------------------------------
+import json
+from pprint import pprint
+from helpers import config as CFG
+import time
+from pathlib import Path
+
+from ..handle_errors import parse_groq_error, get_short_error_info
+from groq import BadRequestError
+
 from agents import JobToolsExtractor, ProposalToolsAnalyzer
 from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
 from agents import JobRequirementsExtractor, JobRequirementsMatcher
 from agents import ExperienceEvidenceAgent
 from agents import LanguageClarityEvaluator
-from helpers import config as CFG
-import time
-from ..handle_errors import parse_groq_error, get_short_error_info
-from pprint import pprint
-from groq import BadRequestError
-import os
-import json
+
 
 
 
@@ -25,7 +28,8 @@ Agent_Type = JobToolsExtractor | \
     ExperienceEvidenceAgent    | \
     LanguageClarityEvaluator
 
-from pathlib import Path
+
+
 class AgentsEvaluator:
     """
     Attbs:
@@ -37,7 +41,7 @@ class AgentsEvaluator:
     def __init__(
             self, 
             task_name         : str, 
-            agent             :Agent_Type, 
+            agent             : Agent_Type, 
             data              : list[dict], 
             run_configurations: dict,
             reset_results     : bool = False

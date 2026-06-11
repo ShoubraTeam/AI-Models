@@ -130,3 +130,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 EVAL_DATA_PATH = os.path.join(BASE_DIR, "assets", "eval_data", "eval_data.json")
 EVAL_RESULTS_PATH = os.path.join(BASE_DIR, "assets", "evaluation_results")
+
+
+# ------------------------------------------------------ Types -------------------------------------------
+

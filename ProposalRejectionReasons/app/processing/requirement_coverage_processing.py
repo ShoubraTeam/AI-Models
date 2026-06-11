@@ -1,8 +1,35 @@
 from helpers.config import NECESSITY_LEVEL_WEIGHTS
 from schemas import FinalSubagentResult
+import json
 
 REQUIREMENT_THRESHOLD = 0.5
 
+
+# -------------------------------------- Pre-Processing --------------------------------------- #
+
+def prepare_job_requirements_matcher_ip(job_requirements: list, proposal_text: str) -> str:
+    mapped_requirements = []
+    for req in job_requirements:
+        if isinstance(req, dict):
+            requirement = {
+                "id": str(req.get("id", "")),
+                "text": req.get("description", req.get("text", "")),
+                "necessity_level": req.get("necessity_level", "mandatory"),
+            }
+        else:
+            requirement = {
+                "id": str(req.id),
+                "text": req.text,
+                "necessity_level": req.necessity_level,
+            }
+
+        mapped_requirements.append(requirement)
+    
+    requirements_json = json.dumps(mapped_requirements, indent=2)
+    return f"Job Requirements List:\n{requirements_json}\n\nFreelancer Proposal Text:\n{proposal_text}"
+
+
+# -------------------------------------- Post-Processing --------------------------------------- #
 
 def build_requirement_reasons(accepted: bool) -> list[str]:
     reasons = []

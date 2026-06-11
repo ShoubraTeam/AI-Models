@@ -2,15 +2,14 @@
 # A general class used to build Groq-native agents
 # --------------------------------------------------------
 
-import asyncio
-import json
 import os
-from typing import Any
+import json
+import asyncio
 
+from typing import Any
 from pydantic import BaseModel
 
-from Groq_Native import GroqModelsAPI, get_response_format
-from Groq_Native.response_formats import normalize_model_name
+from groq_core import GroqModelsAPI, get_response_format
 
 
 class NativeStructuredOutputError(RuntimeError):
@@ -27,54 +26,38 @@ class BaseAgent:
     Base class for Groq-native structured-output agents.
 
     Args:
-        model_name   : Groq model id. Both ``groq:<model>`` and native Groq ids are accepted.
-
-        system_prompt: Static prompt text, or a callable that receives the
-            response format type (``json_schema`` or ``json_object``) and returns
-            either prompt text or ``(prompt_name, prompt_text)``.
-
-        tools: lis of tools
-
+        model_name         : Groq model name. Also, handle the prefix (groq:). 
+        system_prompt      : the system prompt. Can be either:
+                                - static text
+                                - callable receives response format type
         structured_response: Pydantic model class used to validate the returned JSON.
-        **kwargs: Native Groq generation options.
+        **kwargs           : generation configurations [temperature - max_tokens - ...]
     """
 
     def __init__(
         self,
         model_name: str,
         system_prompt: str | Any,
-        tools: list | type[BaseModel] | None = None,
-        structured_response: type[BaseModel] | None = None,
+        structured_response: type[BaseModel],
         **kwargs,
     ):
-        if structured_response is None and self._is_schema_class(tools):
-            structured_response = tools
-            tools = None
-
-        self.model_name = normalize_model_name(model_name)
-        self.system_prompt = system_prompt
-        self.tools = tools or []
+        # setup
+        self.model_name          = model_name
+        self.system_prompt       = system_prompt
         self.structured_response = structured_response
+
         self.kwargs = self._normalize_kwargs(kwargs)
         self.schema_name = self._get_schema_name(structured_response)
         self.prompt_name: str | None = None
         self.agent = self.get_agent()
 
-    # ------ Helpers ---------
     @staticmethod
-    def _is_schema_class(candidate: Any) -> bool:
-        try:
-            return isinstance(candidate, type) and issubclass(candidate, BaseModel)
-        except TypeError:
-            return False
-
-
-    @staticmethod
-    def _get_schema_name(schema: type[BaseModel] | None) -> str | None:
-        if schema is None:
-            return None
-        return schema.__name__
-
+    def _get_api_key() -> str:
+        api_key = os.getenv("GROQ_API_KEY")
+        if not api_key:
+            raise RuntimeError("GROQ_API_KEY is required to use Groq native agents.")
+        return api_key
+    
 
     @staticmethod
     def _normalize_kwargs(kwargs: dict[str, Any]) -> dict[str, Any]:
@@ -92,37 +75,49 @@ class BaseAgent:
         model_kwargs.update(kwargs)
         return model_kwargs
 
+    # ---------------------------- Schema & Prompt -------------------------------
+    @staticmethod
+    def _is_schema_class(candidate: Any) -> bool:
+        try:
+            return isinstance(candidate, type) and issubclass(candidate, BaseModel)
+        except TypeError:
+            return False
+
 
     @staticmethod
-    def _get_api_key() -> str:
-        api_key = os.getenv("GROQ_API_KEY")
-        if not api_key:
-            raise RuntimeError("GROQ_API_KEY is required to use Groq native agents.")
-        return api_key
+    def _get_schema_name(schema: type[BaseModel] | None) -> str | None:
+        if schema is None:
+            return None
+        return schema.__name__
+
+
     def _get_response_format(self) -> dict[str, Any] | None:
         if self.structured_response is None:
             return None
 
         return get_response_format(
-            model_name = self.model_name,
-            schema = self.structured_response,
+            model_name  = self.model_name,
+            schema      = self.structured_response,
             schema_name = self.schema_name or "structured_response",
         )
+
 
 
     def _resolve_system_prompt(self, response_format_type: str) -> str | None:
         if callable(self.system_prompt):
             resolved_prompt = self.system_prompt(response_format_type)
+
             if isinstance(resolved_prompt, tuple):
                 self.prompt_name = resolved_prompt[0]
                 return resolved_prompt[1]
+            
             self.prompt_name = getattr(self.system_prompt, "__name__", None)
             return resolved_prompt
 
         self.prompt_name = None
         return self.system_prompt
 
-
+    # ---------------------- Parsing Model OP ----------------------- #
     @staticmethod
     def _extract_json_text(raw_output: str) -> str:
         stripped = raw_output.strip()
@@ -140,10 +135,12 @@ class BaseAgent:
 
         start_idx = stripped.find("{")
         end_idx = stripped.rfind("}")
+
         if start_idx == -1 or end_idx == -1 or end_idx < start_idx:
             raise ValueError("No JSON object found in model output.")
 
         return stripped[start_idx:end_idx + 1]
+
 
 
     @staticmethod
@@ -156,12 +153,15 @@ class BaseAgent:
 
 
     def _validate_structured_response(self, raw_output: Any):
+        # no structured op
         if self.structured_response is None:
             return raw_output
 
+        # no need for parsing
         if isinstance(raw_output, self.structured_response):
             return raw_output
 
+        # parse
         try:
             if isinstance(raw_output, str):
                 json_text = self._extract_json_text(raw_output)
@@ -171,6 +171,7 @@ class BaseAgent:
 
             payload = self._unwrap_arguments(payload)
             return self.structured_response.model_validate(payload)
+        
         except Exception as error:
             raise NativeStructuredOutputError(
                 message = (
@@ -182,37 +183,33 @@ class BaseAgent:
             ) from error
         
 
-    # ----------- Calling ------------- #
+    # -------------------------- Modeling ---------------------- #
     def get_agent(self) -> GroqModelsAPI:
         return GroqModelsAPI(api_key = self._get_api_key())
 
 
-    def invoke(self, input: str, return_structured_op_only: bool = True, *_, **__):
-        """Call the Groq model and return either validated Pydantic output or raw text."""
+    def invoke(self, input: str, *_, **__):
         response_format = self._get_response_format()
         response_format_type = response_format["type"] if response_format else "text"
+
         system_prompt = self._resolve_system_prompt(response_format_type)
 
         raw_response = self.agent.generate(
-            model_name = self.model_name,
-            user_input = input,
-            system_prompt = system_prompt,
+            model_name      = self.model_name,
+            user_input      = input,
+            system_prompt   = system_prompt,
             response_format = response_format,
             **self.kwargs,
         )
 
-        if not return_structured_op_only:
-            return raw_response
-
         return self._validate_structured_response(raw_response)
 
-    async def ainvoke(self, input: str, return_structured_op_only: bool = True, *_, **__):
-        """Async-compatible wrapper around the native sync Groq SDK call."""
+
+    async def ainvoke(self, input: str, *_, **__):
         return await asyncio.to_thread(
             BaseAgent.invoke,
             self,
             input,
-            return_structured_op_only,
         )
 
     def validate_agent_output(self, agent_output: Any):

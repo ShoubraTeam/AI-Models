@@ -3,17 +3,18 @@
 # -----------------------------------------------------------------
 
 
+from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+
 from ..BaseAgent import BaseAgent
 from schemas import JobToolResponse
-from time import time
-from helpers.config import DEFAULT_MODELS_CFG
 
 class JobToolsExtractor(BaseAgent):
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
@@ -21,18 +22,22 @@ class JobToolsExtractor(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG['job_tools_extractor']
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
     
+    # ----------------------------- Modeling -------------------------------- #
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True) -> JobToolResponse:
-        return super().invoke(input, return_structured_op_only)
-    # -------------------------------------------------------------------------------
+    def invoke(self, job_desc: str) -> JobToolResponse:
+        return super().invoke(input = job_desc)
+    
+    def ainvoke(self, job_desc: str):
+        return super().ainvoke(input = job_desc)
+    
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
     
-    # ---------------------------- Evaluation -------------------------------------------------
+    # ---------------------------- Evaluation ---------------------------------- # 
     def is_match(self, true_tool_name: str, pred_tool_name: str):
         true_tool_name = true_tool_name.lower().strip()
         pred_tool_name = pred_tool_name.lower().strip()
@@ -128,7 +133,7 @@ class JobToolsExtractor(BaseAgent):
 
         # invoke agent
         start_time = time()
-        pred_tools = self.invoke(input = job_desc).tools
+        pred_tools = self.invoke(job_desc = job_desc).tools
         end_time = time() 
 
 

@@ -1,15 +1,14 @@
-from agents.BaseAgent import BaseAgent
-from schemas.language_clarity.language_clarity_eval_schema import LanguageClarityEvalSchema
+
 import helpers.config as CFG
 from time import time
+
+from agents.BaseAgent import BaseAgent
+from schemas.language_clarity.language_clarity_eval_schema import LanguageClarityEvalSchema
 
 
 class LanguageClarityEvaluator(BaseAgent):
     """
     Sub-agent responsible for evaluating the language quality of a proposal.
-
-    Unlike other agents, this one does NOT need the job description —
-    it evaluates the proposal text alone.
 
     Answers exactly 3 questions:
         - is_clear               : is the proposal easy to understand?
@@ -32,22 +31,27 @@ class LanguageClarityEvaluator(BaseAgent):
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
-        structured_response=None,
+        structured_response = None,
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = CFG.DEFAULT_MODELS_CFG["language_clarity_evaluator"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
 
     def invoke(self, proposal_text: str) -> LanguageClarityEvalSchema:
         """
         Args:
-            proposal_text: The freelancer's proposal text only.
-                           No job description needed for this agent.
+            proposal_text: The freelancer's proposal text.
         """
-        return super().invoke(input=proposal_text)
+        return super().invoke(input = proposal_text)
+    
+    def ainvoke(self, proposal_text) -> LanguageClarityEvalSchema:
+        """
+        Args:
+            proposal_text: The freelancer's proposal text.
+        """
+        return super().ainvoke(input = proposal_text)
 
     # ---------------------------- Evaluation ----------------------------
 
@@ -96,7 +100,7 @@ class LanguageClarityEvaluator(BaseAgent):
 
             # invoke
             start_time      = time()
-            agent_response  = self.invoke(proposal_text=proposal_text)
+            agent_response  = self.invoke(proposal_text = proposal_text)
             times.append(time() - start_time)
 
             # predictions

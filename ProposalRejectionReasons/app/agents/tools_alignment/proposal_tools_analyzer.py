@@ -2,18 +2,19 @@
 # Implementing an Agent to extract tools from the job description
 # -----------------------------------------------------------------
 
+from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+from processing.tool_alignment_processing import prepare_proposal_tools_analyzer_ip
 
 from ..BaseAgent import BaseAgent
-from helpers.config import DEFAULT_MODELS_CFG
-from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
 from schemas import ProposalToolReview, JobTool, ProposalToolsResponse
-from time import time
+
 class ProposalToolsAnalyzer(BaseAgent):
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
@@ -21,13 +22,18 @@ class ProposalToolsAnalyzer(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["proposal_tools_analyzer"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
     
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True) -> ProposalToolsResponse:
-        return super().invoke(input, return_structured_op_only)
+    def invoke(self, job_tools: list[JobTool], proposal: str) -> ProposalToolsResponse:
+        fromatted = prepare_proposal_tools_analyzer_ip(job_tools, proposal)
+        return super().invoke(input = fromatted)
+    
+    def ainvoke(self, job_tools: list[JobTool], proposal: str) -> ProposalToolsResponse:
+        fromatted = prepare_proposal_tools_analyzer_ip(job_tools, proposal)
+        return super().ainvoke(input = fromatted)
 
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
@@ -165,13 +171,9 @@ class ProposalToolsAnalyzer(BaseAgent):
                 )
             ]
 
-            formatted_agent_ip = format_ip_for_proposal_tools_analyzer(
-                job_tools = job_tools,
-                proposal = proposal,
-            )
             
             start_time = time() 
-            agent_response = self.invoke(input = formatted_agent_ip)
+            agent_response = self.invoke(job_tools = job_tools, proposal = proposal)
             end_time = time() 
 
             tool_reviews = agent_response.tool_reviews

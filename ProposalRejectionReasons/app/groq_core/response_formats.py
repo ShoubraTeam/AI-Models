@@ -44,10 +44,6 @@ SUPPORTED_SCHEMAS: tuple[SchemaType, ...] = (
 )
 
 
-def normalize_model_name(model_name: str) -> str:
-    """Convert LangChain-style ``groq:<model>`` ids to native Groq ids."""
-    return model_name.removeprefix("groq:")
-
 
 def _make_groq_compatible_schema(json_schema: dict[str, Any]) -> dict[str, Any]:
     """
@@ -95,12 +91,10 @@ def get_response_format(
     schema: SchemaType,
     schema_name: str,
 ) -> dict[str, Any]:
-    native_model_name = normalize_model_name(model_name)
-
-    if native_model_name in STRICT_MODE_MODELS:
+    if model_name in STRICT_MODE_MODELS:
         return json_schema_format(True, schema, schema_name)
 
-    if native_model_name in BEST_EFFORT_MODE_MODELS:
+    if model_name in BEST_EFFORT_MODE_MODELS:
         return json_schema_format(False, schema, schema_name)
 
     return {"type": "json_object"}
