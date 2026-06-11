@@ -13,8 +13,9 @@ from core.startup_noise import configure_startup_noise, suppress_model_loader_ou
 configure_startup_noise()
 
 import torch
+from typing import TypeAlias
 
-from retinaface.pre_trained_models import get_model as get_retina_model
+#from retinaface.pre_trained_models import get_model as get_retina_model
 from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import CrossEncoder
 
@@ -61,6 +62,23 @@ ProposalRejectionReasons_Type = (
 )
 
 
+
+from agents.profile_analysis import (
+    VisualBrandEvaluator,
+    BioAnalyzer,
+    SkillsAnalyzer,
+    NumericalAnalyzer,
+    SuperAgent
+)
+
+ProfileScorer_Type: TypeAlias = (
+    NumericalAnalyzer    |
+    BioAnalyzer          |
+    SkillsAnalyzer       |
+    VisualBrandEvaluator |
+    SuperAgent
+)
+
 # prompts
 from prompts import (
     JOB_TOOLS_EXTRACTION_PROMPT,
@@ -71,7 +89,11 @@ from prompts import (
     REQUIREMENT_EXTRACTOR_PROMPT,
     REQUIREMENT_MATCHER_PROMPT,
     LANGUAGE_CLARITY_EVALUATOR_PROMPT,
-    SUPER_AGENT_SYSTEM_PROMPT
+    SUPER_AGENT_SYSTEM_PROMPT,
+    BIO_ANALYZER_PROMPT,
+    SKILLS_ANALYZER_PROMPT,
+    VISUAL_BRAND_PROMPT,
+    SUPER_AGENT_PROMPT
 )
 
 
@@ -85,7 +107,12 @@ from models.pydantic_schemas import (
     RequirementCoverageSchema,
     ExperienceEvidenceSchema,
     LanguageClarityEvalSchema,
-    SuperAgentResponse
+    SuperAgentResponse,
+    VisualBrandEvaluationSchema,
+    BioAnalyzerSchema,
+    SkillsAnalyzerSchema,
+    NumericalAnalyzerSchema,
+    SuperAgentSchema
 )
 
 
@@ -296,5 +323,68 @@ def load_proposal_rejection_reasons_agents() -> dict[str, ProposalRejectionReaso
     agents["experience_evidence_evaluator"] = ExperienceEvidenceAgent(**EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG)
     agents["language_clarity_evaluator"]    = LanguageClarityEvaluator(**LANGUAGE_CLARITY_EVALUATOR_CFG)
     agents["super_agent"]                   = ProposalRejectionSuperAgent(**SUPER_AGENT_CFG)
+
+    return agents
+
+
+
+
+# ----------- Profile Scorer Agents Configs -------------
+# Visual Brand Analyzer
+PROFILE_VISUAL_BRAND_CFG = {
+    "model_name": "google_genai:gemini-2.5-flash-lite",  
+    "system_prompt": VISUAL_BRAND_PROMPT, 
+    "structured_response": VisualBrandEvaluationSchema,  
+    "temperature": 0.0,
+    "max_tokens": 512,
+    "top_p": 0.9
+}
+
+# Bio Copywriting Analyzer
+PROFILE_BIO_ANALYSIS_CFG = {
+    "model_name": "groq:llama-3.3-70b-versatile",
+    "system_prompt": BIO_ANALYZER_PROMPT,  
+    "structured_response": BioAnalyzerSchema,  
+    "temperature": 0.0,
+    "max_tokens": 512,
+    "top_p": 0.9
+}
+
+# Technical Skills Analyzer
+PROFILE_SKILLS_ANALYSIS_CFG = {
+    "model_name": "groq:llama-3.1-8b-instant",
+    "system_prompt": SKILLS_ANALYZER_PROMPT,  
+    "structured_response": SkillsAnalyzerSchema,  
+    "temperature": 0.0,
+    "max_tokens": 512,
+    "top_p": 0.9
+}
+
+PROFILE_NUMERICAL_ANALYSIS_CFG = {
+    "model_name": "determinstic_python",
+    "system_prompt": None, 
+    "structured_response": NumericalAnalyzerSchema,  
+}
+# Profile Scorer Master SuperAgent
+PROFILE_SUPER_AGENT_CFG = {
+    "model_name": "groq:llama-3.3-70b-versatile",
+    "system_prompt": SUPER_AGENT_PROMPT,  
+    "structured_response": SuperAgentSchema, 
+    "temperature": 0.1,
+    "max_tokens": 1024,
+    "top_p": 0.9
+}
+
+def load_profile_scorer_agents() -> dict[str, ProfileScorer_Type]:
+    """
+    Initializes and returns all the sub-agents and the master orchestrator
+    dedicated for the Profile Scorer pipeline.
+    """
+    agents = {}
+    agents["numerical_analyzer"] = NumericalAnalyzer()
+    agents["visual_brand_evaluator"] = VisualBrandEvaluator(**PROFILE_VISUAL_BRAND_CFG)
+    agents["bio_analyzer"] = BioAnalyzer(**PROFILE_BIO_ANALYSIS_CFG)
+    agents["skills_analyzer"] = SkillsAnalyzer(**PROFILE_SKILLS_ANALYSIS_CFG)
+    agents["profile_super_agent"] = SuperAgent(**PROFILE_SUPER_AGENT_CFG)
 
     return agents

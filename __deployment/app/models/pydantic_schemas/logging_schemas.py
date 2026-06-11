@@ -41,11 +41,13 @@ class AgentInferenceResult(BaseModel):
         "job_desc_job_description_enhancement",
         "PRR_job_features_extraction",
         "PRR_proposal_analysis",
+        "profile_scorer_features_extraction",
+        "profile_scorer_final_analysis"
         
         # other feature tasks
     ]
 
-    user_input: str | None | tuple[str, str] | tuple[str, str, str] | tuple[str, str, list[str] | None] = Field(
+    user_input: str | None | tuple | dict | Any = Field(
         None,
         description = "Input may be str (for LLM-based features) or Image for Identity Recognition & Profile analysis"
     )

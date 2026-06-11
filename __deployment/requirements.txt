@@ -29,4 +29,8 @@ tqdm==4.68.1
 
 
 
+# Profile analysis
+# langchain-google-genai==2.0.1
+# pydantic>=2.0
+
 

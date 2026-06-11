@@ -10,3 +10,10 @@ from .proposal_rejection_reasons.experience_evidence    import ExperienceEvidenc
 from .proposal_rejection_reasons.language_clarity       import LanguageClarityEvalSchema
 from .proposal_rejection_reasons.super_agent            import SuperAgentResponse
 from .proposal_rejection_reasons.final_subagents_schema import FinalSubagentResult
+
+
+from .profile_analysis import BioAnalyzerSchema
+from .profile_analysis import SkillsAnalyzerSchema
+from .profile_analysis import VisualBrandEvaluationSchema
+from .profile_analysis import NumericalAnalyzerSchema
+from .profile_analysis import SuperAgentSchema

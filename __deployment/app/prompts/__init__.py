@@ -10,3 +10,9 @@ from .job_description_enhancement.tools_detection_prompt             import TOOL
 from .job_description_enhancement.tools_recommendation_prompt        import TOOLS_RECOMMENDATION_PROMPT
 from .job_description_enhancement.job_description_enhancement_prompt import JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITH_RAG
 from .job_description_enhancement.job_description_enhancement_prompt import JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITHOUT_RAG
+
+
+from .profile_analysis import  BIO_ANALYZER_PROMPT
+from .profile_analysis import  SKILLS_ANALYZER_PROMPT
+from .profile_analysis import  VISUAL_BRAND_PROMPT
+from .profile_analysis import  SUPER_AGENT_PROMPT

@@ -20,4 +20,6 @@ class ResponsesEnum(Enum):
     PRR_JOB_FEATURES_EXTRACTED_CORRECTLY = "Job Features Extracted Correctly"
     PRR_PROPOSAL_ANALYSIS_COMPLETED = "Proposal Analysis Process Completed"
     
-    
+    # Profile Scorer 
+    PROFILE_SCORER_FEATURES_EXTRACTED_CORRECTLY = "Profile Features Extracted Correctly"
+    PROFILE_SCORER_ANALYSIS_COMPLETED           = "Profile Analysis Process Completed"

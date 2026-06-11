@@ -46,9 +46,9 @@ class AgentController:
             return JobRecommendationSystemPipeline(agents) 
             
         elif self.feature_id == FEATURE_PROFILE_ANALYSIS:
-            from .agents_pipelines.profile_analysis import ProfileAnalysisPipeline
+            from .agents_pipelines.profile_analysis.profile_analysis_pipeline import ProfileAnalysisPipeline
 
-            return ProfileAnalysisPipeline(agents) 
+            return ProfileAnalysisPipeline(agents, task = kwargs.get("task")) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
             from .agents_pipelines.job_description_enhancement import JobDescriptionEnhancementPipeline

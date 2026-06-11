@@ -36,8 +36,10 @@ class Settings(BaseSettings):
 
     # secrets
     GROQ_API_KEY    : str
+    GOOGLE_API_KEY : str
     WEAVIATE_URL    : str
     WEAVIATE_API_KEY: str
+
    
 
 def get_settings() -> Settings:
