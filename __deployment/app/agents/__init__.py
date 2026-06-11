@@ -1,2 +1,2 @@
 from .identity_recognition import FaceRecognizerArcFace
-
+from .recommendation_system import RSEmbeddingEngine

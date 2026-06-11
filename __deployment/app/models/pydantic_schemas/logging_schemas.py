@@ -41,7 +41,8 @@ class AgentInferenceResult(BaseModel):
         "job_desc_job_description_enhancement",
         "PRR_job_features_extraction",
         "PRR_proposal_analysis",
-        
+        "RS_freelancer_embedding",
+        "RS_job_embedding",
         # other feature tasks
     ]
 

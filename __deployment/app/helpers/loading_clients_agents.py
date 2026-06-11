@@ -14,7 +14,7 @@ configure_startup_noise()
 
 import torch
 
-from retinaface.pre_trained_models import get_model as get_retina_model
+#from retinaface.pre_trained_models import get_model as get_retina_model
 from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import CrossEncoder
 
@@ -298,3 +298,20 @@ def load_proposal_rejection_reasons_agents() -> dict[str, ProposalRejectionReaso
     agents["super_agent"]                   = ProposalRejectionSuperAgent(**SUPER_AGENT_CFG)
 
     return agents
+
+
+# ----------- Job Recommendation System -------------
+
+def get_rs_embedding_engine():
+    from agents.recommendation_system import RSEmbeddingEngine
+    from sentence_transformers import SentenceTransformer   # ← add this
+    import torch                                            # ← add this
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    with suppress_model_loader_output():
+        model = SentenceTransformer(
+            JOB_DESCRIPTION_RAG_EMBEDDER["model_name"],
+            device=device,
+        )
+    return RSEmbeddingEngine(model=model)
