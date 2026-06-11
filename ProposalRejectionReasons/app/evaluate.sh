@@ -4,11 +4,11 @@ VENV_PATH="/mnt/d/Focus/_____Active_______/AI/venvs/GP/PRR/bin/activate"
 
 
 TASKS=(
-    "job_tools_extractor"
-    #"proposal_tools_analyzer"
+    # "job_tools_extractor"
+    "proposal_tools_analyzer"
     #"job_requirements_extractor"
     #"job_requirements_matcher"
-    "job_key_points_extractor"
+    # "job_key_points_extractor"
     #"job_understanding_evaluator"
     #"experience_evidence_finder"
     # "language_clarity_evaluator"

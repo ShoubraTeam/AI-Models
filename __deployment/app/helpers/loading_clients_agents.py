@@ -14,7 +14,7 @@ configure_startup_noise()
 
 import torch
 
-#from retinaface.pre_trained_models import get_model as get_retina_model
+from retinaface.pre_trained_models import get_model as get_retina_model
 from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import CrossEncoder
 
