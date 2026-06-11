@@ -49,42 +49,51 @@ def print_structured_response(structured_response):
             print(f"=> {value}")
 
 
-def print_dict(dic: dict):
+def print_dict(dic: dict, n_identation = 0):
+    identation = ""
+    if n_identation > 0: identation = "\t"*n_identation
+
     print()
     for k, v in dic.items():
-        print(f"{k} => {v}")
+        print(f"{identation}{k} => {v}")
     
-def print_semi_dict(semi_dict: Any):
+def print_semi_dict(semi_dict: Any, n_identation = 0):
+    identation = ""
+    if n_identation > 0: identation = "\t"*n_identation
+
     print()
     items = semi_dict.__dict__.items()
     for k, v in items:
-        print(f"{k} => {v}")
+        print(f"{identation}{k} => {v}")
 
     
 
-def print_data(data: Any):
+def print_data(data: Any, n_identation = 0):
+    identation = ""
+    if n_identation > 0: identation = "\t"*n_identation
+
     if isinstance(data, list):
         if isinstance(data[0], dict):
             for dic in data:
-                print_dict(dic)
+                print_dict(dic, n_identation)
         
         elif hasattr(data[0], "__dict__"):
             for dic in data:
-                print_semi_dict(dic)
+                print_semi_dict(dic, n_identation)
         
         else:
             print()
-            print(data)
+            print(f"{identation}{data}")
 
     elif isinstance(data, dict):
-        print_dict(data)
+        print_dict(data, n_identation)
     
     elif hasattr(data, "__dict__"):
-        print_semi_dict(data)
+        print_semi_dict(data, n_identation)
     
     else:
         print()
-        print(data)
+        print(f"{identation}{data}")
     
 
 

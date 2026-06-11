@@ -17,7 +17,7 @@ from agents.super_agent          import SuperAgent
 # final results
 from processing import (
     get_final_tool_alignment_result,
-    calc_job_understanding_result,
+    get_final_experience_evidence_result,
     calc_requirement_coverage_score,
     calc_experience_evidence_result,
     calc_language_clarity_result,
@@ -65,7 +65,7 @@ from .pipeline_errors import (
 
 
 
-class ProposalsRejectionReasonsPipeline:
+class PrrPipeline:
     """
     This pipeline abstract the whole system by:
         - accepting user input

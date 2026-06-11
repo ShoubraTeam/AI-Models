@@ -50,7 +50,7 @@ def build_experience_acceptance_reasons(score: float) -> list[str]:
     return reasons
 
 
-def calc_experience_evidence_result(
+def get_final_experience_evidence_result(
     llm_audit: ExperienceEvidenceSchema,
     threshold: float = EXPERIENCE_EVIDENCE_THRESHOLD
 ) -> FinalSubagentResult:

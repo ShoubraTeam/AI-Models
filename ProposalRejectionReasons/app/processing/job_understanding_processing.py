@@ -21,7 +21,7 @@ def prepare_job_key_points_extractor_ip(job_desc: str) -> str:
 def prepare_job_undertanding_evaluator_ip(
     core_problem         : str,
     required_deliverables: list[str],
-    key_keywords         : list[str],
+    # key_keywords         : list[str],
     proposal_text        : str
 ) -> str:
 
@@ -29,12 +29,12 @@ def prepare_job_undertanding_evaluator_ip(
     for deliverable in required_deliverables:
         required_deliverables_str += f"\t- {deliverable}"
 
-    key_keywords_str = ", ".join(key_keywords)
+    # key_keywords_str = ", ".join(key_keywords)
 
     return (
         f"Core Problem:\n{core_problem}\n\n"
         f"Required Deliverables:\n{required_deliverables_str}\n\n"
-        f"Key Keywords:\n{key_keywords_str}\n\n"
+        # f"Key Keywords:\n{key_keywords_str}\n\n"
         f"Freelancer Proposal:\n{proposal_text}"
     )
 
@@ -137,7 +137,7 @@ def build_reasons(
     return reasons
 
 
-def calc_job_understanding_result(
+def get_final_job_understanding_result(
     llm_eval : JobUnderstandingEvalSchema,
     threshold: float = JOB_UNDERSTANDING_THRESHOLD
 ) -> FinalSubagentResult:
