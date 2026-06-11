@@ -55,7 +55,7 @@ class JobUnderstandingEvaluator(BaseAgent):
         self,
         core_problem: str,
         required_deliverables: list[str],
-        # key_keywords: list[str],
+        key_keywords: list[str],
         proposal_text: str
     ) -> JobUnderstandingEvalSchema:
         """
@@ -71,7 +71,7 @@ class JobUnderstandingEvaluator(BaseAgent):
         formatted_input = prepare_job_undertanding_evaluator_ip(
             core_problem          = core_problem,
             required_deliverables = required_deliverables,
-            # key_keywords          = key_keywords,
+            key_keywords          = key_keywords,
             proposal_text         = proposal_text
         ) 
         
@@ -82,13 +82,13 @@ class JobUnderstandingEvaluator(BaseAgent):
         self,
         core_problem         : str,
         required_deliverables: list[str],
-        # key_keywords         : list[str],
+        key_keywords         : list[str],
         proposal_text        : str
     ) -> JobUnderstandingEvalSchema:
         formatted_input = prepare_job_undertanding_evaluator_ip(
             core_problem          = core_problem,
             required_deliverables = required_deliverables,
-            # key_keywords          = key_keywords,
+            key_keywords          = key_keywords,
             proposal_text         = proposal_text
         ) 
 

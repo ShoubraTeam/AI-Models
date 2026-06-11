@@ -19,3 +19,12 @@ class JobKeyPointsSchema(BaseModel):
             "client expects from the freelancer."
         )
     )
+
+    key_keywords: List[str] = Field(
+        description=(
+            "Domain-specific keywords from the job description "
+            "excluding tools and technologies — focus on skills, "
+            "methodologies, and domain terms (e.g. 'REST API design', "
+            "'agile', 'data modeling'). Tools are handled separately."
+        )
+    )

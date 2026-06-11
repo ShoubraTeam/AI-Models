@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import json
+import asyncio
 
 # agents
 from agents import JobToolsExtractor, ProposalToolsAnalyzer
@@ -44,7 +45,7 @@ import helpers.config as CFG
 import helpers.functional as F
 
 # pipeline
-# from pipeline_core import PrrPipeline
+from pipeline_core import PrrPipeline
 
 # ---------------------- CFG --------------------------
 DATA_PATH = os.path.join(
@@ -58,17 +59,15 @@ TASK_JOB_REQUIREMENTS = "requirements_coverage"
 TASK_JOB_UNDERSTANDING = "job_understanding"
 TASK_EXPERIENCE_EVIDENCE = "experience_evidence"
 TASK_LANGUAGE_CLARITY = "language_clarity"
-TASK_SUPER_AGENT = "super_agent"
 TASK_FULL_PIPELINE = "full_pipeline"
 
 TASKS = [
-    TASK_TOOL_ALIGNMENT,
-    TASK_JOB_REQUIREMENTS,
-    TASK_JOB_UNDERSTANDING,
-    TASK_EXPERIENCE_EVIDENCE,
-    TASK_LANGUAGE_CLARITY,
-    # TASK_SUPER_AGENT
-    # TASK_FULL_PIPELINE
+    # TASK_TOOL_ALIGNMENT,
+    # TASK_JOB_REQUIREMENTS,
+    # TASK_JOB_UNDERSTANDING,
+    # TASK_EXPERIENCE_EVIDENCE,
+    # TASK_LANGUAGE_CLARITY,
+    TASK_FULL_PIPELINE
 ]
 
 # ------------------------- Utils -----------------------
@@ -140,11 +139,7 @@ def get_task_agents(task: str):
         )
 
     else:
-        return SuperAgent(
-            model_name          = CFG.GROQ_GPT_120b,
-            system_prompt       = SUPER_AGENT_SYSTEM_PROMPT,
-            structured_response = SuperAgentResponse
-        )
+        return PrrPipeline()
 
 
 
@@ -174,9 +169,11 @@ def get_task_data(task: str):
             file_path = os.path.join(DATA_PATH, "language_clarity_samples.json")
         )
     
-    return F.load_json(
-        file_path = os.path.join(DATA_PATH, "super_agent_samples.json")
-    )
+    # pipeline [any job + proposal data]
+    else:
+        return F.load_json(
+            file_path = os.path.join(DATA_PATH, "requirement_coverage_samples.json")
+        )
 
 
 def print_sep(n_sep = 3):
@@ -210,7 +207,7 @@ def test_tool_alignment():
             F.print_data(proposal_analyzer_response, 1)
 
 
-            print(f"Final Results:\n")
+            print(f"\n\nFinal Results:\n")
             final_result = get_final_tool_alignment_result(proposal_analyzer_response)
             F.print_data(final_result, 1)
         
@@ -250,8 +247,6 @@ def test_requirement_coverage():
         
             print_sep()
 
-
-
 def test_job_understanding():
     samples = get_task_data(TASK_JOB_UNDERSTANDING)
     agents  = get_task_agents(TASK_JOB_UNDERSTANDING)
@@ -272,7 +267,8 @@ def test_job_understanding():
             print(f">> Proposal #{p_idx}:\n{proposal}\n")
             proposal_analyzer_response = agents[1].invoke(
                 job_analyzer_response.core_problem, 
-                job_analyzer_response.required_deliverables, 
+                job_analyzer_response.required_deliverables,
+                job_analyzer_response.key_keywords, 
                 proposal
             )
 
@@ -288,9 +284,7 @@ def test_job_understanding():
             F.print_data(final_result, 1)
         
             print_sep()
-
-
-            
+        
 def test_experience_evidence():
     samples = get_task_data(TASK_EXPERIENCE_EVIDENCE)
     agent  = get_task_agents(TASK_EXPERIENCE_EVIDENCE)
@@ -320,8 +314,6 @@ def test_experience_evidence():
             F.print_data(final_result, 1)
             print_sep()
             
-
-
 def test_language_clarity():
     samples = get_task_data(TASK_LANGUAGE_CLARITY)
     agent  = get_task_agents(TASK_LANGUAGE_CLARITY)
@@ -345,6 +337,35 @@ def test_language_clarity():
 
         print_sep()
 
+async def test_full_pipeline():
+    samples = get_task_data(TASK_FULL_PIPELINE)
+    pipeline  = get_task_agents(TASK_FULL_PIPELINE)
+
+
+    for idx, sample in enumerate(samples, start = 1):
+        print(f">> Sample #{idx}\n")
+
+        job_desc = sample["job_desc"]
+        proposals = sample["proposals"]
+
+        print(f">> Job Description:\n{job_desc}\n")
+
+        for p_idx, proposal in enumerate(proposals, start = 1):
+            print(f">> Proposal #{p_idx}:\n{proposal}\n")
+            proposal_analyzer_response = await pipeline.get_super_agent_report(
+                job_desc = job_desc,
+                proposal = proposal
+            )
+
+            formatted = pipeline.format_final_result(proposal_analyzer_response)
+
+            print(f"\n\nFinal Results:\n")
+            print(f"\n{formatted}\n")
+
+            print_sep()
+
+
+
 def test_task(task: str):
     F.print_subtitle(task.title())
     
@@ -363,6 +384,11 @@ def test_task(task: str):
     elif task == TASK_EXPERIENCE_EVIDENCE:
         test_experience_evidence()
 
+
+async def run_full_pipeline():
+    F.print_subtitle(TASK_FULL_PIPELINE.title())
+    await test_full_pipeline()   
+
     
 
 
@@ -370,7 +396,10 @@ if __name__ == "__main__":
     F.print_title("1.0 Starting the APP")
 
     for task in TASKS:
-        test_task(task)
+        if task == TASK_FULL_PIPELINE:
+            asyncio.run(run_full_pipeline())
+        else:
+            test_task(task)
 
         print_sep(10)
 

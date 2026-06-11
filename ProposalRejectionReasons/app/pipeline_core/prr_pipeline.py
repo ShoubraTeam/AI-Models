@@ -18,9 +18,9 @@ from agents.super_agent          import SuperAgent
 from processing import (
     get_final_tool_alignment_result,
     get_final_experience_evidence_result,
-    calc_requirement_coverage_score,
-    calc_experience_evidence_result,
-    calc_language_clarity_result,
+    get_final_job_understanding_result,
+    get_final_requirements_coverage_result,
+    get_final_language_clarity_result,
 )
 
 # cfg
@@ -162,7 +162,7 @@ class PrrPipeline:
 
         return job_features
 
-
+    # ---------------------- Proposal Analysis ----------------------
     async def get_tools_alignment_results_from_features(
         self,
         job_features: dict,
@@ -208,7 +208,7 @@ class PrrPipeline:
                 proposal_text         = proposal
             )
 
-            return calc_job_understanding_result(
+            return get_final_job_understanding_result(
                 understanding_evaluation,
                 threshold = JD_JOB_UNDERSTANDING_THRESHOLD
             )
@@ -234,7 +234,7 @@ class PrrPipeline:
                 proposal_text    = proposal
             )
 
-            return calc_requirement_coverage_score(
+            return get_final_requirements_coverage_result(
                 extracted_requirements = job_requirements_response.requirements,
                 final_coverage = requirement_matching,
                 threshold = RQ_REQUIREMENT_COVERAGE_THRESHOLD
@@ -250,7 +250,7 @@ class PrrPipeline:
                 proposal_text = proposal
             )
 
-            return calc_experience_evidence_result(
+            return get_final_experience_evidence_result(
                 llm_audit = experience_evidence_evaluation,
                 threshold = EXPERIENCE_EVIDENCE_THRESHOLD
             )
@@ -264,7 +264,7 @@ class PrrPipeline:
                 input = proposal
             )
 
-            return calc_language_clarity_result(
+            return get_final_language_clarity_result(
                 llm_eval      = language_clarity_evaluation,
                 proposal_text = proposal,
                 threshold     = LANGUAGE_CLARITY_THRESHOLD
@@ -333,6 +333,7 @@ class PrrPipeline:
             job_features = job_features
         )
     
+    # --------------------------- Super Agent -------------------------- #
 
     def _trim_text(self, text: str, max_length: int = 350) -> str:
         if len(text) <= max_length:
