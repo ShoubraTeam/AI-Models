@@ -1,18 +1,21 @@
 # ----------------------------------------------------------------------------------
 # A utility class used as an abstract class to evluate any underlying given model
 # ----------------------------------------------------------------------------------
+import json
+from pprint import pprint
+from helpers import config as CFG
+import time
+from pathlib import Path
+
+from ..handle_errors import parse_groq_error, get_short_error_info
+from groq import BadRequestError
+
 from agents import JobToolsExtractor, ProposalToolsAnalyzer
 from agents import JobKeyPointsExtractor, JobUnderstandingEvaluator
 from agents import JobRequirementsExtractor, JobRequirementsMatcher
 from agents import ExperienceEvidenceAgent
 from agents import LanguageClarityEvaluator
-from helpers import config as CFG
-import time
-from ..handle_errors import parse_groq_error, get_short_error_info
-from pprint import pprint
-from groq import BadRequestError
-import os
-import json
+
 
 
 
@@ -25,7 +28,8 @@ Agent_Type = JobToolsExtractor | \
     ExperienceEvidenceAgent    | \
     LanguageClarityEvaluator
 
-from pathlib import Path
+
+
 class AgentsEvaluator:
     """
     Attbs:
@@ -37,7 +41,7 @@ class AgentsEvaluator:
     def __init__(
             self, 
             task_name         : str, 
-            agent             :Agent_Type, 
+            agent             : Agent_Type, 
             data              : list[dict], 
             run_configurations: dict,
             reset_results     : bool = False
@@ -161,7 +165,8 @@ class AgentsEvaluator:
         
 
         # return metrics
-        error_rate = n_errors / len(self.data)
+        total_samples = len(self.data)
+        error_rate = n_errors / total_samples if total_samples else 0.0
         metrics = self.calc_avg_for_multiple_metrics(metrics = metrics)
 
         metrics["error_rate"] = error_rate

@@ -3,17 +3,18 @@
 # -----------------------------------------------------------------
 
 
+from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+
 from ..BaseAgent import BaseAgent
 from schemas import JobToolResponse
-from time import time
-from helpers.config import DEFAULT_MODELS_CFG
 
 class JobToolsExtractor(BaseAgent):
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
@@ -21,18 +22,22 @@ class JobToolsExtractor(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG['job_tools_extractor']
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
     
+    # ----------------------------- Modeling -------------------------------- #
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True) -> JobToolResponse:
-        return super().invoke(input, return_structured_op_only)
-    # -------------------------------------------------------------------------------
+    def invoke(self, job_desc: str) -> JobToolResponse:
+        return super().invoke(input = job_desc)
+    
+    def ainvoke(self, job_desc: str):
+        return super().ainvoke(input = job_desc)
+    
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
     
-    # ---------------------------- Evaluation -------------------------------------------------
+    # ---------------------------- Evaluation ---------------------------------- # 
     def is_match(self, true_tool_name: str, pred_tool_name: str):
         true_tool_name = true_tool_name.lower().strip()
         pred_tool_name = pred_tool_name.lower().strip()
@@ -45,6 +50,13 @@ class JobToolsExtractor(BaseAgent):
             true_tools: list of true tool names 
             pred_tools: list of pred tool names
         """
+        if not true_tool_names and not pred_tool_names:
+            return {
+                "accuracy" : 1.0,
+                "precision": 1.0,
+                "recall"   : 1.0,
+            }
+
         # calc matches
         matched_true = set()
         matched_pred = set()
@@ -63,7 +75,7 @@ class JobToolsExtractor(BaseAgent):
 
         accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0
         precision = TP / (TP + FP)      if (TP + FP)      else 0
-        recall    = TP / (TP + FN)      if (TP + FN)      else 0
+        recall    = TP / (TP + FN)      if (TP + FN)      else 1.0
 
         return {
             "accuracy"      : accuracy,
@@ -71,7 +83,11 @@ class JobToolsExtractor(BaseAgent):
             "recall"        : recall,
         }
     
-    def calc_tool_necessity_metrics(self, true_tools: list[dict], pred_tools: JobToolResponse) -> float:
+    
+    def calc_tool_necessity_metrics(self, true_tools: list[dict], pred_tools: list) -> float:
+        if not true_tools and not pred_tools:
+            return 1.0
+
         matched_pairs = []
         true_indices = set()
         for pred_tool in pred_tools:
@@ -95,7 +111,7 @@ class JobToolsExtractor(BaseAgent):
             if true_tool_level == pred_tool_level:
                 correct += 1
         
-        return (correct / total) if total else 0
+        return (correct / total) if total else 0.0
         
     
     def get_metric_names(self) -> tuple[str, str, str, str, str]:
@@ -117,7 +133,7 @@ class JobToolsExtractor(BaseAgent):
 
         # invoke agent
         start_time = time()
-        pred_tools = self.invoke(input = job_desc).tools
+        pred_tools = self.invoke(job_desc = job_desc).tools
         end_time = time() 
 
 

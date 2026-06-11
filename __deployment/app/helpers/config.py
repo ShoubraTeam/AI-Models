@@ -104,17 +104,17 @@ GEMINI_FLASH          = "google_genai:gemini-2.5-flash"
 DEFAULT_MODELS_CFG = {
     "job_tools_extractor" : {
         "temperature" : 0.0,
-        "max_tokens"  : 512
+        "max_tokens"  : 1024
     },
 
     "proposal_tools_analyzer" : {
         "temperature" : 0.0,
-        "max_tokens"  : 512
+        "max_tokens"  : 1024
     },
 
     "job_key_points_extractor" : {
         "temperature": 0.0,
-        "max_tokens" : 512,
+        "max_tokens" : 1024,
     },
 
     "job_understanding_evaluator" : {
@@ -130,7 +130,7 @@ DEFAULT_MODELS_CFG = {
 
     "job_requirements_matcher" : {
         "temperature": 0.0,
-        "max_tokens" : 512
+        "max_tokens" : 2048
     },
     "experience_evidence_agent" : {
         "temperature": 0.0,
@@ -139,7 +139,7 @@ DEFAULT_MODELS_CFG = {
     
     "language_clarity_evaluator": {
         "temperature": 0.0,
-        "max_tokens" : 512
+        "max_tokens" : 1024
     },
 }
 

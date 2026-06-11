@@ -5,7 +5,7 @@
 from schemas import JobTool, ProposalToolsResponse, FinalSubagentResult, ProposalToolReview
 from helpers.config import NECESSITY_LEVEL_WEIGHTS, WITH_CONFIDENCE_TOOL_WEIGHT, GENERIC_TOOL_WEIGHT
 from helpers.config import TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
-from typing import Any
+
 
 MAX_REASON_LENGTH = 100
 
@@ -21,10 +21,10 @@ def fit_reason(reason: str) -> str:
     return reason[:MAX_REASON_LENGTH - 3].rstrip() + "..."
 # ------------------------------------- Pre-Processing ---------------------------------------------
 
-def format_ip_for_proposal_tools_analyzer(
+def prepare_proposal_tools_analyzer_ip(
     job_tools: list[JobTool],
     proposal: str
-):
+) -> str:
     """
     Preparing data for the agent that analyzes proposal tools
 

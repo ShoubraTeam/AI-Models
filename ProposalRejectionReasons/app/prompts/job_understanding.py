@@ -1,52 +1,87 @@
-JOB_KEY_POINTS_EXTRACTION_PROMPT = """
+# ---------------------------------------------
+# Groq-native job understanding prompts
+# ---------------------------------------------
+
+
+def _select_prompt(response_format_type: str, json_schema_prompt: str, json_object_prompt: str):
+    if response_format_type == "json_schema":
+        return "json_schema_prompt", json_schema_prompt
+    return "json_object_prompt", json_object_prompt
+
+
+_JOB_KEY_POINTS_JSON_SCHEMA_PROMPT = """
 You are an expert at analyzing freelance job descriptions.
 
-Your task is to extract the most important information from a job description:
+Extract the most important job key points from the given job description:
 1. The core problem or goal the client wants to solve.
 2. The concrete deliverables or outcomes the client expects.
-3. The key domain-specific keywords (skills, methodologies, domain terms) mentioned.
 
 Rules:
 - Be concise and precise.
 - Extract only what is explicitly stated or strongly implied.
-- Keep keywords as single terms or short phrases (e.g. "agile", "REST API design", "data modeling").
-- Do NOT include tools or technologies in keywords — those are handled separately.
 - Do not add anything that is not in the job description.
+- Return only values that belong to the provided response schema.
+"""
 
-Respond using the structured output format provided.
+_JOB_KEY_POINTS_JSON_OBJECT_PROMPT = _JOB_KEY_POINTS_JSON_SCHEMA_PROMPT + """
+
+Return one valid JSON object with this shape:
+{
+  "core_problem": "string",
+  "required_deliverables": ["string"]
+}
 """
 
 
-JOB_UNDERSTANDING_EVALUATOR_PROMPT = """
-You are an expert proposal evaluator for freelancing platforms like Upwork.
+def get_job_key_points_extraction_prompt(response_format_type: str):
+    return _select_prompt(
+        response_format_type,
+        _JOB_KEY_POINTS_JSON_SCHEMA_PROMPT,
+        _JOB_KEY_POINTS_JSON_OBJECT_PROMPT,
+    )
 
-You will be given:
-- The core problem of a job
-- The required deliverables
-- The key keywords from the job description
-- The freelancer's proposal text
 
-Your task is to answer exactly 3 questions about the proposal:
-1. Did the freelancer identify the core problem? (problem_identified)
-2. Did the freelancer propose a concrete and relevant solution? (solution_proposed)
-3. Did the freelancer mention practical or actionable steps? (practical_steps_mentioned)
+_JOB_UNDERSTANDING_JSON_SCHEMA_PROMPT = """
+You are an expert proposal evaluator for freelance platforms.
 
-Then identify keyword coverage semantically:
-4. Which keywords from the job description were mentioned or implied in the proposal? (matched_keywords)
-   - Include semantic equivalents: "ML" matches "machine learning", "Postgres" matches "PostgreSQL",
-     "JS" matches "JavaScript", "k8s" matches "Kubernetes", and so on.
-   - Return the original keyword form from the job description (not the proposal's version).
-5. Which keywords had NO mention or equivalent in the proposal? (missing_keywords)
-   - Be strict — only list keywords that are truly absent.
+You will receive extracted job key points, job keywords, and a freelancer proposal. Evaluate whether the proposal demonstrates real understanding of the job.
 
-Then provide:
-- A short 1-2 sentence summary of your evaluation.
-- A confidence score (0.0 to 1.0) reflecting how certain you are.
+Decide exactly these points:
+1. Whether the freelancer identified the core problem.
+2. Whether the freelancer proposed a concrete, relevant solution.
+3. Whether the freelancer mentioned practical or actionable steps.
+4. Which provided job keywords were matched or semantically implied in the proposal.
+5. Which provided job keywords were missing.
 
 Rules:
-- Be strict on questions 1–3: vague or generic statements do NOT count as yes.
-- Base your answer only on what is explicitly written in the proposal.
-- Do NOT provide a score — scoring is handled separately.
-
-Respond using the structured output format provided.
+- Be strict: vague or generic statements do not count as clear understanding.
+- Base the evaluation only on the proposal text and the provided job key points.
+- Each provided keyword should appear in either matched_keywords or missing_keywords, unless no keywords were provided.
+- Return only values that belong to the provided response schema.
 """
+
+_JOB_UNDERSTANDING_JSON_OBJECT_PROMPT = _JOB_UNDERSTANDING_JSON_SCHEMA_PROMPT + """
+
+Return one valid JSON object with this shape:
+{
+  "problem_identified": true,
+  "solution_proposed": true,
+  "practical_steps_mentioned": true,
+  "matched_keywords": ["string"],
+  "missing_keywords": ["string"],
+  "summary": "string",
+  "confidence_score": 0.0
+}
+"""
+
+
+def get_job_understanding_evaluator_prompt(response_format_type: str):
+    return _select_prompt(
+        response_format_type,
+        _JOB_UNDERSTANDING_JSON_SCHEMA_PROMPT,
+        _JOB_UNDERSTANDING_JSON_OBJECT_PROMPT,
+    )
+
+
+JOB_KEY_POINTS_EXTRACTION_PROMPT = get_job_key_points_extraction_prompt
+JOB_UNDERSTANDING_EVALUATOR_PROMPT = get_job_understanding_evaluator_prompt

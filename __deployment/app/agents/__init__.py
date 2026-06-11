@@ -8,3 +8,4 @@ from .profile_analysis import NumericalAnalyzer
 from .profile_analysis import SuperAgent
 from .profile_analysis import BaseAgent
 
+from .recommendation_system import RSEmbeddingEngine

@@ -1,60 +1,90 @@
 # ---------------------------------------------
-# Tool Alignment Prompts
+# Groq-native tool alignment prompts
 # ---------------------------------------------
 
-JOB_TOOLS_EXTRACTION_PROMPT = f"""You are a professional a professional HR & text analyzer.
-You will be given a job description posted on a freelancing platform by a client.
-The client is likely to mention some tools/frameworks he requires from the freelancers who add proposals on this job.
 
-Your job is to extract these tools/frameworks mentioned in the job description.
-
-Instructions
-- For each tool, extract its name and its necessity level. The necessity level may be:
-    * mandatory: If the tool is a must according to the client.
-    * recommended: If not a must, but very good to have.
-    * optional: If neither mandatory nor recommended.
-    * forbidden: If the client prohibit using this tool.
-- Do not invent tools by yourself. Just use the tools mentioned in the description.
-- Do not invent a necessity level either.
-- At the end of the job description, you may find a section called `tags`. If you find it, some tags may represent tools that you should include them in your response. 
+def _select_prompt(response_format_type: str, json_schema_prompt: str, json_object_prompt: str):
+    if response_format_type == "json_schema":
+        return "json_schema_prompt", json_schema_prompt
+    return "json_object_prompt", json_object_prompt
 
 
-Response Format
-As discussed, for each tool you should return only:
-- tool_name
-- necessity_level: mandatory, recommended, optional, or forbidden
+_JOB_TOOLS_JSON_SCHEMA_PROMPT = """
+You are a professional HR analyst for freelance job posts.
 
+Analyze the job description and extract only the tools, frameworks, platforms, or libraries explicitly mentioned by the client. For each tool, classify the necessity level as one of: mandatory, recommended, optional, or forbidden.
+
+Rules:
+- Do not invent tools that are not present in the job description.
+- Do not infer a necessity level unless the wording supports it.
+- If the job contains tags or a skills section, include tags that represent concrete tools or platforms.
+- Return only values that belong to the provided response schema.
+"""
+
+_JOB_TOOLS_JSON_OBJECT_PROMPT = _JOB_TOOLS_JSON_SCHEMA_PROMPT + """
+
+Return one valid JSON object with this shape:
+{
+  "tools": [
+    {
+      "tool_name": "string",
+      "necessity_level": "mandatory | recommended | optional | forbidden"
+    }
+  ]
+}
 """
 
 
-PROPOSAL_TOOLS_EXTRACTION_PROMPT = f"""You are a professional a professional HR Manager & text analyzer.
-There is a job description posted on a freelancing platform by a client.
-A freelancer has added a proposl on that job.
+def get_job_tools_extraction_prompt(response_format_type: str):
+    return _select_prompt(
+        response_format_type,
+        _JOB_TOOLS_JSON_SCHEMA_PROMPT,
+        _JOB_TOOLS_JSON_OBJECT_PROMPT,
+    )
 
-The client has mentioned some tools/frameworks he requires in the job description.
-The freelancer is also likely to mention the tools/frameworks he masters them.
 
-We need to analyze the quality of the freelancer's proposal in the context of the tools mentioned.
-So, we need to examine if the freelancer correctly mentioned the client's required tools with confidence in the proposal or not.
+_PROPOSAL_TOOLS_JSON_SCHEMA_PROMPT = """
+You are a professional proposal reviewer for freelance jobs.
 
-You will be given these data:
-- Job_tools_list: the list of the tools extracted from the client's job description. Each tool has a tag called `necessity_level` associated with its name.
-- Proposal: The proposal added by the freelancer as plain text.
+You will receive a list of tools required or mentioned by the client and a freelancer proposal. Evaluate every tool from the provided job_tools_list against the proposal.
 
-Your task is to examine these data and report the following for each tool in the job_tools_list:
-- tool_name: as found in the job_tools_list given to you.
-- necessity_level: the tool necessity_level as found in the job_tools_list given to you.
-- found_in_proposal: a True or False indicating was that tool was also mentioned in the given proposal or not.
-- with_confidence: was the tool mentioned in the proposal in a generic way or the freelancer mentioned it with confidence. 
-    * if the freelancer mentioned it with confidence: return True
-    * if the freelancer mentioned it in a generic manner: return False
-    * if the freelancer did not mention it: return None
+For each input tool, determine:
+- whether the proposal mentions the tool or a clear semantic equivalent,
+- whether the freelancer mentions it with confidence and relevant context,
+- and preserve the original tool name and necessity level from the input list.
 
-Beside reporting those reviews for each tool, you should generate a breif summary highlighting the strengths & weeknesses of the proposal in the context of tools.
-
-Instructions
-- Do not invent tools  by yourself. Just use the tools given in the job_tools_list.
-- Do not invent a necessity_level either. Also use the necessity_level given in the job_tools_list.
-- For each tool given to you, you should return a report.
-- Some tools may have many common un-normalized names. For example: (react = react.js), (node.js = node), (torch = PyTorch), and so on.
+Rules:
+- Review every tool from the job_tools_list.
+- Do not add new tools.
+- Do not change the input necessity levels.
+- Use null for with_confidence when the tool is not found in the proposal.
+- Return only values that belong to the provided response schema.
 """
+
+_PROPOSAL_TOOLS_JSON_OBJECT_PROMPT = _PROPOSAL_TOOLS_JSON_SCHEMA_PROMPT + """
+
+Return one valid JSON object with this shape:
+{
+  "tool_reviews": [
+    {
+      "tool_name": "string",
+      "necessity_level": "mandatory | recommended | optional | forbidden",
+      "found_in_proposal": true,
+      "with_confidence": true
+    }
+  ],
+  "summary": "string"
+}
+"""
+
+
+def get_proposal_tools_extraction_prompt(response_format_type: str):
+    return _select_prompt(
+        response_format_type,
+        _PROPOSAL_TOOLS_JSON_SCHEMA_PROMPT,
+        _PROPOSAL_TOOLS_JSON_OBJECT_PROMPT,
+    )
+
+
+JOB_TOOLS_EXTRACTION_PROMPT = get_job_tools_extraction_prompt
+PROPOSAL_TOOLS_EXTRACTION_PROMPT = get_proposal_tools_extraction_prompt

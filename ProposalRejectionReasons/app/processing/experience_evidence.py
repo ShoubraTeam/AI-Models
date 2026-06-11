@@ -1,12 +1,22 @@
 from schemas.experience_evidence import ExperienceEvidenceSchema
 from schemas import FinalSubagentResult
 
-EXPERIENCE_THRESHOLD = 0.5
 
 
+EXPERIENCE_EVIDENCE_THRESHOLD = 0.5
+
+
+
+# ---------------------------------------------------- Pre-Processing -------------------------------------------- #
+def prepare_experience_evidence_evaluator_ip(job_desc: str, proposal_text: str) -> str:
+    formatted = f"""##Job Description:\n{job_desc}\n\n##Proposal:\n{proposal_text}"""
+    return formatted
+
+
+# ---------------------------------------------------- Post-Processing -------------------------------------------- #
 def calc_experience_score(
     has_experience_evidence: bool,
-    extracted_projects: list
+    extracted_projects     : list
 ) -> float:
     if not has_experience_evidence or not extracted_projects:
         return 0.0
@@ -42,7 +52,7 @@ def build_experience_acceptance_reasons(score: float) -> list[str]:
 
 def calc_experience_evidence_result(
     llm_audit: ExperienceEvidenceSchema,
-    threshold: float = EXPERIENCE_THRESHOLD
+    threshold: float = EXPERIENCE_EVIDENCE_THRESHOLD
 ) -> FinalSubagentResult:
     score = calc_experience_score(
         has_experience_evidence=llm_audit.has_experience_evidence,

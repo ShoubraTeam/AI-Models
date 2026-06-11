@@ -8,9 +8,9 @@ class SuperAgentResponse(BaseModel):
     )
 
     summary_report: str = Field(
-        description="A final clear summary about the overall proposal quality. Length should be 50-200 characters.",
-        min_length=50,
-        max_length=200
+        description="A final clear summary about the overall proposal quality.",
+        min_length=1,
+        max_length=500
     )
 
     strengths_points: list[str] = Field(

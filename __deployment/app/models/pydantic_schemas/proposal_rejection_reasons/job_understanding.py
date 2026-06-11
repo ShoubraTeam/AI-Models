@@ -42,15 +42,20 @@ class JobUnderstandingEvalSchema(BaseModel):
         description="Whether the freelancer mentioned practical or actionable steps."
     )
     matched_keywords: List[str] = Field(
+        default_factory=list,
         description="Keywords from the job description that were mentioned or implied in the proposal. "
                     "Include semantic equivalents: 'ML' matches 'machine learning', "
                     "'Postgres' matches 'PostgreSQL', 'JS' matches 'JavaScript'."
     )
     missing_keywords: List[str] = Field(
+        default_factory=list,
         description="Keywords from the job description that had NO mention or equivalent "
                     "in the proposal. Be strict — only list truly absent concepts."
     )
-    summary: Summary
+    summary: Summary = "Evaluation completed."
     confidence_score: float = Field(
+        default=0.0,
+        ge=0.0,
+        le=1.0,
         description="How confident the agent is in its evaluation. Between 0.0 and 1.0."
     )

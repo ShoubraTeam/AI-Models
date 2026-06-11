@@ -5,6 +5,43 @@ from schemas import FinalSubagentResult
 JOB_UNDERSTANDING_THRESHOLD = 0.5  # normalized 0.0–1.0
 
 
+
+
+
+
+
+
+
+# -------------------------------- Pre-Processing ---------------------------------
+
+def prepare_job_key_points_extractor_ip(job_desc: str) -> str:
+    return f"# Job Description:\n{job_desc}"
+
+
+def prepare_job_undertanding_evaluator_ip(
+    core_problem         : str,
+    required_deliverables: list[str],
+    key_keywords         : list[str],
+    proposal_text        : str
+) -> str:
+
+    required_deliverables_str = ""
+    for deliverable in required_deliverables:
+        required_deliverables_str += f"\t- {deliverable}"
+
+    key_keywords_str = ", ".join(key_keywords)
+
+    return (
+        f"Core Problem:\n{core_problem}\n\n"
+        f"Required Deliverables:\n{required_deliverables_str}\n\n"
+        f"Key Keywords:\n{key_keywords_str}\n\n"
+        f"Freelancer Proposal:\n{proposal_text}"
+    )
+
+
+# -------------------------------- Post-Processing ---------------------------------
+
+
 def calc_keyword_coverage_score(
     matched_keywords: list[str],
     missing_keywords: list[str],

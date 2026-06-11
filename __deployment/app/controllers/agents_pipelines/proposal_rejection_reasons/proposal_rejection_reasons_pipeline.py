@@ -244,6 +244,7 @@ class ProposalsRejectionReasonsPipeline:
             understanding_evaluation = await self.job_understanding_evaluator.ainvoke(
                 core_problem          = job_key_points.core_problem,
                 required_deliverables = job_key_points.required_deliverables,
+                key_keywords          = job_key_points.key_keywords,
                 proposal_text         = proposal
             )
 
@@ -568,6 +569,5 @@ class ProposalsRejectionReasonsPipeline:
 
     
     
-
 
 

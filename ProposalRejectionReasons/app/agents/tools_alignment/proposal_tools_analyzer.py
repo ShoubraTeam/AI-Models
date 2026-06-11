@@ -2,18 +2,19 @@
 # Implementing an Agent to extract tools from the job description
 # -----------------------------------------------------------------
 
+from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+from processing.tool_alignment_processing import prepare_proposal_tools_analyzer_ip
 
 from ..BaseAgent import BaseAgent
-from helpers.config import DEFAULT_MODELS_CFG
-from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
 from schemas import ProposalToolReview, JobTool, ProposalToolsResponse
-from time import time
+
 class ProposalToolsAnalyzer(BaseAgent):
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
@@ -21,13 +22,18 @@ class ProposalToolsAnalyzer(BaseAgent):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["proposal_tools_analyzer"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
     
     def get_agent(self):
         return super().get_agent()
     
-    def invoke(self, input, return_structured_op_only = True) -> ProposalToolsResponse:
-        return super().invoke(input, return_structured_op_only)
+    def invoke(self, job_tools: list[JobTool], proposal: str) -> ProposalToolsResponse:
+        fromatted = prepare_proposal_tools_analyzer_ip(job_tools, proposal)
+        return super().invoke(input = fromatted)
+    
+    def ainvoke(self, job_tools: list[JobTool], proposal: str) -> ProposalToolsResponse:
+        fromatted = prepare_proposal_tools_analyzer_ip(job_tools, proposal)
+        return super().ainvoke(input = fromatted)
 
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
@@ -46,11 +52,24 @@ class ProposalToolsAnalyzer(BaseAgent):
             proposal_tools: the given proposal tools representing the ground truth
             tool_reviews  : the agent tool reviews (what we evalaute)
         """
+        predicted_reviews = [
+            tool_review
+            for tool_review in tool_reviews
+            if tool_review.found_in_proposal is True
+        ]
+
+        if not proposal_tools and not predicted_reviews:
+            return {
+                "accuracy" : 1.0,
+                "precision": 1.0,
+                "recall"   : 1.0,
+            }
+
         # calc matches
         matched_true = set()
         matched_pred = set()
 
-        for pred_idx, tool_review in enumerate(tool_reviews):
+        for pred_idx, tool_review in enumerate(predicted_reviews):
             for true_idx, proposal_tool in enumerate(proposal_tools):
                 pred_tool_name = tool_review.tool_name
                 true_tool_name = proposal_tool["tool_name"]
@@ -62,12 +81,12 @@ class ProposalToolsAnalyzer(BaseAgent):
         
         # calc scores
         TP = len(matched_pred)                          
-        FP = len(tool_reviews) - len(matched_pred)
+        FP = len(predicted_reviews) - len(matched_pred)
         FN = len(proposal_tools) - len(matched_true)
 
         accuracy  = TP / (TP + FP + FN) if (TP + FP + FN) else 0
         precision = TP / (TP + FP)      if (TP + FP)      else 0
-        recall    = TP / (TP + FN)      if (TP + FN)      else 0
+        recall    = TP / (TP + FN)      if (TP + FN)      else 1.0
 
         return {
             "accuracy"      : accuracy,
@@ -78,9 +97,18 @@ class ProposalToolsAnalyzer(BaseAgent):
     
 
     def calc_confidence_accuracy(self, proposal_tools: list[dict[str, str]], tool_reviews: list[ProposalToolReview]) -> float:
+        predicted_reviews = [
+            tool_review
+            for tool_review in tool_reviews
+            if tool_review.found_in_proposal is True
+        ]
+
+        if not proposal_tools and not predicted_reviews:
+            return 1.0
+
         matched_pairs = []
         true_indices = set()
-        for pred_tool in tool_reviews:
+        for pred_tool in predicted_reviews:
             pred_tool_name = pred_tool.tool_name
 
             for true_idx, true_tool in enumerate(proposal_tools):
@@ -134,14 +162,18 @@ class ProposalToolsAnalyzer(BaseAgent):
         for p in proposals:
             proposal = p["proposal"]
             proposal_tools = p["proposal_tools"]
+            proposal_tools = [
+                proposal_tool
+                for proposal_tool in proposal_tools
+                if any(
+                    self.is_match(proposal_tool["tool_name"], job_tool.tool_name)
+                    for job_tool in job_tools
+                )
+            ]
 
-            formatted_agent_ip = format_ip_for_proposal_tools_analyzer(
-                job_tools = job_tools,
-                proposal = proposal,
-            )
             
             start_time = time() 
-            agent_response = self.invoke(input = formatted_agent_ip)
+            agent_response = self.invoke(job_tools = job_tools, proposal = proposal)
             end_time = time() 
 
             tool_reviews = agent_response.tool_reviews

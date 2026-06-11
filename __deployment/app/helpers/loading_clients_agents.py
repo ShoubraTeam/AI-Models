@@ -226,7 +226,7 @@ TA_JOB_TOOLS_EXTRACTOR_CFG = {
     "system_prompt"      : JOB_TOOLS_EXTRACTION_PROMPT,
     "structured_response": JobToolResponse,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 1024,
     "top_p"              : 0.9
 }
 
@@ -235,27 +235,27 @@ TA_PROPOSAL_TOOLS_ANALYZER_CFG = {
     "system_prompt"      : PROPOSAL_TOOLS_EXTRACTION_PROMPT,
     "structured_response": ProposalToolsResponse,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 1024,
     "top_p"              : 0.9
 }
 
 # Job Understanding (JD)
 JD_JOB_UNDERSTANDING_THRESHOLD = 0.5
 JD_JOB_KEY_POINTS_CFG = {
-    "model_name"         : "groq:openai/gpt-oss-120b",
+    "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : JOB_KEY_POINTS_EXTRACTION_PROMPT,
     "structured_response": JobKeyPointsSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 1024,
     "top_p"              : 0.9
 }
 
 JD_JOB_UNDERSTANDING_EVALUATOR_CFG = {
-    "model_name"         : "groq:openai/gpt-oss-120b",
+    "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : JOB_UNDERSTANDING_EVALUATOR_PROMPT,
     "structured_response": JobUnderstandingEvalSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 1024,
     "top_p"              : 0.9
 }
 
@@ -266,48 +266,48 @@ RQ_REQUIREMENT_EXTRACTOR_CFG = {
     "system_prompt"      : REQUIREMENT_EXTRACTOR_PROMPT,
     "structured_response": ExtractedRequirementsSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 2048,
     "top_p"              : 0.9
 }
 
 RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
-    "model_name"         : "groq:openai/gpt-oss-120b",
+    "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : REQUIREMENT_MATCHER_PROMPT,
     "structured_response": RequirementCoverageSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 2048,
     "top_p"              : 0.9
 }
 
 # Language Clarity
 LANGUAGE_CLARITY_THRESHOLD = 0.5 
 LANGUAGE_CLARITY_EVALUATOR_CFG = {
-    "model_name"         : "groq:openai/gpt-oss-120b",
+    "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : LANGUAGE_CLARITY_EVALUATOR_PROMPT,
     "structured_response": LanguageClarityEvalSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 1024,
     "top_p"              : 0.9
 }
 
 # Evidence of experience
 EXPERIENCE_EVIDENCE_THRESHOLD = 0.5
 EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
-    "model_name"         : "groq:openai/gpt-oss-120b",
+    "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : EXPERIENCE_EVIDENCE_PROMPT,
     "structured_response": ExperienceEvidenceSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 512,
+    "max_tokens"         : 1024,
     "top_p"              : 0.9
 }
 
 # Super Agent
 SUPER_AGENT_CFG = {
-    "model_name"         : "groq:openai/gpt-oss-120b",
+    "model_name"         : "groq:llama-3.3-70b-versatile",
     "system_prompt"      : SUPER_AGENT_SYSTEM_PROMPT,
     "structured_response": SuperAgentResponse,
     "temperature"        : 0.1,
-    "max_tokens"         : 1024,
+    "max_tokens"         : 2048,
     "top_p"              : 0.9
 }
 
@@ -388,3 +388,18 @@ def load_profile_scorer_agents() -> dict[str, ProfileScorer_Type]:
     agents["profile_super_agent"] = SuperAgent(**PROFILE_SUPER_AGENT_CFG)
 
     return agents
+# ----------- Job Recommendation System -------------
+
+def get_rs_embedding_engine():
+    from agents.recommendation_system import RSEmbeddingEngine
+    from sentence_transformers import SentenceTransformer   # ← add this
+    import torch                                            # ← add this
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    with suppress_model_loader_output():
+        model = SentenceTransformer(
+            JOB_DESCRIPTION_RAG_EMBEDDER["model_name"],
+            device=device,
+        )
+    return RSEmbeddingEngine(model=model)

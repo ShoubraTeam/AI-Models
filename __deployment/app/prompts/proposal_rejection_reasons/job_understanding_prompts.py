@@ -38,6 +38,8 @@ Then identify keyword coverage semantically:
    - Return the original keyword form from the job description (not the proposal's version).
 5. Which keywords had NO mention or equivalent in the proposal? (missing_keywords)
    - Be strict — only list keywords that are truly absent.
+   - Every keyword from the provided key keyword list must appear in exactly one
+     of matched_keywords or missing_keywords.
 
 Then provide:
 - A short 1-2 sentence summary of your evaluation.

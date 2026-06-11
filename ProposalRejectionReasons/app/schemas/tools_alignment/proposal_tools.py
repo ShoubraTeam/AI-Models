@@ -1,39 +1,45 @@
 # ----------------------------------------------------------------------
-# Schemas Controlling the output of the Proposal Tools Extractor Agent
+# Schemas controlling the output of the Proposal Tools Analyzer agent
 # ----------------------------------------------------------------------
 
 from pydantic import BaseModel, Field
 from typing import Literal
 
-# -------------------- Modifications
-# --> adding summary
-# -----------------------------------------
+from ..schema_config import Summary, model_config
 
-from ..schema_config import Summary
 
 class ProposalToolReview(BaseModel):
-    """A tool extracted from the job description"""
+    """Proposal coverage review for one tool from the job tools list."""
+
+    model_config = model_config
+
     tool_name: str = Field(
-        description = "the name of the tool."
+        description="Original tool name from the provided job tools list."
     )
 
     necessity_level: Literal["mandatory", "recommended", "optional", "forbidden"] = Field(
-        description = "the necessity level of the tool."
+        description="Original necessity level from the provided job tools list."
     )
 
     found_in_proposal: bool = Field(
-        description = "a bool indicating if job_tool was mentioned in the propoal or not."
+        description="Whether the proposal mentions this tool or a clear semantic equivalent."
     )
 
     with_confidence: bool | None = Field(
-        description = "a bool indicating if the freelancer mentioned it with confidence or not.",
-        default = None
+        description=(
+            "True when the proposal mentions the tool with confident, relevant context; "
+            "false when mentioned only generically; null when the tool is not mentioned."
+        )
     )
 
+
 class ProposalToolsResponse(BaseModel):
-    """The Job Tool Extractor Response"""
+    """Tool-alignment review for a freelancer proposal."""
+
+    model_config = model_config
+
     tool_reviews: list[ProposalToolReview] = Field(
-        description = "The list of the reviews for each tool mentioned in job_tools_list."
+        description="Review result for every tool from the provided job tools list."
     )
 
     summary: Summary

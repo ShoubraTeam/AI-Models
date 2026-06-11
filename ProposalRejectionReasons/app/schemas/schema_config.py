@@ -1,20 +1,27 @@
 # --------------------------------------
-# Schema Configuraitons
-# --> Types
-# --> ...
+# Shared schema type aliases and settings
 # --------------------------------------
 
 from typing import Annotated
-from pydantic import Field
+from pydantic import Field, ConfigDict
 
-SUMMARY_MIN_CHAR_LENGTH = 20
-SUMMARY_MAX_CHAR_LENGTH = 700
+SUMMARY_MIN_CHAR_LENGTH = 10
+SUMMARY_MAX_CHAR_LENGTH = 250
 
 Summary = Annotated[
-    str, 
+    str,
     Field(
-        min_length = SUMMARY_MIN_CHAR_LENGTH, 
-        max_length = SUMMARY_MAX_CHAR_LENGTH,
-        description = f"Summary of the results found highlighting the strengths and weaknesses. It should have a minimum length of {SUMMARY_MIN_CHAR_LENGTH} characters and maximum length of {SUMMARY_MAX_CHAR_LENGTH} characters."
+        description=(
+            "Concise summary of the evaluation result, including the most "
+            f"important strengths and weaknesses when relevant. Target length: "
+            f"{SUMMARY_MIN_CHAR_LENGTH}-{SUMMARY_MAX_CHAR_LENGTH} characters."
+        )
     ),
 ]
+
+
+model_config = ConfigDict(
+    validate_assignment = True,
+    extra = "forbid",
+    strict = True,
+)

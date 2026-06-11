@@ -44,6 +44,8 @@ class AgentInferenceResult(BaseModel):
         "profile_scorer_features_extraction",
         "profile_scorer_final_analysis"
         
+        "RS_freelancer_embedding",
+        "RS_job_embedding",
         # other feature tasks
     ]
 

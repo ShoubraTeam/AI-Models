@@ -1,69 +1,53 @@
-import json
 from time import time
+
+from helpers.config import DEFAULT_MODELS_CFG
+from processing.requirement_coverage_processing import prepare_job_requirements_matcher_ip
+
 from agents.BaseAgent import BaseAgent
 from schemas import RequirementCoverageSchema
-from helpers.config import DEFAULT_MODELS_CFG
 
 class JobRequirementsMatcher(BaseAgent):
     def __init__(
         self,
         model_name: str,
         system_prompt: str,
-        tools: list = [],
         structured_response = None,
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = DEFAULT_MODELS_CFG["job_requirements_matcher"]
         
-        kwargs["max_tokens"] = 4096
+        # kwargs["max_tokens"] = 4096
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, structured_response, **kwargs)
         self.case_counter = 0
 
+    # -------------------------------- Modeling ----------------------------- #
     def get_agent(self):
         return super().get_agent()
     
     def validate_agent_output(self, agent_output):
         return super().validate_agent_output(agent_output)
 
-    def _format_input(self, job_requirements: list, proposal_text: str) -> str:
-        mapped_requirements = []
-        for req in job_requirements:
-            if isinstance(req, dict):
-                requirement = {
-                    "id": str(req.get("id", "")),
-                    "text": req.get("description", req.get("text", "")),
-                    "necessity_level": req.get("necessity_level", "mandatory"),
-                }
-            else:
-                requirement = {
-                    "id": str(req.id),
-                    "text": req.text,
-                    "necessity_level": req.necessity_level,
-                }
-
-            mapped_requirements.append(requirement)
-        
-        requirements_json = json.dumps(mapped_requirements, indent=2)
-        return f"Job Requirements List:\n{requirements_json}\n\nFreelancer Proposal Text:\n{proposal_text}"
-
 
     def invoke(self, job_requirements: list, proposal_text: str) -> RequirementCoverageSchema:
-        formatted_input = self._format_input(
+        formatted_input = prepare_job_requirements_matcher_ip(
             job_requirements = job_requirements,
-            proposal_text = proposal_text
+            proposal_text    = proposal_text
         )
-        return super().invoke(input=formatted_input)
+
+        return super().invoke(input = formatted_input)
 
 
     async def ainvoke(self, job_requirements: list, proposal_text: str) -> RequirementCoverageSchema:
-        formatted_input = self._format_input(
+        formatted_input = prepare_job_requirements_matcher_ip(
             job_requirements = job_requirements,
-            proposal_text = proposal_text
+            proposal_text    = proposal_text
         )
-        return await super().ainvoke(input=formatted_input)
+
+        return await super().ainvoke(input = formatted_input)
     
+    # ---------------------------- Evaluation ----------------------------- #
     def get_metric_names(self) -> tuple[str, str, str, str, str]:
         return (
             "matcher_accuracy",

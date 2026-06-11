@@ -17,3 +17,4 @@ from .profile_analysis import SkillsAnalyzerSchema
 from .profile_analysis import VisualBrandEvaluationSchema
 from .profile_analysis import NumericalAnalyzerSchema
 from .profile_analysis import SuperAgentSchema
+from .recommendation_system_schemas import FreelancerEmbedIP, JobEmbedIP, EmbeddingOP

@@ -2,6 +2,10 @@
 # Agents Evaluation
 # ------------------------------------------------------
 
+
+import random
+random.seed(42)
+
 import helpers.config as CFG
 import helpers.functional as F 
 
@@ -22,6 +26,7 @@ Agent_Type = JobToolsExtractor | \
     JobRequirementsMatcher     | \
     ExperienceEvidenceAgent    | \
     LanguageClarityEvaluator
+
 # -------------------------------------------- Acquiring Agents & Data --------------------------------------------------
 def get_task_eval_data(all_data: list[dict], task_name: str) -> list[dict]:
     """
@@ -77,7 +82,6 @@ def get_eval_data(task_name: str) -> list[dict]:
         task_name     : the name of the task
     """
     data = F.load_json(CFG.EVAL_DATA_PATH)
-
     task_data = get_task_eval_data(all_data = data, task_name = task_name)
     return task_data
 
@@ -112,7 +116,6 @@ def get_agent(
     if task_name == CFG.TASK_LANGUAGE_CLARITY_EVALUATOR:
         return AgentsInitializer.get_language_clarity_evaluator_agent(model_name = model_name, **kwargs)
    
-
 
 # -------------------------------------------- Evaluation --------------------------------------------------
 
@@ -177,15 +180,15 @@ def evaluate_agent_on_task(
             print(f"\t- {key} --> {val}")
         raise
 
-    import random
-    random.seed(42)
-    num_samples_to_evaluate = 5
+    
+    # num_samples_to_evaluate = 5
+    num_samples_to_evaluate = len(eval_data)
     
     if eval_data:
-        num_samples_to_evaluate = min(num_samples_to_evaluate, len(eval_data))
+        # num_samples_to_evaluate = min(num_samples_to_evaluate, len(eval_data))
         eval_data = random.sample(eval_data, num_samples_to_evaluate)
         print(f" -> [RANDOM SAMPLING ACTIVATED] Evaluating on {num_samples_to_evaluate} random samples for this run.")
-    # # ------------------------------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------------------------------
 
     run_configurations = {
         "run_id"      : run_id,

@@ -1,39 +1,36 @@
-
-
 from pydantic import BaseModel, Field
-from typing   import Literal
+from typing import Literal
 
-
-
+from ..schema_config import model_config
 
 
 class SuperAgentResponse(BaseModel):
+    """Final proposal assessment synthesized from completed sub-agent evidence."""
+
+    model_config = model_config
+
     verdict: Literal["accepted", "at_risk", "rejected"] = Field(
-        description = "Overall final verdict for the proposal."
+        description="Final overall proposal verdict based on completed evaluator evidence."
     )
 
     summary_report: str = Field(
-        description = "A final clear summary about the overall proposal quality. Length should be 50-200 characters.",
-        min_length  = 50,
-        max_length  = 200
+        description="Concise final judgment explaining the main acceptance or rejection risk.",
+        min_length=1,
+        max_length=500,
     )
 
     strengths_points: list[str] = Field(
-        description = "List of concrete strength points found in completed evaluator evidence.",
-        default_factory = list
+        description="Concrete strengths supported by completed evaluator evidence. Return an empty list when none are supported."
     )
 
     weakness_points: list[str] = Field(
-        description = "List of concrete weakness or rejection-risk points found in completed evaluator evidence.",
-        default_factory = list
+        description="Concrete weaknesses or rejection risks supported by completed evaluator evidence. Return an empty list when none are supported."
     )
 
     recommendations: list[str] = Field(
-        description = "List of direct recommendations that help the freelancer address proposal weaknesses.",
-        default_factory = list
+        description="Direct actions the freelancer can take to improve future proposals. Return an empty list when no recommendation is available."
     )
 
     evaluation_limitations: list[str] = Field(
-        description = "List of unavailable evaluators or missing evidence that limits the final report.",
-        default_factory = list
+        description="Unavailable evaluators, missing evidence, or caveats that limit the final judgment. Return an empty list when there are no limitations."
     )

@@ -132,7 +132,3 @@ class EvaluationDataParser:
                 for p in sample.get("proposals", [])
             ]
         }
-
-    @staticmethod
-    def get_super_agent_data(sample):
-        pass

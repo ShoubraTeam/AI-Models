@@ -1,22 +1,21 @@
 from pydantic import BaseModel, Field
 from typing import List
 
-
+from ..schema_config import model_config
 class JobKeyPointsSchema(BaseModel):
-    """
-    Output of JobKeyPointsExtractor.
-    Extracts structured key points from the job description.
-    Used downstream by the evaluator and by metric calculations.
-    """
+    """Core job understanding extracted from a freelance job description."""
+    model_config = model_config
+
     core_problem: str = Field(
-        description="The main problem or goal the client wants to solve."
+        description=(
+            "Primary business problem, goal, or outcome the client wants the "
+            "freelancer to address."
+        )
     )
+
     required_deliverables: List[str] = Field(
-        description="List of concrete deliverables or outcomes the client expects."
-    )
-    key_keywords: List[str] = Field(
-        description="Domain-specific keywords from the job description "
-                    "excluding tools and technologies — focus on skills, "
-                    "methodologies, and domain terms (e.g. 'REST API design', "
-                    "'agile', 'data modeling'). Tools are handled separately."
+        description=(
+            "Concrete deliverables, outputs, or completed work products the "
+            "client expects from the freelancer."
+        )
     )

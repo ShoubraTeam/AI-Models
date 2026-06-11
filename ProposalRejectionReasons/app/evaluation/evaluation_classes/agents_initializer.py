@@ -108,11 +108,6 @@ class AgentsInitializer:
             structured_response = LanguageClarityEvalSchema,
             **kwargs
         )
-    
-    # super-agent
-    @staticmethod
-    def get_super_agent(model_name, **kwargs):
-        pass
 
 
     
