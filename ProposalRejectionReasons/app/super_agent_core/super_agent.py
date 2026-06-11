@@ -1,15 +1,15 @@
-import asyncio
-import json
 import os
-from typing import Any
+import json
+import asyncio
 
+from typing import Any
 from pydantic import BaseModel
 
 from agents.BaseAgent import NativeStructuredOutputError
-from Groq_Native import GroqModelsAPI, get_response_format
-from Groq_Native.response_formats import normalize_model_name
 from schemas import SuperAgentResponse
-from prompts.groq_native_prompts import SUPER_AGENT_SYSTEM_PROMPT
+
+from groq_core import GroqModelsAPI, get_response_format
+from prompts import SUPER_AGENT_SYSTEM_PROMPT
 
 
 class ProposalRejectionSuperAgent:
@@ -20,10 +20,11 @@ class ProposalRejectionSuperAgent:
         structured_response: type[BaseModel] | None = SuperAgentResponse,
         **kwargs,
     ):
-        self.model_name = normalize_model_name(model_name)
+        self.model_name = model_name
         self.system_prompt = system_prompt
-        self.kwargs = self._normalize_kwargs(kwargs)
         self.structured_response = structured_response
+        self.kwargs = self._normalize_kwargs(kwargs)
+
         self.schema_name = structured_response.__name__ if structured_response else None
         self.prompt_name: str | None = None
         self.agent = self.get_agent()
@@ -136,6 +137,7 @@ class ProposalRejectionSuperAgent:
             response_format=response_format,
             **self.kwargs,
         )
+        
         return self._extract_response(raw_response)
 
     async def ainvoke(

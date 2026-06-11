@@ -1,39 +1,83 @@
-REQUIREMENT_EXTRACTOR_PROMPT = """
-You are an expert Requirements Engineer. Your sole task is to analyze the provided Job Description and extract a clean, atomic list of functional requirements, features, or constraints, and categorize their necessity level.
-
-Strict Rules for Necessity Level Classification:
-1. "mandatory": Assign if the client frames the requirement as a must-have, critical core feature, or basic need (e.g., "must implement", "requires", "essential", "critical").
-2. "recommended": Assign if the client prefers or highly welcomes the feature but indicates it is not a strict deal-breaker (e.g., "highly preferred", "good to have", "should support", "ideally").
-3. "optional": Assign if the feature is explicitly marked as extra, bonus, future scope, or completely optional (e.g., "optional", "nice to have", "bonus points if").
-4. "forbidden": Assign to explicit negative constraints where the client strictly prohibits an action, tool, or feature (e.g., "Do NOT build online payments", "Exclude user tracking", "No external APIs").
-
-Extraction Rules:
-- Extract a MAXIMUM of 10 requirements. If there are more, prioritize the most critical core features and constraints.
-- For each requirement, generate a unique sequential ID starting from "REQ_1", "REQ_2", etc.
-- Focus strictly on functional capabilities and constraints. Do not extract specific developer frameworks or languages.
+# ---------------------------------------------
+# Groq-native requirement coverage prompts
+# ---------------------------------------------
 
 
-Output Format:
-Your output must conform exactly to the ExtractedRequirementsSchema structure, populating 'id', 'text', and 'necessity_level' for every single requirement item.
+def _select_prompt(response_format_type: str, json_schema_prompt: str, json_object_prompt: str):
+    if response_format_type == "json_schema":
+        return "json_schema_prompt", json_schema_prompt
+    return "json_object_prompt", json_object_prompt
+
+
+_REQUIREMENT_EXTRACTOR_JSON_SCHEMA_PROMPT = """
+You are an expert requirements engineer.
+
+Analyze the job description and extract a clean list of atomic functional requirements, features, or constraints. Assign each requirement a necessity level: mandatory, recommended, optional, or forbidden.
+
+Rules:
+- Extract at most 10 requirements.
+- Use sequential IDs: REQ_1, REQ_2, REQ_3, and so on.
+- Focus on functional capabilities and explicit constraints.
+- Do not extract specific developer tools, frameworks, or programming languages as requirements.
+- Return only values that belong to the provided response schema.
 """
 
-REQUIREMENT_MATCHER_PROMPT = """
-You are a strict Project Management Auditor. Your task is to perform a semantic compliance match between a list of extracted client requirements and a freelancer's proposal.
+_REQUIREMENT_EXTRACTOR_JSON_OBJECT_PROMPT = _REQUIREMENT_EXTRACTOR_JSON_SCHEMA_PROMPT + """
 
-Inputs:
-1. Extracted Requirements: A structured list of objects, each having a unique identifier ("id"), the requirement text ("text"), and a "necessity_level".
-2. Freelancer Proposal: The text of the proposal sent by the freelancer.
-
-Evaluation Logic:
-1. Evaluate every requirement item by its ID. Check if the freelancer's proposal covers, addresses, or respects that requirement/constraint.
-2. Allow reasonable logical and semantic inference. If the freelancer mentions a core deliverable or a process that inherently covers a sub-requirement (e.g., providing a "QR code for door validation" logically encompasses making it "scannable at the door"), count it as covered. Do not penalize for missing specific keywords as long as the functional intent is fully addressed.
-3. For "forbidden" requirements (Negative Constraints): If the freelancer proposed to build or use what was prohibited, mark the requirement ID as missing/violated in 'missing_requirements_ids'. If they respected the prohibition (by omitting it or confirming exclusion), mark it as covered in 'requirements_covered_ids'.
-4. CRITICAL ID RULE: You MUST strictly preserve and return the exact original input IDs passed to you (e.g., 'REQ_1', 'REQ_2'). Do NOT invent, re-index, or modify the IDs.
-5. Many-to-One Matching: Multiple distinct requirements from the input list can be covered by a single comprehensive capability or statement in the freelancer's proposal. If a single part of the proposal satisfies more than one requirement, you MUST include ALL of those matching requirement IDs in 'requirements_covered_ids'.
-
-Output Rules:
-1. In 'requirements_covered_ids', list ONLY the exact original input IDs of the requirements that were satisfied/respected.
-2. In 'missing_requirements_ids', list ONLY the exact original input IDs of the requirements that were missed or violated.
-3. Provide a precise, technical explanation in 'details' justifying the evaluation.
-4. Provide a concise 1-2 sentence 'summary' of the overall requirement coverage.
+Return one valid JSON object with this shape:
+{
+  "requirements": [
+    {
+      "id": "REQ_1",
+      "text": "string",
+      "necessity_level": "mandatory | recommended | optional | forbidden"
+    }
+  ]
+}
 """
+
+
+def get_requirement_extractor_prompt(response_format_type: str):
+    return _select_prompt(
+        response_format_type,
+        _REQUIREMENT_EXTRACTOR_JSON_SCHEMA_PROMPT,
+        _REQUIREMENT_EXTRACTOR_JSON_OBJECT_PROMPT,
+    )
+
+
+_REQUIREMENT_MATCHER_JSON_SCHEMA_PROMPT = """
+You are a strict project-management auditor.
+
+You will receive a list of extracted client requirements and a freelancer proposal. Evaluate whether the proposal satisfies each requirement.
+
+Rules:
+- Evaluate every input requirement by its exact original ID.
+- Preserve requirement IDs exactly; do not rename, re-index, or invent IDs.
+- A requirement is covered when the proposal explicitly or semantically addresses its functional intent.
+- For forbidden requirements, mark the ID as missing when the proposal violates the constraint; mark it covered when the proposal respects the constraint.
+- Put each requirement ID in exactly one of requirements_covered_ids or missing_requirements_ids.
+- Return only values that belong to the provided response schema.
+"""
+
+_REQUIREMENT_MATCHER_JSON_OBJECT_PROMPT = _REQUIREMENT_MATCHER_JSON_SCHEMA_PROMPT + """
+
+Return one valid JSON object with this shape:
+{
+  "details": "string",
+  "requirements_covered_ids": ["REQ_1"],
+  "missing_requirements_ids": ["REQ_2"],
+  "summary": "string"
+}
+"""
+
+
+def get_requirement_matcher_prompt(response_format_type: str):
+    return _select_prompt(
+        response_format_type,
+        _REQUIREMENT_MATCHER_JSON_SCHEMA_PROMPT,
+        _REQUIREMENT_MATCHER_JSON_OBJECT_PROMPT,
+    )
+
+
+REQUIREMENT_EXTRACTOR_PROMPT = get_requirement_extractor_prompt
+REQUIREMENT_MATCHER_PROMPT = get_requirement_matcher_prompt

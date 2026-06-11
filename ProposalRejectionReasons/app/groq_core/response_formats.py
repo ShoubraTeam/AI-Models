@@ -47,9 +47,7 @@ SUPPORTED_SCHEMAS: tuple[SchemaType, ...] = (
 
 def _make_groq_compatible_schema(json_schema: dict[str, Any]) -> dict[str, Any]:
     """
-    Groq strict JSON schema requires object schemas to list every property in
-    ``required``. Pydantic omits fields with defaults, so normalize the schema
-    before sending it as response_format.
+    Groq strict JSON schema.
     """
     normalized = deepcopy(json_schema)
 
@@ -87,8 +85,8 @@ def json_schema_format(
 
 
 def get_response_format(
-    model_name: str,
-    schema: SchemaType,
+    model_name : str,
+    schema     : SchemaType,
     schema_name: str,
 ) -> dict[str, Any]:
     if model_name in STRICT_MODE_MODELS:

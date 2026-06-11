@@ -13,8 +13,8 @@ GROQ_GPT_120b         = "openai/gpt-oss-120b"
 GROQ_GPT_20b          = "openai/gpt-oss-20b"
 
 PROVIDER_GOOGLE_GENAI = "google_genai"
-GEMINI_FLASH_LITE     = "google_genai:gemini-2.5-flash-lite"
-GEMINI_FLASH          = "google_genai:gemini-2.5-flash"
+GEMINI_FLASH_LITE     = "gemini-2.5-flash-lite"
+GEMINI_FLASH          = "gemini-2.5-flash"
 
 
 
@@ -59,6 +59,11 @@ DEFAULT_MODELS_CFG = {
         "temperature": 0.0,
         "max_tokens" : 1024
     },
+
+    "super_agent": {
+        "temperature": 0.0,
+        "max_tokens" : 1024
+    }
 }
 
 # --------------------------------------------------- Scoring ----------------------------------------------------
@@ -132,5 +137,4 @@ EVAL_DATA_PATH = os.path.join(BASE_DIR, "assets", "eval_data", "eval_data.json")
 EVAL_RESULTS_PATH = os.path.join(BASE_DIR, "assets", "evaluation_results")
 
 
-# ------------------------------------------------------ Types -------------------------------------------
 

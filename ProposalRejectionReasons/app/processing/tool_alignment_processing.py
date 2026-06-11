@@ -5,7 +5,7 @@
 from schemas import JobTool, ProposalToolsResponse, FinalSubagentResult, ProposalToolReview
 from helpers.config import NECESSITY_LEVEL_WEIGHTS, WITH_CONFIDENCE_TOOL_WEIGHT, GENERIC_TOOL_WEIGHT
 from helpers.config import TOOL_ALIGNMENT_ACCEPTANCE_THRESHOLD
-from typing import Any
+
 
 MAX_REASON_LENGTH = 100
 

@@ -11,7 +11,7 @@ from agents.experience_evidence  import ExperienceEvidenceAgent
 from agents.language_clarity     import LanguageClarityEvaluator
 from agents.job_understanding    import JobUnderstandingEvaluator, JobKeyPointsExtractor
 from agents.requirement_coverage import JobRequirementsExtractor, JobRequirementsMatcher
-from .super_agent import ProposalRejectionSuperAgent, SuperAgentResponse
+from agents.super_agent          import SuperAgent
 
 
 # final results
@@ -46,14 +46,12 @@ from .pipeline_config import (
 
 
 # preprocessing
-from processing.tool_alignment_processing import format_ip_for_proposal_tools_analyzer
-from schemas import FinalSubagentResult
+from schemas import FinalSubagentResult, SuperAgentResponse
 
 
 
 # errors 
 from .pipeline_errors import (
-    ProposalRejecionReasonsError,
     JobToolsExtractorError,
     ProposalToolsAnalyzerError,
     JobKeyPointsExtractorError,
@@ -93,10 +91,7 @@ class ProposalsRejectionReasonsPipeline:
         self.job_understanding_evaluator    = JobUnderstandingEvaluator(**JD_JOB_UNDERSTANDING_EVALUATOR_CFG)
         self.experience_evidence_evaluator  = ExperienceEvidenceAgent(**EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG)
         self.language_clarity_evaluator     = LanguageClarityEvaluator(**LANGUAGE_CLARITY_EVALUATOR_CFG)
-
-        self.super_agent                    = ProposalRejectionSuperAgent(
-            **SUPER_AGENT_CFG
-        )
+        self.super_agent                    = SuperAgent(**SUPER_AGENT_CFG)
 
 
     # ------------------------ Utils ---------------------------
@@ -180,18 +175,14 @@ class ProposalsRejectionReasonsPipeline:
                 error_type   = JobToolsExtractorError,
             )
 
-            formatted_proposal_analyzer_input = format_ip_for_proposal_tools_analyzer(
+            proposal_analysis = await self.proposal_tools_analyzer.ainvoke(
                 job_tools = job_tools_response.tools,
                 proposal  = proposal
             )
 
-            proposal_analysis = await self.proposal_tools_analyzer.ainvoke(
-                input = formatted_proposal_analyzer_input
-            )
-
             return get_final_tool_alignment_result(
                 proposal_tools_response = proposal_analysis,
-                threshold = TA_TOOL_ALIGNMENT_THRESHOLD
+                threshold               = TA_TOOL_ALIGNMENT_THRESHOLD
             )
         
         except Exception as e:

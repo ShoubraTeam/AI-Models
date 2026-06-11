@@ -2,12 +2,12 @@
 # The Pipeline CFG
 # ----------------------------
 
-from prompts.groq_native_prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
-from prompts.groq_native_prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT, JOB_UNDERSTANDING_EVALUATOR_PROMPT
-from prompts.groq_native_prompts import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
-from prompts.groq_native_prompts import EXPERIENCE_EVIDENCE_PROMPT
-from prompts.groq_native_prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
-from prompts.groq_native_prompts import SUPER_AGENT_SYSTEM_PROMPT
+from prompts import JOB_TOOLS_EXTRACTION_PROMPT, PROPOSAL_TOOLS_EXTRACTION_PROMPT
+from prompts import JOB_KEY_POINTS_EXTRACTION_PROMPT, JOB_UNDERSTANDING_EVALUATOR_PROMPT
+from prompts import REQUIREMENT_EXTRACTOR_PROMPT, REQUIREMENT_MATCHER_PROMPT
+from prompts import EXPERIENCE_EVIDENCE_PROMPT
+from prompts import LANGUAGE_CLARITY_EVALUATOR_PROMPT
+from prompts import SUPER_AGENT_SYSTEM_PROMPT
 
 from schemas import JobToolResponse, ProposalToolsResponse
 from schemas import JobKeyPointsSchema, JobUnderstandingEvalSchema
