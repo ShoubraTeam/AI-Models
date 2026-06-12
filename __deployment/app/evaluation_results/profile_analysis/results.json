@@ -48,5 +48,138 @@
         "agent_output": "freelancer profile executive audit report\n\noverall profile score: 0.88/1.0\n\nexecutive summary\nthe freelancer's profile presents a strong visual brand and clear bio copywriting, with a solid foundation in backend skills and good numerical metrics, but there is room for improvement in skills alignment and a slightly more dynamic pose in the visual brand.\n\ncritical weaknesses & gaps\n- slightly static pose in visual brand\n- minor skills alignment issues\n\nprioritized action plan\n- adjust visual brand pose for more dynamism\n- refine skills alignment for better role fit",
         "duration_s": 3.241049700001895,
         "user_feedback": null
+    },
+    {
+        "task": "profile_scorer_features_extraction",
+        "agent_input": {
+            "input_id": "profile_info",
+            "value": {
+                "job_role": "Python Backend Developer",
+                "hourly_rate": 35.0,
+                "rating": 4.9,
+                "total_completed_jobs": 24,
+                "bio_text": "I am a backend engineer with 4 years of experience specializing in building scalable REST APIs and microservices using FastAPI, Django, and PostgreSQL. I focus on database optimization, clean code architecture, and writing secure, well-tested code.",
+                "declared_skills": [
+                    "Python",
+                    "FastAPI",
+                    "Django",
+                    "PostgreSQL",
+                    "Docker",
+                    "REST APIs"
+                ]
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "profile_features",
+            "value": {
+                "numerical_res": {
+                    "score": 1.0,
+                    "pricing_status": "Fair Market Value",
+                    "improvements": [
+                        "Your pricing and metrics are perfectly optimized for a Mid-Tier Python Backend Developer."
+                    ]
+                },
+                "bio_res": {
+                    "score": 0.7,
+                    "analysis": [
+                        "Clear role definition",
+                        "Relevant tech stack",
+                        "Lack of personal brand",
+                        "No client value statement",
+                        "Missing portfolio link"
+                    ]
+                },
+                "skills_res": {
+                    "score": 0.9,
+                    "missing_essential_skills": [],
+                    "irrelevant_skills": []
+                }
+            }
+        },
+        "duration_s": 1.2775576999993064,
+        "user_feedback": null
+    },
+    {
+        "task": "profile_scorer_final_analysis",
+        "agent_input": {
+            "input_id": "whole_profile_data",
+            "value": {
+                "job_role": "Python Backend Developer",
+                "profile_photo": "{\n  \"filename\": \"developer.jpg\",\n  \"content_type\": \"image/jpeg\",\n  \"size_mbytes\": 0.06638240814208984,\n  \"saved_path\": null\n}",
+                "hourly_rate": 35.0,
+                "rating": 4.9,
+                "total_completed_jobs": 24,
+                "bio_text": "I am a backend engineer with 4 years of experience specializing in building REST APIs using FastAPI and Django.",
+                "declared_skills": [
+                    "Python",
+                    "FastAPI",
+                    "PostgreSQL",
+                    "Docker"
+                ],
+                "pre_extracted_features": {
+                    "numerical_res": {
+                        "score": 0.9,
+                        "details": "Good metrics"
+                    },
+                    "bio_res": {
+                        "score": 0.85,
+                        "details": "Clear bio"
+                    },
+                    "skills_res": {
+                        "score": 0.9,
+                        "details": "Skills match"
+                    }
+                }
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "fina_report",
+            "value": "Freelancer Profile Executive Audit Report\n\nOverall Profile Score: 0.89/1.0\n\nExecutive Summary\nThe freelancer's profile is strong across all domains, with high scores in Visual Brand, Skills Alignment, and Numerical Metrics Engine, and a clear bio, but there is room for improvement in the bio copywriting and visual brand pose to increase engagement.\n\nCritical Weaknesses & Gaps\n- Bio copywriting can be improved\n- Visual brand pose can be more dynamic\n\nPrioritized Action Plan\n- Refine bio copywriting for clarity and conversion\n- Adjust visual brand pose for increased engagement"
+        },
+        "duration_s": 2.8884408000012627,
+        "user_feedback": null
+    },
+    {
+        "task": "profile_scorer_final_analysis",
+        "agent_input": {
+            "input_id": "whole_profile_data",
+            "value": {
+                "job_role": "Python Backend Developer",
+                "profile_photo": "{\n  \"filename\": \"graphic_designer.webp\",\n  \"content_type\": \"image/webp\",\n  \"size_mbytes\": 0.010732650756835938,\n  \"saved_path\": null\n}",
+                "hourly_rate": 35.0,
+                "rating": 4.9,
+                "total_completed_jobs": 24,
+                "bio_text": "I am a backend engineer with 4 years of experience specializing in building REST APIs using FastAPI and Django.",
+                "declared_skills": [
+                    "Python",
+                    "FastAPI",
+                    "PostgreSQL",
+                    "Docker"
+                ],
+                "pre_extracted_features": {
+                    "numerical_res": {
+                        "score": 0.9,
+                        "details": "Good metrics"
+                    },
+                    "bio_res": {
+                        "score": 0.85,
+                        "details": "Clear bio"
+                    },
+                    "skills_res": {
+                        "score": 0.9,
+                        "details": "Skills match"
+                    }
+                }
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "fina_report",
+            "value": "Freelancer Profile Executive Audit Report\n\nOverall Profile Score: 0.6/1.0\n\nExecutive Summary\nThe freelancer's profile has a strong foundation in bio copywriting, skills alignment, and numerical metrics, but is severely hindered by a poor visual brand, with an unprofessional avatar that may deter potential clients. To improve, the freelancer must address the visual brand issues while maintaining the strengths in other areas. The overall score is dragged down by the low visual brand score, indicating a need for immediate improvement in this area.\n\nCritical Weaknesses & Gaps\n- Unprofessional avatar\n- Poor visual brand\n\nPrioritized Action Plan\n- Improve avatar professionalism\n- Address visual brand issues\n- Maintain strong bio copywriting and skills alignment"
+        },
+        "duration_s": 2.3517464000033215,
+        "user_feedback": null
     }
 ]

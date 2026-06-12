@@ -39,31 +39,19 @@ class VisualBrandEvaluator(BaseAgent):
             
         return encoded_string, mime_type
 
-    def invoke(self, image_path: str, job_role: str) -> VisualBrandEvaluationSchema:
-        base64_image, mime_type = self._encode_image_to_base64(image_path)
+    def invoke(self, image_bytes: bytes, mime_type: str, job_role: str) -> VisualBrandEvaluationSchema:
+        base64_image = base64.b64encode(image_bytes).decode("utf-8")
         
-        # الـ Structure الصح الصريح اللي موديل Gemini بيفهمه جوه LangChain
         multimodal_content = [
             {
                 "type": "text", 
-                "text": (
-                    f"Freelancer Job Role: {job_role}\n\n"
-                    f"Please analyze this freelancer profile image directly and strictly according to your system prompt instructions, "
-                    f"evaluating its appropriateness specifically for a {job_role}."
-                )
+                "text": f"Freelancer Job Role: {job_role}\nPlease analyze this profile image..."
             },
             {
                 "type": "image_url",
-                "image_url": f"data:{mime_type};base64,{base64_image}" # جوجل بيفهمها كـ string مباشر هنا جوه الحقل ده في النسخ الجديدة
+                "image_url": f"data:{mime_type};base64,{base64_image}" 
             }
         ]
-        
-        # أو الصيغة الأضمن لـ Gemini لو لسه معترض:
-        # multimodal_content = [
-        #     {"type": "text", "text": f"Evaluate this image for a {job_role}"},
-        #     {"type": "image_data", "image_data": {"data": base64_image, "mime_type": mime_type}}
-        # ]
-        
         return super().invoke(input=multimodal_content)
     
     def get_agent(self):

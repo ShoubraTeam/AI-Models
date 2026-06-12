@@ -304,7 +304,7 @@ async def profile_final_analysis(
     # pre-process
     try:
         preprocessed_data = await resolve_if_awaitable(
-            agent_controller.preprocess_input(input = (profile_data, profile_img, pre_extracted_features))
+            agent_controller.preprocess_input(input = (profile_data, profile_img, profile_img_log.content_type, pre_extracted_features))
         )
 
     except Exception as e:
@@ -321,6 +321,11 @@ async def profile_final_analysis(
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_CALLING_AGENT.value
         F.print_error(error = e, message = m)
+
+        import traceback
+        print("=== CRITICAL: AGENT CALL FAILED ===")
+        traceback.print_exc()
+        print("====================================")
         return get_bad_request_profile_final_analysis(message = m)
 
 
