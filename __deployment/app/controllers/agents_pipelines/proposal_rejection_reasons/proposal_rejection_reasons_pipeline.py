@@ -153,21 +153,21 @@ class ProposalsRejectionReasonsPipeline:
 
     async def _extract_job_tools(self, job_desc: str):
         try:
-            return await self.job_tools_extractor.ainvoke(input = job_desc)
+            return await self.job_tools_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobToolsExtractorError, e)
 
 
     async def _extract_job_key_points(self, job_desc: str):
         try:
-            return await self.job_key_points_extractor.ainvoke(input = job_desc)
+            return await self.job_key_points_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobKeyPointsExtractorError, e)
 
 
     async def _extract_job_requirements(self, job_desc: str):
         try:
-            return await self.requirement_extractor.ainvoke(input = job_desc)
+            return await self.requirement_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobRequirementExtractorError, e)
 

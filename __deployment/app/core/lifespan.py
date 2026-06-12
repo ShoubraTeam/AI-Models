@@ -9,7 +9,6 @@ from contextlib import asynccontextmanager
 
 from helpers.settings     import get_settings
 from helpers.functional import print_success_message, print_error, print_title, print_subtitle
-from core.loading_clients_agents import get_rs_embedding_engine
 
 from models.config.agents_config import JOB_DESCRIPTION_ENHANCEMENT_MODELS
 from models.config.system_tasks  import (
@@ -43,6 +42,7 @@ async def lifespan(app: FastAPI):
             from core.loading_clients_agents import load_proposal_rejection_reasons_agents
             from core.loading_clients_agents import load_profile_scorer_agents
             from core.loading_clients_agents import get_embedding_model, get_raranker, get_weaviate_collection
+            from core.loading_clients_agents import get_rs_embedding_engine
             from agents.job_description_enhancement import get_groq_client
             print_success_message("Startup Dependencies Imported Successfully")
         except Exception as e:

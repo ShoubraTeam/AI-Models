@@ -24,6 +24,7 @@ class BaseAgent:
         system_prompt: str,
         tools: list = [],
         structured_response = None,
+        model_provider: str = "groq",
         **kwargs
     ):
         
@@ -33,6 +34,7 @@ class BaseAgent:
         self.tools = tools
         self.structured_response = structured_response
         self.kwargs = kwargs
+        self.model_provider = model_provider
 
         # creating agent
         self.agent = self.get_agent()
@@ -40,6 +42,7 @@ class BaseAgent:
     def get_agent(self):
         model = init_chat_model(
             model = self.model_name,
+            model_provider=self.model_provider,
             **self.kwargs
         )
 

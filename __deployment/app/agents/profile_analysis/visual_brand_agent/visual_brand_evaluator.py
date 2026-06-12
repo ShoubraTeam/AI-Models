@@ -20,12 +20,13 @@ class VisualBrandEvaluator(BaseAgent):
         system_prompt: str,
         tools: list = [],
         structured_response = None,
+        model_provider: str = "google_genai",
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = PA_DEFAULT_MODELS_CFG["visual_brand_evaluator"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, tools, structured_response, model_provider, **kwargs)
         self.case_counter = 0
 
     def _encode_image_to_base64(self, image_path: str) -> tuple:

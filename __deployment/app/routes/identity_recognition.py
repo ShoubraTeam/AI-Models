@@ -183,8 +183,8 @@ async def verify_person_images(
     try:
         result_to_save = get_result_to_save(
             task = feature_id,
-            img1 = img1,
-            img2 = img2,
+            img1 = img1_log,
+            img2 = img2_log,
             verified = verification_results["verified"],
             duration = duration_s
         )

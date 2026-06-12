@@ -4,7 +4,7 @@ from pydantic import BaseModel
 from fastapi import APIRouter, Request, status
 from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-from fastapi import UploadFile, File
+from fastapi import UploadFile, File, Form
 
 # helpers & config
 from helpers.settings import ROUTE_MAIN_ROUTE
@@ -248,15 +248,18 @@ async def profile_features_extraction(
 
 
 # --- Endpoint 2: Profile Final Analysis (SuperAgent) ---
+
 @profile_analysis_router.post("/{feature_id}/profile_final_analysis")
 async def profile_final_analysis(
     feature_id: str,
     request     : Request,
-    data        : ProfileFinalAnalysisIP,
+    data        : str = Form(...),
     profile_img : UploadFile = File(...)
 ) -> JSONResponse:
 
     start_time = perf_counter()
+
+    data = ProfileFinalAnalysisIP.model_validate_json(data)
     task = PROFILE_SCORER_FINAL_ANALYSIS
 
     if not F.validate_feature_id(feature_id = feature_id):

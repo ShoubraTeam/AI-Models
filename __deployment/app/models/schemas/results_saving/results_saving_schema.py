@@ -32,7 +32,10 @@ class AgentInput(BaseModel):
     """Saving Agent Input"""
     input_id : str = Field(description = "Identifier of the input [images - job_desc - ..]")
 
-    value    : None | str | dict[str, Any] = Field(description = "The actual value")
+    value    : None | str | dict[str, Any] = Field(
+        default = None,
+        description = "The actual value"
+    )
 
     images   : tuple[ImageLog, ImageLog] | None = Field(
         None,

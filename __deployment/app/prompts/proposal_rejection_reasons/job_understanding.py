@@ -15,6 +15,7 @@ You are an expert at analyzing freelance job descriptions.
 Extract the most important job key points from the given job description:
 1. The core problem or goal the client wants to solve.
 2. The concrete deliverables or outcomes the client expects.
+3. Domain-specific key keywords from the job description focus on skills,methodologies, and domain terms and excluding tools and technologies. 
 
 Rules:
 - Be concise and precise.
@@ -28,7 +29,8 @@ _JOB_KEY_POINTS_JSON_OBJECT_PROMPT = _JOB_KEY_POINTS_JSON_SCHEMA_PROMPT + """
 Return one valid JSON object with this shape:
 {
   "core_problem": "string",
-  "required_deliverables": ["string"]
+  "required_deliverables": ["string"],
+  "key_keywords": ["string"]
 }
 """
 

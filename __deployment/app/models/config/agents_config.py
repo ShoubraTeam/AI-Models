@@ -263,7 +263,7 @@ PROFILE_SKILLS_ANALYSIS_CFG = {
 }
 
 PROFILE_NUMERICAL_ANALYSIS_CFG = {
-    "model_name": "determinstic_python",
+    "model_name": "deterministic_python",
     "system_prompt": None, 
     "structured_response": NumericalAnalyzerSchema,  
 }
