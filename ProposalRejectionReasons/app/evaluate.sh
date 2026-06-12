@@ -5,12 +5,12 @@ VENV_PATH="/mnt/d/Focus/_____Active_______/AI/venvs/GP/PRR/bin/activate"
 
 TASKS=(
     # "job_tools_extractor"
-    "proposal_tools_analyzer"
+    #"proposal_tools_analyzer"
     #"job_requirements_extractor"
     #"job_requirements_matcher"
     # "job_key_points_extractor"
     #"job_understanding_evaluator"
-    #"experience_evidence_finder"
+    "experience_evidence_finder"
     # "language_clarity_evaluator"
 )
 
@@ -45,22 +45,29 @@ MODELS_JOB_UNDERSTANDING_MATCHER=(
 )
 
 
+
+
 MODELS_REQUIREMENT_COVERAGE_EXTRACTOR=(
-    "GEMINI_FLASH"
     "LLAMA_70B"
+    "LLAMA_8B"
+    "QWEN_32B"
+    "GPT_OSS_20B"
     "GPT_OSS_120B"
 )
 
 
 MODELS_REQUIREMENT_COVERAGE_MATCHER=(
+    "LLAMA_8B"
+    "GPT_OSS_20B"
     "QWEN_32B"
-    "GEMINI_FLASH"
+    "GEMINI_FLASH_LITE"
     "LLAMA_70B"
+    "GPT_OSS_120B"
 )
 
 MODELS_EVIDENCE_EXPERIENCE_FINDER=(
+    "LLAMA_8B"
     "QWEN_32B"
-    "LLAMA_70B"
     "GPT_OSS_120B"
 )
 
@@ -73,12 +80,10 @@ MODELS_LANGUAGE_CLARITY=(
 
 TEMPERATUREs=(
     0.0
-    0.2
 )
 
 MAX_TOKENSs=(
     512
-    1024
 )
 
 TOP_Ps=(

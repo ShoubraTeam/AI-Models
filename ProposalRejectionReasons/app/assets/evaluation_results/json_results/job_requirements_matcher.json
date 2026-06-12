@@ -1,103 +1,86 @@
 [
     {
         "run_id": 1,
-        "model_name": "groq:openai/gpt-oss-20b",
+        "model_name": "llama-3.1-8b-instant",
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "matcher_accuracy": 0.711111111111111,
-            "matcher_precision": 0.6666666666666667,
-            "matcher_recall": 0.62,
-            "matcher_f1_score": 0.6398653198653198,
-            "agent_invokation_time": 18.761123371124267,
+            "matcher_accuracy": 0.7456349206349205,
+            "matcher_precision": 0.8642857142857142,
+            "matcher_recall": 0.7645833333333333,
+            "matcher_f1_score": 0.7970598845598846,
+            "agent_invokation_time": 13.069223744528633,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 2,
-        "model_name": "groq:openai/gpt-oss-20b",
+        "model_name": "openai/gpt-oss-20b",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 1024,
+            "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "matcher_accuracy": 0.8333333333333334,
-            "matcher_precision": 0.7533333333333333,
-            "matcher_recall": 0.6852777777777778,
-            "matcher_f1_score": 0.7067965367965368,
-            "agent_invokation_time": 20.579856204986573,
+            "matcher_accuracy": 0.3095238095238095,
+            "matcher_precision": 0.35714285714285715,
+            "matcher_recall": 0.3095238095238095,
+            "matcher_f1_score": 0.32142857142857145,
+            "agent_invokation_time": 4.425728031567165,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 3,
-        "model_name": "groq:qwen/qwen3-32b",
+        "model_name": "qwen/qwen3-32b",
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "matcher_accuracy": 0.7291666666666667,
-            "matcher_precision": 0.6583333333333333,
-            "matcher_recall": 0.6138888888888889,
-            "matcher_f1_score": 0.625,
-            "agent_invokation_time": 37.46559886932373,
-            "error_rate": 0.0
-        }
-    },
-    {
-        "run_id": 4,
-        "model_name": "groq:qwen/qwen3-32b",
-        "model_kwargs": {
-            "temperature": 0.0,
-            "max_tokens": 1024,
-            "top_p": 0.9
-        },
-        "results": {
-            "matcher_accuracy": 0.9027777777777779,
-            "matcher_precision": 0.845,
-            "matcher_recall": 0.7783333333333333,
-            "matcher_f1_score": 0.7983333333333333,
-            "agent_invokation_time": 45.97021751403808,
+            "matcher_accuracy": 0.3630952380952381,
+            "matcher_precision": 0.4017857142857143,
+            "matcher_recall": 0.35416666666666663,
+            "matcher_f1_score": 0.36607142857142855,
+            "agent_invokation_time": 7.325410723686218,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 5,
-        "model_name": "groq:openai/gpt-oss-120b",
+        "model_name": "llama-3.3-70b-versatile",
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "matcher_accuracy": 0.8458333333333334,
-            "matcher_precision": 0.7533333333333333,
-            "matcher_recall": 0.6852777777777778,
-            "matcher_f1_score": 0.7067965367965368,
-            "agent_invokation_time": 29.798682355880736,
+            "matcher_accuracy": 0.7548611111111111,
+            "matcher_precision": 0.8880952380952382,
+            "matcher_recall": 0.7337301587301587,
+            "matcher_f1_score": 0.7860166288737718,
+            "agent_invokation_time": 3.4202375071389333,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 6,
-        "model_name": "groq:openai/gpt-oss-120b",
+        "model_name": "openai/gpt-oss-120b",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 1024,
+            "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "matcher_accuracy": 0.8972222222222221,
-            "matcher_precision": 0.8666666666666666,
-            "matcher_recall": 0.7686111111111111,
-            "matcher_f1_score": 0.7921164021164021,
-            "agent_invokation_time": 17.88024296760559,
+            "matcher_accuracy": 0.2857142857142857,
+            "matcher_precision": 0.2857142857142857,
+            "matcher_recall": 0.2857142857142857,
+            "matcher_f1_score": 0.2857142857142857,
+            "agent_invokation_time": 3.6889522756849016,
             "error_rate": 0.0
         }
     }

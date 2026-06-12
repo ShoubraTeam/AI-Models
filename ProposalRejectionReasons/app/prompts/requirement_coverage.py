@@ -10,16 +10,17 @@ def _select_prompt(response_format_type: str, json_schema_prompt: str, json_obje
 
 
 _REQUIREMENT_EXTRACTOR_JSON_SCHEMA_PROMPT = """
-You are an expert requirements engineer.
+You are a strict requirements engineer. Extract ONLY explicit, functional requirements from the job description.
 
-Analyze the job description and extract a clean list of atomic functional requirements, features, or constraints. Assign each requirement a necessity level: mandatory, recommended, optional, or forbidden.
+STRICT RULES:
+1. NEVER split one feature into multiple tiny sub-features. Keep them merged.
+2. Max requirements is 5. If the text has fewer, extract ONLY that number. Do NOT invent fluff.
+3. Absolutely NO tools, frameworks, programming languages, or developer roles allowed.
+4. Keep each text under 10 words. No general narrative sentences.
 
-Rules:
-- Extract at most 10 requirements.
-- Use sequential IDs: REQ_1, REQ_2, REQ_3, and so on.
-- Focus on functional capabilities and explicit constraints.
-- Do not extract specific developer tools, frameworks, or programming languages as requirements.
-- Return only values that belong to the provided response schema.
+Example:
+Input: "Need a backend developer to build a secure REST API using Node.js and JWT."
+Output: {"requirements": [{"id": "REQ_1", "text": "Build a secure REST API backend.", "necessity_level": "mandatory"}]}
 """
 
 _REQUIREMENT_EXTRACTOR_JSON_OBJECT_PROMPT = _REQUIREMENT_EXTRACTOR_JSON_SCHEMA_PROMPT + """

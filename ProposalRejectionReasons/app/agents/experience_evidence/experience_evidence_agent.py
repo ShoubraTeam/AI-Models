@@ -69,7 +69,7 @@ class ExperienceEvidenceAgent(BaseAgent):
         matches = set()
         try:
             response = judge_model.generate(
-                model_name="llama-3.1-8b-instant",
+                model_name="llama-3.3-70b-versatile",
                 user_input=prompt,
                 temperature=0.0,
                 timeout=30,
@@ -104,16 +104,12 @@ class ExperienceEvidenceAgent(BaseAgent):
         job_desc = sample.get("job_desc", "")
         proposals = sample.get("proposals", [])
 
-        tp = 0
-        fp = 0
-        fn = 0
-        tn = 0
-        
-        total_tp_projects = 0
-        total_pred_projects = 0
-        total_true_projects = 0
-        all_score_errors = []
+        tp, fp, fn, tn = 0, 0, 0, 0
         total_invocation_time = 0.0
+        all_score_errors = []
+
+        proposal_precisions = []
+        proposal_recalls = []
 
         for prop_sample in proposals:
             proposal_text = prop_sample.get("proposal", "")
@@ -144,19 +140,26 @@ class ExperienceEvidenceAgent(BaseAgent):
             elif not true_has_evidence and not pred_has_evidence:
                 tn += 1
 
-            total_pred_projects += len(pred_projects)
-            total_true_projects += len(true_projects)
-
             matched_pairs = self._get_semantic_project_match(true_texts, pred_texts)
+            p_tp = len(matched_pairs)
+            p_pred = len(pred_projects)
+            p_true = len(true_projects)
+
+            if p_true == 0 and p_pred == 0:
+                prop_prec = 1.0
+                prop_rec = 1.0
+            else:
+                prop_prec = p_tp / p_pred if p_pred > 0 else 0.0
+                prop_rec = p_tp / p_true if p_true > 0 else 0.0
+
+            proposal_precisions.append(prop_prec)
+            proposal_recalls.append(prop_rec)
 
             for t_idx, p_idx in matched_pairs:
-                total_tp_projects += 1
-                
                 true_proj_data = true_projects[t_idx]
                 if isinstance(true_proj_data, dict) and "relevance_score" in true_proj_data:
                     true_score = true_proj_data.get("relevance_score", 0.0)
                     all_score_errors.append(abs(pred_projects[p_idx].relevance_score - true_score))
-                
                 print(f"    [MATCH FOUND] True Project #{t_idx} matched with Pred Project #{p_idx} via LLM Judge")
 
             matched_pred_set = {p_idx for _, p_idx in matched_pairs}
@@ -172,8 +175,8 @@ class ExperienceEvidenceAgent(BaseAgent):
         class_rec = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         class_f1 = (2 * class_prec * class_rec) / (class_prec + class_rec) if (class_prec + class_rec) > 0 else 0.0
 
-        proj_precision = total_tp_projects / total_pred_projects if total_pred_projects > 0 else 1.0 if not total_true_projects and not total_pred_projects else 0.0
-        proj_recall = total_tp_projects / total_true_projects if total_true_projects > 0 else 1.0 if not total_true_projects and not total_pred_projects else 0.0
+        proj_precision = sum(proposal_precisions) / len(proposal_precisions) if proposal_precisions else 1.0
+        proj_recall = sum(proposal_recalls) / len(proposal_recalls) if proposal_recalls else 1.0
         proj_mae = sum(all_score_errors) / len(all_score_errors) if all_score_errors else 0.0
 
         return {
