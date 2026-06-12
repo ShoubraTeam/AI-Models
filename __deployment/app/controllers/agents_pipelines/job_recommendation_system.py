@@ -6,7 +6,7 @@ import re
 import unicodedata
 
 from agents.recommendation_system import RSEmbeddingEngine
-from models.data_config import RS_FREELANCER_EMBEDDING, RS_JOB_EMBEDDING
+from models.config.system_tasks import RS_FREELANCER_EMBEDDING, RS_JOB_EMBEDDING
 
 
 class JobRecommendationSystemPipeline:

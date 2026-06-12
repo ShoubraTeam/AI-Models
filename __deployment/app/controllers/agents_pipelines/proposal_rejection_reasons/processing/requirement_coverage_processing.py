@@ -1,5 +1,5 @@
-from helpers.config import NECESSITY_LEVEL_WEIGHTS
-from models.pydantic_schemas import FinalSubagentResult
+from models.config.agents_config import PRR_NECESSITY_LEVEL_WEIGHTS as NECESSITY_LEVEL_WEIGHTS
+from models.schemas import FinalSubagentResult
 
 REQUIREMENT_THRESHOLD = 0.5
 

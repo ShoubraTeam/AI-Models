@@ -1,5 +1,5 @@
-from models.pydantic_schemas import ExperienceEvidenceSchema
-from models.pydantic_schemas import FinalSubagentResult
+from models.schemas import ExperienceEvidenceSchema
+from models.schemas import FinalSubagentResult
 
 EXPERIENCE_THRESHOLD = 0.5
 

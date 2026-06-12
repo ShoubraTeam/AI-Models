@@ -1,5 +1,5 @@
 from time import time
-from models import NumericalAnalyzerSchema
+from models.schemas import NumericalAnalyzerSchema
 
 class NumericalAnalyzer:
     """

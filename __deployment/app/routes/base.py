@@ -2,8 +2,8 @@
 # Base Router for testing the API
 # --------------------------------
 
-from helpers.config import ROUTE_MAIN_ROUTE
-from helpers.config import get_settings
+from helpers.settings import ROUTE_MAIN_ROUTE
+from helpers.settings import get_settings
 
 
 from fastapi import APIRouter

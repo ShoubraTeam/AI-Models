@@ -4,10 +4,10 @@ import os
 from pathlib import Path
 import json
 from typing import Any
-from helpers.config import get_settings
+from helpers.settings import get_settings
 
 from models.enums import ErrorsEnum
-from models.pydantic_schemas import AgentInferenceResult
+from models.schemas import AgentResultsToSave
 
 class FeatureController:
     """
@@ -57,7 +57,7 @@ class FeatureController:
             json.dump(results, f, indent = 4, ensure_ascii = False)
         
 
-    def log_result(self, result: AgentInferenceResult) -> dict[str, bool | str | None]:
+    def log_result(self, result: AgentResultsToSave) -> dict[str, bool | str | None]:
         """
         Logging the given result.
 
@@ -99,7 +99,6 @@ class FeatureController:
             "success": True,
             "error"  : None
         }
-        # ------------------------------------ Json Logging Utils -------------------------------------------
         
 
 

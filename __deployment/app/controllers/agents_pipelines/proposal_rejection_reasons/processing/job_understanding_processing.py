@@ -1,7 +1,7 @@
 
-from models.pydantic_schemas import JobKeyPointsSchema
-from models.pydantic_schemas import JobUnderstandingEvalSchema
-from models.pydantic_schemas import FinalSubagentResult
+from models.schemas import JobKeyPointsSchema
+from models.schemas import JobUnderstandingEvalSchema
+from models.schemas import FinalSubagentResult
 
 JOB_UNDERSTANDING_THRESHOLD = 0.5  # normalized 0.0–1.0
 

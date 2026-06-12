@@ -6,8 +6,8 @@ from time import time
 from pathlib import Path
 import traceback
 from agents.profile_analysis.BaseAgent import BaseAgent
-from models import VisualBrandEvaluationSchema
-from helpers.config import DEFAULT_MODELS_CFG
+from models.schemas import VisualBrandEvaluationSchema
+from models.config.agents_config import PA_DEFAULT_MODELS_CFG
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
 
@@ -23,7 +23,7 @@ class VisualBrandEvaluator(BaseAgent):
         **kwargs
     ):
         if "temperature" not in kwargs:
-            kwargs = DEFAULT_MODELS_CFG["visual_brand_evaluator"]
+            kwargs = PA_DEFAULT_MODELS_CFG["visual_brand_evaluator"]
 
         super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
         self.case_counter = 0

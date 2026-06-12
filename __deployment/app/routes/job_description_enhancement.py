@@ -3,23 +3,25 @@
 # ----------------------------------------------
 
 # helpers
-from helpers.config import ROUTE_MAIN_ROUTE
+from helpers.settings import ROUTE_MAIN_ROUTE
 import helpers.functional as F
 from time import perf_counter
 
 # messages
-from models.enums            import ResponsesEnum, ErrorsEnum
-from models.pydantic_schemas import AgentInferenceResult
-from models.pydantic_schemas import JobEnhancementIP, ToolsDetectionIP, ToolsRecommendationIP
-from models.data_config import (
+from models.enums   import ResponsesEnum, ErrorsEnum
+from models.schemas import AgentResultsToSave, AgentInput, AgentOutput
+from models.schemas import JobEnhancementIP, ToolsDetectionIP, ToolsRecommendationIP
+from models.config.system_tasks import (
     JOB_DESC_TOOLS_DETECTION,
     JOB_DESC_TOOLS_RECOMMENDATION,
-    JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT
+    JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT,
 )
 
 # controllers
-from controllers import FeatureController
-from controllers import AgentController
+from controllers.feature_controller import FeatureController
+from controllers.agents_controller import AgentController
+from controllers.weaviate_controller import WeaviateController
+
 
 # fast api
 from fastapi import APIRouter, Request
@@ -102,6 +104,67 @@ def get_good_request_job_desc_enhancement(message: str, enhanced_job_description
         }
     )
 
+
+def get_result_to_save(
+    task                    : str,
+    duration                : float,
+    job_desc                : str | None = None,
+    job_title               : str | None = None,
+    has_tools               : bool | None = None,
+    tools                   : list[str] | None = None,
+    enhanced_job_description: str | None = None,
+    user_feedback           : None | str = None
+) -> AgentResultsToSave:
+    
+    if task == JOB_DESC_TOOLS_DETECTION:
+        agent_input = AgentInput(
+            input_id = f"job_description",
+            value    = job_desc
+        )
+
+        agent_output = AgentOutput(
+            output_id = "has_tools",
+            value = has_tools
+        )
+    
+    elif task == JOB_DESC_TOOLS_RECOMMENDATION:
+        agent_input = AgentInput(
+            input_id = "job_title_description",
+            value    = {
+                "job_title" : job_title,
+                "job_desc"  : job_desc,
+            }
+        )
+
+        agent_output = AgentOutput(
+            output_id = "recommended_tools",
+            value     = tools
+        )
+
+    elif task == JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT:
+        agent_input = AgentInput(
+            input_id = "job_enhancement_input___job_title___job_description___recommeded_tools",
+            value    = {
+                "job_title"        : job_title,
+                "job_desc"         : job_desc,
+                "recommended_tools": tools
+            }
+        )
+
+        agent_output = AgentOutput(
+            output_id = "enhanced_job_description",
+            value    = enhanced_job_description
+        )
+
+
+    return AgentResultsToSave(
+        task = task,
+        agent_input  = agent_input,
+        agent_output = agent_output,
+        duration_s = duration,
+        user_feedback = user_feedback
+    )
+
 # -------------------------------- Routing ---------------------------------
 job_description_enhancement_router = APIRouter(prefix = ROUTE_MAIN_ROUTE )
 
@@ -132,9 +195,9 @@ async def detect_tools(
     # setup
     task = JOB_DESC_TOOLS_DETECTION
     if not F.validate_feature_id(feature_id = feature_id):
-        return get_bad_request_tools_detection(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+        return get_bad_request_tools_detection(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
     if not F.validate_job_description_enhancement_task(task = task):
-        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_ERROR_TASK.value)
+        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_INVALID_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
@@ -166,14 +229,14 @@ async def detect_tools(
     duration_s = end_time - start_time
 
     try:
-        result_to_log = AgentInferenceResult(
-            user_input   = job_desc,
-            task         = task,
-            agent_output = agent_output,
-            duration_s   = duration_s,
+        result_to_save = get_result_to_save(
+            task = task,
+            job_desc = job_desc,
+            has_tools = agent_output,
+            duration = duration_s
         )
 
-        feature_controller.log_result(result = result_to_log)
+        feature_controller.log_result(result = result_to_save)
     
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
@@ -213,13 +276,12 @@ async def recommend_tools(
     # setup
     task = JOB_DESC_TOOLS_RECOMMENDATION
     if not F.validate_feature_id(feature_id = feature_id):
-        return get_bad_request_tools_recommendation(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+        return get_bad_request_tools_recommendation(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
     if not F.validate_job_description_enhancement_task(task = task):
-        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_ERROR_TASK.value)
+        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_INVALID_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
-    from controllers import WeaviateController
 
     weaviate_controller = WeaviateController(
         agents = request.app.state.agents[feature_id],
@@ -227,7 +289,7 @@ async def recommend_tools(
     ) 
 
     agent_controller_kwargs = {
-        "task": task,
+        "task"           : task,
         "tools_retriever": weaviate_controller.retrieve,
         "collection"     : request.app.state.collection
     }
@@ -278,14 +340,15 @@ async def recommend_tools(
     duration_s = end_time - start_time
 
     try:
-        result_to_log = AgentInferenceResult(
-            user_input   = (job_title, job_desc),
-            task         = task,
-            agent_output = agent_output,
-            duration_s   = duration_s,
+        result_to_save = get_result_to_save(
+            task = task,
+            duration = duration_s,
+            job_desc = job_desc,
+            job_title = job_title,
+            tools = agent_output
         )
 
-        feature_controller.log_result(result = result_to_log)
+        feature_controller.log_result(result = result_to_save)
     
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
@@ -325,15 +388,14 @@ async def enhance_job_desc(
     # setup
     task = JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT
     if not F.validate_feature_id(feature_id = feature_id):
-        return get_bad_request_job_desc_enhancement(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+        return get_bad_request_job_desc_enhancement(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
     if not F.validate_job_description_enhancement_task(task = task):
-        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_ERROR_TASK.value)
+        return get_bad_request_tools_detection(message = ErrorsEnum.JD_ENH_INVALID_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
 
     agent_controller_kwargs = {"task": task}
-
     agent_controller   = AgentController(
         feature_id      = feature_id,
         agents          = request.app.state.agents[feature_id],
@@ -378,14 +440,16 @@ async def enhance_job_desc(
     duration_s = end_time - start_time
 
     try:
-        result_to_log = AgentInferenceResult(
-            user_input   = (job_title, job_desc, tools),
-            task         = task,
-            agent_output = agent_output,
-            duration_s   = duration_s,
+        result_to_save = get_result_to_save(
+            task                     = task,
+            duration                 = duration_s,
+            job_title                = job_title,
+            job_desc                 = job_desc,
+            tools                    = tools,
+            enhanced_job_description = agent_output
         )
 
-        feature_controller.log_result(result = result_to_log)
+        feature_controller.log_result(result = result_to_save)
     
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
