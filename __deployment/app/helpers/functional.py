@@ -2,19 +2,25 @@
 # Import general utility functions
 # ---------------------------------------------
 
-from typing import Any
 import json
+from typing import Any
+import traceback
 from pathlib import Path
 
-import traceback
+from helpers.settings import get_settings
 
-from models.data_config import FEATURE_ALLOWED_FEATURES, JOB_DESCRIPTION_ALLOWED_TASKS, PROPOSAL_REJECTION_REASONS_ALLOWED_TASKS
-from helpers.config import get_settings
 
+
+from models.config.system_tasks import (
+    FEATURE_ALLOWED_FEATURES, 
+    JOB_DESCRIPTION_ALLOWED_TASKS, 
+    PROPOSAL_REJECTION_REASONS_ALLOWED_TASKS,
+    PROFILE_SCORER_ALLOWED_TASKS,
+    RS_ALLOWED_TASKS
+)
 
 
 settings = get_settings()
-
 
 
 def validate_feature_id(feature_id: str) -> bool:
@@ -58,6 +64,36 @@ def validate_proposal_rejection_reason_task(task: str) -> bool:
         is_ok (bool)
     """
     if task not in PROPOSAL_REJECTION_REASONS_ALLOWED_TASKS:
+        return False
+    
+    return True
+
+def validate_profile_analysis_task(task: str) -> bool:
+    """
+    Validate the given task
+        
+    Args:
+        task (str)
+    
+    Returns:
+        is_ok (bool)
+    """
+    if task not in PROFILE_SCORER_ALLOWED_TASKS:
+        return False
+    
+    return True
+
+def validate_recommendation_system_task(task: str) -> bool:
+    """
+    Validate the given task
+        
+    Args:
+        task (str)
+    
+    Returns:
+        is_ok (bool)
+    """
+    if task not in RS_ALLOWED_TASKS:
         return False
     
     return True

@@ -3,13 +3,13 @@ from typing import Any
 from pathlib import Path
 from typing import TypeAlias
 
-from agents import NumericalAnalyzer, BioAnalyzer, SkillsAnalyzer, VisualBrandEvaluator, SuperAgent
-from models.pydantic_schemas import SuperAgentSchema
+from agents import NumericalAnalyzer, BioAnalyzer, SkillsAnalyzer, VisualBrandEvaluator, PA_SuperAgent
+from models.schemas import PA_SuperAgentSchema
 
 from .pipeline_errors import NumericalAnalyzerError, BioAnalyzerError, ProfileScorerError, SkillsAnalyzerError, VisualBrandEvaluatorError, ProfileSuperAgentError
 
 
-from models.data_config import (
+from models.config.system_tasks import (
     PROFILE_SCORER_FEATURES_EXTRACTION,
     PROFILE_SCORER_FINAL_ANALYSIS,
 )
@@ -19,7 +19,7 @@ ProfileScorer_Type: TypeAlias = (
     BioAnalyzer          |
     SkillsAnalyzer       |
     VisualBrandEvaluator |
-    SuperAgent
+    PA_SuperAgent
 )
 
 class ProfileAnalysisPipeline:
@@ -136,7 +136,7 @@ class ProfileAnalysisPipeline:
         }
         return all_sub_audits
 
-    async def profile_final_analysis_call(self, input: tuple[dict, dict]) -> SuperAgentSchema:
+    async def profile_final_analysis_call(self, input: tuple[dict, dict]) -> PA_SuperAgentSchema:
         """
         Invokes the Master SuperAgent Orchestrator to compile the final report.
         """
@@ -150,7 +150,7 @@ class ProfileAnalysisPipeline:
             numerical_res=all_sub_audits.get("numerical_res")
         )
     
-    def profile_final_analysis_postprocess(self, agent_output: SuperAgentSchema) -> str:
+    def profile_final_analysis_postprocess(self, agent_output: PA_SuperAgentSchema) -> str:
         """
         Converts the structured SuperAgent Schema output into a highly polished, 
         scannable Markdown report for the freelancer dashboard.

@@ -2,7 +2,7 @@ import re
 import json
 from time import time
 from agents.profile_analysis.BaseAgent import BaseAgent
-from models import SuperAgentSchema
+from models.schemas import PA_SuperAgentSchema
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
 

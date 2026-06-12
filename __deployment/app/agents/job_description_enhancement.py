@@ -8,7 +8,7 @@
 
 
 from groq import Groq
-from helpers.config import get_settings
+from helpers.settings import get_settings
 
 def get_groq_client():
     """

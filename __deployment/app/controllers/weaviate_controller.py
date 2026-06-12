@@ -1,15 +1,14 @@
 
 
-from helpers.config import JOB_DESCRIPTION_ENHANCEMENT_COLLECTION_V1
-from helpers.config import get_settings
+from models.config.agents_config import JOB_DESCRIPTION_ENHANCEMENT_COLLECTION_V1
+from helpers.settings import get_settings
 from weaviate import WeaviateClient
 
 from weaviate.classes.config import Configure, Property, DataType
 from tqdm.auto import tqdm
 import pandas as pd
 
-from models.enums import SuccessEnum, ErrorsEnum
-from helpers.functional import print_success_message
+
 
 
 class WeaviateController:

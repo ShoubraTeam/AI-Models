@@ -3,17 +3,17 @@
 # ----------------------------------------------
 
 # helpers
-from helpers.config import ROUTE_MAIN_ROUTE
+from helpers.settings import ROUTE_MAIN_ROUTE
 import helpers.functional as F
 from time import perf_counter
 
 # messages
-from models.enums            import ResponsesEnum, ErrorsEnum
-from models.pydantic_schemas import AgentInferenceResult, ImageLog
+from models.enums   import ResponsesEnum, ErrorsEnum
+from models.schemas import AgentResultsToSave, ImageLog, AgentInput, AgentOutput
 
 # controllers
-from controllers import FeatureController
-from controllers import AgentController
+from controllers.feature_controller import FeatureController
+from controllers.agents_controller  import AgentController
 
 # fast api
 from fastapi import APIRouter, Request
@@ -56,6 +56,33 @@ def get_good_request(message: str, verification_results: dict[str, bool | float 
         }
     )
 
+
+def get_result_to_save(
+    task         : str,
+    img1         : ImageLog,
+    img2         : ImageLog,
+    verified     : bool,
+    duration     : float,
+    user_feedback: None | str = None
+) -> AgentResultsToSave:
+    agent_input = AgentInput(
+        input_id = f"{img1.filename}__{img2.filename}__verification",
+        images = (img1, img2)
+    )
+
+    agent_output = AgentOutput(
+        output_id = "verified",
+        value = verified
+    )
+
+    return AgentResultsToSave(
+        task = task,
+        agent_input  = agent_input,
+        agent_output = agent_output,
+        duration_s = duration,
+        user_feedback = user_feedback
+    )
+
 # -------------------------------- Routing ---------------------------------
 identity_recognition_router = APIRouter(
     prefix = ROUTE_MAIN_ROUTE 
@@ -88,7 +115,7 @@ async def verify_person_images(
     # setup
     start_time = perf_counter()
     if not F.validate_feature_id(feature_id = feature_id):
-        return get_bad_request(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+        return get_bad_request(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
 
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
@@ -154,14 +181,15 @@ async def verify_person_images(
     duration_s = end_time - start_time
 
     try:
-        result_to_log = AgentInferenceResult(
-            images       = (img1_log, img2_log),
-            agent_output = verification_results['verified'],
-            duration_s   = duration_s,
-            task         = feature_id
+        result_to_save = get_result_to_save(
+            task = feature_id,
+            img1 = img1,
+            img2 = img2,
+            verified = verification_results["verified"],
+            duration = duration_s
         )
 
-        feature_controller.log_result(result = result_to_log)
+        feature_controller.log_result(result = result_to_save)
     
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value

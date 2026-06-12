@@ -1,134 +1,371 @@
-# ---------------------------------------------------------------
-# Job Recommendation System Routes
-# ---------------------------------------------------------------
+# ----------------------------------------------
+# Job Recommendation System
+# ----------------------------------------------
 
+# helpers
+from helpers.settings import ROUTE_MAIN_ROUTE
+import helpers.functional as F
 from time import perf_counter
 
-from fastapi import APIRouter, Request, status
-from fastapi.responses import JSONResponse
-
-from helpers.config import ROUTE_MAIN_ROUTE
-import helpers.functional as F
-
-from models.pydantic_schemas import FreelancerEmbedIP, JobEmbedIP
-from models.data_config import (
-    FEATURE_JOB_RECOMMENDATION_SYSTEM,
+# messages
+from models.enums   import ErrorsEnum
+from models.schemas import AgentResultsToSave, AgentInput, AgentOutput
+from models.schemas import FreelancerEmbedIP, JobEmbedIP
+from models.config.system_tasks import (
     RS_FREELANCER_EMBEDDING,
     RS_JOB_EMBEDDING,
 )
-from controllers import AgentController
+
+# controllers
+from controllers.feature_controller import FeatureController
+from controllers.agents_controller import AgentController
 
 
-job_recommendation_system_router = APIRouter(
-    prefix=ROUTE_MAIN_ROUTE,
-    tags=["Job Recommendation System"],
-)
+# fast api
+from fastapi import APIRouter, Request
+from fastapi.responses import JSONResponse
+from fastapi import status
 
 
-def _bad_request(message: str) -> JSONResponse:
+
+# -------------------------- Helper Functions ---------------------------
+# freelancer embedding
+def get_bad_request_freelancer_embedding(message: str) -> JSONResponse:
+    """Return a bad request error specific for freelancer embedding api"""
     return JSONResponse(
-        status_code=status.HTTP_400_BAD_REQUEST,
-        content={
+        status_code = status.HTTP_400_BAD_REQUEST,
+        content = {
             "success"      : False,
             "message"      : message,
             "enriched_text": None,
             "embedding"    : None,
             "embedding_dim": None,
-        },
+        }
     )
 
+def get_good_request_freelancer_embedding(message: str, enriched_text: str, embedding: list[float]) -> JSONResponse:
+    """Return a good request specific for freelancer embedding"""
 
-def _internal_error(message: str) -> JSONResponse:
     return JSONResponse(
-        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-        content={
-            "success"      : False,
-            "message"      : message,
-            "enriched_text": None,
-            "embedding"    : None,
-            "embedding_dim": None,
-        },
-    )
-
-
-def _ok(message: str, enriched_text: str, embedding: list[float]) -> JSONResponse:
-    return JSONResponse(
-        status_code=status.HTTP_200_OK,
-        content={
+        status_code = status.HTTP_200_OK,
+        content = {
             "success"      : True,
             "message"      : message,
             "enriched_text": enriched_text,
             "embedding"    : embedding,
             "embedding_dim": len(embedding),
-        },
+        }
     )
 
 
-@job_recommendation_system_router.post(
-    "/job-recommendation-system/freelancer-embedding",
-    summary="Embed a freelancer profile",
-)
-async def freelancer_embedding(body: FreelancerEmbedIP, request: Request):
-    t0 = perf_counter()
+# job embedding
+def get_bad_request_job_embedding(message: str) -> JSONResponse:
+    """Return a bad request error specific for job embedding api"""
+    return JSONResponse(
+        status_code = status.HTTP_400_BAD_REQUEST,
+        content = {
+            "success"      : False,
+            "message"      : message,
+            "enriched_text": None,
+            "embedding"    : None,
+            "embedding_dim": None,
+        }
+    )
 
-    try:
-        agents = request.app.state.agents[FEATURE_JOB_RECOMMENDATION_SYSTEM]
-        controller = AgentController(
-            feature_id=FEATURE_JOB_RECOMMENDATION_SYSTEM,
-            agents=agents,
-            task=RS_FREELANCER_EMBEDDING,
-        )
-    except Exception as e:
-        F.print_error(e, "Failed to initialise RS AgentController")
-        return _internal_error("Recommendation System agent is not available.")
+def get_good_request_job_embedding(message: str, enriched_text: str, embedding: list[float]) -> JSONResponse:
+    """Return a good request specific for job embedding"""
 
-    try:
-        raw_input    = (body.bio, body.skills, body.job_title)
-        preprocessed = controller.preprocess_input(raw_input)
-        agent_output = controller.call_agent(preprocessed)
-        result       = controller.postprocess_agent_output(agent_output)
-    except Exception as e:
-        F.print_error(e, "Error during freelancer embedding pipeline")
-        return _internal_error(f"Embedding pipeline failed: {e}")
-
-    duration = round(perf_counter() - t0, 4)
-    return _ok(
-        message=f"Freelancer embedding generated successfully in {duration}s.",
-        enriched_text=result["enriched_text"],
-        embedding=result["embedding"],
+    return JSONResponse(
+        status_code = status.HTTP_200_OK,
+        content = {
+            "success"      : True,
+            "message"      : message,
+            "enriched_text": enriched_text,
+            "embedding"    : embedding,
+            "embedding_dim": len(embedding),
+        }
     )
 
 
-@job_recommendation_system_router.post(
-    "/job-recommendation-system/job-embedding",
-    summary="Embed a job posting",
-)
-async def job_embedding(body: JobEmbedIP, request: Request):
-    t0 = perf_counter()
-
-    try:
-        agents = request.app.state.agents[FEATURE_JOB_RECOMMENDATION_SYSTEM]
-        controller = AgentController(
-            feature_id=FEATURE_JOB_RECOMMENDATION_SYSTEM,
-            agents=agents,
-            task=RS_JOB_EMBEDDING,
+def get_result_to_save(
+    task         : str,
+    duration     : float,
+    bio          : str | None = None,
+    description  : str | None = None,
+    skills       : list[str] | None = None,
+    job_title    : str | None = None,
+    enriched_text: str | None = None,
+    embedding    : list[float] | None = None,
+    user_feedback: None | str = None
+) -> AgentResultsToSave:
+    
+    if task == RS_FREELANCER_EMBEDDING:
+        agent_input = AgentInput(
+            input_id = "freelancer_embedding_input___bio___skills___job_title",
+            value    = {
+                "bio"      : bio,
+                "skills"   : skills,
+                "job_title": job_title,
+            }
         )
+
+        agent_output = AgentOutput(
+            output_id = "freelancer_embedding",
+            value     = {
+                "enriched_text": enriched_text,
+                "embedding"    : embedding,
+                "embedding_dim": len(embedding) if embedding is not None else None,
+            }
+        )
+    
+    elif task == RS_JOB_EMBEDDING:
+        agent_input = AgentInput(
+            input_id = "job_embedding_input___job_description___skills___job_title",
+            value    = {
+                "description": description,
+                "skills"     : skills,
+                "job_title"  : job_title,
+            }
+        )
+
+        agent_output = AgentOutput(
+            output_id = "job_embedding",
+            value     = {
+                "enriched_text": enriched_text,
+                "embedding"    : embedding,
+                "embedding_dim": len(embedding) if embedding is not None else None,
+            }
+        )
+
+
+    return AgentResultsToSave(
+        task = task,
+        agent_input  = agent_input,
+        agent_output = agent_output,
+        duration_s = duration,
+        user_feedback = user_feedback
+    )
+
+# -------------------------------- Routing ---------------------------------
+job_recommendation_system_router = APIRouter(prefix = ROUTE_MAIN_ROUTE )
+
+
+# Freelancer Embedding
+@job_recommendation_system_router.post("/{feature_id}/freelancer_embedding")
+async def freelancer_embedding(
+    feature_id: str,
+    data      : FreelancerEmbedIP,
+    request   : Request
+) -> dict[str, bool]:
+    """
+    This endpoint does the following:
+        - validate the given freelancer data
+        - preprocess freelancer data
+        - generate an embedding for recommendation
+
+    Returns:
+        {
+            "success"      : True, if no error,
+            "message"      : message returned,
+            "enriched_text": enriched text used for embedding,
+            "embedding"    : embedding vector,
+            "embedding_dim": embedding vector length,
+        }
+    """
+    start_time = perf_counter()
+
+    # setup
+    task = RS_FREELANCER_EMBEDDING
+    if not F.validate_feature_id(feature_id = feature_id):
+        return get_bad_request_freelancer_embedding(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
+    if not F.validate_recommendation_system_task(task = task):
+        return get_bad_request_freelancer_embedding(message = ErrorsEnum.RS_INVALID_TASK.value)
+    
+    # controllers
+    feature_controller = FeatureController(feature_id = feature_id)
+
+    agent_controller_kwargs = {"task": task}
+    agent_controller = AgentController(
+        feature_id = feature_id,
+        agents     = request.app.state.agents[feature_id],
+        **agent_controller_kwargs
+    )    
+
+
+    # read data
+    bio       = data.bio
+    skills    = data.skills
+    job_title = data.job_title
+
+
+    # preprocessing
+    try:
+        preprocessed = agent_controller.preprocess_input(input = (bio, skills, job_title))
+
     except Exception as e:
-        F.print_error(e, "Failed to initialise RS AgentController")
-        return _internal_error("Recommendation System agent is not available.")
+        m = ErrorsEnum.DEBUG_ERROR_PREPROCESSING_INPUT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_freelancer_embedding(message = m)
+
+
+    # calling the agent
+    try:
+        agent_output = agent_controller.call_agent(input = preprocessed)
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_CALLING_AGENT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_freelancer_embedding(message = m)
+    
+
+    # post-processing
+    try:
+        agent_output = agent_controller.postprocess_agent_output(agent_output = agent_output)
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_POSTPROCESSING_OUTPUT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_freelancer_embedding(message = m)
+    
+
+    enriched_text = agent_output["enriched_text"]
+    embedding     = agent_output["embedding"]
+
+
+    # log result
+    end_time = perf_counter()
+    duration_s = end_time - start_time
 
     try:
-        raw_input    = (body.description, body.skills, body.job_title)
-        preprocessed = controller.preprocess_input(raw_input)
-        agent_output = controller.call_agent(preprocessed)
-        result       = controller.postprocess_agent_output(agent_output)
-    except Exception as e:
-        F.print_error(e, "Error during job embedding pipeline")
-        return _internal_error(f"Embedding pipeline failed: {e}")
+        result_to_save = get_result_to_save(
+            task          = task,
+            duration      = duration_s,
+            bio           = bio,
+            skills        = skills,
+            job_title     = job_title,
+            enriched_text = enriched_text,
+            embedding     = embedding
+        )
 
-    duration = round(perf_counter() - t0, 4)
-    return _ok(
-        message=f"Job embedding generated successfully in {duration}s.",
-        enriched_text=result["enriched_text"],
-        embedding=result["embedding"],
+        feature_controller.log_result(result = result_to_save)
+    
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_freelancer_embedding(message = m)
+
+
+    return get_good_request_freelancer_embedding(
+        message       = f"Freelancer embedding generated successfully in {duration_s:.4f}s.",
+        enriched_text = enriched_text,
+        embedding     = embedding
+    )
+
+
+
+# Job Embedding
+@job_recommendation_system_router.post("/{feature_id}/job_embedding")
+async def job_embedding(
+    feature_id: str,
+    data      : JobEmbedIP,
+    request   : Request
+) -> dict[str, bool]:
+    """
+    This endpoint does the following:
+        - validate the given job data
+        - preprocess job data
+        - generate an embedding for recommendation
+
+    Returns:
+        {
+            "success"      : True, if no error,
+            "message"      : message returned,
+            "enriched_text": enriched text used for embedding,
+            "embedding"    : embedding vector,
+            "embedding_dim": embedding vector length,
+        }
+    """
+    start_time = perf_counter()
+
+    # setup
+    task = RS_JOB_EMBEDDING
+    if not F.validate_feature_id(feature_id = feature_id):
+        return get_bad_request_job_embedding(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
+    if not F.validate_recommendation_system_task(task = task):
+        return get_bad_request_job_embedding(message = ErrorsEnum.RS_INVALID_TASK.value)
+    
+    # controllers
+    feature_controller = FeatureController(feature_id = feature_id)
+
+    agent_controller_kwargs = {"task": task}
+    agent_controller = AgentController(
+        feature_id = feature_id,
+        agents     = request.app.state.agents[feature_id],
+        **agent_controller_kwargs
+    )    
+
+
+    # read data
+    description = data.description
+    skills      = data.skills
+    job_title   = data.job_title
+
+
+    # preprocessing
+    try:
+        preprocessed = agent_controller.preprocess_input(input = (description, skills, job_title))
+
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_PREPROCESSING_INPUT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_job_embedding(message = m)
+
+
+    # calling the agent
+    try:
+        agent_output = agent_controller.call_agent(input = preprocessed)
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_CALLING_AGENT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_job_embedding(message = m)
+    
+
+    # post-processing
+    try:
+        agent_output = agent_controller.postprocess_agent_output(agent_output = agent_output)
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_POSTPROCESSING_OUTPUT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_job_embedding(message = m)
+    
+
+    enriched_text = agent_output["enriched_text"]
+    embedding     = agent_output["embedding"]
+
+
+    # log result
+    end_time = perf_counter()
+    duration_s = end_time - start_time
+
+    try:
+        result_to_save = get_result_to_save(
+            task          = task,
+            duration      = duration_s,
+            description   = description,
+            skills        = skills,
+            job_title     = job_title,
+            enriched_text = enriched_text,
+            embedding     = embedding
+        )
+
+        feature_controller.log_result(result = result_to_save)
+    
+    except Exception as e:
+        m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
+        F.print_error(error = e, message = m)
+        return get_bad_request_job_embedding(message = m)
+
+
+    return get_good_request_job_embedding(
+        message       = f"Job embedding generated successfully in {duration_s:.4f}s.",
+        enriched_text = enriched_text,
+        embedding     = embedding
     )

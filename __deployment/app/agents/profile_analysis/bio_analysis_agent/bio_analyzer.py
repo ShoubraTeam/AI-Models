@@ -1,8 +1,8 @@
 import re
 from time import time
 from agents.profile_analysis.BaseAgent import BaseAgent
-from models import BioAnalyzerSchema
-from helpers.config import DEFAULT_MODELS_CFG
+from models.schemas import BioAnalyzerSchema
+from models.config.agents_config import PA_DEFAULT_MODELS_CFG
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
 
@@ -17,7 +17,7 @@ class BioAnalyzer(BaseAgent):
         **kwargs
     ):
         if "temperature" not in kwargs:
-            kwargs = DEFAULT_MODELS_CFG["bio_analyzer"]
+            kwargs = PA_DEFAULT_MODELS_CFG["bio_analyzer"]
 
         super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
         self.case_counter = 0 
