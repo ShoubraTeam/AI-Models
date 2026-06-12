@@ -4,7 +4,7 @@
 from groq import Groq
 from agents.job_description_enhancement import detect_tools, extract_tools, enhance_job
 from typing import Callable
-from helpers.config import JOB_DESCRIPTION_N_JOBS_TO_RETRIEVE, JOB_DESCRIPTION_RETRIEVAL_ALPHA
+from models.config.agents_config import JOB_DESCRIPTION_N_JOBS_TO_RETRIEVE, JOB_DESCRIPTION_RETRIEVAL_ALPHA
 import ast
 from weaviate.collections import Collection
 
@@ -15,7 +15,7 @@ from prompts import (
     JOB_DESCRIPTION_ENHANCEMENT_PROMPT_WITHOUT_RAG
 )
 
-from models.data_config import (
+from models.config.system_tasks import (
     JOB_DESC_TOOLS_DETECTION,
     JOB_DESC_TOOLS_RECOMMENDATION,
     JOB_DESC_JOB_DESCRIPTION_ENHANCEMENT

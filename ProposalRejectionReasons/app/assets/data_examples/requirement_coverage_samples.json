@@ -1,0 +1,16 @@
+[
+    {
+        "job_desc": "We need a medical patient dashboard. The core mandatory feature is to display real-time patient vitals. We highly recommend including an automated PDF report generator for doctors. Note on security: Because of strict privacy laws, do NOT use any external cloud AI APIs (like OpenAI or Anthropic) to analyze patient data; sending data to cloud APIs is strictly forbidden. The system should ideally have a dark mode toggle.",
+        "proposals" : [
+            "Proposal 1 (The Smart Wrapper - Forbidden Violated): Hi, I can build this medical dashboard with real-time vitals. For the data analysis, I will integrate OpenAI GPT-4, but don't worry about privacy, I will write a custom proxy wrapper that scrambles patient names before sending it to the cloud. I will also include the PDF report generator and a dark mode interface.",
+            "Proposal 2 (Compliant but Lazy - Forbidden Respected): Hello, I will build the dashboard for real-time patient vitals. To ensure 100% compliance with privacy laws, I will strictly avoid OpenAI/Anthropic and process everything locally on your server. I don't have time to do the PDF reports or the dark mode in this version."
+        ]
+    },
+    {
+        "job_desc": "I need a corporate website for an investment firm. The mandatory requirement is a interactive stock portfolio tracking chart. We recommend adding a live news feed component. To protect our database from external leaks, you must NOT use any third-party external database hosting (like Firebase or Supabase); self-hosting the database locally on our own VPS is strictly forbidden to change. An optional feature is adding user profile pictures.",
+        "proposals" : [
+            "Proposal 1 (The Over-engineer - Forbidden Violated): Dear client, I will build your investment site with the portfolio tracking chart. I am going to use Supabase Cloud for the database because it has built-in security features that are better than self-hosting, saving us database configuration time. I will also add the live news feed and optional user profile pictures.",
+            "Proposal 2 (The Perfect Match): I can deliver the portfolio tracking chart and will set up a local PostgreSQL database hosted entirely on your private VPS, completely excluding Firebase/Supabase to prevent any external leaks. I will also include the recommended live news feed, but I will skip the optional profile pictures."
+        ]
+    }
+]

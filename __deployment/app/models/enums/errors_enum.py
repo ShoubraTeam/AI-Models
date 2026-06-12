@@ -1,10 +1,22 @@
+# --------------------------------------------- #
+# Errors that should help debug the system
+# --------------------------------------------- #
+
+
 from enum import Enum
 
 class ErrorsEnum(Enum):
-    JD_ENH_ERROR_TASK = "Job Description Task is invalid"
-    PRR_ERROR_TASK  = "Proposa Rejection Task is Invalid"
+    GENERAL_Invalid_FEATURE_ID = "Feature ID is not valid."
 
-    # log results
+    # task errors
+    JD_ENH_INVALID_TASK = "Job Description Task is invalid"
+    PRR_INVALID_TASK    = "Proposal Rejection Reasons Task is Invalid"
+    ID_INVALID_TASK     = "Identity Recognition Task is Invalid"
+    RS_INVALID_TASK     = "Job Recommendation System Task is Invalid"
+    PS_INVALID_TASK     = "Profile Analysis Task is Invalid"
+    
+
+    # log errors
     LOG_JSON_FILE_LOADING_ERROR    = "Json file loading error"
     LOG_JSON_FILE_SAVING_ERROR     = "Json file saving error"
     LOG_JSON_FILE_PROCESSING_ERROR = "Json file processing error"

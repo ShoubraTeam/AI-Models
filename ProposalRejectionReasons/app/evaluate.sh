@@ -5,12 +5,12 @@ VENV_PATH="/mnt/d/Focus/_____Active_______/AI/venvs/GP/PRR/bin/activate"
 
 TASKS=(
     # "job_tools_extractor"
-    #"proposal_tools_analyzer"
+    "proposal_tools_analyzer"
     #"job_requirements_extractor"
     #"job_requirements_matcher"
     # "job_key_points_extractor"
     #"job_understanding_evaluator"
-    "experience_evidence_finder"
+    #"experience_evidence_finder"
     # "language_clarity_evaluator"
 )
 
@@ -39,7 +39,7 @@ MODELS_JOB_UNDERSTANDING_KEY_POINTS_EXTRACTOR=(
 
 
 MODELS_JOB_UNDERSTANDING_MATCHER=(
-    "GEMINI_FLASH"
+    "LLAMA_8B"
     "LLAMA_70B"
     "GPT_OSS_120B"
 )
@@ -146,7 +146,7 @@ do
                 for top_p in "${TOP_Ps[@]}"
                 do
                     echo -e "\t\t>>>>> Run ID: $run_id <<<<<"
-                    python evaluate.py \
+                    python.exe evaluate.py \
                         --run_id      "$run_id" \
                         --task        "$task" \
                         --model       "$model" \

@@ -176,7 +176,7 @@ def build_reasons(
     return reasons
 
 
-def calc_language_clarity_result(
+def get_final_language_clarity_result(
     llm_eval     : LanguageClarityEvalSchema,
     proposal_text: str,
     threshold    : float = LANGUAGE_CLARITY_THRESHOLD

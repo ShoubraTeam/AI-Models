@@ -2,9 +2,11 @@
 # Functions to pre-process | post-process data from the tools_alignment agents
 # -------------------------------------------------------------------------------
 
-from models.pydantic_schemas import JobTool, ProposalToolsResponse, FinalSubagentResult, ProposalToolReview
-from helpers.config import NECESSITY_LEVEL_WEIGHTS, WITH_CONFIDENCE_TOOL_WEIGHT, GENERIC_TOOL_WEIGHT
-from helpers.config import TA_TOOL_ALIGNMENT_THRESHOLD
+from models.schemas import JobTool, ProposalToolsResponse, FinalSubagentResult, ProposalToolReview
+from models.config.agents_config import PRR_NECESSITY_LEVEL_WEIGHTS as NECESSITY_LEVEL_WEIGHTS
+from models.config.agents_config import PRR_WITH_CONFIDENCE_TOOL_WEIGHT as WITH_CONFIDENCE_TOOL_WEIGHT
+from models.config.agents_config import PRR_GENERIC_TOOL_WEIGHT as GENERIC_TOOL_WEIGHT
+from models.config.agents_config import TA_TOOL_ALIGNMENT_THRESHOLD
 
 
 

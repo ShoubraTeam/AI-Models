@@ -1,5 +1,5 @@
-from models.pydantic_schemas import LanguageClarityEvalSchema
-from models.pydantic_schemas import FinalSubagentResult
+from models.schemas import LanguageClarityEvalSchema
+from models.schemas import FinalSubagentResult
 import re
 
 LANGUAGE_CLARITY_THRESHOLD = 0.5  # normalized 0.0–1.0

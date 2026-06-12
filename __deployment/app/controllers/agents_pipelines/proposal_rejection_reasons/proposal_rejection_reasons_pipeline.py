@@ -7,13 +7,14 @@ import asyncio
 from typing import Any
 
 # sub-agents
-from agents.proposal_rejection_reasons.tools_alignment      import JobToolsExtractor, ProposalToolsAnalyzer
-from agents.proposal_rejection_reasons.experience_evidence  import ExperienceEvidenceAgent
-from agents.proposal_rejection_reasons.language_clarity     import LanguageClarityEvaluator
-from agents.proposal_rejection_reasons.job_understanding    import JobUnderstandingEvaluator, JobKeyPointsExtractor
-from agents.proposal_rejection_reasons.requirement_coverage import JobRequirementsExtractor, JobRequirementsMatcher
-from agents.proposal_rejection_reasons.super_agent import ProposalRejectionSuperAgent
-from models.pydantic_schemas import SuperAgentResponse, FinalSubagentResult
+from agents.proposal_rejection_reasons import JobToolsExtractor, ProposalToolsAnalyzer
+from agents.proposal_rejection_reasons import ExperienceEvidenceAgent
+from agents.proposal_rejection_reasons import LanguageClarityEvaluator
+from agents.proposal_rejection_reasons import JobUnderstandingEvaluator, JobKeyPointsExtractor
+from agents.proposal_rejection_reasons import JobRequirementsExtractor, JobRequirementsMatcher
+from agents.proposal_rejection_reasons import PRR_SuperAgent
+
+from models.schemas import PRR_SuperAgentResponse, FinalSubagentResult
 
 
 ProposalRejectionReasons_Type = (
@@ -25,7 +26,7 @@ ProposalRejectionReasons_Type = (
     JobRequirementsExtractor    |
     LanguageClarityEvaluator    |
     ExperienceEvidenceAgent     |
-    ProposalRejectionSuperAgent
+    PRR_SuperAgent
 )
 
 
@@ -40,7 +41,7 @@ from .processing import (
 )
 
 
-from models.pydantic_schemas import JobToolResponse, JobKeyPointsSchema, ExtractedRequirementsSchema
+from models.schemas import JobToolResponse, JobKeyPointsSchema, ExtractedRequirementsSchema
 
 # errors 
 from .pipeline_errors import (
@@ -56,7 +57,7 @@ from .pipeline_errors import (
 
 
 # Thresholds 
-from helpers.config import (
+from models.config.agents_config import (
     TA_TOOL_ALIGNMENT_THRESHOLD,
     JD_JOB_UNDERSTANDING_THRESHOLD,
     RQ_REQUIREMENT_COVERAGE_THRESHOLD,
@@ -65,7 +66,7 @@ from helpers.config import (
 )
 
 
-from models.data_config import (
+from models.config.system_tasks import (
     PROPOSAL_REJECTION_REASONS_JOB_FEATURES_EXTRACTION,
     PROPOSAL_REJECTION_REASONS_PROPOSAL_ANALYSIS,
 )
@@ -152,21 +153,21 @@ class ProposalsRejectionReasonsPipeline:
 
     async def _extract_job_tools(self, job_desc: str):
         try:
-            return await self.job_tools_extractor.ainvoke(input = job_desc)
+            return await self.job_tools_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobToolsExtractorError, e)
 
 
     async def _extract_job_key_points(self, job_desc: str):
         try:
-            return await self.job_key_points_extractor.ainvoke(input = job_desc)
+            return await self.job_key_points_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobKeyPointsExtractorError, e)
 
 
     async def _extract_job_requirements(self, job_desc: str):
         try:
-            return await self.requirement_extractor.ainvoke(input = job_desc)
+            return await self.requirement_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobRequirementExtractorError, e)
 
@@ -506,7 +507,7 @@ class ProposalsRejectionReasonsPipeline:
         return self.parse_subagents_results(subagent_results)
 
 
-    async def proposal_analysis_call(self, input: tuple[str, str, str]) -> SuperAgentResponse:
+    async def proposal_analysis_call(self, input: tuple[str, str, str]) -> PRR_SuperAgentResponse:
         job_desc, proposal, parsed_subagent_results = input
         return await self.super_agent.ainvoke(
             job_desc = job_desc,
@@ -515,7 +516,7 @@ class ProposalsRejectionReasonsPipeline:
         )
     
 
-    def proposal_analysis_postprocess(self, agent_output: SuperAgentResponse) -> str:
+    def proposal_analysis_postprocess(self, agent_output: PRR_SuperAgentResponse) -> str:
         """
         Convert the structured super-agent response into a readable final report.
         """
@@ -558,14 +559,18 @@ class ProposalsRejectionReasonsPipeline:
             format_list_section(
                 title = "Recommendations",
                 items = agent_output.recommendations,
-            ),
-            format_list_section(
-                title = "Evaluation Limitations",
-                items = agent_output.evaluation_limitations,
-            ),
+            )
         ]
 
-        return "\n\n".join(report_sections)
+        failed_sections = format_list_section(
+            title = "Evaluation Limitations",
+            items = agent_output.evaluation_limitations,
+        ),
+
+        return {
+            "final_report"    : "\n\n".join(report_sections),
+            "failed_sections" : failed_sections
+        }
 
     
     

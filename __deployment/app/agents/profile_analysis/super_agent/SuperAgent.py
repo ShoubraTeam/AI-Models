@@ -2,7 +2,7 @@ import re
 import json
 from time import time
 from agents.profile_analysis.BaseAgent import BaseAgent
-from models import SuperAgentSchema
+from models.schemas import PA_SuperAgentSchema
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage
 
@@ -12,11 +12,19 @@ class SuperAgent(BaseAgent):
     performs cross-domain reasoning, and compiles the final Executive Audit Report.
     Includes built-in Hybrid Evaluation Engine to audit cross-domain synthesis quality.
     """
-    def __init__(self, model_name: str, system_prompt: str, tools: list = [], structured_response = None, **kwargs):
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+    def __init__(
+        self, 
+        model_name: str, 
+        system_prompt: str, 
+        tools: list = [], 
+        structured_response = None, 
+        model_provider: str = "groq",
+        **kwargs
+    ):
+        super().__init__(model_name, system_prompt, tools, structured_response, model_provider, **kwargs)
         self.case_counter = 0
 
-    def invoke(self, visual_res, bio_res, skills_res, numerical_res) -> SuperAgentSchema:
+    def invoke(self, visual_res, bio_res, skills_res, numerical_res) -> PA_SuperAgentSchema:
         
         def to_dict(obj):
             if hasattr(obj, "dict"): return obj.dict()

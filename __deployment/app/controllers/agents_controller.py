@@ -1,9 +1,10 @@
 
-from models.data_config import (
+from models.config.system_tasks import (
     FEATURE_IDENITY_RECOGNITION,
     FEATURE_JOB_RECOMMENDATION_SYSTEM,
     FEATURE_PROFILE_ANALYSIS,
     FEATURE_JOB_DESCRIPTION_ENHANCEMENT,
+    FEATURE_PROPOSAL_REJECTION_REASONS
 )
 
 from typing import Any
@@ -37,27 +38,22 @@ class AgentController:
         
         if self.feature_id == FEATURE_IDENITY_RECOGNITION:
             from .agents_pipelines.identity_recognition import IdentityRecognitionPipeline
-
             return IdentityRecognitionPipeline(agents)
             
         elif self.feature_id == FEATURE_JOB_RECOMMENDATION_SYSTEM:
             from .agents_pipelines.job_recommendation_system import JobRecommendationSystemPipeline
-
-            return JobRecommendationSystemPipeline(agents, task=kwargs.get("task"))
+            return JobRecommendationSystemPipeline(agents, task = kwargs.get("task"))
             
         elif self.feature_id == FEATURE_PROFILE_ANALYSIS:
             from .agents_pipelines.profile_analysis.profile_analysis_pipeline import ProfileAnalysisPipeline
-
             return ProfileAnalysisPipeline(agents, task = kwargs.get("task")) 
             
         elif self.feature_id == FEATURE_JOB_DESCRIPTION_ENHANCEMENT:
             from .agents_pipelines.job_description_enhancement import JobDescriptionEnhancementPipeline
-
             return JobDescriptionEnhancementPipeline(agents, client = client, **kwargs) 
             
         else: 
             from .agents_pipelines.proposal_rejection_reasons import ProposalsRejectionReasonsPipeline
-
             return ProposalsRejectionReasonsPipeline(agents, **kwargs)
     
 

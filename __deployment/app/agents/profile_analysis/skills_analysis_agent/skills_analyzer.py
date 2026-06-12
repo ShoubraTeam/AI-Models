@@ -2,8 +2,8 @@ import re
 from time import time
 from typing import List
 from agents.profile_analysis.BaseAgent import BaseAgent
-from models import SkillsAnalyzerSchema  
-from helpers.config import DEFAULT_MODELS_CFG
+from models.schemas import SkillsAnalyzerSchema  
+from models.config.agents_config import PA_DEFAULT_MODELS_CFG
 
 
 class SkillsAnalyzer(BaseAgent):
@@ -13,12 +13,13 @@ class SkillsAnalyzer(BaseAgent):
         system_prompt: str,
         tools: list = [],
         structured_response = None,
+        model_provider: str = "groq",
         **kwargs
     ):
         if "temperature" not in kwargs:
-            kwargs = DEFAULT_MODELS_CFG.get("skills_analyzer", {"temperature": 0.1})
+            kwargs = PA_DEFAULT_MODELS_CFG.get("skills_analyzer", {"temperature": 0.1})
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, tools, structured_response, model_provider, **kwargs)
         self.case_counter = 0
 
     def invoke(

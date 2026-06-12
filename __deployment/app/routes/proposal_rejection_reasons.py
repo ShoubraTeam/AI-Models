@@ -3,23 +3,24 @@
 # ----------------------------------------------
 
 # helpers
-from helpers.config import ROUTE_MAIN_ROUTE
+from helpers.settings import ROUTE_MAIN_ROUTE
 import helpers.functional as F
 from time import perf_counter
 import inspect
+from pydantic import BaseModel
 
 # messages
-from models.enums            import ResponsesEnum, ErrorsEnum
-from models.pydantic_schemas import AgentInferenceResult
-from models.pydantic_schemas import JobToolResponse, JobKeyPointsSchema, ExtractedRequirementsSchema
-from models.data_config      import (
+from models.enums   import ResponsesEnum, ErrorsEnum
+from models.schemas import AgentResultsToSave, AgentInput, AgentOutput
+from models.schemas import JobToolResponse, JobKeyPointsSchema, ExtractedRequirementsSchema
+from models.config.system_tasks import (
     PROPOSAL_REJECTION_REASONS_JOB_FEATURES_EXTRACTION,
     PROPOSAL_REJECTION_REASONS_PROPOSAL_ANALYSIS
 )
 
 # controllers
-from controllers import FeatureController
-from controllers import AgentController
+from controllers.feature_controller import FeatureController
+from controllers.agents_controller import AgentController
 
 # fast api
 from fastapi import APIRouter, Request
@@ -86,7 +87,7 @@ def get_bad_request_proposal_analysis(message: str) -> JSONResponse:
         }
     )
 
-def get_good_request_proposal_analysis(message: str, report: str) -> JSONResponse:
+def get_good_request_proposal_analysis(message: str, report: str, failed: str) -> JSONResponse:
     """Return a good request specific for proposal analysis api"""
 
     
@@ -96,15 +97,10 @@ def get_good_request_proposal_analysis(message: str, report: str) -> JSONRespons
             "success"             : True,
             "message"             : message,
             "proposal_report"     : report,
+            "failed_sections"     : failed
         }
     )
 
-
-
-
-
-# input schemas
-from pydantic import BaseModel
 
 class ExtractionJobFeaturesIP(BaseModel):
     job_description: str
@@ -114,6 +110,66 @@ class ProposalAnalysisIP(BaseModel):
     job_description: str
     proposal_text  : str
     job_features   : dict[str, JobToolResponse | JobKeyPointsSchema | ExtractedRequirementsSchema]
+
+
+def get_result_to_save(
+    task                    : str,
+    duration                : float,
+    job_desc                : str  | None = None,
+    proposal                : str  | None = None,
+    job_features            : dict | None = None,
+    user_feedback           : None | str = None,
+    report                  : str  | None = None,
+    failed                  : str  | None = None,
+) -> AgentResultsToSave:
+    
+    if task == PROPOSAL_REJECTION_REASONS_JOB_FEATURES_EXTRACTION:
+        agent_input = AgentInput(
+            input_id = f"job_description",
+            value    = job_desc
+        )
+
+        agent_output = AgentOutput(
+            output_id = "extracted_job_features",
+            value = {
+                "job_tools"        : job_features['job_tools'],
+                "job_requirements" : job_features["job_requirements"],
+                "job_key_points"   : job_features['job_key_points']
+            }
+        )
+    
+    elif task == PROPOSAL_REJECTION_REASONS_PROPOSAL_ANALYSIS:
+        agent_input = AgentInput(
+            input_id = "job_data__proposal",
+            value    = {
+                "job_desc"    : job_desc,
+                "proposal"    : proposal,
+                "job_features": {
+                    "job_tools"        : job_features['job_tools'],
+                    "job_requirements" : job_features["job_requirements"],
+                    "job_key_points"   : job_features['job_key_points']
+                }
+            }
+        )
+
+        agent_output = AgentOutput(
+            output_id = "report__failed_sections",
+            value     = {
+                "report"         : report,
+                "failed_sections": failed
+            }
+        )
+
+
+
+    return AgentResultsToSave(
+        task = task,
+        agent_input  = agent_input,
+        agent_output = agent_output,
+        duration_s = duration,
+        user_feedback = user_feedback
+    )
+
 
 # -------------------------------- Routing ---------------------------------
 proposal_rejection_reasons_router = APIRouter(
@@ -146,9 +202,9 @@ async def job_features_extraction(
     # setup
     task = PROPOSAL_REJECTION_REASONS_JOB_FEATURES_EXTRACTION
     if not F.validate_feature_id(feature_id = feature_id):
-        return get_bad_request_job_features_extraction(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+        return get_bad_request_job_features_extraction(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
     if not F.validate_proposal_rejection_reason_task(task = task):
-        return get_bad_request_job_features_extraction(message = ErrorsEnum.PRR_ERROR_TASK.value)
+        return get_bad_request_job_features_extraction(message = ErrorsEnum.PRR_INVALID_TASK.value)
 
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
@@ -169,7 +225,7 @@ async def job_features_extraction(
 
         feature_errors = get_job_feature_errors(agent_output)
         if feature_errors:
-            raise RuntimeError(f"Some job features failed: {feature_errors}")
+            raise RuntimeError(f"{ErrorsEnum.DEBUG_ERROR_CALLING_AGENT.value} - Some job features failed: {feature_errors}")
 
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_CALLING_AGENT.value
@@ -182,14 +238,14 @@ async def job_features_extraction(
     duration_s = end_time - start_time
 
     try:
-        result_to_log = AgentInferenceResult(
-            user_input   = job_desc,
-            agent_output = jsonable_encoder(agent_output),
-            duration_s   = duration_s,
-            task         = task
+        result_to_save = get_result_to_save(
+            task = task,
+            duration = duration_s,
+            job_desc = job_desc,
+            job_features = agent_output
         )
 
-        feature_controller.log_result(result = result_to_log)
+        feature_controller.log_result(result = result_to_save)
     
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
@@ -226,13 +282,12 @@ async def proposal_analysis(
     """
     start_time = perf_counter()
 
-
     # setup
     task = PROPOSAL_REJECTION_REASONS_PROPOSAL_ANALYSIS
     if not F.validate_feature_id(feature_id = feature_id):
-        return get_bad_request_proposal_analysis(message = ResponsesEnum.GENERAL_ERROR_WRONG_FEATURE_ID.value)
+        return get_bad_request_proposal_analysis(message = ErrorsEnum.GENERAL_Invalid_FEATURE_ID.value)
     if not F.validate_proposal_rejection_reason_task(task = task):
-        return get_bad_request_proposal_analysis(message = ErrorsEnum.PRR_ERROR_TASK.value)
+        return get_bad_request_proposal_analysis(message = ErrorsEnum.PRR_INVALID_TASK.value)
     
     # controllers
     feature_controller = FeatureController(feature_id = feature_id)
@@ -288,19 +343,26 @@ async def proposal_analysis(
         return get_bad_request_proposal_analysis(message = m)
     
 
+    final_report = agent_output["final_report"]
+    failed_sections = agent_output["failed_sections"]
+    
+
     # log result
     end_time = perf_counter()
     duration_s = end_time - start_time
 
     try:
-        result_to_log = AgentInferenceResult(
-            user_input   = (f"Job Description: {job_desc}", f"Proposal: {proposal}", f"Job Features: {jsonable_encoder(job_features)}"),
+        result_to_save = get_result_to_save(
             task         = task,
-            agent_output = agent_output,
-            duration_s   = duration_s,
+            duration     = duration_s,
+            job_desc     = job_desc,
+            proposal     = proposal,
+            job_features = job_features,
+            report       = final_report,
+            failed       = failed_sections,
         )
 
-        feature_controller.log_result(result = result_to_log)
+        feature_controller.log_result(result = result_to_save)
     
     except Exception as e:
         m = ErrorsEnum.DEBUG_ERROR_LOGGING_THE_RESULT.value
@@ -310,5 +372,6 @@ async def proposal_analysis(
 
     return get_good_request_proposal_analysis(
         message = ResponsesEnum.PRR_PROPOSAL_ANALYSIS_COMPLETED.value,
-        report  = agent_output
+        report  = final_report,
+        failed  = failed_sections,
     )

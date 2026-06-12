@@ -40,7 +40,7 @@ def build_requirement_reasons(accepted: bool) -> list[str]:
     return reasons
 
 
-def calc_requirement_coverage_score(
+def get_final_requirements_coverage_result(
     extracted_requirements, 
     final_coverage, 
     threshold: float = REQUIREMENT_THRESHOLD

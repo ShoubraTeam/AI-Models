@@ -13,7 +13,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 2.5438610712687173
+		>> agent_invokation_time --> 1.099812904993693
 
 
 => Sample #2:
@@ -23,7 +23,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 0.45505285263061523
+		>> agent_invokation_time --> 0.8399813175201416
 
 
 => Sample #3:
@@ -33,7 +33,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 1.9328107833862305
+		>> agent_invokation_time --> 1.4447870254516602
 
 
 => Sample #4:
@@ -43,7 +43,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.6666666666666666
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 0.6666666666666666
-		>> agent_invokation_time --> 1.0238810380299885
+		>> agent_invokation_time --> 4.581014792124431
 
 
 => Sample #5:
@@ -53,7 +53,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.5
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 2.8448686599731445
+		>> agent_invokation_time --> 1.2697138786315918
 
 
 => Sample #6:
@@ -63,7 +63,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.75
 		>> tools_analysis_recall --> 0.75
 		>> with_confidence_accuracy --> 0.75
-		>> agent_invokation_time --> 4.09009325504303
+		>> agent_invokation_time --> 1.0628222227096558
 
 
 => Sample #7:
@@ -73,7 +73,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.0
 		>> tools_analysis_recall --> 0.0
 		>> with_confidence_accuracy --> 0.0
-		>> agent_invokation_time --> 1.8845276832580566
+		>> agent_invokation_time --> 4.269407510757446
 
 
 => Sample #8:
@@ -83,7 +83,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 1.5670175552368164
+		>> agent_invokation_time --> 3.3599610328674316
 
 
 => Sample #9:
@@ -93,7 +93,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.9523809523809524
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9513771533966064
+		>> agent_invokation_time --> 1.7883546352386475
 
 
 => Sample #10:
@@ -103,7 +103,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 0.8333333333333333
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4703106880187988
+		>> agent_invokation_time --> 1.8029725551605225
 
 
 => Sample #11:
@@ -113,7 +113,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 1.1139717102050781
+		>> agent_invokation_time --> 2.6743433475494385
 
 
 => Sample #12:
@@ -123,7 +123,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 2.218454281489054
+		>> agent_invokation_time --> 2.566314458847046
 
 
 => Sample #13:
@@ -133,7 +133,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.3333333333333333
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 0.5
-		>> agent_invokation_time --> 3.2205032110214233
+		>> agent_invokation_time --> 1.14292311668396
 
 
 => Sample #14:
@@ -143,7 +143,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 2.509556770324707
+		>> agent_invokation_time --> 0.6769586801528931
 
 ====================================================================================================
 ============================================== Run #2 ==============================================
@@ -160,7 +160,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 0.5391795635223389
+		>> agent_invokation_time --> 1.4356090227762859
 
 
 => Sample #2:
@@ -170,17 +170,17 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 7.200441837310791
+		>> agent_invokation_time --> 0.590442419052124
 
 
 => Sample #3:
 	- Passed
 	- Results:
-		>> tools_analysis_accuracy --> 0.0
-		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
-		>> with_confidence_accuracy --> 0.0
-		>> agent_invokation_time --> 1.912811279296875
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 0.6821484565734863
 
 
 => Sample #4:
@@ -190,7 +190,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.6666666666666666
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 0.6666666666666666
-		>> agent_invokation_time --> 2.9862799644470215
+		>> agent_invokation_time --> 3.794776121775309
 
 
 => Sample #5:
@@ -200,97 +200,97 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.5
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 5.233490943908691
+		>> agent_invokation_time --> 2.66507887840271
 
 
 => Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99199, Requested 935. Please try again in 1m55.776s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 1.4170576333999634
 
 
 => Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99197, Requested 915. Please try again in 1m36.767999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.0
+		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_recall --> 0.0
+		>> with_confidence_accuracy --> 0.0
+		>> agent_invokation_time --> 3.1035144329071045
 
 
 => Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99196, Requested 1109. Please try again in 4m23.52s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.190764506657918
 
 
 => Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99192, Requested 973. Please try again in 2m22.56s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.9523809523809524
+		>> tools_analysis_precision --> 0.9523809523809524
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.426838477452596
 
 
 => Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99191, Requested 929. Please try again in 1m43.68s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8333333333333333
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8333333333333333
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.4324488639831543
 
 
 => Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99189, Requested 1108. Please try again in 4m16.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.21256947517395
 
 
 => Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99187, Requested 1078. Please try again in 3m48.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.7279685338338218
 
 
 => Sample #13:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99857, Requested 820. Please try again in 9m44.928s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.3333333333333333
+		>> tools_analysis_precision --> 0.3333333333333333
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 2.6908295154571533
 
 
 => Sample #14:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99856, Requested 964. Please try again in 11m48.48s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.548986315727234
 
 ====================================================================================================
 ============================================== Run #3 ==============================================
@@ -301,133 +301,133 @@ Run Configurations:
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99835, Requested 1001. Please try again in 12m2.304s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 0.9140097300211588
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99832, Requested 937. Please try again in 11m4.416s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 0.6450695991516113
 
 
 => Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99829, Requested 795. Please try again in 8m59.135999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.0
+		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.0
+		>> agent_invokation_time --> 1.955697774887085
 
 
 => Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99827, Requested 1116. Please try again in 13m34.752s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.6666666666666666
+		>> tools_analysis_precision --> 0.6666666666666666
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.6666666666666666
+		>> agent_invokation_time --> 4.9917662143707275
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99826, Requested 835. Please try again in 9m31.104s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 4.447709798812866
 
 
 => Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99825, Requested 842. Please try again in 9m36.288s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 2.971875488758087
 
 
 => Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99823, Requested 803. Please try again in 9m0.864s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.0
+		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_recall --> 0.0
+		>> with_confidence_accuracy --> 0.0
+		>> agent_invokation_time --> 2.5930323600769043
 
 
 => Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99822, Requested 1109. Please try again in 13m24.384s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.186659097671509
 
 
 => Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99821, Requested 973. Please try again in 11m26.016s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.9523809523809524
+		>> tools_analysis_precision --> 0.9523809523809524
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 6.423648039499919
 
 
 => Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99819, Requested 929. Please try again in 10m46.271999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8333333333333333
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8333333333333333
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.533919930458069
 
 
 => Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99818, Requested 1108. Please try again in 13m20.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.385624647140503
 
 
 => Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99817, Requested 966. Please try again in 11m16.512s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.1159552733103435
 
 
 => Sample #13:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99815, Requested 937. Please try again in 10m49.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.3333333333333333
+		>> tools_analysis_precision --> 0.3333333333333333
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 4.358728766441345
 
 
 => Sample #14:
@@ -435,9 +435,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99814, Requested 964. Please try again in 11m12.192s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99365, Requested 961. Please try again in 4m41.664s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 ====================================================================================================
 ============================================== Run #4 ==============================================
@@ -452,9 +452,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99799, Requested 889. Please try again in 9m54.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99346, Requested 966. Please try again in 4m29.567999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #2:
@@ -462,9 +462,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99797, Requested 937. Please try again in 10m34.176s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99345, Requested 902. Please try again in 3m33.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #3:
@@ -472,9 +472,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99795, Requested 795. Please try again in 8m29.76s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99344, Requested 795. Please try again in 2m0.095999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #4:
@@ -482,9 +482,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99793, Requested 1116. Please try again in 13m5.376s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99342, Requested 1116. Please try again in 6m35.712s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #5:
@@ -492,9 +492,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99792, Requested 835. Please try again in 9m1.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99340, Requested 800. Please try again in 2m0.96s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #6:
@@ -502,9 +502,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99791, Requested 842. Please try again in 9m6.911999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99338, Requested 842. Please try again in 2m35.519999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #7:
@@ -512,9 +512,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99790, Requested 915. Please try again in 10m9.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99337, Requested 915. Please try again in 3m37.728s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #8:
@@ -522,9 +522,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99788, Requested 997. Please try again in 11m18.239999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99335, Requested 1106. Please try again in 6m21.024s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #9:
@@ -532,9 +532,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99787, Requested 1085. Please try again in 12m33.408s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99334, Requested 1050. Please try again in 5m31.776s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #10:
@@ -542,9 +542,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99786, Requested 817. Please try again in 8m40.991999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99333, Requested 929. Please try again in 3m46.368s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #11:
@@ -552,9 +552,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99784, Requested 1108. Please try again in 12m50.688s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99331, Requested 1073. Please try again in 5m49.056s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #12:
@@ -562,9 +562,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99783, Requested 1078. Please try again in 12m23.904s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99330, Requested 1043. Please try again in 5m22.272s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #13:
@@ -572,9 +572,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99782, Requested 825. Please try again in 8m44.448s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99329, Requested 902. Please try again in 3m19.584s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 
 => Sample #14:
@@ -582,9 +582,9 @@ Run Configurations:
 	- Error Info:
 		>> error_type --> RateLimitError
 		>> file --> _base_client.py
-		>> line --> 1044
+		>> line --> 1071
 		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kh6n5d6efd582347gva0g6an` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99781, Requested 852. Please try again in 9m6.911999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99327, Requested 929. Please try again in 3m41.184s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
 
 ====================================================================================================
 ============================================== Run #5 ==============================================
@@ -595,15 +595,13 @@ Run Configurations:
 
 
 => Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> json_validate_failed
-		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8888888888888888
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8888888888888888
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.4350794156392417
 
 
 => Sample #2:
@@ -613,7 +611,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9933514595031738
+		>> agent_invokation_time --> 3.0951461791992188
 
 
 => Sample #3:
@@ -623,7 +621,315 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6968574523925781
+		>> agent_invokation_time --> 0.847679615020752
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.4977662563323975
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 4.917102515697479
+
+
+=> Sample #7:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 7
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 9
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #10:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 10
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #11:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 11
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8055555555555555
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8055555555555555
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.961175839106241
+
+
+=> Sample #13:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 13
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 7.8015477657318115
+
+====================================================================================================
+============================================== Run #6 ==============================================
+Run Configurations:
+	>> run_id --> 6
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.999478816986084
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.475292682647705
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.173715591430664
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8571428571428571
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8571428571428571
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 12.586711565653482
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.334067344665527
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 5.74267303943634
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.0
+		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_recall --> 0.0
+		>> with_confidence_accuracy --> 0.0
+		>> agent_invokation_time --> 2.059861898422241
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 10.934887329737345
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.9523809523809524
+		>> tools_analysis_precision --> 0.9523809523809524
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 7.653067906697591
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8333333333333333
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8333333333333333
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.024628639221191
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 11.980951309204102
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 6.032985369364421
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.3333333333333333
+		>> tools_analysis_precision --> 0.3333333333333333
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 11.260351538658142
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 6.839198708534241
+
+====================================================================================================
+============================================== Run #7 ==============================================
+Run Configurations:
+	>> run_id --> 7
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.7423818111419678
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.025543212890625
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.2597756385803223
 
 
 => Sample #4:
@@ -645,7 +951,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.5
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 3.913771629333496
+		>> agent_invokation_time --> 8.807071208953857
 
 
 => Sample #6:
@@ -655,7 +961,7 @@ Run Configurations:
 		>> tools_analysis_precision --> 0.75
 		>> tools_analysis_recall --> 0.75
 		>> with_confidence_accuracy --> 0.75
-		>> agent_invokation_time --> 7.828026056289673
+		>> agent_invokation_time --> 6.3386582136154175
 
 
 => Sample #7:
@@ -695,13 +1001,609 @@ Run Configurations:
 
 
 => Sample #10:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 10
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #11:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 11
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8888888888888888
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8888888888888888
+		>> with_confidence_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 6.940029462178548
+
+
+=> Sample #13:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 13
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 0.5
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 6.973001956939697
+
+====================================================================================================
+============================================== Run #8 ==============================================
+Run Configurations:
+	>> run_id --> 8
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 3.767815272013346
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.040652990341187
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.7910728454589844
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.163692474365234
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.148879528045654
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 7.046182692050934
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.0
+		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_recall --> 0.0
+		>> with_confidence_accuracy --> 0.0
+		>> agent_invokation_time --> 2.496372938156128
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 10.176705439885458
+
+
+=> Sample #9:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> APITimeoutError
+		>> file --> _base_client.py
+		>> line --> 1025
+		>> function --> request
+		>> message --> Request timed out.
+
+
+=> Sample #10:
 	- Passed
 	- Results:
 		>> tools_analysis_accuracy --> 0.8333333333333333
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 0.8333333333333333
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 7.749080538749695
+		>> agent_invokation_time --> 33.936718583106995
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 37.33275747299194
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.8888888888888888
+		>> agent_invokation_time --> 1.846178372701009
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8333333333333333
+		>> tools_analysis_precision --> 0.8333333333333333
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.1746160984039307
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.8546736240386963
+
+====================================================================================================
+============================================== Run #9 ==============================================
+Run Configurations:
+	>> run_id --> 9
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 2.4697811603546143
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.6600427627563477
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.1928839683532715
+
+
+=> Sample #4:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.6143569946289062
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 6.072480916976929
+
+
+=> Sample #7:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #8:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #9:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #10:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #11:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.718226432800293
+
+
+=> Sample #13:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 13
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 7.747901678085327
+
+====================================================================================================
+============================================= Run #10 ==============================================
+Run Configurations:
+	>> run_id --> 10
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 6.168232361475627
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.659755229949951
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 6.290558338165283
+
+
+=> Sample #4:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> RateLimitError
+		>> file --> _base_client.py
+		>> line --> 1071
+		>> function --> request
+		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3-32b` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Used 4697, Requested 1475. Please try again in 1.72s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 1.342353343963623
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 6.214739143848419
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.0
+		>> tools_analysis_precision --> 0.0
+		>> tools_analysis_recall --> 0.0
+		>> with_confidence_accuracy --> 0.0
+		>> agent_invokation_time --> 5.419595241546631
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 14.496700048446655
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8968253968253969
+		>> tools_analysis_precision --> 0.8968253968253969
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 11.845397392908732
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8333333333333333
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8333333333333333
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.123139142990112
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 12.335116386413574
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 10.633500258127848
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.3333333333333333
+		>> tools_analysis_precision --> 0.3333333333333333
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 9.706591963768005
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.041932702064514
+
+====================================================================================================
+============================================= Run #11 ==============================================
+Run Configurations:
+	>> run_id --> 11
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.386859178543091
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.9002845287323
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.4582483768463135
+
+
+=> Sample #4:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 7.466121673583984
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 7.068945467472076
+
+
+=> Sample #7:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #8:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #9:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
+
+
+=> Sample #10:
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
 
 
 => Sample #11:
@@ -719,21 +1621,21 @@ Run Configurations:
 => Sample #12:
 	- Passed
 	- Results:
-		>> tools_analysis_accuracy --> 0.7777777777777778
+		>> tools_analysis_accuracy --> 1.0
 		>> tools_analysis_precision --> 1.0
-		>> tools_analysis_recall --> 0.7777777777777778
+		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 6.372176011403401
+		>> agent_invokation_time --> 8.697186946868896
 
 
 => Sample #13:
-	- Passed
-	- Results:
-		>> tools_analysis_accuracy --> 0.8333333333333333
-		>> tools_analysis_precision --> 0.8333333333333333
-		>> tools_analysis_recall --> 1.0
-		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 7.099576830863953
+	- Unexpected Error
+	- Error Info:
+		>> error_type --> NativeStructuredOutputError
+		>> file --> BaseAgent.py
+		>> line --> 176
+		>> function --> _validate_structured_response
+		>> message --> Failed to validate Groq native output against ProposalToolsResponse.
 
 
 => Sample #14:
@@ -743,6 +1645,155 @@ Run Configurations:
 		>> tools_analysis_precision --> 1.0
 		>> tools_analysis_recall --> 1.0
 		>> with_confidence_accuracy --> 1.0
-		>> agent_invokation_time --> 7.1049416065216064
+		>> agent_invokation_time --> 8.113444447517395
+
+====================================================================================================
+============================================= Run #12 ==============================================
+Run Configurations:
+	>> run_id --> 12
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.643779357274374
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 8.138187170028687
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 5.116422414779663
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.233031034469604
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.75
+		>> tools_analysis_precision --> 0.75
+		>> tools_analysis_recall --> 0.75
+		>> with_confidence_accuracy --> 0.75
+		>> agent_invokation_time --> 7.263534963130951
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.25
+		>> tools_analysis_precision --> 0.5
+		>> tools_analysis_recall --> 0.3333333333333333
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 6.108628511428833
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 12.491441011428833
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8968253968253969
+		>> tools_analysis_precision --> 0.8968253968253969
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 11.577988704045614
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.8333333333333333
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.8333333333333333
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 10.569807767868042
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.5
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 0.5
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.065139293670654
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 9.904225587844849
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 0.3333333333333333
+		>> tools_analysis_precision --> 0.3333333333333333
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 0.5
+		>> agent_invokation_time --> 9.526076793670654
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> tools_analysis_accuracy --> 1.0
+		>> tools_analysis_precision --> 1.0
+		>> tools_analysis_recall --> 1.0
+		>> with_confidence_accuracy --> 1.0
+		>> agent_invokation_time --> 7.566856384277344
 
 ====================================================================================================

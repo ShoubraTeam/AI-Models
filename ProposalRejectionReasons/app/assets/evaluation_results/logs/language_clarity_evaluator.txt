@@ -2,526 +2,20 @@
 ============================================== Run #1 ==============================================
 Run Configurations:
 	>> run_id --> 1
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_name --> openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Unexpected Error
+	- Groq Bad Request Error
 	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 11.331672152s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}}
-
-
-=> Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 34.468817948s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '34s'}]}}
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 1.0
-		>> misleading_phrasing_accuracy --> 1.0
-		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 40.0
-
-
-=> Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 18.249397576s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}
-
-
-=> Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 41.195272108s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '41s'}]}}
-
-
-=> Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 5.422053736s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '5s'}]}}
-
-
-=> Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 27.047841858s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}
-
-
-=> Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 25.181094832s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '25s'}]}}
-
-
-=> Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 48.205003428s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '48s'}]}}
-
-
-=> Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 11.819069373s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}}
-
-
-=> Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 32.249811362s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '32s'}]}}
-
-
-=> Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 56.174565717s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}
-
-====================================================================================================
-============================================== Run #2 ==============================================
-Run Configurations:
-	>> run_id --> 2
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 11.506819835s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '11s'}]}}
-
-
-=> Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 35.379427198s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}
-
-
-=> Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 59.739159252s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}
-
-
-=> Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 22.949178935s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '22s'}]}}
-
-
-=> Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 46.089535841s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '46s'}]}}
-
-
-=> Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 9.723651635s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '9s'}]}}
-
-
-=> Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 33.714946574s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '33s'}]}}
-
-
-=> Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 57.212178816s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}
-
-
-=> Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 20.32345686s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '20s'}]}}
-
-
-=> Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 43.420671795s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}
-
-
-=> Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 56.697308018s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '56s'}]}}
-
-
-=> Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 18.948715877s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '18s'}]}}
-
-====================================================================================================
-============================================== Run #3 ==============================================
-Run Configurations:
-	>> run_id --> 3
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 35.061310729s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '35s'}]}}
-
-
-=> Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 58.404823753s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '58s'}]}}
-
-
-=> Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 20.654005415s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '20s'}]}}
-
-
-=> Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 43.09667996s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '43s'}]}}
-
-
-=> Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 7.159275603s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '7s'}]}}
-
-
-=> Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 29.504801693s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '29s'}]}}
-
-
-=> Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 52.410189269s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '52s'}]}}
-
-
-=> Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 16.924665307s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '16s'}]}}
-
-
-=> Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 39.472359996s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}
-
-
-=> Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 680.494931ms.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '0s'}]}}
-
-
-=> Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 23.205357835s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '23s'}]}}
-
-
-=> Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 47.3316538s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '47s'}]}}
-
-====================================================================================================
-============================================== Run #4 ==============================================
-Run Configurations:
-	>> run_id --> 4
-	>> model_name --> google_genai:gemini-2.5-flash
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 3.688395177s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '3s'}]}}
-
-
-=> Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 27.819060068s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '27s'}]}}
-
-
-=> Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 51.456261429s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '51s'}]}}
-
-
-=> Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 14.677368701s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '14s'}]}}
-
-
-=> Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 37.152878842s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '37s'}]}}
-
-
-=> Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 1.323511563s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '1s'}]}}
-
-
-=> Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 24.680308597s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}
-
-
-=> Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 46.626736139s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '46s'}]}}
-
-
-=> Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 9.065715499s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '9s'}]}}
-
-
-=> Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 31.646253576s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '31s'}]}}
-
-
-=> Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 55.733970611s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '55s'}]}}
-
-
-=> Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> ChatGoogleGenerativeAIError
-		>> file --> chat_models.py
-		>> line --> 169
-		>> function --> _handle_client_error
-		>> message --> Error calling model 'gemini-2.5-flash' (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 19.201609594s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '19s'}]}}
-
-====================================================================================================
-============================================== Run #5 ==============================================
-Run Configurations:
-	>> run_id --> 5
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 1.0
-		>> misleading_phrasing_accuracy --> 1.0
-		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 0.95
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
 
 
 => Sample #2:
@@ -531,7 +25,7 @@ Run Configurations:
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 0.0
 		>> overall_language_accuracy --> 0.67
-		>> agent_invocation_time --> 0.48
+		>> agent_invocation_time --> 2.01
 
 
 => Sample #3:
@@ -541,37 +35,39 @@ Run Configurations:
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 1.0
 		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 0.58
+		>> agent_invocation_time --> 0.97
 
 
 => Sample #4:
-	- Passed
-	- Results:
-		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 1.0
-		>> misleading_phrasing_accuracy --> 1.0
-		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 0.51
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
 
 
 => Sample #5:
 	- Passed
 	- Results:
 		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 0.67
-		>> misleading_phrasing_accuracy --> 0.67
-		>> overall_language_accuracy --> 0.78
-		>> agent_invocation_time --> 0.57
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 0.83
 
 
 => Sample #6:
 	- Passed
 	- Results:
 		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 1.0
-		>> misleading_phrasing_accuracy --> 1.0
-		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 4.97
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.75
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 6.44
 
 
 => Sample #7:
@@ -581,27 +77,178 @@ Run Configurations:
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 1.0
 		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 3.76
+		>> agent_invocation_time --> 1.79
 
 
 => Sample #8:
 	- Passed
 	- Results:
-		>> clarity_accuracy --> 0.67
-		>> professionalism_accuracy --> 0.0
-		>> misleading_phrasing_accuracy --> 0.33
-		>> overall_language_accuracy --> 0.33
-		>> agent_invocation_time --> 5.16
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.77
 
 
 => Sample #9:
 	- Passed
 	- Results:
 		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 0.33
-		>> misleading_phrasing_accuracy --> 0.33
-		>> overall_language_accuracy --> 0.56
-		>> agent_invocation_time --> 4.78
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 5.06
+
+
+=> Sample #10:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 10
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.22
+
+
+=> Sample #12:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 12
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.76
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 3.55
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 6.43
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 2.15
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 1.76
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 7.67
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.54
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.75
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 4.66
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 6.57
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.8
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 5.39
 
 
 => Sample #10:
@@ -611,17 +258,17 @@ Run Configurations:
 		>> professionalism_accuracy --> 0.5
 		>> misleading_phrasing_accuracy --> 1.0
 		>> overall_language_accuracy --> 0.83
-		>> agent_invocation_time --> 4.69
+		>> agent_invocation_time --> 1.63
 
 
 => Sample #11:
 	- Passed
 	- Results:
 		>> clarity_accuracy --> 1.0
-		>> professionalism_accuracy --> 0.75
-		>> misleading_phrasing_accuracy --> 0.5
-		>> overall_language_accuracy --> 0.75
-		>> agent_invocation_time --> 4.76
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.72
 
 
 => Sample #12:
@@ -629,26 +276,48 @@ Run Configurations:
 	- Results:
 		>> clarity_accuracy --> 0.67
 		>> professionalism_accuracy --> 0.33
-		>> misleading_phrasing_accuracy --> 0.67
-		>> overall_language_accuracy --> 0.56
-		>> agent_invocation_time --> 4.79
-
-====================================================================================================
-============================================== Run #6 ==============================================
-Run Configurations:
-	>> run_id --> 6
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 1.0}
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.44
+		>> agent_invocation_time --> 5.58
 
 
-=> Sample #1:
+=> Sample #13:
 	- Passed
 	- Results:
 		>> clarity_accuracy --> 1.0
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 1.0
 		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 0.76
+		>> agent_invocation_time --> 4.85
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 8.12
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 1
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
 
 
 => Sample #2:
@@ -658,7 +327,7 @@ Run Configurations:
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 0.0
 		>> overall_language_accuracy --> 0.67
-		>> agent_invocation_time --> 1.75
+		>> agent_invocation_time --> 11.88
 
 
 => Sample #3:
@@ -668,7 +337,162 @@ Run Configurations:
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 1.0
 		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 3.91
+		>> agent_invocation_time --> 4.2
+
+
+=> Sample #4:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 11.61
+
+
+=> Sample #6:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 6
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 12.86
+
+
+=> Sample #8:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 7.19
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 7.9
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.63
+
+
+=> Sample #12:
+	- Groq Bad Request Error
+	- Error Info:
+		>> sample_idx --> 12
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.12
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 5.87
+
+====================================================================================================
+============================================== Run #4 ==============================================
+Run Configurations:
+	>> run_id --> 4
+	>> model_name --> openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 6.52
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.19
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 11.65
 
 
 => Sample #4:
@@ -678,780 +502,1114 @@ Run Configurations:
 		>> professionalism_accuracy --> 1.0
 		>> misleading_phrasing_accuracy --> 1.0
 		>> overall_language_accuracy --> 1.0
-		>> agent_invocation_time --> 3.6
+		>> agent_invocation_time --> 3.2
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99088, Requested 1084. Please try again in 2m28.608s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 9.7
 
 
 => Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99087, Requested 1115. Please try again in 2m54.528s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 5.43
 
 
 => Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99085, Requested 1104. Please try again in 2m43.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.73
 
 
 => Sample #8:
-	- Unexpected Error
+	- Groq Bad Request Error
 	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99084, Requested 1138. Please try again in 3m11.808s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> sample_idx --> 8
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
 
 
 => Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99083, Requested 1138. Please try again in 3m10.944s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 6.08
 
 
 => Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99081, Requested 1073. Please try again in 2m13.055999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 8.98
 
 
 => Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99993, Requested 1008. Please try again in 14m24.864s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.03
 
 
 => Sample #12:
-	- Unexpected Error
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.33
+		>> professionalism_accuracy --> 0.33
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.33
+		>> agent_invocation_time --> 3.4
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.21
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 2.67
+
+====================================================================================================
+============================================== Run #5 ==============================================
+Run Configurations:
+	>> run_id --> 5
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.56
+		>> agent_invocation_time --> 4.28
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 3.04
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.33
+		>> agent_invocation_time --> 0.96
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.18
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 1.81
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 7.31
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 6.01
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 9.05
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 7.17
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.5
+		>> agent_invocation_time --> 7.47
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.91
+
+
+=> Sample #12:
+	- Groq Bad Request Error
 	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99992, Requested 1075. Please try again in 15m21.888s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> sample_idx --> 12
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.55
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 4.99
+
+====================================================================================================
+============================================== Run #6 ==============================================
+Run Configurations:
+	>> run_id --> 6
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.53
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 6.85
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.9
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.63
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.68
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 7.06
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.59
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 9.97
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 6.75
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.94
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 9.93
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.0
+		>> professionalism_accuracy --> 0.33
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.22
+		>> agent_invocation_time --> 8.32
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 6.75
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 6.58
 
 ====================================================================================================
 ============================================== Run #7 ==============================================
 Run Configurations:
 	>> run_id --> 7
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99984, Requested 907. Please try again in 12m49.824s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.56
+		>> agent_invocation_time --> 5.25
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99983, Requested 1010. Please try again in 14m17.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 7.74
 
 
 => Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99981, Requested 920. Please try again in 12m58.464s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.26
 
 
 => Sample #4:
-	- Unexpected Error
+	- Groq Bad Request Error
 	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99980, Requested 923. Please try again in 13m0.192s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> sample_idx --> 4
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99979, Requested 1084. Please try again in 15m18.432s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.01
 
 
 => Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99977, Requested 1121. Please try again in 15m48.672s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 7.47
 
 
 => Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99976, Requested 1104. Please try again in 15m33.12s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.77
 
 
 => Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99975, Requested 1138. Please try again in 16m1.632s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.95
 
 
 => Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99973, Requested 1141. Please try again in 16m2.496s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 6.24
 
 
 => Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99972, Requested 1076. Please try again in 15m5.472s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 6.67
 
 
 => Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99970, Requested 932. Please try again in 12m59.328s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.21
 
 
 => Sample #12:
-	- Unexpected Error
+	- Groq Bad Request Error
 	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99969, Requested 1072. Please try again in 14m59.424s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+		>> sample_idx --> 12
+		>> error_type --> BadRequestError
+		>> error_code --> json_validate_failed
+		>> message --> Failed to validate JSON. Please adjust your prompt. See 'failed_generation' for more details.
+		>> summary_length --> None
+		>> tool_reviews_count --> None
+		>> has_extra_type_field --> False
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 8.06
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 6.01
 
 ====================================================================================================
 ============================================== Run #8 ==============================================
 Run Configurations:
 	>> run_id --> 8
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 1.0}
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99961, Requested 907. Please try again in 12m29.952s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 6.34
 
 
 => Sample #2:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99960, Requested 1007. Please try again in 13m55.488s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.99
 
 
 => Sample #3:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99959, Requested 926. Please try again in 12m44.64s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 5.95
 
 
 => Sample #4:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99957, Requested 923. Please try again in 12m40.32s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.69
 
 
 => Sample #5:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99956, Requested 1087. Please try again in 15m1.152s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.51
 
 
 => Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99955, Requested 1118. Please try again in 15m27.072s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 7.37
 
 
 => Sample #7:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99953, Requested 1098. Please try again in 15m8.064s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.56
 
 
 => Sample #8:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99952, Requested 1144. Please try again in 15m46.944s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 9.49
 
 
 => Sample #9:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99951, Requested 1144. Please try again in 15m46.079999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 6.81
 
 
 => Sample #10:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99949, Requested 1076. Please try again in 14m45.6s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 7.02
 
 
 => Sample #11:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99948, Requested 935. Please try again in 12m42.911999999s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 6.55
 
 
 => Sample #12:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> RateLimitError
-		>> file --> _base_client.py
-		>> line --> 1044
-		>> function --> request
-		>> message --> Error code: 429 - {'error': {'message': 'Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01ks50rxywfm2r5xzdmjmja8y5` service tier `on_demand` on tokens per day (TPD): Limit 100000, Used 99947, Requested 1072. Please try again in 14m40.416s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.33
+		>> professionalism_accuracy --> 0.33
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.33
+		>> agent_invocation_time --> 8.35
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.35
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 5.72
 
 ====================================================================================================
 ============================================== Run #9 ==============================================
 Run Configurations:
 	>> run_id --> 9
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 1.35
 
 
 => Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 1.37
 
 
 => Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 0.82
 
 
 => Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 1.03
 
 
 => Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 0.75
 
 
 => Sample #6:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 6
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 6.25
 
 
 => Sample #7:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 7
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 9.15
 
 
 => Sample #8:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 8
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.08
 
 
 => Sample #9:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 9
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 5.06
 
 
 => Sample #10:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 10
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 4.14
 
 
 => Sample #11:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 11
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 6.91
 
 
 => Sample #12:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 12
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.33
+		>> professionalism_accuracy --> 0.33
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.33
+		>> agent_invocation_time --> 5.18
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.63
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 2.05
 
 ====================================================================================================
 ============================================= Run #10 ==============================================
 Run Configurations:
 	>> run_id --> 10
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 1.0}
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 3.59
 
 
 => Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 3.1
 
 
 => Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.99
 
 
 => Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.78
+		>> agent_invocation_time --> 6.11
 
 
 => Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.55
 
 
 => Sample #6:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 6
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 4.76
 
 
 => Sample #7:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 7
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 0.77
 
 
 => Sample #8:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 8
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 3.76
 
 
 => Sample #9:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 9
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 3.85
 
 
 => Sample #10:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 10
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 6.14
 
 
 => Sample #11:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 11
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 3.01
 
 
 => Sample #12:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 12
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 0.33
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.44
+		>> agent_invocation_time --> 7.57
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.61
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 4.13
 
 ====================================================================================================
 ============================================= Run #11 ==============================================
 Run Configurations:
 	>> run_id --> 11
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 1.26
 
 
 => Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 2.22
 
 
 => Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.05
 
 
 => Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.03
 
 
 => Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.23
 
 
 => Sample #6:
-	- Unexpected Error
-	- Error Info:
-		>> error_type --> APIConnectionError
-		>> file --> _base_client.py
-		>> line --> 1012
-		>> function --> request
-		>> message --> Connection error.
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.75
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 2.93
 
 
 => Sample #7:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 7
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.31
 
 
 => Sample #8:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 8
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 5.71
 
 
 => Sample #9:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 9
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 2.48
 
 
 => Sample #10:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 10
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 1.45
 
 
 => Sample #11:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 11
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 7.7
 
 
 => Sample #12:
@@ -1459,161 +1617,177 @@ Run Configurations:
 	- Error Info:
 		>> sample_idx --> 12
 		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
+		>> error_code --> json_validate_failed
+		>> message --> Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.
 		>> summary_length --> None
 		>> tool_reviews_count --> None
 		>> has_extra_type_field --> False
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.45
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 1.94
 
 ====================================================================================================
 ============================================= Run #12 ==============================================
 Run Configurations:
 	>> run_id --> 12
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 1.0}
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 1024, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 1
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 2.5
 
 
 => Sample #2:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 2
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.0
+		>> overall_language_accuracy --> 0.67
+		>> agent_invocation_time --> 2.94
 
 
 => Sample #3:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 3
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 1.88
 
 
 => Sample #4:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 4
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.0
 
 
 => Sample #5:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 5
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 2.15
 
 
 => Sample #6:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 6
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.75
+		>> misleading_phrasing_accuracy --> 0.5
+		>> overall_language_accuracy --> 0.75
+		>> agent_invocation_time --> 2.82
 
 
 => Sample #7:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 7
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 5.08
 
 
 => Sample #8:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 8
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 0.67
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 4.0
 
 
 => Sample #9:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 9
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.67
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.89
+		>> agent_invocation_time --> 2.44
 
 
 => Sample #10:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 10
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 4.35
 
 
 => Sample #11:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 11
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 1.41
 
 
 => Sample #12:
-	- Groq Bad Request Error
-	- Error Info:
-		>> sample_idx --> 12
-		>> error_type --> BadRequestError
-		>> error_code --> tool_use_failed
-		>> message --> Tool call validation failed: tool call validation failed: attempted to call tool 'LanguageClarityEval' which was not in request.tools
-		>> summary_length --> None
-		>> tool_reviews_count --> None
-		>> has_extra_type_field --> False
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 0.67
+		>> professionalism_accuracy --> 0.33
+		>> misleading_phrasing_accuracy --> 0.33
+		>> overall_language_accuracy --> 0.44
+		>> agent_invocation_time --> 5.18
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 1.0
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 1.0
+		>> agent_invocation_time --> 1.89
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> clarity_accuracy --> 1.0
+		>> professionalism_accuracy --> 0.5
+		>> misleading_phrasing_accuracy --> 1.0
+		>> overall_language_accuracy --> 0.83
+		>> agent_invocation_time --> 2.45
 
 ====================================================================================================

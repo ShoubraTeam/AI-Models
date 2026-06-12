@@ -1,109 +1,194 @@
 [
     {
         "run_id": 1,
-        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_name": "llama-3.1-8b-instant",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 1024,
+            "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "problem_identified_accuracy": 0.8,
-            "solution_proposed_accuracy": 0.8,
-            "practical_steps_accuracy": 0.4,
-            "overall_understanding_accuracy": 0.6679999999999999,
-            "agent_invocation_time": 0.6060000000000001,
+            "problem_identified_accuracy": 0.8992857142857142,
+            "solution_proposed_accuracy": 0.9285714285714286,
+            "practical_steps_accuracy": 0.7978571428571428,
+            "overall_understanding_accuracy": 0.8757142857142857,
+            "agent_invocation_time": 4.71,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 2,
-        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_name": "llama-3.1-8b-instant",
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 1024,
-            "top_p": 1.0
+            "top_p": 0.9
         },
         "results": {
-            "problem_identified_accuracy": 0.8,
-            "solution_proposed_accuracy": 0.8,
-            "practical_steps_accuracy": 0.6,
-            "overall_understanding_accuracy": 0.734,
-            "agent_invocation_time": 4.2219999999999995,
+            "problem_identified_accuracy": 0.8992857142857142,
+            "solution_proposed_accuracy": 0.9285714285714286,
+            "practical_steps_accuracy": 0.7978571428571428,
+            "overall_understanding_accuracy": 0.8757142857142857,
+            "agent_invocation_time": 5.866428571428571,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 3,
-        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_name": "llama-3.1-8b-instant",
         "model_kwargs": {
             "temperature": 0.2,
-            "max_tokens": 1024,
+            "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "problem_identified_accuracy": 0.8,
-            "solution_proposed_accuracy": 0.8,
-            "practical_steps_accuracy": 0.4,
-            "overall_understanding_accuracy": 0.6679999999999999,
-            "agent_invocation_time": 4.114,
+            "problem_identified_accuracy": 0.8992857142857142,
+            "solution_proposed_accuracy": 0.9285714285714286,
+            "practical_steps_accuracy": 0.7264285714285714,
+            "overall_understanding_accuracy": 0.8521428571428571,
+            "agent_invocation_time": 5.867142857142857,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 4,
-        "model_name": "groq:llama-3.3-70b-versatile",
+        "model_name": "llama-3.1-8b-instant",
         "model_kwargs": {
             "temperature": 0.2,
             "max_tokens": 1024,
-            "top_p": 1.0
+            "top_p": 0.9
         },
         "results": {
-            "problem_identified_accuracy": 0.8,
-            "solution_proposed_accuracy": 0.8,
-            "practical_steps_accuracy": 0.4,
-            "overall_understanding_accuracy": 0.6679999999999999,
-            "agent_invocation_time": 4.204,
+            "problem_identified_accuracy": 0.8992857142857142,
+            "solution_proposed_accuracy": 0.9285714285714286,
+            "practical_steps_accuracy": 0.8692857142857143,
+            "overall_understanding_accuracy": 0.8992857142857142,
+            "agent_invocation_time": 5.868571428571428,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 5,
-        "model_name": "groq:openai/gpt-oss-120b",
+        "model_name": "llama-3.3-70b-versatile",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 1024,
+            "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "problem_identified_accuracy": 0.0,
-            "solution_proposed_accuracy": 0.0,
-            "practical_steps_accuracy": 0.0,
-            "overall_understanding_accuracy": 0.0,
-            "agent_invocation_time": 0.0,
+            "problem_identified_accuracy": 0.8692857142857143,
+            "solution_proposed_accuracy": 0.8392857142857143,
+            "practical_steps_accuracy": 0.8928571428571429,
+            "overall_understanding_accuracy": 0.8664285714285714,
+            "agent_invocation_time": 1.5735714285714286,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 6,
-        "model_name": "groq:openai/gpt-oss-120b",
+        "model_name": "llama-3.3-70b-versatile",
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 1024,
-            "top_p": 1.0
+            "top_p": 0.9
         },
         "results": {
-            "problem_identified_accuracy": 0.2,
-            "solution_proposed_accuracy": 0.2,
-            "practical_steps_accuracy": 0.2,
-            "overall_understanding_accuracy": 0.2,
-            "agent_invocation_time": 3.1399999999999997,
+            "problem_identified_accuracy": 0.8692857142857143,
+            "solution_proposed_accuracy": 0.8392857142857143,
+            "practical_steps_accuracy": 0.8928571428571429,
+            "overall_understanding_accuracy": 0.8664285714285714,
+            "agent_invocation_time": 2.511428571428571,
             "error_rate": 0.0
         }
     },
     {
         "run_id": 7,
-        "model_name": "groq:openai/gpt-oss-120b",
+        "model_name": "llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "problem_identified_accuracy": 0.8692857142857143,
+            "solution_proposed_accuracy": 0.8392857142857143,
+            "practical_steps_accuracy": 0.8214285714285714,
+            "overall_understanding_accuracy": 0.8428571428571429,
+            "agent_invocation_time": 3.454285714285714,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 8,
+        "model_name": "llama-3.3-70b-versatile",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "problem_identified_accuracy": 0.85,
+            "solution_proposed_accuracy": 0.875,
+            "practical_steps_accuracy": 0.75,
+            "overall_understanding_accuracy": 0.825,
+            "agent_invocation_time": 1.544,
+            "error_rate": 0.2857142857142857
+        }
+    },
+    {
+        "run_id": 9,
+        "model_name": "openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "problem_identified_accuracy": 0.835,
+            "solution_proposed_accuracy": 1.0,
+            "practical_steps_accuracy": 1.0,
+            "overall_understanding_accuracy": 0.9450000000000001,
+            "agent_invocation_time": 5.92,
+            "error_rate": 0.8571428571428571
+        }
+    },
+    {
+        "run_id": 10,
+        "model_name": "openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.0,
+            "max_tokens": 1024,
+            "top_p": 0.9
+        },
+        "results": {
+            "problem_identified_accuracy": 0.8457142857142858,
+            "solution_proposed_accuracy": 0.8157142857142857,
+            "practical_steps_accuracy": 0.8099999999999999,
+            "overall_understanding_accuracy": 0.8242857142857144,
+            "agent_invocation_time": 10.162857142857144,
+            "error_rate": 0.0
+        }
+    },
+    {
+        "run_id": 11,
+        "model_name": "openai/gpt-oss-120b",
+        "model_kwargs": {
+            "temperature": 0.2,
+            "max_tokens": 512,
+            "top_p": 0.9
+        },
+        "results": {
+            "problem_identified_accuracy": 1.0,
+            "solution_proposed_accuracy": 1.0,
+            "practical_steps_accuracy": 1.0,
+            "overall_understanding_accuracy": 1.0,
+            "agent_invocation_time": 11.67,
+            "error_rate": 0.9285714285714286
+        }
+    },
+    {
+        "run_id": 12,
+        "model_name": "openai/gpt-oss-120b",
         "model_kwargs": {
             "temperature": 0.2,
             "max_tokens": 1024,
@@ -115,24 +200,7 @@
             "practical_steps_accuracy": 0.0,
             "overall_understanding_accuracy": 0.0,
             "agent_invocation_time": 0.0,
-            "error_rate": 0.0
-        }
-    },
-    {
-        "run_id": 8,
-        "model_name": "groq:openai/gpt-oss-120b",
-        "model_kwargs": {
-            "temperature": 0.2,
-            "max_tokens": 1024,
-            "top_p": 1.0
-        },
-        "results": {
-            "problem_identified_accuracy": 0.2,
-            "solution_proposed_accuracy": 0.2,
-            "practical_steps_accuracy": 0.2,
-            "overall_understanding_accuracy": 0.2,
-            "agent_invocation_time": 2.872,
-            "error_rate": 0.0
+            "error_rate": 1.0
         }
     }
 ]

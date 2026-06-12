@@ -137,7 +137,7 @@ def build_reasons(
     return reasons
 
 
-def calc_job_understanding_result(
+def get_final_job_understanding_result(
     llm_eval : JobUnderstandingEvalSchema,
     threshold: float = JOB_UNDERSTANDING_THRESHOLD
 ) -> FinalSubagentResult:
