@@ -8,10 +8,10 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.13071428571428573,
-            "agent_invocation_time": 2.1185714285714288,
+            "keyword_recall": 0.4278571428571429,
+            "keyword_precision": 0.43928571428571433,
+            "deliverable_recall": 0.21857142857142858,
+            "agent_invocation_time": 1.91,
             "error_rate": 0.0
         }
     },
@@ -24,10 +24,10 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.13071428571428573,
-            "agent_invocation_time": 3.169285714285714,
+            "keyword_recall": 0.4278571428571429,
+            "keyword_precision": 0.43928571428571433,
+            "deliverable_recall": 0.21857142857142858,
+            "agent_invocation_time": 4.302142857142857,
             "error_rate": 0.0
         }
     },
@@ -40,10 +40,10 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.13071428571428573,
-            "agent_invocation_time": 3.075714285714286,
+            "keyword_recall": 0.45285714285714285,
+            "keyword_precision": 0.42928571428571427,
+            "deliverable_recall": 0.20428571428571426,
+            "agent_invocation_time": 4.363571428571428,
             "error_rate": 0.0
         }
     },
@@ -56,11 +56,11 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.16285714285714287,
-            "agent_invocation_time": 3.2178571428571425,
-            "error_rate": 0.0
+            "keyword_recall": 0.47000000000000003,
+            "keyword_precision": 0.45307692307692304,
+            "deliverable_recall": 0.19692307692307692,
+            "agent_invocation_time": 15.541538461538464,
+            "error_rate": 0.07142857142857142
         }
     },
     {
@@ -68,15 +68,15 @@
         "model_name": "qwen/qwen3-32b",
         "model_kwargs": {
             "temperature": 0.0,
-            "max_tokens": 1024,
+            "max_tokens": 512,
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.07923076923076923,
-            "agent_invocation_time": 2.124615384615385,
-            "error_rate": 0.07142857142857142
+            "keyword_recall": 0.43714285714285717,
+            "keyword_precision": 0.4414285714285714,
+            "deliverable_recall": 0.047142857142857146,
+            "agent_invocation_time": 4.36,
+            "error_rate": 0.5
         }
     },
     {
@@ -85,14 +85,14 @@
         "model_kwargs": {
             "temperature": 0.0,
             "max_tokens": 1024,
-            "top_p": 1.0
+            "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.05928571428571429,
-            "agent_invocation_time": 6.007857142857143,
-            "error_rate": 0.0
+            "keyword_recall": 0.3858333333333333,
+            "keyword_precision": 0.37333333333333335,
+            "deliverable_recall": 0.09000000000000001,
+            "agent_invocation_time": 8.853333333333333,
+            "error_rate": 0.14285714285714285
         }
     },
     {
@@ -104,11 +104,11 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.05928571428571429,
-            "agent_invocation_time": 4.8707142857142856,
-            "error_rate": 0.0
+            "keyword_recall": 0.45222222222222225,
+            "keyword_precision": 0.42333333333333334,
+            "deliverable_recall": 0.06444444444444446,
+            "agent_invocation_time": 6.647777777777778,
+            "error_rate": 0.35714285714285715
         }
     },
     {
@@ -120,11 +120,11 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.05928571428571429,
-            "agent_invocation_time": 5.843571428571429,
-            "error_rate": 0.0
+            "keyword_recall": 0.4346153846153846,
+            "keyword_precision": 0.41923076923076924,
+            "deliverable_recall": 0.04461538461538462,
+            "agent_invocation_time": 7.818461538461539,
+            "error_rate": 0.07142857142857142
         }
     },
     {
@@ -136,11 +136,11 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.12714285714285714,
-            "agent_invocation_time": 0.3157142857142857,
-            "error_rate": 0.0
+            "keyword_recall": 0.3,
+            "keyword_precision": 0.45,
+            "deliverable_recall": 0.4875,
+            "agent_invocation_time": 0.85,
+            "error_rate": 0.7142857142857143
         }
     },
     {
@@ -154,9 +154,9 @@
         "results": {
             "keyword_recall": 0.0,
             "keyword_precision": 0.0,
-            "deliverable_recall": 0.12714285714285714,
-            "agent_invocation_time": 0.29857142857142854,
-            "error_rate": 0.0
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
         }
     },
     {
@@ -170,9 +170,9 @@
         "results": {
             "keyword_recall": 0.0,
             "keyword_precision": 0.0,
-            "deliverable_recall": 0.12714285714285714,
-            "agent_invocation_time": 0.8985714285714286,
-            "error_rate": 0.0
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 0.0,
+            "error_rate": 1.0
         }
     },
     {
@@ -184,11 +184,11 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.12714285714285714,
-            "agent_invocation_time": 1.792142857142857,
-            "error_rate": 0.0
+            "keyword_recall": 0.25,
+            "keyword_precision": 0.5,
+            "deliverable_recall": 1.0,
+            "agent_invocation_time": 45.79,
+            "error_rate": 0.9285714285714286
         }
     },
     {
@@ -200,59 +200,11 @@
             "top_p": 0.9
         },
         "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.038461538461538464,
-            "agent_invocation_time": 2.06,
-            "error_rate": 0.07142857142857142
-        }
-    },
-    {
-        "run_id": 14,
-        "model_name": "openai/gpt-oss-120b",
-        "model_kwargs": {
-            "temperature": 0.0,
-            "max_tokens": 1024,
-            "top_p": 0.9
-        },
-        "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.03571428571428571,
-            "agent_invocation_time": 3.6642857142857146,
-            "error_rate": 0.0
-        }
-    },
-    {
-        "run_id": 15,
-        "model_name": "openai/gpt-oss-120b",
-        "model_kwargs": {
-            "temperature": 0.2,
-            "max_tokens": 512,
-            "top_p": 0.9
-        },
-        "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.038461538461538464,
-            "agent_invocation_time": 4.639230769230769,
-            "error_rate": 0.07142857142857142
-        }
-    },
-    {
-        "run_id": 16,
-        "model_name": "openai/gpt-oss-120b",
-        "model_kwargs": {
-            "temperature": 0.2,
-            "max_tokens": 1024,
-            "top_p": 0.9
-        },
-        "results": {
-            "keyword_recall": 0.0,
-            "keyword_precision": 0.0,
-            "deliverable_recall": 0.03571428571428571,
-            "agent_invocation_time": 3.039285714285714,
-            "error_rate": 0.0
+            "keyword_recall": 0.502,
+            "keyword_precision": 0.35100000000000003,
+            "deliverable_recall": 0.0,
+            "agent_invocation_time": 3.4519999999999995,
+            "error_rate": 0.2857142857142857
         }
     }
 ]
