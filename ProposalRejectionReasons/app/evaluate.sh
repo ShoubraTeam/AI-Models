@@ -8,8 +8,8 @@ TASKS=(
     #"proposal_tools_analyzer" #done with rate limit with llama 70 at the last run
     #"job_requirements_extractor"
     #"job_requirements_matcher"
-    #"job_key_points_extractor"
-    "job_understanding_evaluator" #done with rate limit with gpt 120b at last run 
+    "job_key_points_extractor"
+    #"job_understanding_evaluator" #done with rate limit with gpt 120b at last run 
     #"experience_evidence_finder"
     #"language_clarity_evaluator" #done
 )
