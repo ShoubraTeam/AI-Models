@@ -26,9 +26,9 @@ app = FastAPI(lifespan = lifespan)
 
 
 # routers
-# app.include_router(router = base_router)
+app.include_router(router = base_router)
 app.include_router(router = identity_recognition_router)
-# app.include_router(router = job_description_enhancement_router)
-# app.include_router(router = proposal_rejection_reasons_router)
-# app.include_router(router = profile_analysis_router)
-# app.include_router(router = job_recommendation_system_router)
+app.include_router(router = job_description_enhancement_router)
+app.include_router(router = proposal_rejection_reasons_router)
+app.include_router(router = profile_analysis_router)
+app.include_router(router = job_recommendation_system_router)
