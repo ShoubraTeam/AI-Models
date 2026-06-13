@@ -1,0 +1,343 @@
+
+============================================== Run #1 ==============================================
+Run Configurations:
+	>> run_id --> 1
+	>> model_name --> groq:openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.0
+		>> matcher_precision --> 0.0
+		>> matcher_recall --> 0.0
+		>> matcher_f1_score --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 0.8830752372741699
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 29.629568576812744
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.6666666666666666
+		>> matcher_precision --> 0.3333333333333333
+		>> matcher_recall --> 0.2222222222222222
+		>> matcher_f1_score --> 0.26666666666666666
+		>> agent_invokation_time --> 2.6271252632141113
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.888888888888889
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 0.8777777777777778
+		>> matcher_f1_score --> 0.9326599326599326
+		>> agent_invokation_time --> 60.66584777832031
+
+====================================================================================================
+============================================== Run #2 ==============================================
+Run Configurations:
+	>> run_id --> 2
+	>> model_name --> groq:openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.75
+		>> matcher_precision --> 0.5
+		>> matcher_recall --> 0.4375
+		>> matcher_f1_score --> 0.4642857142857143
+		>> agent_invokation_time --> 38.50277853012085
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 14.291910648345947
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 5.318453550338745
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.5833333333333334
+		>> matcher_precision --> 0.3333333333333333
+		>> matcher_recall --> 0.1111111111111111
+		>> matcher_f1_score --> 0.16666666666666666
+		>> agent_invokation_time --> 18.259501934051514
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.8333333333333334
+		>> matcher_precision --> 0.9333333333333332
+		>> matcher_recall --> 0.8777777777777778
+		>> matcher_f1_score --> 0.903030303030303
+		>> agent_invokation_time --> 26.526636362075806
+
+====================================================================================================
+============================================== Run #3 ==============================================
+Run Configurations:
+	>> run_id --> 3
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.8125
+		>> matcher_precision --> 0.625
+		>> matcher_recall --> 0.625
+		>> matcher_f1_score --> 0.625
+		>> agent_invokation_time --> 128.1908597946167
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 2.421698808670044
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 4.43201208114624
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.8333333333333334
+		>> matcher_precision --> 0.6666666666666666
+		>> matcher_recall --> 0.4444444444444444
+		>> matcher_f1_score --> 0.5
+		>> agent_invokation_time --> 52.28342366218567
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.0
+		>> matcher_precision --> 0.0
+		>> matcher_recall --> 0.0
+		>> matcher_f1_score --> 0.0
+		>> agent_invokation_time --> 0.0
+
+====================================================================================================
+============================================== Run #4 ==============================================
+Run Configurations:
+	>> run_id --> 4
+	>> model_name --> groq:qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.875
+		>> matcher_precision --> 0.625
+		>> matcher_recall --> 0.625
+		>> matcher_f1_score --> 0.625
+		>> agent_invokation_time --> 79.57656192779541
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 16.09476590156555
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 13.748256206512451
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.75
+		>> matcher_precision --> 0.6666666666666666
+		>> matcher_recall --> 0.3333333333333333
+		>> matcher_f1_score --> 0.43333333333333335
+		>> agent_invokation_time --> 52.014031171798706
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.8888888888888888
+		>> matcher_precision --> 0.9333333333333332
+		>> matcher_recall --> 0.9333333333333332
+		>> matcher_f1_score --> 0.9333333333333335
+		>> agent_invokation_time --> 68.41747236251831
+
+====================================================================================================
+============================================== Run #5 ==============================================
+Run Configurations:
+	>> run_id --> 5
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.8125
+		>> matcher_precision --> 0.5
+		>> matcher_recall --> 0.4375
+		>> matcher_f1_score --> 0.4642857142857143
+		>> agent_invokation_time --> 49.77349901199341
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 35.3486967086792
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 0.8585455417633057
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.5833333333333334
+		>> matcher_precision --> 0.3333333333333333
+		>> matcher_recall --> 0.1111111111111111
+		>> matcher_f1_score --> 0.16666666666666666
+		>> agent_invokation_time --> 16.544872283935547
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.8333333333333334
+		>> matcher_precision --> 0.9333333333333332
+		>> matcher_recall --> 0.8777777777777778
+		>> matcher_f1_score --> 0.903030303030303
+		>> agent_invokation_time --> 46.46779823303223
+
+====================================================================================================
+============================================== Run #6 ==============================================
+Run Configurations:
+	>> run_id --> 6
+	>> model_name --> groq:openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 1024, 'top_p': 0.9}
+
+
+=> Sample #1:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.875
+		>> matcher_precision --> 0.6666666666666666
+		>> matcher_recall --> 0.6875
+		>> matcher_f1_score --> 0.6642857142857143
+		>> agent_invokation_time --> 24.977495193481445
+
+
+=> Sample #2:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 5.2820868492126465
+
+
+=> Sample #3:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 1.0
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 1.0
+		>> matcher_f1_score --> 1.0
+		>> agent_invokation_time --> 4.141556978225708
+
+
+=> Sample #4:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.6666666666666666
+		>> matcher_precision --> 0.6666666666666666
+		>> matcher_recall --> 0.2222222222222222
+		>> matcher_f1_score --> 0.3333333333333333
+		>> agent_invokation_time --> 30.382943868637085
+
+
+=> Sample #5:
+	- Passed
+	- Results:
+		>> matcher_accuracy --> 0.9444444444444445
+		>> matcher_precision --> 1.0
+		>> matcher_recall --> 0.9333333333333332
+		>> matcher_f1_score --> 0.9629629629629629
+		>> agent_invokation_time --> 24.61713194847107
+
+====================================================================================================

@@ -1,0 +1,10 @@
+[
+  {
+    "job_desc": "We need a Python developer to build a REST API using FastAPI. The API should have JWT authentication, connect to a PostgreSQL database using SQLAlchemy, and be deployed on AWS Lambda. Must include unit tests with pytest.",
+    "proposals" : [
+      "Hi, I have 3 years of experience with Python and FastAPI. I've built several REST APIs before. I will create the endpoints, set up JWT authentication, connect to PostgreSQL using SQLAlchemy ORM, write unit tests with pytest, and deploy everything on AWS Lambda using a serverless setup. I can start immediately and deliver within 7 days.",
+      "Hello, I am a Python developer with good experience in building APIs. I can build your project very well using Python. I have worked on many similar backend projects before and I know how to handle authentication and databases. Please contact me to discuss the details and timeline.",
+      "I can help you with your project. I know Python and have worked with databases and APIs before. I will deliver the work on time with good quality and competitive pricing. I am available to start immediately."
+    ]
+  }
+]
