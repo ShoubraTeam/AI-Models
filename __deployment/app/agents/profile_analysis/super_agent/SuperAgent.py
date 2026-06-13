@@ -27,6 +27,11 @@ class SuperAgent(BaseAgent):
     def invoke(self, visual_res, bio_res, skills_res, numerical_res) -> PA_SuperAgentSchema:
         
         def to_dict(obj):
+            if isinstance(obj, Exception):
+                return {
+                    "error_type": obj.__class__.__name__,
+                    "error_message": str(obj)
+                }
             if hasattr(obj, "dict"): return obj.dict()
             if hasattr(obj, "model_dump"): return obj.model_dump()
             return obj
