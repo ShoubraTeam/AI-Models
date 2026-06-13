@@ -35,9 +35,17 @@ class IdentityRecognitionPipeline:
         
         self.detector = agents["detector"]
         self.verifier = agents["verifier"]
+        self.card_classifier = agents["card_classifier"]
         self.transform = self.get_transform()
         self.similarity_threshold = similarity_threshold
         self.margin_factor = margin_factor
+
+        self.CARD_LABEL = "a photo containing an identity card"
+        self.NOT_CARD_LABEL = "a photo without any card"
+        self.card_classification_candidate_labels = [
+            self.CARD_LABEL,
+            self.NOT_CARD_LABEL,
+        ]
 
 
     def get_transform(self):
@@ -56,11 +64,45 @@ class IdentityRecognitionPipeline:
         return transform
 
     # ------------------------------ Pre Processing ------------------------------------
+    def _ndarry_to_pil(self, img: np.ndarray):
+        return fromarray(img).convert("RGB")
+
+    def is_card(self, img):
+
+        outputs = self.card_classifier(self._ndarry_to_pil(img), candidate_labels = self.card_classification_candidate_labels)
+        scores = {item["label"]: float(item["score"]) for item in outputs}
+
+        card_score = scores.get(self.CARD_LABEL, 0.0)
+        not_card_score = scores.get(self.NOT_CARD_LABEL, 0.0)
+
+        return card_score > not_card_score
+    
+
     def preprocess(self, input: list[bytes, bytes]):
         # bytes -> ndarry
         try:
             img1 = self.bytes_to_arrays(input[0])
             img2 = self.bytes_to_arrays(input[1])
+        except:
+            raise
+
+        # is card
+        try:
+            is_img1_card = self.is_card(img1)
+            is_img2_card = self.is_card(img2)
+            if is_img1_card == is_img2_card:
+                message = (
+                    ResponsesEnum.ID_RECO_NO_PERSONAL.value
+                    if is_img1_card
+                    else ResponsesEnum.ID_RECO_NO_CARD.value
+                )
+
+                return {
+                    "success": False,
+                    "message": message,
+                    "faces"  : None
+                }
+            
         except:
             raise
 
@@ -214,12 +256,12 @@ class IdentityRecognitionPipeline:
         if similarity >= self.similarity_threshold:
             return {
                 "verified"  : True,
-                "similarity": round(similarity)
+                "similarity": round(similarity, 4)
             }
         
         return {
             "verified"  : False,
-            "similarity": round(similarity)
+            "similarity": round(similarity, 4)
         }
 
 

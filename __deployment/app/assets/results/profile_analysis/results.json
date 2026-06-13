@@ -1,0 +1,96 @@
+[
+    {
+        "task": "profile_scorer_features_extraction",
+        "agent_input": {
+            "input_id": "profile_info",
+            "value": {
+                "job_role": "Machine Learning Engineer",
+                "hourly_rate": 8.0,
+                "rating": 4.0,
+                "total_completed_jobs": 5,
+                "bio_text": "Experienced Machine Learning Engineer. Built many Python projects",
+                "declared_skills": [
+                    "python",
+                    "sk-learn.",
+                    "Pandas"
+                ]
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "profile_features",
+            "value": {
+                "numerical_res": {
+                    "score": 0.5,
+                    "pricing_status": "Underpriced",
+                    "improvements": [
+                        "Increase hourly rate to at least $20 to match your high value as a Mid-Tier Machine Learning Engineer.",
+                        "Improve client satisfaction to push your star rating above 4.7."
+                    ]
+                },
+                "bio_res": {
+                    "score": 0.2,
+                    "analysis": [
+                        "Lacks hook",
+                        "Clear role",
+                        "Needs value proposition",
+                        "Missing technical depth",
+                        "Too concise"
+                    ]
+                },
+                "skills_res": {
+                    "score": 0.25,
+                    "missing_essential_skills": [
+                        "TensorFlow",
+                        "Keras",
+                        "PyTorch"
+                    ],
+                    "irrelevant_skills": []
+                }
+            }
+        },
+        "duration_s": 0.4971287060002396,
+        "user_feedback": null
+    },
+    {
+        "task": "profile_scorer_final_analysis",
+        "agent_input": {
+            "input_id": "whole_profile_data",
+            "value": {
+                "job_role": "Python Backend Developer",
+                "profile_photo": "{\n  \"filename\": \"20230211_135518.jpg\",\n  \"content_type\": \"image/jpeg\",\n  \"size_mbytes\": 5.531045913696289,\n  \"saved_path\": null\n}",
+                "hourly_rate": 25.0,
+                "rating": 4.8,
+                "total_completed_jobs": 15,
+                "bio_text": "I am a backend engineer with 3 years of experience building REST APIs using FastAPI and Django. Clean code and database optimization are my main strengths.",
+                "declared_skills": [
+                    "Python",
+                    "FastAPI",
+                    "PostgreSQL",
+                    "Docker"
+                ],
+                "pre_extracted_features": {
+                    "numerical_res": {
+                        "score": 0.85,
+                        "details": "Profile metrics are solid with a good job completion rate."
+                    },
+                    "bio_res": {
+                        "score": 0.9,
+                        "details": "Bio clearly defines backend expertise and tech stack."
+                    },
+                    "skills_res": {
+                        "score": 0.8,
+                        "details": "Core backend skills align with the declared role."
+                    }
+                }
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "fina_report",
+            "value": "Freelancer Profile Executive Audit Report\n\nOverall Profile Score: 0.85/1.0\n\nExecutive Summary\nThe freelancer's profile demonstrates strong backend expertise and solid profile metrics, with a clear bio and aligned core skills, but the visual brand evaluation was hindered by a permission error, preventing a comprehensive assessment.\n\nCritical Weaknesses & Gaps\n- Visual brand evaluation error due to permission issues\n- Potential lack of essential skills or tools not explicitly mentioned\n\nPrioritized Action Plan\n- Resolve the permission issue to enable visual brand evaluation\n- Consider adding missing essential skills or tools to enhance the profile\n- Maintain and improve the solid profile metrics and job completion rate"
+        },
+        "duration_s": 15.071839701000044,
+        "user_feedback": null
+    }
+]

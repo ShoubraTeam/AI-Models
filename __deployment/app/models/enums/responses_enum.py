@@ -11,6 +11,8 @@ class ResponsesEnum(Enum):
     ID_RECO_ERROR_REQUIRED_HIGH_QUALITY_IMAGE = "Please, upload higher quality images"
     ID_RECO_SUCCESS_PERSON_NOT_VERIFIED       = "Please Upload two higher quality images for your personality"
     ID_RECO_SUCCESS_PERSON_VERIFIED           = "Successfully verified"
+    ID_RECO_NO_CARD                           = "At least one image shoud be an identity card"
+    ID_RECO_NO_PERSONAL                       = "At least one image shoud be a personal card"
 
     # job desc enhancement [JD_ENH]
     JD_ENH_SUCCESS_TOOLS_DETECTION             = "Tools Detection Process Completed"

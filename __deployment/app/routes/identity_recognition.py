@@ -58,11 +58,13 @@ def get_good_request(message: str, verification_results: dict[str, bool | float 
 
 
 def get_result_to_save(
-    task         : str,
-    img1         : ImageLog,
-    img2         : ImageLog,
-    verified     : bool,
-    duration     : float,
+    task                : str,
+    img1                : ImageLog,
+    img2                : ImageLog,
+    verified            : bool,
+    duration            : float,
+    similarity          : float,
+    similarity_threshold: float,
     user_feedback: None | str = None
 ) -> AgentResultsToSave:
     agent_input = AgentInput(
@@ -71,8 +73,12 @@ def get_result_to_save(
     )
 
     agent_output = AgentOutput(
-        output_id = "verified",
-        value = verified
+        output_id = "verification_result",
+        value = {
+            "verified": verified,
+            "simiarlity": similarity,
+            "simiarlity_threshold": similarity_threshold,
+        }
     )
 
     return AgentResultsToSave(
@@ -154,8 +160,11 @@ async def verify_person_images(
         F.print_error(error = e, message = m)
         return get_bad_request(message = m)
 
-    faces = preprocessed["faces"]
+    if not preprocessed["success"]:
+        return get_bad_request(message = preprocessed["message"])
+    
 
+    faces = preprocessed["faces"]
 
     # calling the agent
     try:
@@ -182,11 +191,13 @@ async def verify_person_images(
 
     try:
         result_to_save = get_result_to_save(
-            task = feature_id,
-            img1 = img1_log,
-            img2 = img2_log,
-            verified = verification_results["verified"],
-            duration = duration_s
+            task                 = feature_id,
+            img1                 = img1_log,
+            img2                 = img2_log,
+            verified             = verification_results["verified"],
+            similarity           = verification_results["similarity"],
+            similarity_threshold = verification_results["similarity_threshold"],
+            duration             = duration_s
         )
 
         feature_controller.log_result(result = result_to_save)

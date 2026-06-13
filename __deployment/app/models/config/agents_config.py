@@ -40,6 +40,7 @@ RETINA_DETECTOR_CFG = {
     "device"  : "auto"
 }
 
+CARD_CLASSIFICATION_MODEL = "google/siglip-base-patch16-224"
 
 # ----------------- JD ENH --------------------
 JOB_DESCRIPTION_ENHANCEMENT_MODELS = {

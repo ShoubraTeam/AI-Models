@@ -18,11 +18,12 @@ from typing import Any, TypeAlias
 from helpers.functional import print_error
 from helpers.settings import get_settings
 
+from transformers import pipeline
 
 # helpers & config
 from models.enums import ErrorsEnum
 from models.config.system_tasks import FEATURE_IDENITY_RECOGNITION
-from models.config.agents_config import ARCFACE_CFG, RETINA_DETECTOR_CFG
+from models.config.agents_config import ARCFACE_CFG, RETINA_DETECTOR_CFG, CARD_CLASSIFICATION_MODEL
 from models.config.agents_config import JOB_DESCRIPTION_RAG_EMBEDDER, JOB_DESCRIPTION_RAG_RERANKER
 
 from models.config.agents_config import (
@@ -115,6 +116,11 @@ def get_retina_face_detector():
 
 
 
+def get_card_classifier():
+    return pipeline(
+        task = "zero-shot-image-classification",
+        model = CARD_CLASSIFICATION_MODEL
+    )
 
 # ----------------- JD ENH --------------------
 def get_weaviate_client():
