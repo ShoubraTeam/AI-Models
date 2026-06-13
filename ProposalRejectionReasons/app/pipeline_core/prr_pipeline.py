@@ -117,21 +117,21 @@ class PrrPipeline:
     # ---------------------- Job Features Extraction ----------------------
     async def _extract_job_tools(self, job_desc: str):
         try:
-            return await self.job_tools_extractor.ainvoke(input = job_desc)
+            return await self.job_tools_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobToolsExtractorError, e)
 
 
     async def _extract_job_key_points(self, job_desc: str):
         try:
-            return await self.job_key_points_extractor.ainvoke(input = job_desc)
+            return await self.job_key_points_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobKeyPointsExtractorError, e)
 
 
     async def _extract_job_requirements(self, job_desc: str):
         try:
-            return await self.requirement_extractor.ainvoke(input = job_desc)
+            return await self.requirement_extractor.ainvoke(job_desc = job_desc)
         except Exception as e:
             self._raise_pipeline_error(JobRequirementExtractorError, e)
 
@@ -261,7 +261,7 @@ class PrrPipeline:
     async def get_language_clarity_results_async(self, proposal: str) -> FinalSubagentResult:
         try:
             language_clarity_evaluation = await self.language_clarity_evaluator.ainvoke(
-                input = proposal
+                proposal_text = proposal
             )
 
             return get_final_language_clarity_result(
@@ -471,6 +471,10 @@ class PrrPipeline:
             job_desc = job_desc,
             proposal = proposal
         )
+
+        # for result_name, value in subagent_results.items():
+        #     print(f"{result_name.title()}:\n{value}\n\n")
+
         parsed_subagent_results = self.parse_subagents_results(
             results = subagent_results
         )

@@ -65,21 +65,41 @@ def get_result_to_save(
     duration            : float,
     similarity          : float,
     similarity_threshold: float,
-    user_feedback: None | str = None
+    user_feedback       : None | str = None,
+    message             : str | None = None
 ) -> AgentResultsToSave:
-    agent_input = AgentInput(
-        input_id = f"{img1.filename}__{img2.filename}__verification",
-        images = (img1, img2)
-    )
+    if verified is not None:
+        agent_input = AgentInput(
+            input_id = f"{img1.filename}__{img2.filename}__verification",
+            images = (img1, img2)
+        )
 
-    agent_output = AgentOutput(
-        output_id = "verification_result",
-        value = {
-            "verified": verified,
-            "simiarlity": similarity,
-            "simiarlity_threshold": similarity_threshold,
-        }
-    )
+        agent_output = AgentOutput(
+            output_id = "verification_result",
+            value = {
+                "success": True,
+                "verified": verified,
+                "simiarlity": similarity,
+                "simiarlity_threshold": similarity_threshold,
+            }
+        )
+    
+    else:
+        agent_input = AgentInput(
+            input_id = f"{img1.filename}__{img2.filename}__verification",
+            images = (img1, img2)
+        )
+
+        agent_output = AgentOutput(
+            output_id = "verification_result",
+            value = {
+                "success": False,
+                "message": message,
+                "verified": None,
+                "simiarlity": None,
+                "simiarlity_threshold": None,
+            }
+        )
 
     return AgentResultsToSave(
         task = task,
@@ -161,6 +181,19 @@ async def verify_person_images(
         return get_bad_request(message = m)
 
     if not preprocessed["success"]:
+        end_time = perf_counter()
+        duration_s = end_time - start_time
+        result_to_save = get_result_to_save(
+            task                 = feature_id,
+            img1                 = img1_log,
+            img2                 = img2_log,
+            verified             = None,
+            similarity           = None,
+            similarity_threshold = None,
+            duration             = duration_s,
+            message              = preprocessed["message"]
+        )
+        feature_controller.log_result(result = result_to_save)
         return get_bad_request(message = preprocessed["message"])
     
 

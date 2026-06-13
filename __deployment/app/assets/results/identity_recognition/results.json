@@ -172,5 +172,71 @@
         },
         "duration_s": 1.960190409000461,
         "user_feedback": null
+    },
+    {
+        "task": "identity_recognition",
+        "agent_input": {
+            "input_id": "1.jpg__1.jpg__verification",
+            "value": null,
+            "images": [
+                {
+                    "filename": "1.jpg",
+                    "content_type": "image/jpeg",
+                    "size_mbytes": 5.664712905883789,
+                    "saved_path": null
+                },
+                {
+                    "filename": "1.jpg",
+                    "content_type": "image/jpeg",
+                    "size_mbytes": 5.664712905883789,
+                    "saved_path": null
+                }
+            ]
+        },
+        "agent_output": {
+            "output_id": "verification_result",
+            "value": {
+                "success": false,
+                "message": null,
+                "verified": null,
+                "simiarlity": null,
+                "simiarlity_threshold": null
+            }
+        },
+        "duration_s": 2.6168475369995576,
+        "user_feedback": null
+    },
+    {
+        "task": "identity_recognition",
+        "agent_input": {
+            "input_id": "1.jpg__1.jpg__verification",
+            "value": null,
+            "images": [
+                {
+                    "filename": "1.jpg",
+                    "content_type": "image/jpeg",
+                    "size_mbytes": 5.664712905883789,
+                    "saved_path": null
+                },
+                {
+                    "filename": "1.jpg",
+                    "content_type": "image/jpeg",
+                    "size_mbytes": 5.664712905883789,
+                    "saved_path": null
+                }
+            ]
+        },
+        "agent_output": {
+            "output_id": "verification_result",
+            "value": {
+                "success": false,
+                "message": "At least one image shoud be an identity card",
+                "verified": null,
+                "simiarlity": null,
+                "simiarlity_threshold": null
+            }
+        },
+        "duration_s": 3.355117352000889,
+        "user_feedback": null
     }
 ]
