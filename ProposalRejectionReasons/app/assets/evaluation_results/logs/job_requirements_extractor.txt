@@ -2,135 +2,305 @@
 ============================================== Run #1 ==============================================
 Run Configurations:
 	>> run_id --> 1
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.9}
+	>> model_name --> llama-3.3-70b-versatile
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
+		>> requirements_extraction_accuracy --> 0.8888888888888888
+		>> requirements_extraction_precision --> 0.8
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.574631929397583
+		>> agent_invokation_time --> 0.7990412712097168
 
 
 => Sample #2:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2108490467071533
+		>> agent_invokation_time --> 0.4043104648590088
 
 
 => Sample #3:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.24181866645813
+		>> agent_invokation_time --> 0.2444307804107666
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.1956920623779297
+		>> requirements_extraction_accuracy --> 0.8181818181818182
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 0.6666666666666666
+		>> requirements_necessity_accuracy --> 0.6666666666666666
+		>> agent_invokation_time --> 0.48679304122924805
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.75
+		>> requirements_extraction_accuracy --> 0.7142857142857143
+		>> requirements_extraction_precision --> 0.6
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.6593871116638184
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.47804760932922363
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.5137922763824463
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.4438285827636719
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.9090909090909091
 		>> requirements_extraction_precision --> 0.8
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 23.918662786483765
+		>> agent_invokation_time --> 0.6679012775421143
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.875
+		>> requirements_extraction_precision --> 0.5
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.2927546501159668
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.5675129890441895
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.22724676132202148
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.29968690872192383
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.154111623764038
 
 ====================================================================================================
 ============================================== Run #2 ==============================================
 Run Configurations:
 	>> run_id --> 2
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.95}
+	>> model_name --> llama-3.1-8b-instant
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
+		>> requirements_extraction_accuracy --> 0.8888888888888888
+		>> requirements_extraction_precision --> 0.8
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.760348796844482
+		>> agent_invokation_time --> 0.7005932331085205
 
 
 => Sample #2:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 27.38460898399353
+		>> agent_invokation_time --> 0.375399112701416
 
 
 => Sample #3:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.755942106246948
+		>> agent_invokation_time --> 0.1828010082244873
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 17.603928089141846
+		>> agent_invokation_time --> 0.6163606643676758
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.6
+		>> requirements_extraction_accuracy --> 0.5714285714285714
+		>> requirements_extraction_precision --> 0.4
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.44899892807006836
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.3574333190917969
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.8
 		>> requirements_extraction_precision --> 0.6
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 15.875294208526611
+		>> agent_invokation_time --> 0.5310161113739014
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.530027151107788
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.4473395347595215
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 0.3969404697418213
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 3.492058515548706
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.505478858947754
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 3.4260027408599854
 
 ====================================================================================================
 ============================================== Run #3 ==============================================
 Run Configurations:
 	>> run_id --> 3
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 1.0}
+	>> model_name --> qwen/qwen3-32b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.24288034439087
-
-
-=> Sample #2:
 	- Passed
 	- Results:
 		>> requirements_extraction_accuracy --> 0.0
@@ -140,587 +310,291 @@ Run Configurations:
 		>> agent_invokation_time --> 0.0
 
 
+=> Sample #2:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.8944296836853027
+
+
 => Sample #3:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.8585503101348877
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.8
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.5555555555555556
-		>> agent_invokation_time --> 3.431593418121338
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 1.2792277336120605
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
+		>> requirements_extraction_accuracy --> 0.5714285714285714
+		>> requirements_extraction_precision --> 0.4
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 24.722818851470947
+		>> agent_invokation_time --> 1.0502259731292725
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 2.2163631916046143
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.7272727272727273
+		>> requirements_extraction_precision --> 0.6
+		>> requirements_extraction_recall --> 0.8333333333333334
+		>> requirements_necessity_accuracy --> 0.8333333333333334
+		>> agent_invokation_time --> 7.014226198196411
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.292333364486694
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.665084362030029
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.8
+		>> requirements_extraction_precision --> 0.5
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.153227806091309
 
 ====================================================================================================
 ============================================== Run #4 ==============================================
 Run Configurations:
 	>> run_id --> 4
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.9}
+	>> model_name --> openai/gpt-oss-20b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 14.552494049072266
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #2:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.79699683189392
+		>> requirements_extraction_accuracy --> 0.4
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 0.25
+		>> requirements_necessity_accuracy --> 0.25
+		>> agent_invokation_time --> 0.8646490573883057
 
 
 => Sample #3:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 15.02814769744873
+		>> agent_invokation_time --> 0.4759645462036133
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 18.389018535614014
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #6:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #7:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.8333333333333334
+		>> requirements_extraction_precision --> 0.6666666666666666
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 20.297921180725098
+		>> agent_invokation_time --> 2.0626189708709717
+
+
+=> Sample #8:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #9:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #10:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 6.890434265136719
+
+
+=> Sample #11:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
+
+
+=> Sample #12:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.2411181926727295
+
+
+=> Sample #13:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
+		>> requirements_extraction_recall --> 1.0
+		>> requirements_necessity_accuracy --> 1.0
+		>> agent_invokation_time --> 7.052421808242798
+
+
+=> Sample #14:
+	- Passed
+	- Results:
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 ====================================================================================================
 ============================================== Run #5 ==============================================
 Run Configurations:
 	>> run_id --> 5
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
+	>> model_name --> openai/gpt-oss-120b
+	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 512, 'top_p': 0.9}
 
 
 => Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 20.86946201324463
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.11279296875
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 9.776506185531616
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 18.308647394180298
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.792736530303955
-
-====================================================================================================
-============================================== Run #6 ==============================================
-Run Configurations:
-	>> run_id --> 6
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.18167495727539
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.966524362564087
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.16666666666666666
-		>> requirements_extraction_precision --> 0.16666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.045288324356079
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 9.581185102462769
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 24.0428307056427
-
-====================================================================================================
-============================================== Run #7 ==============================================
-Run Configurations:
-	>> run_id --> 7
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.6195437908172607
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 15.927917718887329
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.14285714285714285
-		>> requirements_extraction_precision --> 0.14285714285714285
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.068922758102417
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.128389358520508
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-====================================================================================================
-============================================== Run #8 ==============================================
-Run Configurations:
-	>> run_id --> 8
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.6666666666666666
-		>> agent_invokation_time --> 17.40434694290161
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 15.229348182678223
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.04123854637146
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5555555555555556
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 16.766671657562256
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.75
-		>> requirements_extraction_precision --> 0.7142857142857143
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 17.990793228149414
-
-====================================================================================================
-============================================== Run #9 ==============================================
-Run Configurations:
-	>> run_id --> 9
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.42857142857142855
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 9.930917024612427
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.039041519165039
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.558555841445923
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 17.21483016014099
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-====================================================================================================
-============================================= Run #10 ==============================================
-Run Configurations:
-	>> run_id --> 10
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 19.535809755325317
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.465837717056274
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.14285714285714285
-		>> requirements_extraction_precision --> 0.14285714285714285
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 9.579107522964478
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8
-		>> agent_invokation_time --> 18.124220848083496
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 21.248364448547363
-
-====================================================================================================
-============================================= Run #11 ==============================================
-Run Configurations:
-	>> run_id --> 11
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.14055585861206
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.313379764556885
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.823559284210205
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 22.36805820465088
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 16.393962621688843
-
-====================================================================================================
-============================================= Run #12 ==============================================
-Run Configurations:
-	>> run_id --> 12
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.044140100479126
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.374614953994751
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 9.670215606689453
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 19.238508939743042
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.75
-		>> requirements_extraction_precision --> 0.7777777777777778
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 19.528563022613525
-
-====================================================================================================
-============================================= Run #13 ==============================================
-Run Configurations:
-	>> run_id --> 13
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.0308263301849365
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.42857142857142855
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 13.821568012237549
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.808612823486328
-
-
-=> Sample #4:
 	- Passed
 	- Results:
 		>> requirements_extraction_accuracy --> 0.0
@@ -730,269 +604,14 @@ Run Configurations:
 		>> agent_invokation_time --> 0.0
 
 
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-====================================================================================================
-============================================= Run #14 ==============================================
-Run Configurations:
-	>> run_id --> 14
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.42857142857142855
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 19.005518436431885
-
-
 => Sample #2:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 17.99609398841858
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.528462409973145
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.7142857142857143
-		>> agent_invokation_time --> 16.890135288238525
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.28119158744812
-
-====================================================================================================
-============================================= Run #15 ==============================================
-Run Configurations:
-	>> run_id --> 15
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 13.516082763671875
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.774903059005737
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.036783933639526
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 15.662801504135132
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.625
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 20.02291989326477
-
-====================================================================================================
-============================================= Run #16 ==============================================
-Run Configurations:
-	>> run_id --> 16
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8
-		>> agent_invokation_time --> 11.717938661575317
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.643033742904663
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.125
-		>> requirements_extraction_precision --> 0.125
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.248872756958008
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.903500080108643
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 21.780040979385376
-
-====================================================================================================
-============================================= Run #17 ==============================================
-Run Configurations:
-	>> run_id --> 17
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.42857142857142855
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 9.881649255752563
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.991334915161133
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.174997091293335
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.3333333333333333
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 15.709961652755737
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.75
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 18.659573078155518
-
-====================================================================================================
-============================================= Run #18 ==============================================
-Run Configurations:
-	>> run_id --> 18
-	>> model_name --> groq:qwen/qwen3-32b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.375
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.850847244262695
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 16.413214445114136
+		>> agent_invokation_time --> 1.4121050834655762
 
 
 => Sample #3:
@@ -1002,949 +621,110 @@ Run Configurations:
 		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 18.076456785202026
+		>> agent_invokation_time --> 0.6978452205657959
 
 
 => Sample #4:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 15.374348402023315
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
 => Sample #5:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.75
-		>> requirements_extraction_precision --> 0.7142857142857143
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 18.570605039596558
-
-====================================================================================================
-============================================= Run #19 ==============================================
-Run Configurations:
-	>> run_id --> 19
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.9}
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
-=> Sample #1:
+=> Sample #6:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.1572582721710205
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.375
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.8958098888397217
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.33655524253845215
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 0.9201245307922363
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5454545454545454
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9747440814971924
-
-====================================================================================================
-============================================= Run #20 ==============================================
-Run Configurations:
-	>> run_id --> 20
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.115640640258789
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.5609970092773438
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.4003589153289795
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 0.9586009979248047
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 0.9202110767364502
-
-====================================================================================================
-============================================= Run #21 ==============================================
-Run Configurations:
-	>> run_id --> 21
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2297325134277344
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.375
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.81734299659729
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.3834974765777588
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 1.9516148567199707
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.9927215576171875
-
-====================================================================================================
-============================================= Run #22 ==============================================
-Run Configurations:
-	>> run_id --> 22
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2841949462890625
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6180269718170166
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.34653806686401367
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 4.047900676727295
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5454545454545454
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.078642129898071
-
-====================================================================================================
-============================================= Run #23 ==============================================
-Run Configurations:
-	>> run_id --> 23
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.1612441539764404
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.375
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9580676555633545
-
-
-=> Sample #3:
+=> Sample #7:
 	- Passed
 	- Results:
 		>> requirements_extraction_accuracy --> 1.0
 		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4017558097839355
+		>> agent_invokation_time --> 1.2244141101837158
 
 
-=> Sample #4:
+=> Sample #8:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 3.0258071422576904
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
-=> Sample #5:
+=> Sample #9:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.0615856647491455
-
-====================================================================================================
-============================================= Run #24 ==============================================
-Run Configurations:
-	>> run_id --> 24
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 1.0}
+		>> requirements_extraction_accuracy --> 0.0
+		>> requirements_extraction_precision --> 0.0
+		>> requirements_extraction_recall --> 0.0
+		>> requirements_necessity_accuracy --> 0.0
+		>> agent_invokation_time --> 0.0
 
 
-=> Sample #1:
+=> Sample #10:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
+		>> requirements_extraction_accuracy --> 0.875
 		>> requirements_extraction_precision --> 0.5
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.0449860095977783
+		>> agent_invokation_time --> 5.671290636062622
 
 
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.630507230758667
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.3238067626953125
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 2.9608559608459473
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 4.969367980957031
-
-====================================================================================================
-============================================= Run #25 ==============================================
-Run Configurations:
-	>> run_id --> 25
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2424201965332031
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.375
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.7623395919799805
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.8240151405334473
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 3.023853302001953
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.06925630569458
-
-====================================================================================================
-============================================= Run #26 ==============================================
-Run Configurations:
-	>> run_id --> 26
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.233717918395996
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6264533996582031
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4760146141052246
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.044060468673706
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 5.09795069694519
-
-====================================================================================================
-============================================= Run #27 ==============================================
-Run Configurations:
-	>> run_id --> 27
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.974520206451416
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6500222682952881
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.396996021270752
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 3.911865472793579
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 5.028004169464111
-
-====================================================================================================
-============================================= Run #28 ==============================================
-Run Configurations:
-	>> run_id --> 28
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.0383095741271973
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.375
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.7620687484741211
-
-
-=> Sample #3:
+=> Sample #11:
 	- Passed
 	- Results:
 		>> requirements_extraction_accuracy --> 1.0
 		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.4107847213745117
+		>> agent_invokation_time --> 6.442184925079346
 
 
-=> Sample #4:
+=> Sample #12:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.0506911277771
+		>> agent_invokation_time --> 6.003642559051514
 
 
-=> Sample #5:
+=> Sample #13:
 	- Passed
 	- Results:
-		>> requirements_extraction_accuracy --> 0.5454545454545454
-		>> requirements_extraction_precision --> 0.5
+		>> requirements_extraction_accuracy --> 1.0
+		>> requirements_extraction_precision --> 1.0
 		>> requirements_extraction_recall --> 1.0
 		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.043298959732056
+		>> agent_invokation_time --> 6.433366298675537
 
-====================================================================================================
-============================================= Run #29 ==============================================
-Run Configurations:
-	>> run_id --> 29
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 0.95}
 
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.0820269584655762
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9726095199584961
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4296669960021973
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 3.9215176105499268
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5454545454545454
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.995213985443115
-
-====================================================================================================
-============================================= Run #30 ==============================================
-Run Configurations:
-	>> run_id --> 30
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9654011726379395
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.5866830348968506
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.414473295211792
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 3.9222140312194824
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5454545454545454
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.039064645767212
-
-====================================================================================================
-============================================= Run #31 ==============================================
-Run Configurations:
-	>> run_id --> 31
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.9771974086761475
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.558152437210083
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.382197618484497
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 2.9609193801879883
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.113595008850098
-
-====================================================================================================
-============================================= Run #32 ==============================================
-Run Configurations:
-	>> run_id --> 32
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2981245517730713
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.5792129039764404
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4817516803741455
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 3.037635326385498
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.078323841094971
-
-====================================================================================================
-============================================= Run #33 ==============================================
-Run Configurations:
-	>> run_id --> 33
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.0702695846557617
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.6459441184997559
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4706075191497803
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.02519965171814
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 5.0570714473724365
-
-====================================================================================================
-============================================= Run #34 ==============================================
-Run Configurations:
-	>> run_id --> 34
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.00651216506958
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 0.5275897979736328
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.3961195945739746
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.9955344200134277
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 5.042638063430786
-
-====================================================================================================
-============================================= Run #35 ==============================================
-Run Configurations:
-	>> run_id --> 35
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
+=> Sample #14:
 	- Passed
 	- Results:
 		>> requirements_extraction_accuracy --> 0.0
@@ -1952,1128 +732,5 @@ Run Configurations:
 		>> requirements_extraction_recall --> 0.0
 		>> requirements_necessity_accuracy --> 0.0
 		>> agent_invokation_time --> 0.0
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-====================================================================================================
-============================================= Run #36 ==============================================
-Run Configurations:
-	>> run_id --> 36
-	>> model_name --> groq:llama-3.3-70b-versatile
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-====================================================================================================
-============================================= Run #37 ==============================================
-Run Configurations:
-	>> run_id --> 37
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5555555555555556
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.2113139629364014
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.3716061115264893
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.63346529006958
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 22.55785632133484
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 13.221063613891602
-
-====================================================================================================
-============================================= Run #38 ==============================================
-Run Configurations:
-	>> run_id --> 38
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.625
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.079050302505493
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.18379807472229
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.25
-		>> requirements_extraction_precision --> 0.25
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 10.31802487373352
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.084633111953735
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.0
-		>> requirements_extraction_precision --> 0.0
-		>> requirements_extraction_recall --> 0.0
-		>> requirements_necessity_accuracy --> 0.0
-		>> agent_invokation_time --> 0.0
-
-====================================================================================================
-============================================= Run #39 ==============================================
-Run Configurations:
-	>> run_id --> 39
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.454167604446411
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.42857142857142855
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.5983021259307861
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.25
-		>> requirements_extraction_precision --> 0.25
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.2246577739715576
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.9697628021240234
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 11.406473636627197
-
-====================================================================================================
-============================================= Run #40 ==============================================
-Run Configurations:
-	>> run_id --> 40
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5555555555555556
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.6052210330963135
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.8
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.929501295089722
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.25
-		>> requirements_extraction_precision --> 0.25
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.3195090293884277
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.8
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 10.486353635787964
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 12.390145540237427
-
-====================================================================================================
-============================================= Run #41 ==============================================
-Run Configurations:
-	>> run_id --> 41
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.4353888034820557
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.8333333333333334
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.687331199645996
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.3333333333333333
-		>> requirements_extraction_precision --> 0.3333333333333333
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.2393810749053955
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.3085975646972656
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 14.197801351547241
-
-====================================================================================================
-============================================= Run #42 ==============================================
-Run Configurations:
-	>> run_id --> 42
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.0, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.2058024406433105
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5714285714285714
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.9330480098724365
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.320638656616211
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.7142857142857143
-		>> agent_invokation_time --> 7.565551996231079
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 5.462931871414185
-
-====================================================================================================
-============================================= Run #43 ==============================================
-Run Configurations:
-	>> run_id --> 43
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.36363636363636365
-		>> requirements_extraction_precision --> 0.3
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.6573567390441895
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.8333333333333334
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.6473309993743896
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.339911699295044
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.7142857142857143
-		>> agent_invokation_time --> 2.369762897491455
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.45454545454545453
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 0.8333333333333334
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.4693214893341064
-
-====================================================================================================
-============================================= Run #44 ==============================================
-Run Configurations:
-	>> run_id --> 44
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.42857142857142855
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.2487924098968506
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.6647493839263916
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.1897671222686768
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.314692258834839
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 7.580708742141724
-
-====================================================================================================
-============================================= Run #45 ==============================================
-Run Configurations:
-	>> run_id --> 45
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.625
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.2111382484436035
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.908121109008789
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.25
-		>> requirements_extraction_precision --> 0.25
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.394838571548462
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.8
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.3288891315460205
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.277928590774536
-
-====================================================================================================
-============================================= Run #46 ==============================================
-Run Configurations:
-	>> run_id --> 46
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.625
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.1432127952575684
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.221015691757202
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.193579912185669
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.625
-		>> agent_invokation_time --> 10.88057804107666
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.466444969177246
-
-====================================================================================================
-============================================= Run #47 ==============================================
-Run Configurations:
-	>> run_id --> 47
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5714285714285714
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.5990362167358398
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.8
-		>> requirements_extraction_precision --> 0.8333333333333334
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.749532699584961
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.4604880809783936
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4
-		>> requirements_extraction_precision --> 0.4
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.790192604064941
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.553422451019287
-
-====================================================================================================
-============================================= Run #48 ==============================================
-Run Configurations:
-	>> run_id --> 48
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.1, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7142857142857143
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.5908114910125732
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5714285714285714
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.286442995071411
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.14285714285714285
-		>> requirements_extraction_precision --> 0.14285714285714285
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.6870901584625244
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.7142857142857143
-		>> agent_invokation_time --> 8.36328673362732
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8333333333333334
-		>> agent_invokation_time --> 8.003594160079956
-
-====================================================================================================
-============================================= Run #49 ==============================================
-Run Configurations:
-	>> run_id --> 49
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5714285714285714
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.5305981636047363
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5714285714285714
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.307560920715332
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.1
-		>> requirements_extraction_precision --> 0.1
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.9715125560760498
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.8
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.7777777777777778
-		>> agent_invokation_time --> 7.779324769973755
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.45454545454545453
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 0.8333333333333334
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 9.007718086242676
-
-====================================================================================================
-============================================= Run #50 ==============================================
-Run Configurations:
-	>> run_id --> 50
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7142857142857143
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.7902593612670898
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.265584707260132
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.113387823104858
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.8
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.391848087310791
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 8.456700325012207
-
-====================================================================================================
-============================================= Run #51 ==============================================
-Run Configurations:
-	>> run_id --> 51
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 2048, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.563174247741699
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.8659749031066895
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.276310682296753
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.875
-		>> agent_invokation_time --> 7.046624183654785
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.440336227416992
-
-====================================================================================================
-============================================= Run #52 ==============================================
-Run Configurations:
-	>> run_id --> 52
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 0.9}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.75
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.5822031497955322
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.5714285714285714
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.8427951335906982
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.25
-		>> requirements_extraction_precision --> 0.25
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 2.399789810180664
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.75
-		>> agent_invokation_time --> 6.6185386180877686
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 0.8571428571428571
-		>> agent_invokation_time --> 6.044302463531494
-
-====================================================================================================
-============================================= Run #53 ==============================================
-Run Configurations:
-	>> run_id --> 53
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 0.95}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.4176795482635498
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.3982608318328857
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.2
-		>> requirements_extraction_precision --> 0.2
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.9560985565185547
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.5714285714285714
-		>> requirements_extraction_precision --> 0.7
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 4.50044584274292
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6
-		>> requirements_extraction_precision --> 0.6
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 7.5275654792785645
-
-====================================================================================================
-============================================= Run #54 ==============================================
-Run Configurations:
-	>> run_id --> 54
-	>> model_name --> groq:openai/gpt-oss-120b
-	>> model_kwargs --> {'temperature': 0.2, 'max_tokens': 4096, 'top_p': 1.0}
-
-
-=> Sample #1:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 3.6129496097564697
-
-
-=> Sample #2:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.6666666666666666
-		>> requirements_extraction_precision --> 0.6666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.825225591659546
-
-
-=> Sample #3:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.16666666666666666
-		>> requirements_extraction_precision --> 0.16666666666666666
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 1.897078275680542
-
-
-=> Sample #4:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.4444444444444444
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 1.0
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 5.999023199081421
-
-
-=> Sample #5:
-	- Passed
-	- Results:
-		>> requirements_extraction_accuracy --> 0.45454545454545453
-		>> requirements_extraction_precision --> 0.5
-		>> requirements_extraction_recall --> 0.8333333333333334
-		>> requirements_necessity_accuracy --> 1.0
-		>> agent_invokation_time --> 6.937495470046997
 
 ====================================================================================================

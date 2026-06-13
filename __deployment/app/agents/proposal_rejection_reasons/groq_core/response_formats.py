@@ -7,17 +7,17 @@ from typing import Any, TypeAlias
 
 from pydantic import BaseModel
 
-from schemas import (
-    ExperienceEvidenceSchema,
-    JobKeyPointsSchema,
-    JobUnderstandingEvalSchema,
-    JobToolResponse,
-    ProposalToolsResponse,
-    ExtractedRequirementsSchema,
-    RequirementCoverageSchema,
-    LanguageClarityEvalSchema,
-    SuperAgentResponse,
-)
+# from models.schemas import (
+#     ExperienceEvidenceSchema,
+#     JobKeyPointsSchema,
+#     JobUnderstandingEvalSchema,
+#     JobToolResponse,
+#     ProposalToolsResponse,
+#     ExtractedRequirementsSchema,
+#     RequirementCoverageSchema,
+#     LanguageClarityEvalSchema,
+#     PRR_SuperAgentResponse,
+# )
 
 SchemaType: TypeAlias = type[BaseModel]
 
@@ -31,17 +31,17 @@ STRICT_MODE_MODELS = [
     "openai/gpt-oss-120b",
 ]
 
-SUPPORTED_SCHEMAS: tuple[SchemaType, ...] = (
-    ExperienceEvidenceSchema,
-    JobKeyPointsSchema,
-    JobUnderstandingEvalSchema,
-    JobToolResponse,
-    ProposalToolsResponse,
-    ExtractedRequirementsSchema,
-    RequirementCoverageSchema,
-    LanguageClarityEvalSchema,
-    SuperAgentResponse,
-)
+# SUPPORTED_SCHEMAS: tuple[SchemaType, ...] = (
+#     ExperienceEvidenceSchema,
+#     JobKeyPointsSchema,
+#     JobUnderstandingEvalSchema,
+#     JobToolResponse,
+#     ProposalToolsResponse,
+#     ExtractedRequirementsSchema,
+#     RequirementCoverageSchema,
+#     LanguageClarityEvalSchema,
+#     PRR_SuperAgentResponse,
+# )
 
 
 

@@ -90,16 +90,14 @@ class JobRequirementsMatcher(BaseAgent):
                 print(f"[COVERED IDs] True: {true_covered} | Agent Predicted: {pred_covered}")
                 print(f"[MISSING IDs] True: {true_missing} | Agent Predicted: {pred_missing}")
 
-                all_ids = true_covered.union(true_missing)
+                all_ids = true_covered.union(true_missing).union(pred_covered).union(pred_missing)
+                
                 if not all_ids:
-                    print(" -> [SKIP] No IDs found in ground truth for this sample.")
+                    print(" -> [SKIP] No IDs found in ground truth or predictions for this sample.")
                     print("-" * 114)
                     continue
 
-                tp = 0
-                fp = 0
-                fn = 0
-                tn = 0
+                tp, fp, fn, tn = 0, 0, 0, 0
 
                 for cid in all_ids:
                     is_true_covered = cid in true_covered
@@ -120,8 +118,14 @@ class JobRequirementsMatcher(BaseAgent):
 
                 total = tp + fp + fn + tn
                 accuracy = (tp + tn) / total if total > 0 else 0.0
-                precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-                recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+                
+                if len(true_covered) == 0 and len(pred_covered) == 0:
+                    precision = 1.0
+                    recall = 1.0
+                else:
+                    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+                    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+                
                 f1 = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
 
                 sample_accuracy.append(accuracy)

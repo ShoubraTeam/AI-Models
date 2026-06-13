@@ -1,1 +1,1 @@
-from .super_agent import ProposalRejectionSuperAgent
+from .super_agent import SuperAgent

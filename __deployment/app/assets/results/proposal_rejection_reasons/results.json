@@ -1,0 +1,216 @@
+[
+    {
+        "task": "PRR_job_features_extraction",
+        "agent_input": {
+            "input_id": "job_description",
+            "value": "I'm working on my graduate-level capstone and have chosen to build a full-fledged recommendation system using a publicly available dataset (e.g., MovieLens, Amazon Reviews, Goodreads—whichever fits best once we outline the approach). The end goal is to demonstrate solid grasp of modern recommender techniques, from data preprocessing through model training, evaluation, and an easy-to-showcase demo.\n\nScope of work\nThe project has three pillars:\n1. Data pipeline – ingest, clean, and transform the chosen public dataset so it's ready for modelling while remaining fully reproducible (Python, pandas, SQL or Spark if scale requires).\n2. Modelling – experiment with at least two algorithms that illustrate contrasting paradigms, for example matrix factorization (Surprise, implicit, LightFM) versus a neural approach (TensorFlow/PyTorch). Hyperparameter tuning and offline metrics such as precision@k, recall@k, MAP, or NDCG should be clearly reported.\n3. Demo & report – a lightweight web or notebook-based interface that lets a reviewer type or click an item and instantly see the top-N recommendations, plus a concise technical report summarising methodology, results, and next steps.\n\nAcceptance criteria\n• Code runs end-to-end on my machine with a single command or notebook run.\n• Evaluation metrics and comparison table included.\n• Read-me explains how to reproduce results and launch the demo.\n• Final write-up (≈10 pages) meets academic standards and is citation-ready.\n\nTimeline is flexible enough for thoughtful experimentation yet tight enough to keep momentum; we can break delivery into milestones (data prep, initial model, final model & demo, report).\n\nIf you are comfortable with recommender libraries, Python, and clear scientific communication, let's discuss details and lock the dataset choice so we can start right away.\nSkills Required\nSQL\nMachine Learning (ML)\nData Mining\nSAS\nBig Data Sales\nHadoop\nData Science\nData Analysis",
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "extracted_job_features",
+            "value": {
+                "job_tools": {
+                    "tools": [
+                        {
+                            "tool_name": "Python",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "tool_name": "pandas",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "tool_name": "SQL",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "tool_name": "Surprise",
+                            "necessity_level": "recommended"
+                        },
+                        {
+                            "tool_name": "LightFM",
+                            "necessity_level": "recommended"
+                        },
+                        {
+                            "tool_name": "TensorFlow",
+                            "necessity_level": "optional"
+                        },
+                        {
+                            "tool_name": "PyTorch",
+                            "necessity_level": "optional"
+                        },
+                        {
+                            "tool_name": "Spark",
+                            "necessity_level": "optional"
+                        }
+                    ]
+                },
+                "job_requirements": {
+                    "requirements": [
+                        {
+                            "id": "REQ_1",
+                            "text": "The system must ingest a publicly available dataset (e.g., MovieLens, Amazon Reviews, Goodreads) for recommendation purposes.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_2",
+                            "text": "The system must preprocess the ingested dataset using Python, pandas, SQL, or Spark to ensure data quality and reproducibility.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_3",
+                            "text": "The system must implement at least two contrasting recommender algorithms, such as matrix factorization and a neural approach.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_4",
+                            "text": "The system must perform hyperparameter tuning for the implemented algorithms.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_5",
+                            "text": "The system must evaluate the performance of the implemented algorithms using offline metrics such as precision@k, recall@k, MAP, or NDCG.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_6",
+                            "text": "The system must provide a lightweight web or notebook-based interface for users to interact with the recommender system.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_7",
+                            "text": "The system must allow users to type or click an item and instantly see the top-N recommendations.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_8",
+                            "text": "The system must include a concise technical report summarizing methodology, results, and next steps.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_9",
+                            "text": "The system must be reproducible with a single command or notebook run.",
+                            "necessity_level": "mandatory"
+                        },
+                        {
+                            "id": "REQ_10",
+                            "text": "The system must include a README file explaining how to reproduce results and launch the demo.",
+                            "necessity_level": "mandatory"
+                        }
+                    ]
+                },
+                "job_key_points": {
+                    "core_problem": "Build a full-fledged recommendation system using a publicly available dataset",
+                    "required_deliverables": [
+                        "Data pipeline",
+                        "Modelling with at least two algorithms",
+                        "Demo & report"
+                    ],
+                    "key_keywords": [
+                        "Recommender techniques",
+                        "Data preprocessing",
+                        "Model training",
+                        "Model evaluation",
+                        "Hyperparameter tuning",
+                        "Data mining",
+                        "Data science",
+                        "Data analysis"
+                    ]
+                }
+            }
+        },
+        "duration_s": 0.8363142419998439,
+        "user_feedback": null
+    },
+    {
+        "task": "PRR_proposal_analysis",
+        "agent_input": {
+            "input_id": "job_data__proposal",
+            "value": {
+                "job_desc": "We need a medical patient dashboard. The core mandatory feature is to display real-time patient vitals. We highly recommend including an automated PDF report generator for doctors. Note on security: Because of strict privacy laws, do NOT use any external cloud AI APIs (like OpenAI or Anthropic) to analyze patient data; sending data to cloud APIs is strictly forbidden. The system should ideally have a dark mode toggle.",
+                "proposal": "Hi, I can build this medical dashboard with real-time vitals. For the data analysis, I will integrate OpenAI GPT-4, but don't worry about privacy, I will write a custom proxy wrapper that scrambles patient names before sending it to the cloud. I will also include the PDF report generator and a dark mode interface.",
+                "job_features": {
+                    "job_tools": {
+                        "tools": [
+                            {
+                                "tool_name": "real-time patient vitals display",
+                                "necessity_level": "mandatory"
+                            },
+                            {
+                                "tool_name": "automated PDF report generator",
+                                "necessity_level": "recommended"
+                            },
+                            {
+                                "tool_name": "dark mode toggle",
+                                "necessity_level": "optional"
+                            },
+                            {
+                                "tool_name": "cloud AI APIs",
+                                "necessity_level": "forbidden"
+                            }
+                        ]
+                    },
+                    "job_requirements": {
+                        "requirements": [
+                            {
+                                "id": "REQ_1",
+                                "text": "Display real-time patient vitals on the dashboard",
+                                "necessity_level": "mandatory"
+                            },
+                            {
+                                "id": "REQ_2",
+                                "text": "Implement an automated PDF report generator for doctors",
+                                "necessity_level": "recommended"
+                            },
+                            {
+                                "id": "REQ_3",
+                                "text": "Use external cloud AI APIs to analyze patient data",
+                                "necessity_level": "forbidden"
+                            },
+                            {
+                                "id": "REQ_4",
+                                "text": "Send patient data to external cloud APIs",
+                                "necessity_level": "forbidden"
+                            },
+                            {
+                                "id": "REQ_5",
+                                "text": "Include a dark mode toggle on the dashboard",
+                                "necessity_level": "optional"
+                            }
+                        ]
+                    },
+                    "job_key_points": {
+                        "core_problem": "Create a medical patient dashboard that displays real-time patient vitals and complies with strict privacy laws.",
+                        "required_deliverables": [
+                            "patient dashboard with real-time vitals display",
+                            "automated PDF report generator for doctors",
+                            "dark mode toggle",
+                            "privacy‑compliant architecture that does not use external cloud AI APIs"
+                        ],
+                        "key_keywords": [
+                            "real-time vitals",
+                            "PDF report generation",
+                            "privacy compliance",
+                            "dark mode",
+                            "medical dashboard",
+                            "patient data security",
+                            "healthcare privacy regulations"
+                        ]
+                    }
+                }
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "report__failed_sections",
+            "value": {
+                "report": "# Proposal Rejection Reasons Report\n\n## Overall Verdict\nRejected\n\n## Summary\nThe proposal fails to meet the strict privacy compliance requirement by suggesting the use of external cloud AI APIs, despite partially addressing the core problem and covering mandatory requirements.\n\n## Strengths\n- The freelancer proposal partially addresses the core problem.\n- Mandatory requirements are fully covered, including real-time patient vitals and the PDF report generator.\n\n## Rejection Risks\n- The proposal violates the job's security requirements by suggesting the use of an external cloud AI API.\n- No concrete project experience mentioned.\n- The proposal does not provide concrete evidence of relevant previous experience.\n\n## Recommendations\n- Revise the proposal to exclude the use of external cloud AI APIs and ensure strict privacy compliance.\n- Provide concrete evidence of relevant previous experience in building medical patient dashboards or similar projects.\n- Consider alternative data analysis methods that do not involve sending patient data to cloud APIs.",
+                "failed_sections": [
+                    "## Evaluation Limitations\n- The Tools Alignment and Language Clarity sections were not evaluated due to errors, which may have provided additional insights into the proposal's strengths and weaknesses."
+                ]
+            }
+        },
+        "duration_s": 1.467254167000192,
+        "user_feedback": null
+    }
+]

@@ -59,7 +59,7 @@ class JobRequirementsExtractor(BaseAgent):
         matches = set()
         try:
             response = judge_model.generate(
-                model_name="llama-3.1-8b-instant",
+                model_name="llama-3.3-70b-versatile",
                 user_input=prompt,
                 temperature=0.0,
                 timeout=30,
@@ -98,7 +98,7 @@ class JobRequirementsExtractor(BaseAgent):
             extracted_output = self.invoke(job_desc = job_desc)
             end_time = time()
             
-            pred_requirements = extracted_output.requirements[:10]           
+            pred_requirements = extracted_output.requirements          
 
             true_texts = [req.get("description", "") for req in true_requirements] 
             pred_texts = [getattr(req, "text", "") for req in pred_requirements]     
@@ -120,21 +120,22 @@ class JobRequirementsExtractor(BaseAgent):
             precision = len(matched_pred) / len(pred_texts) if pred_texts else 0.0
             recall = len(matched_true) / len(true_texts) if true_texts else 0.0
             
-            union_size = len(true_texts) + len(pred_texts) - len(matched_pred)
-            accuracy = len(matched_true) / union_size if union_size > 0 else 0.0
+            intersection = len(matched_true) + len(matched_pred)
+            union_size = len(true_texts) + len(pred_texts)
+            accuracy = intersection / union_size if union_size > 0 else 0.0
 
-            correct_necessity = 0
-            total_necessity = 0
+            matched_true_ids_correct_necessity = set()
+            
             for t_idx, p_idx in matched_pairs:
                 true_level = true_requirements[t_idx].get("necessity_level", "mandatory") 
                 pred_level = getattr(pred_requirements[p_idx], "necessity_level", "")
-                total_necessity += 1
+                
                 if true_level == pred_level:
-                    correct_necessity += 1
+                    matched_true_ids_correct_necessity.add(t_idx)
                 else:
                     print(f" -> [NECESSITY MISMATCH] True #{t_idx} ({true_level}) VS Pred #{p_idx} ({pred_level})")
 
-            necessity_acc = (correct_necessity / total_necessity) if total_necessity else 0.0
+            necessity_acc = (len(matched_true_ids_correct_necessity) / len(true_texts)) if true_texts else 0.0
 
             print(f"[SAMPLE METRICS] Accuracy: {round(accuracy, 2)} | Precision: {round(precision, 2)} | Recall: {round(recall, 2)} | Necessity Accuracy: {round(necessity_acc, 2)}")
 

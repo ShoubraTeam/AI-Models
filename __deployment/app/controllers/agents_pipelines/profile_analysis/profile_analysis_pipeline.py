@@ -114,17 +114,15 @@ class ProfileAnalysisPipeline:
     def profile_features_extraction_postprocess(self, agent_output: dict) -> dict:
         return agent_output
 
-    # ---------------------- Stage 2: Final Analysis & Super Agent ----------------------
-    async def profile_final_analysis_preprocess(self, input: tuple[dict, str, dict]) -> dict:
-        """
-        Combines Stage 1 features with the Live Visual Brand Audit.
-        """
-        profile_data, img_path, pre_extracted_features = input
+    # ---------------------- Stage 2: Final Analysis & Super Agent ---------------------
+    async def profile_final_analysis_preprocess(self, input: tuple[dict, bytes, str, dict]) -> dict:
+        profile_data, img_bytes, mime_type, pre_extracted_features = input
         
         try:
             visual_res = await asyncio.to_thread(
                 self.visual_brand_evaluator.invoke,
-                image_path=img_path, 
+                image_bytes=img_bytes, 
+                mime_type=mime_type,   
                 job_role=profile_data.get("job_role", "")
             )
         except Exception as e:

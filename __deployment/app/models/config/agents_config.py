@@ -40,6 +40,7 @@ RETINA_DETECTOR_CFG = {
     "device"  : "auto"
 }
 
+CARD_CLASSIFICATION_MODEL = "google/siglip-base-patch16-224"
 
 # ----------------- JD ENH --------------------
 JOB_DESCRIPTION_ENHANCEMENT_MODELS = {
@@ -263,7 +264,7 @@ PROFILE_SKILLS_ANALYSIS_CFG = {
 }
 
 PROFILE_NUMERICAL_ANALYSIS_CFG = {
-    "model_name": "determinstic_python",
+    "model_name": "deterministic_python",
     "system_prompt": None, 
     "structured_response": NumericalAnalyzerSchema,  
 }

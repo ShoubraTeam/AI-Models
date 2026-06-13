@@ -58,22 +58,48 @@ def get_good_request(message: str, verification_results: dict[str, bool | float 
 
 
 def get_result_to_save(
-    task         : str,
-    img1         : ImageLog,
-    img2         : ImageLog,
-    verified     : bool,
-    duration     : float,
-    user_feedback: None | str = None
+    task                : str,
+    img1                : ImageLog,
+    img2                : ImageLog,
+    verified            : bool,
+    duration            : float,
+    similarity          : float,
+    similarity_threshold: float,
+    user_feedback       : None | str = None,
+    message             : str | None = None
 ) -> AgentResultsToSave:
-    agent_input = AgentInput(
-        input_id = f"{img1.filename}__{img2.filename}__verification",
-        images = (img1, img2)
-    )
+    if verified is not None:
+        agent_input = AgentInput(
+            input_id = f"{img1.filename}__{img2.filename}__verification",
+            images = (img1, img2)
+        )
 
-    agent_output = AgentOutput(
-        output_id = "verified",
-        value = verified
-    )
+        agent_output = AgentOutput(
+            output_id = "verification_result",
+            value = {
+                "success": True,
+                "verified": verified,
+                "simiarlity": similarity,
+                "simiarlity_threshold": similarity_threshold,
+            }
+        )
+    
+    else:
+        agent_input = AgentInput(
+            input_id = f"{img1.filename}__{img2.filename}__verification",
+            images = (img1, img2)
+        )
+
+        agent_output = AgentOutput(
+            output_id = "verification_result",
+            value = {
+                "success": False,
+                "message": message,
+                "verified": None,
+                "simiarlity": None,
+                "simiarlity_threshold": None,
+            }
+        )
 
     return AgentResultsToSave(
         task = task,
@@ -154,8 +180,24 @@ async def verify_person_images(
         F.print_error(error = e, message = m)
         return get_bad_request(message = m)
 
-    faces = preprocessed["faces"]
+    if not preprocessed["success"]:
+        end_time = perf_counter()
+        duration_s = end_time - start_time
+        result_to_save = get_result_to_save(
+            task                 = feature_id,
+            img1                 = img1_log,
+            img2                 = img2_log,
+            verified             = None,
+            similarity           = None,
+            similarity_threshold = None,
+            duration             = duration_s,
+            message              = preprocessed["message"]
+        )
+        feature_controller.log_result(result = result_to_save)
+        return get_bad_request(message = preprocessed["message"])
+    
 
+    faces = preprocessed["faces"]
 
     # calling the agent
     try:
@@ -182,11 +224,13 @@ async def verify_person_images(
 
     try:
         result_to_save = get_result_to_save(
-            task = feature_id,
-            img1 = img1,
-            img2 = img2,
-            verified = verification_results["verified"],
-            duration = duration_s
+            task                 = feature_id,
+            img1                 = img1_log,
+            img2                 = img2_log,
+            verified             = verification_results["verified"],
+            similarity           = verification_results["similarity"],
+            similarity_threshold = verification_results["similarity_threshold"],
+            duration             = duration_s
         )
 
         feature_controller.log_result(result = result_to_save)

@@ -14,45 +14,16 @@ import os
 from .startup_noise import configure_startup_noise, suppress_model_loader_output
 configure_startup_noise()
 
-import torch
-from typing import TypeAlias
+from typing import Any, TypeAlias
 from helpers.functional import print_error
 from helpers.settings import get_settings
 
-# Agents & Models
-from langchain_huggingface import HuggingFaceEmbeddings
-from retinaface.pre_trained_models import get_model as get_retina_model
-from sentence_transformers import CrossEncoder
-from agents import FaceRecognizerArcFace
-from agents import RSEmbeddingEngine
-from agents.proposal_rejection_reasons.groq_core import GroqModelsAPI  
-from sentence_transformers import SentenceTransformer
-
-from agents.proposal_rejection_reasons import (
-    JobToolsExtractor,
-    ProposalToolsAnalyzer,
-    JobKeyPointsExtractor,
-    JobUnderstandingEvaluator,
-    JobRequirementsMatcher,
-    JobRequirementsExtractor,
-    LanguageClarityEvaluator,
-    ExperienceEvidenceAgent,
-    PRR_SuperAgent
-)
-
-from agents.profile_analysis import (
-    VisualBrandEvaluator,
-    BioAnalyzer,
-    SkillsAnalyzer,
-    NumericalAnalyzer,
-    PA_SuperAgent
-)
-
+from transformers import pipeline
 
 # helpers & config
 from models.enums import ErrorsEnum
 from models.config.system_tasks import FEATURE_IDENITY_RECOGNITION
-from models.config.agents_config import ARCFACE_CFG, RETINA_DETECTOR_CFG
+from models.config.agents_config import ARCFACE_CFG, RETINA_DETECTOR_CFG, CARD_CLASSIFICATION_MODEL
 from models.config.agents_config import JOB_DESCRIPTION_RAG_EMBEDDER, JOB_DESCRIPTION_RAG_RERANKER
 
 from models.config.agents_config import (
@@ -81,43 +52,17 @@ from models.config.agents_config import (
 )
 
 
-# weaviate
-import weaviate
-from weaviate.collections import Collection
-from weaviate.classes.init import Auth, AdditionalConfig, Timeout
-from weaviate import WeaviateClient
-from controllers.weaviate_controller import WeaviateController
-
-
-
 # ---------------------------------------- CFG ---------------------------------- #
-ProposalRejectionReasons_Type = (
-    JobToolsExtractor           |
-    ProposalToolsAnalyzer       |
-    JobKeyPointsExtractor       |
-    JobUnderstandingEvaluator   |
-    JobRequirementsMatcher      |
-    JobRequirementsExtractor    |
-    LanguageClarityEvaluator    |
-    ExperienceEvidenceAgent     |
-    PRR_SuperAgent
-)
-
-
-
-ProfileScorer_Type: TypeAlias = (
-    NumericalAnalyzer    |
-    BioAnalyzer          |
-    SkillsAnalyzer       |
-    VisualBrandEvaluator |
-    PA_SuperAgent
-)
+ProposalRejectionReasons_Type: TypeAlias = Any
+ProfileScorer_Type: TypeAlias = Any
 
 
 settings = get_settings()
 
 
-def get_torch_device(device: str = "auto") -> torch.device:
+def get_torch_device(device: str = "auto"):
+    import torch
+
     if device == "auto":
         return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -125,7 +70,10 @@ def get_torch_device(device: str = "auto") -> torch.device:
 
 
 # ----------------- ID Reco --------------------
-def get_identity_recognizer() -> FaceRecognizerArcFace:
+def get_identity_recognizer():
+    import torch
+    from agents.identity_recognition import FaceRecognizerArcFace
+
     device = get_torch_device(ARCFACE_CFG["device"])
     weights_path = os.path.join(
         settings.TRAINED_MODELS_PATH,
@@ -150,6 +98,8 @@ def get_identity_recognizer() -> FaceRecognizerArcFace:
 
 
 def get_retina_face_detector():
+    from retinaface.pre_trained_models import get_model as get_retina_model
+
     backbone_model = "resnet50_2020-07-20"
     device = str(get_torch_device(RETINA_DETECTOR_CFG["device"]))
 
@@ -166,13 +116,21 @@ def get_retina_face_detector():
 
 
 
+def get_card_classifier():
+    return pipeline(
+        task = "zero-shot-image-classification",
+        model = CARD_CLASSIFICATION_MODEL
+    )
 
 # ----------------- JD ENH --------------------
-def get_weaviate_client() -> WeaviateClient:
+def get_weaviate_client():
     """
     Returns:
         client: the Weaviate API required to use the database
     """
+    import weaviate
+    from weaviate.classes.init import Auth, AdditionalConfig, Timeout
+
     client = weaviate.connect_to_weaviate_cloud(
         cluster_url = settings.WEAVIATE_URL,
         auth_credentials = Auth.api_key(api_key = settings.WEAVIATE_API_KEY),
@@ -184,7 +142,9 @@ def get_weaviate_client() -> WeaviateClient:
     return client
 
 
-def get_embedding_model() -> HuggingFaceEmbeddings:
+def get_embedding_model():
+    from langchain_huggingface import HuggingFaceEmbeddings
+
     with suppress_model_loader_output():
         return HuggingFaceEmbeddings(
             model_name    = JOB_DESCRIPTION_RAG_EMBEDDER["model_name"],
@@ -193,13 +153,17 @@ def get_embedding_model() -> HuggingFaceEmbeddings:
             show_progress = False
         )
 
-def get_raranker() -> CrossEncoder:
+def get_raranker():
+    from sentence_transformers import CrossEncoder
+
     with suppress_model_loader_output():
         return CrossEncoder(JOB_DESCRIPTION_RAG_RERANKER)
 
 
 
-def get_weaviate_collection(client) -> Collection:
+def get_weaviate_collection(client):
+    from controllers.weaviate_controller import WeaviateController
+
     weaviate_controller = WeaviateController(
         agents = None,
         client = client
@@ -223,6 +187,19 @@ def get_weaviate_collection(client) -> Collection:
 # Tools Alignment (TA)
 
 def load_proposal_rejection_reasons_agents() -> dict[str, ProposalRejectionReasons_Type]:
+    from agents.proposal_rejection_reasons.groq_core import GroqModelsAPI
+    from agents.proposal_rejection_reasons import (
+        JobToolsExtractor,
+        ProposalToolsAnalyzer,
+        JobKeyPointsExtractor,
+        JobUnderstandingEvaluator,
+        JobRequirementsMatcher,
+        JobRequirementsExtractor,
+        LanguageClarityEvaluator,
+        ExperienceEvidenceAgent,
+        PRR_SuperAgent
+    )
+
     groq_client = GroqModelsAPI(api_key = settings.GROQ_API_KEY)
 
     agents = {}
@@ -250,6 +227,14 @@ def load_profile_scorer_agents() -> dict[str, ProfileScorer_Type]:
     Initializes and returns all the sub-agents and the master orchestrator
     dedicated for the Profile Scorer pipeline.
     """
+    from agents.profile_analysis import (
+        VisualBrandEvaluator,
+        BioAnalyzer,
+        SkillsAnalyzer,
+        NumericalAnalyzer,
+        PA_SuperAgent
+    )
+
     agents = {}
     agents["numerical_analyzer"]     = NumericalAnalyzer(PROFILE_NUMERICAL_ANALYSIS_CFG)
     agents["visual_brand_evaluator"] = VisualBrandEvaluator(**PROFILE_VISUAL_BRAND_CFG)
@@ -263,6 +248,9 @@ def load_profile_scorer_agents() -> dict[str, ProfileScorer_Type]:
 # ----------- Job Recommendation System -------------
 
 def get_rs_embedding_engine():
+    from sentence_transformers import SentenceTransformer
+    from agents.recommendation_system import RSEmbeddingEngine
+
     device = get_torch_device()
 
     with suppress_model_loader_output():

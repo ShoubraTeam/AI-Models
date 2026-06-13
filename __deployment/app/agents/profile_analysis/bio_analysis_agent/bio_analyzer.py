@@ -14,12 +14,13 @@ class BioAnalyzer(BaseAgent):
         system_prompt: str,
         tools: list = [],
         structured_response = None,
+        model_provider: str = "groq",
         **kwargs
     ):
         if "temperature" not in kwargs:
             kwargs = PA_DEFAULT_MODELS_CFG["bio_analyzer"]
 
-        super().__init__(model_name, system_prompt, tools, structured_response, **kwargs)
+        super().__init__(model_name, system_prompt, tools, structured_response, model_provider, **kwargs)
         self.case_counter = 0 
 
     def invoke(self, bio_text: str, job_role: str) -> BioAnalyzerSchema:

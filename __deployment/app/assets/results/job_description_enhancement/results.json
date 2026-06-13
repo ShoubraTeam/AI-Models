@@ -1,0 +1,65 @@
+[
+    {
+        "task": "job_desc_tools_detection",
+        "agent_input": {
+            "input_id": "job_description",
+            "value": "I want a Machine Learning Engineer who is goot in Python, Scipy, and sk-learn.",
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "has_tools",
+            "value": true
+        },
+        "duration_s": 0.2905467900000076,
+        "user_feedback": null
+    },
+    {
+        "task": "job_desc_tools_recommendation",
+        "agent_input": {
+            "input_id": "job_title_description",
+            "value": {
+                "job_title": "Machine Learning Engineer",
+                "job_desc": "I am a Machine Learning Engineer, working hard to build production-scale automation systems using AI & ML engineer."
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "recommended_tools",
+            "value": [
+                "MLFlow",
+                "Kubernetes",
+                "AWS",
+                "Azure",
+                "NoSQL",
+                "Keras",
+                "Jupyter",
+                "Python",
+                "Airflow",
+                "Streamlit"
+            ]
+        },
+        "duration_s": 1.6269654450002236,
+        "user_feedback": null
+    },
+    {
+        "task": "job_desc_job_description_enhancement",
+        "agent_input": {
+            "input_id": "job_enhancement_input___job_title___job_description___recommeded_tools",
+            "value": {
+                "job_title": "Machine Learning Engineer",
+                "job_desc": "I am a Machine Learning Engineer, working hard to build production-scale automation systems using AI & ML engineer.",
+                "recommended_tools": [
+                    "Python",
+                    "Pandas"
+                ]
+            },
+            "images": null
+        },
+        "agent_output": {
+            "output_id": "enhanced_job_description",
+            "value": "## Overview\nWe are seeking an experienced Machine Learning Engineer to design, develop, and deploy scalable AI-powered automation systems that drive business growth and efficiency. As a key member of our team, you will leverage your expertise in machine learning, data analysis, and software engineering to build innovative solutions that meet our high standards for quality and reliability. Our ideal candidate is a detail-oriented, collaborative individual with a passion for staying up-to-date with the latest advancements in AI and ML.\n\n## Requirements\n- Design and develop production-scale machine learning models using Python and relevant libraries (e.g., scikit-learn, TensorFlow, PyTorch)\n- Collect, preprocess, and analyze large datasets using Pandas and other data manipulation tools\n- Implement data pipelines and workflows to ensure efficient data processing and model training\n- Develop and deploy scalable, containerized ML models using Docker and Kubernetes\n- Collaborate with cross-functional teams to integrate ML models with existing systems and applications\n- Conduct thorough testing, validation, and deployment of ML models to ensure accuracy and reliability\n- Stay up-to-date with the latest advancements in AI and ML, and apply new techniques and tools to improve our solutions\n- Participate in code reviews and contribute to the development of high-quality, maintainable code\n- Communicate complex technical concepts to both technical and non-technical stakeholders\n\n## Tools / Frameworks Required\n- Programming languages: Python\n- Data manipulation and analysis libraries: Pandas, NumPy, scikit-learn\n- Deep learning frameworks: TensorFlow, PyTorch\n- Containerization: Docker\n- Orchestration: Kubernetes\n- Data storage: PostgreSQL, MongoDB\n- Version control: Git\n- Agile project management: Jira, Asana\n- Cloud infrastructure: AWS, Google Cloud Platform, Microsoft Azure\n\nNote: I have added some additional tools and frameworks that are commonly used in machine learning engineering, but feel free to adjust or remove them as necessary to fit your specific project needs."
+        },
+        "duration_s": 0.7682547129998056,
+        "user_feedback": null
+    }
+]
