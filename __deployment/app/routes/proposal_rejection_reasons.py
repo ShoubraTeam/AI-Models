@@ -83,21 +83,20 @@ def get_bad_request_proposal_analysis(message: str) -> JSONResponse:
         content = {
             "success"             : False,
             "message"             : message,
-            "proposal_report"     : None,
+            "final_report"     : None,
         }
     )
 
-def get_good_request_proposal_analysis(message: str, report: str, failed: str) -> JSONResponse:
+def get_good_request_proposal_analysis(message: str, report: str) -> JSONResponse:
     """Return a good request specific for proposal analysis api"""
 
     
     return JSONResponse(
         status_code = status.HTTP_200_OK,
         content = {
-            "success"             : True,
-            "message"             : message,
-            "proposal_report"     : report,
-            "failed_sections"     : failed
+            "success"     : True,
+            "message"     : message,
+            "final_report": report,
         }
     )
 
@@ -121,6 +120,7 @@ def get_result_to_save(
     user_feedback           : None | str = None,
     report                  : str  | None = None,
     failed                  : str  | None = None,
+    prediction              : str  | None = None
 ) -> AgentResultsToSave:
     
     if task == PROPOSAL_REJECTION_REASONS_JOB_FEATURES_EXTRACTION:
@@ -156,7 +156,8 @@ def get_result_to_save(
             output_id = "report__failed_sections",
             value     = {
                 "report"         : report,
-                "failed_sections": failed
+                "failed_sections": failed,
+                "prediction"     : prediction
             }
         )
 
@@ -345,6 +346,7 @@ async def proposal_analysis(
 
     final_report = agent_output["final_report"]
     failed_sections = agent_output["failed_sections"]
+    prediction = agent_output["prediction"]
     
 
     # log result
@@ -360,6 +362,7 @@ async def proposal_analysis(
             job_features = job_features,
             report       = final_report,
             failed       = failed_sections,
+            prediction   = prediction
         )
 
         feature_controller.log_result(result = result_to_save)
@@ -373,5 +376,4 @@ async def proposal_analysis(
     return get_good_request_proposal_analysis(
         message = ResponsesEnum.PRR_PROPOSAL_ANALYSIS_COMPLETED.value,
         report  = final_report,
-        failed  = failed_sections,
     )

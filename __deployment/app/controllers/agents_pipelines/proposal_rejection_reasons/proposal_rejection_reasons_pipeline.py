@@ -545,8 +545,6 @@ class ProposalsRejectionReasonsPipeline:
         )
 
         report_sections = [
-            "# Proposal Rejection Reasons Report",
-            f"## Overall Verdict\n{verdict}",
             f"## Summary\n{agent_output.summary_report}",
             format_list_section(
                 title = "Strengths",
@@ -568,6 +566,7 @@ class ProposalsRejectionReasonsPipeline:
         ),
 
         return {
+            "prediction"      : verdict,
             "final_report"    : "\n\n".join(report_sections),
             "failed_sections" : failed_sections
         }
