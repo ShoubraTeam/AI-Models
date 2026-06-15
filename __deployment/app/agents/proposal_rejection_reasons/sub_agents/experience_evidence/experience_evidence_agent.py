@@ -77,7 +77,7 @@ class ExperienceEvidenceAgent(BaseAgent):
         matches = set()
         try:
             response = judge_model.generate(
-                model_name="llama-3.1-8b-instant",
+                model_name="llama-3.3-70b-versatile",
                 user_input=prompt,
                 temperature=0.0,
                 timeout=30,

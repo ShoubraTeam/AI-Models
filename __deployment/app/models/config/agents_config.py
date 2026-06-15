@@ -86,16 +86,16 @@ PRR_DEFAULT_MODELS_CFG = {
 
     "job_requirements_extractor" : {
         "temperature": 0.0,
-        "max_tokens" : 2048
+        "max_tokens" : 512
     },
 
     "job_requirements_matcher" : {
         "temperature": 0.0,
-        "max_tokens" : 2048
+        "max_tokens" : 512
     },
     "experience_evidence_agent" : {
         "temperature": 0.0,
-        "max_tokens" : 1024
+        "max_tokens" : 512
     },
     
     "language_clarity_evaluator": {
@@ -167,16 +167,16 @@ RQ_REQUIREMENT_EXTRACTOR_CFG = {
     "system_prompt"      : REQUIREMENT_EXTRACTOR_PROMPT,
     "structured_response": ExtractedRequirementsSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 2048,
+    "max_tokens"         : 512,
     "top_p"              : 0.9
 }
 
 RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
-    "model_name"         : "llama-3.3-70b-versatile",
+    "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : REQUIREMENT_MATCHER_PROMPT,
     "structured_response": RequirementCoverageSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 2048,
+    "max_tokens"         : 512,
     "top_p"              : 0.9
 }
 
@@ -192,11 +192,11 @@ LANGUAGE_CLARITY_EVALUATOR_CFG = {
 
 # Evidence of experience
 EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
-    "model_name"         : "llama-3.3-70b-versatile",
+    "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : EXPERIENCE_EVIDENCE_PROMPT,
     "structured_response": ExperienceEvidenceSchema,
     "temperature"        : 0.0,
-    "max_tokens"         : 1024,
+    "max_tokens"         : 512,
     "top_p"              : 0.9
 }
 
@@ -215,11 +215,11 @@ PRR_SUPER_AGENT_CFG = {
 # ----------- Profile Scorer Agents Configs -------------
 PA_DEFAULT_MODELS_CFG = {
     "visual_brand_evaluator" : {
-        "temperature" : 0.2,
+        "temperature" : 0.0,
         "max_tokens"  : 1024
     },
     "bio_analyzer" : {
-        "temperature" : 0.3,
+        "temperature" : 0.0,
         "max_tokens"  : 1024
     },
     "skills_analyzer" : {
@@ -227,7 +227,7 @@ PA_DEFAULT_MODELS_CFG = {
         "max_tokens"  : 1024
     },
     "super_agent" : {
-        "temperature" : 0.2, 
+        "temperature" : 0.0, 
         "max_tokens"  : 1024
     }
 }
@@ -239,27 +239,27 @@ PROFILE_VISUAL_BRAND_CFG = {
     "system_prompt": VISUAL_BRAND_PROMPT, 
     "structured_response": VisualBrandEvaluationSchema,  
     "temperature": 0.0,
-    "max_tokens": 512,
+    "max_tokens": 1024,
     "top_p": 0.9
 }
 
 # Bio Copywriting Analyzer
 PROFILE_BIO_ANALYSIS_CFG = {
-    "model_name": "llama-3.3-70b-versatile",
+    "model_name": "llama-3.1-8b-instant",
     "system_prompt": BIO_ANALYZER_PROMPT,  
     "structured_response": BioAnalyzerSchema,  
     "temperature": 0.0,
-    "max_tokens": 512,
+    "max_tokens": 1024,
     "top_p": 0.9
 }
 
 # Technical Skills Analyzer
 PROFILE_SKILLS_ANALYSIS_CFG = {
-    "model_name": "llama-3.1-8b-instant",
+    "model_name": "gemini-2.5-flash-lite",
     "system_prompt": SKILLS_ANALYZER_PROMPT,  
     "structured_response": SkillsAnalyzerSchema,  
     "temperature": 0.0,
-    "max_tokens": 512,
+    "max_tokens": 1024,
     "top_p": 0.9
 }
 
@@ -271,10 +271,10 @@ PROFILE_NUMERICAL_ANALYSIS_CFG = {
 
 # Profile Scorer Master SuperAgent
 PA_PROFILE_SUPER_AGENT_CFG = {
-    "model_name": "llama-3.3-70b-versatile",
+    "model_name": "openai/gpt-oss-120b",
     "system_prompt": SUPER_AGENT_PROMPT,  
     "structured_response": PA_SuperAgentSchema, 
-    "temperature": 0.1,
+    "temperature": 0.0,
     "max_tokens": 1024,
     "top_p": 0.9
 }
