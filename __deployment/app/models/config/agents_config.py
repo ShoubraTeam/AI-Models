@@ -245,7 +245,7 @@ PROFILE_VISUAL_BRAND_CFG = {
 
 # Bio Copywriting Analyzer
 PROFILE_BIO_ANALYSIS_CFG = {
-    "model_name": "llama-3.1-8b-instant",
+    "model_name": "gemini-2.5-flash-lite",
     "system_prompt": BIO_ANALYZER_PROMPT,  
     "structured_response": BioAnalyzerSchema,  
     "temperature": 0.0,
