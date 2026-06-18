@@ -238,9 +238,10 @@ PROFILE_VISUAL_BRAND_CFG = {
     "model_name": "gemini-2.5-flash-lite",  
     "system_prompt": VISUAL_BRAND_PROMPT, 
     "structured_response": VisualBrandEvaluationSchema,  
+    "model_provider": "google_genai",
     "temperature": 0.0,
     "max_tokens": 1024,
-    "top_p": 0.9
+    "top_p": 0.9,
 }
 
 # Bio Copywriting Analyzer
@@ -248,9 +249,10 @@ PROFILE_BIO_ANALYSIS_CFG = {
     "model_name": "gemini-2.5-flash-lite",
     "system_prompt": BIO_ANALYZER_PROMPT,  
     "structured_response": BioAnalyzerSchema,  
+    "model_provider": "google_genai",
     "temperature": 0.0,
     "max_tokens": 1024,
-    "top_p": 0.9
+    "top_p": 0.9,
 }
 
 # Technical Skills Analyzer
@@ -258,9 +260,10 @@ PROFILE_SKILLS_ANALYSIS_CFG = {
     "model_name": "gemini-2.5-flash-lite",
     "system_prompt": SKILLS_ANALYZER_PROMPT,  
     "structured_response": SkillsAnalyzerSchema,  
+    "model_provider": "google_genai",
     "temperature": 0.0,
     "max_tokens": 1024,
-    "top_p": 0.9
+    "top_p": 0.9,
 }
 
 PROFILE_NUMERICAL_ANALYSIS_CFG = {
@@ -274,9 +277,10 @@ PA_PROFILE_SUPER_AGENT_CFG = {
     "model_name": "openai/gpt-oss-120b",
     "system_prompt": SUPER_AGENT_PROMPT,  
     "structured_response": PA_SuperAgentSchema, 
+    "model_provider": "groq",
     "temperature": 0.0,
     "max_tokens": 1024,
-    "top_p": 0.9
+    "top_p": 0.9,
 }
 
 
