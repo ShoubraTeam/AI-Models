@@ -125,18 +125,20 @@ EXPERIENCE_EVIDENCE_THRESHOLD     = 0.5
 
 
 TA_JOB_TOOLS_EXTRACTOR_CFG = {
-    "model_name"         : "llama-3.1-8b-instant",
+    "model_name"         : "llama-3.3-70b-versatile",
     "system_prompt"      : JOB_TOOLS_EXTRACTION_PROMPT,
     "structured_response": JobToolResponse,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
-    "max_tokens"         : 1024,
+    "max_tokens"         : 512,
     "top_p"              : 0.9
 }
 
 TA_PROPOSAL_TOOLS_ANALYZER_CFG = {
-    "model_name"         : "llama-3.1-8b-instant",
+    "model_name"         : "openai/gpt-oss-120b",
     "system_prompt"      : PROPOSAL_TOOLS_EXTRACTION_PROMPT,
     "structured_response": ProposalToolsResponse,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
     "max_tokens"         : 1024,
     "top_p"              : 0.9
@@ -144,18 +146,20 @@ TA_PROPOSAL_TOOLS_ANALYZER_CFG = {
 
 # Job Understanding (JD)
 JD_JOB_KEY_POINTS_CFG = {
-    "model_name"         : "llama-3.3-70b-versatile",
+    "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : JOB_KEY_POINTS_EXTRACTION_PROMPT,
     "structured_response": JobKeyPointsSchema,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
-    "max_tokens"         : 1024,
+    "max_tokens"         : 512,
     "top_p"              : 0.9
 }
 
 JD_JOB_UNDERSTANDING_EVALUATOR_CFG = {
-    "model_name"         : "llama-3.3-70b-versatile",
+    "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : JOB_UNDERSTANDING_EVALUATOR_PROMPT,
     "structured_response": JobUnderstandingEvalSchema,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
     "max_tokens"         : 1024,
     "top_p"              : 0.9
@@ -166,6 +170,7 @@ RQ_REQUIREMENT_EXTRACTOR_CFG = {
     "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : REQUIREMENT_EXTRACTOR_PROMPT,
     "structured_response": ExtractedRequirementsSchema,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
     "max_tokens"         : 512,
     "top_p"              : 0.9
@@ -175,6 +180,7 @@ RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
     "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : REQUIREMENT_MATCHER_PROMPT,
     "structured_response": RequirementCoverageSchema,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
     "max_tokens"         : 512,
     "top_p"              : 0.9
@@ -182,9 +188,10 @@ RQ_REQUIREMENT_COVERAGE_EVALUATOR_CFG = {
 
 # Language Clarity
 LANGUAGE_CLARITY_EVALUATOR_CFG = {
-    "model_name"         : "llama-3.3-70b-versatile",
+    "model_name"         : "gpt-oss-20b",
     "system_prompt"      : LANGUAGE_CLARITY_EVALUATOR_PROMPT,
     "structured_response": LanguageClarityEvalSchema,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
     "max_tokens"         : 1024,
     "top_p"              : 0.9
@@ -195,6 +202,7 @@ EVIDENCE_OF_EXPERIENCE_EVALUATOR_CFG = {
     "model_name"         : "llama-3.1-8b-instant",
     "system_prompt"      : EXPERIENCE_EVIDENCE_PROMPT,
     "structured_response": ExperienceEvidenceSchema,
+    "model_provider"     : "groq",
     "temperature"        : 0.0,
     "max_tokens"         : 512,
     "top_p"              : 0.9
@@ -205,6 +213,7 @@ PRR_SUPER_AGENT_CFG = {
     "model_name"         : "llama-3.3-70b-versatile",
     "system_prompt"      : SUPER_AGENT_SYSTEM_PROMPT,
     "structured_response": PRR_SuperAgentResponse,
+    "model_provider"     : "groq",
     "temperature"        : 0.1,
     "max_tokens"         : 2048,
     "top_p"              : 0.9
