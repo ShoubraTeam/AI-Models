@@ -33,6 +33,7 @@ class LanguageClarityEvaluator(BaseAgent):
         model_name: str,
         system_prompt: str,
         structured_response = None,
+        model_provider: str = "groq",
         **kwargs
     ):
         if "temperature" not in kwargs:
@@ -43,6 +44,7 @@ class LanguageClarityEvaluator(BaseAgent):
             model_name = model_name, 
             system_prompt = system_prompt, 
             structured_response = structured_response, 
+            model_provider = model_provider,
             **kwargs
         )
 

@@ -16,6 +16,7 @@ class SuperAgent(BaseAgent):
         model_name: str,
         system_prompt = SUPER_AGENT_SYSTEM_PROMPT,
         structured_response: type[BaseModel] | None = PRR_SuperAgentResponse,
+        model_provider: str = "groq",
         **kwargs,
     ):
         
@@ -27,6 +28,7 @@ class SuperAgent(BaseAgent):
             model_name = model_name, 
             system_prompt = system_prompt, 
             structured_response = structured_response, 
+            model_provider  = model_provider,
             **kwargs
         )
 

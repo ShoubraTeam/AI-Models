@@ -40,12 +40,14 @@ class BaseAgent:
         model_name: str,
         system_prompt: str | Any,
         structured_response: type[BaseModel],
+        model_provider: str = "groq",
         **kwargs,
     ):
         # setup
         self.model_name          = model_name
         self.system_prompt       = system_prompt
         self.structured_response = structured_response
+        self.model_provider      = model_provider
 
         self.kwargs = self._normalize_kwargs(kwargs)
         self.schema_name = self._get_schema_name(structured_response)
